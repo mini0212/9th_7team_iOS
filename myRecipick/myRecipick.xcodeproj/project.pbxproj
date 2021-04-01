@@ -15,6 +15,9 @@
 		78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C1622615C45600F84CAB /* LaunchScreen.storyboard */; };
 		78C8C16F2615C45600F84CAB /* myRecipickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C16E2615C45600F84CAB /* myRecipickTests.swift */; };
 		78C8C17A2615C45600F84CAB /* myRecipickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C1792615C45600F84CAB /* myRecipickUITests.swift */; };
+		78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C1992615C81A00F84CAB /* Localizable.strings */; };
+		78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C19B2615C81A00F84CAB /* InfoPlist.strings */; };
+		78C8C1A02615C81A00F84CAB /* LocalizedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C19D2615C81A00F84CAB /* LocalizedMap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		78C8C1752615C45600F84CAB /* myRecipickUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myRecipickUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C8C1792615C45600F84CAB /* myRecipickUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myRecipickUITests.swift; sourceTree = "<group>"; };
 		78C8C17B2615C45600F84CAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78C8C19A2615C81A00F84CAB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		78C8C19C2615C81A00F84CAB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		78C8C19D2615C81A00F84CAB /* LocalizedMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedMap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +105,7 @@
 		78C8C1562615C45500F84CAB /* myRecipick */ = {
 			isa = PBXGroup;
 			children = (
+				78C8C1962615C81A00F84CAB /* Resources */,
 				78C8C1572615C45500F84CAB /* AppDelegate.swift */,
 				78C8C1592615C45500F84CAB /* SceneDelegate.swift */,
 				78C8C15B2615C45500F84CAB /* ViewController.swift */,
@@ -126,6 +133,32 @@
 				78C8C17B2615C45600F84CAB /* Info.plist */,
 			);
 			path = myRecipickUITests;
+			sourceTree = "<group>";
+		};
+		78C8C1962615C81A00F84CAB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				78C8C1972615C81A00F84CAB /* Fonts */,
+				78C8C1982615C81A00F84CAB /* Localization */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		78C8C1972615C81A00F84CAB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		78C8C1982615C81A00F84CAB /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				78C8C19D2615C81A00F84CAB /* LocalizedMap.swift */,
+				78C8C1992615C81A00F84CAB /* Localizable.strings */,
+				78C8C19B2615C81A00F84CAB /* InfoPlist.strings */,
+			);
+			path = Localization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +225,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
+				ORGANIZATIONNAME = depromeet;
 				TargetAttributes = {
 					78C8C1532615C45500F84CAB = {
 						CreatedOnToolsVersion = 12.4;
@@ -213,6 +247,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ko,
 			);
 			mainGroup = 78C8C14B2615C45500F84CAB;
 			productRefGroup = 78C8C1552615C45500F84CAB /* Products */;
@@ -232,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */,
+				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
 				78C8C1612615C45600F84CAB /* Assets.xcassets in Resources */,
 				78C8C15F2615C45500F84CAB /* Main.storyboard in Resources */,
+				78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +297,7 @@
 			files = (
 				78C8C15C2615C45500F84CAB /* ViewController.swift in Sources */,
 				78C8C1582615C45500F84CAB /* AppDelegate.swift in Sources */,
+				78C8C1A02615C81A00F84CAB /* LocalizedMap.swift in Sources */,
 				78C8C15A2615C45500F84CAB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +348,22 @@
 				78C8C1632615C45600F84CAB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		78C8C1992615C81A00F84CAB /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78C8C19A2615C81A00F84CAB /* ko */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		78C8C19B2615C81A00F84CAB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				78C8C19C2615C81A00F84CAB /* ko */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
