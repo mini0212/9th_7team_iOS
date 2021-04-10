@@ -5,6 +5,7 @@ PODS:
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
+  - SwiftGen (6.4.0)
   - SwiftLint (0.43.1)
   - SwipeTransition (0.4.3)
   - SwipeTransitionAutoSwipeBack (0.4.3):
@@ -13,6 +14,7 @@ PODS:
 DEPENDENCIES:
   - RxCocoa (= 6.1.0)
   - RxSwift (= 6.1.0)
+  - SwiftGen
   - SwiftLint
   - SwipeTransition
   - SwipeTransitionAutoSwipeBack
@@ -22,6 +24,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SwiftGen
     - SwiftLint
     - SwipeTransition
     - SwipeTransitionAutoSwipeBack
@@ -30,10 +33,11 @@ SPEC CHECKSUMS:
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  SwiftGen: 67860cc7c3cfc2ed25b9b74cfd55495fc89f9108
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   SwipeTransition: 16257f6afc59a572e3b4635a329b10f7598ad269
   SwipeTransitionAutoSwipeBack: c3ec93a597b52e3d0e78f0d8f801867b514fb07b
 
-PODFILE CHECKSUM: 56875117f56012710b94b009172e56797c0dadd1
+PODFILE CHECKSUM: 738fd43c3c90e452c0166d727aa39c9b95fc7739
 
 COCOAPODS: 1.10.1

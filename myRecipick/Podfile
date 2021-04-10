@@ -15,6 +15,9 @@ end
 def exceptTest
   #Lint
   pod "SwiftLint"
+  
+  #SwiftGen
+  pod "SwiftGen"
 
 end
 

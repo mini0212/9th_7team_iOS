@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
+		78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52B32621D632002B7C02 /* Assets.xcassets */; };
+		78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52BB2621D75D002B7C02 /* Colors.xcassets */; };
+		78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC52C32621D856002B7C02 /* Assets+Generated.swift */; };
 		78C8C1582615C45500F84CAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C1572615C45500F84CAB /* AppDelegate.swift */; };
 		78C8C15A2615C45500F84CAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C1592615C45500F84CAB /* SceneDelegate.swift */; };
 		78C8C15C2615C45500F84CAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C15B2615C45500F84CAB /* ViewController.swift */; };
 		78C8C15F2615C45500F84CAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C15D2615C45500F84CAB /* Main.storyboard */; };
-		78C8C1612615C45600F84CAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C1602615C45600F84CAB /* Assets.xcassets */; };
 		78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C1622615C45600F84CAB /* LaunchScreen.storyboard */; };
 		78C8C16F2615C45600F84CAB /* myRecipickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C16E2615C45600F84CAB /* myRecipickTests.swift */; };
 		78C8C17A2615C45600F84CAB /* myRecipickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C1792615C45600F84CAB /* myRecipickUITests.swift */; };
@@ -48,12 +50,14 @@
 		607EF82CCBF70045A6E09CAB /* Pods-myRecipickTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.release.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.release.xcconfig"; sourceTree = "<group>"; };
 		7653C90059012835E948493D /* Pods_myRecipick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		78AC52BB2621D75D002B7C02 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		78AC52C32621D856002B7C02 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		78C8C1542615C45500F84CAB /* myRecipick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myRecipick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C8C1572615C45500F84CAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78C8C1592615C45500F84CAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		78C8C15B2615C45500F84CAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		78C8C15E2615C45500F84CAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		78C8C1602615C45600F84CAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78C8C1632615C45600F84CAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78C8C1652615C45600F84CAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		78C8C16A2615C45600F84CAB /* myRecipickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myRecipickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		78AC52B22621D632002B7C02 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				78AC52B32621D632002B7C02 /* Assets.xcassets */,
+				78AC52BB2621D75D002B7C02 /* Colors.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		78C8C14B2615C45500F84CAB = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +142,6 @@
 				78C8C1592615C45500F84CAB /* SceneDelegate.swift */,
 				78C8C15B2615C45500F84CAB /* ViewController.swift */,
 				78C8C15D2615C45500F84CAB /* Main.storyboard */,
-				78C8C1602615C45600F84CAB /* Assets.xcassets */,
 				78C8C1622615C45600F84CAB /* LaunchScreen.storyboard */,
 				78C8C1652615C45600F84CAB /* Info.plist */,
 			);
@@ -157,6 +169,8 @@
 		78C8C1962615C81A00F84CAB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				78AC52C32621D856002B7C02 /* Assets+Generated.swift */,
+				78AC52B22621D632002B7C02 /* Assets */,
 				78C8C1972615C81A00F84CAB /* Fonts */,
 				78C8C1982615C81A00F84CAB /* Localization */,
 			);
@@ -213,6 +227,7 @@
 				78C8C1522615C45500F84CAB /* Resources */,
 				DAEFEC6A826159255F80AFE6 /* [CP] Embed Pods Frameworks */,
 				78AC52482621CC8A002B7C02 /* Lint Script */,
+				78AC52AE2621D5BB002B7C02 /* SwiftGen Script */,
 			);
 			buildRules = (
 			);
@@ -321,9 +336,10 @@
 				78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */,
 				78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */,
 				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
-				78C8C1612615C45600F84CAB /* Assets.xcassets in Resources */,
 				78C8C15F2615C45500F84CAB /* Main.storyboard in Resources */,
+				78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */,
 				78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */,
+				78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +377,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
+		};
+		78AC52AE2621D5BB002B7C02 /* SwiftGen Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftGen Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen xcassets ${TARGETNAME}/Resources/Assets/Colors.xcassets -t swift5 --output \"${TARGETNAME}/Resources/Assets+Generated.swift\"\n\n";
 		};
 		D6D5512E1D4F0D4CE4340D27 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -450,6 +484,7 @@
 				78C8C15C2615C45500F84CAB /* ViewController.swift in Sources */,
 				78C8C1582615C45500F84CAB /* AppDelegate.swift in Sources */,
 				78C8C1A02615C81A00F84CAB /* LocalizedMap.swift in Sources */,
+				78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */,
 				78C8C15A2615C45500F84CAB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
