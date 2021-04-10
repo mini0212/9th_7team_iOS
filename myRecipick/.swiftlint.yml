@@ -2,6 +2,11 @@
 
 disabled_rules:
 - line_length
+- trailing_whitespace
+- vertical_whitespace
+- trailing_newline
 included:
 excluded:
 - Pods
+- ./myRecipickTests
+- ./myRecipickUITests

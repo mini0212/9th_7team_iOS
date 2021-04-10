@@ -175,10 +175,16 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS14.4/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS14.4/RxRelay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS14.4/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwipeTransition-iOS14.4/SwipeTransition.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwipeTransitionAutoSwipeBack-iOS14.4/SwipeTransitionAutoSwipeBack.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS14.4/RxCocoa.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS14.4/RxRelay.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS14.4/RxSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwipeTransition-iOS14.4/SwipeTransition.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwipeTransitionAutoSwipeBack-iOS14.4/SwipeTransitionAutoSwipeBack.framework"
 fi

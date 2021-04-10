@@ -1,18 +1,26 @@
 
 use_frameworks!
 def common_pods
-
-  #Lint
-  pod 'SwiftLint'
-
+  
   #UI
   pod "SwipeTransition"
   pod "SwipeTransitionAutoSwipeBack"
   
+  #Rx
+  pod 'RxSwift', '6.1.0'
+  pod 'RxCocoa', '6.1.0'
+  
+end
+
+def exceptTest
+  #Lint
+  pod "SwiftLint"
+
 end
 
 target 'myRecipick' do
   common_pods
+  exceptTest
 end
 
 target 'myRecipickTests' do
