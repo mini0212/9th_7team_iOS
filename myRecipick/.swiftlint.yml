@@ -1,0 +1,12 @@
+# https://realm.github.io/SwiftLint/rule-directory.html
+
+disabled_rules:
+- line_length
+- trailing_whitespace
+- vertical_whitespace
+- trailing_newline
+included:
+excluded:
+- Pods
+- ./myRecipickTests
+- ./myRecipickUITests

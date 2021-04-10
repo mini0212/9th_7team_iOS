@@ -1,0 +1,6 @@
+framework module Pods_myRecipick {
+  umbrella header "Pods-myRecipick-umbrella.h"
+
+  export *
+  module * { export * }
+}
