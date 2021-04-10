@@ -1,0 +1,7 @@
+# https://realm.github.io/SwiftLint/rule-directory.html
+
+disabled_rules:
+- line_length
+included:
+excluded:
+- Pods
