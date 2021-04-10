@@ -1,0 +1,25 @@
+PODS:
+  - SwiftLint (0.43.1)
+  - SwipeTransition (0.4.3)
+  - SwipeTransitionAutoSwipeBack (0.4.3):
+    - SwipeTransition (~> 0.4.3)
+
+DEPENDENCIES:
+  - SwiftLint
+  - SwipeTransition
+  - SwipeTransitionAutoSwipeBack
+
+SPEC REPOS:
+  trunk:
+    - SwiftLint
+    - SwipeTransition
+    - SwipeTransitionAutoSwipeBack
+
+SPEC CHECKSUMS:
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  SwipeTransition: 16257f6afc59a572e3b4635a329b10f7598ad269
+  SwipeTransitionAutoSwipeBack: c3ec93a597b52e3d0e78f0d8f801867b514fb07b
+
+PODFILE CHECKSUM: cf8e6bbc0a0d2ff70fffdb2cddac2f3fdd3a9be6
+
+COCOAPODS: 1.10.1

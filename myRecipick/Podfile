@@ -1,0 +1,20 @@
+
+use_frameworks!
+def common_pods
+
+  #Lint
+  pod 'SwiftLint'
+
+  #UI
+  pod "SwipeTransition"
+  pod "SwipeTransitionAutoSwipeBack"
+  
+end
+
+target 'myRecipick' do
+  common_pods
+end
+
+target 'myRecipickTests' do
+  common_pods
+end
