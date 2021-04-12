@@ -1,10 +1,23 @@
 # https://realm.github.io/SwiftLint/rule-directory.html
 
 disabled_rules:
-- line_length
-- trailing_whitespace
-- vertical_whitespace
 - trailing_newline
+- type_name
+- function_body_length
+- file_length
+- vertical_whitespace
+- trailing_whitespace
+- unused_capture_list
+- unused_closure_parameter
+- type_body_length
+- multiple_closures_with_trailing_closure
+- unused_optional_binding
+- private_over_fileprivate
+- function_parameter_count
+- class_delegate_protocol
+- identifier_name
+- cyclomatic_complexity
+- line_length
 included:
 excluded:
 - Pods
