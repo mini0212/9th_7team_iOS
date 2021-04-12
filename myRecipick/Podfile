@@ -2,6 +2,8 @@
 use_frameworks!
 def common_pods
   
+  pod 'RxAlamofire'
+  
   #UI
   pod "SwipeTransition"
   pod "SwipeTransitionAutoSwipeBack"

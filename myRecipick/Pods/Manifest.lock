@@ -1,4 +1,10 @@
 PODS:
+  - Alamofire (5.4.2)
+  - RxAlamofire (6.1.1):
+    - RxAlamofire/Core (= 6.1.1)
+  - RxAlamofire/Core (6.1.1):
+    - Alamofire (~> 5.4)
+    - RxSwift (~> 6.0)
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
     - RxSwift (= 6.1.0)
@@ -12,6 +18,7 @@ PODS:
     - SwipeTransition (~> 0.4.3)
 
 DEPENDENCIES:
+  - RxAlamofire
   - RxCocoa (= 6.1.0)
   - RxSwift (= 6.1.0)
   - SwiftGen
@@ -21,6 +28,8 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - RxAlamofire
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -30,6 +39,8 @@ SPEC REPOS:
     - SwipeTransitionAutoSwipeBack
 
 SPEC CHECKSUMS:
+  Alamofire: bfbc4c2fe5909b1d94fb4ef2277c6b3727ef5dae
+  RxAlamofire: beb75a1c452d0de225651db4903f5d29d034a620
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
@@ -38,6 +49,6 @@ SPEC CHECKSUMS:
   SwipeTransition: 16257f6afc59a572e3b4635a329b10f7598ad269
   SwipeTransitionAutoSwipeBack: c3ec93a597b52e3d0e78f0d8f801867b514fb07b
 
-PODFILE CHECKSUM: 738fd43c3c90e452c0166d727aa39c9b95fc7739
+PODFILE CHECKSUM: a2f4e923fad999a9826c4144f828e9fc0e2c6f26
 
 COCOAPODS: 1.10.1

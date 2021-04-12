@@ -175,6 +175,8 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire-iOS13.0/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxAlamofire-iOS13.0/RxAlamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS13.0/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS13.0/RxRelay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS13.0/RxSwift.framework"
@@ -182,6 +184,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SwipeTransitionAutoSwipeBack-iOS13.0/SwipeTransitionAutoSwipeBack.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/Alamofire-iOS13.0/Alamofire.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RxAlamofire-iOS13.0/RxAlamofire.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS13.0/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS13.0/RxRelay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-iOS13.0/RxSwift.framework"
