@@ -7,12 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */; };
+		4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F5026241FC8003D94E2 /* SceneDelegate.swift */; };
+		4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */; };
+		4F5C5F5F2624207D003D94E2 /* CommonDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F5E2624207D003D94E2 /* CommonDefine.swift */; };
+		4F5C5F6426242112003D94E2 /* UserDefaultKeyDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F6326242112003D94E2 /* UserDefaultKeyDefine.swift */; };
+		4F5C5F692624212A003D94E2 /* NotificationNameDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F682624212A003D94E2 /* NotificationNameDefine.swift */; };
+		4F5C5F7026242178003D94E2 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F6D26242178003D94E2 /* JSONConverter.swift */; };
+		4F5C5F7126242178003D94E2 /* ServerUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F6E26242178003D94E2 /* ServerUtil.swift */; };
+		4F5C5F7226242178003D94E2 /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F6F26242178003D94E2 /* HttpRequest.swift */; };
+		4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F76262422F7003D94E2 /* CryptoUtil.swift */; };
+		4F5C5F9226242BBD003D94E2 /* ClassIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F9026242BBD003D94E2 /* ClassIdentifiable.swift */; };
+		4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F9126242BBD003D94E2 /* NibIdentifiable.swift */; };
+		4F5C5F9826242BF9003D94E2 /* Data + HexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F9726242BF9003D94E2 /* Data + HexString.swift */; };
+		4F5C5F9D26242C76003D94E2 /* JsonDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F9C26242C76003D94E2 /* JsonDataProtocol.swift */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
 		78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52B32621D632002B7C02 /* Assets.xcassets */; };
 		78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52BB2621D75D002B7C02 /* Colors.xcassets */; };
 		78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC52C32621D856002B7C02 /* Assets+Generated.swift */; };
-		78C8C1582615C45500F84CAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C1572615C45500F84CAB /* AppDelegate.swift */; };
-		78C8C15A2615C45500F84CAB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C1592615C45500F84CAB /* SceneDelegate.swift */; };
 		78C8C15C2615C45500F84CAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C15B2615C45500F84CAB /* ViewController.swift */; };
 		78C8C15F2615C45500F84CAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C15D2615C45500F84CAB /* Main.storyboard */; };
 		78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C1622615C45600F84CAB /* LaunchScreen.storyboard */; };
@@ -47,6 +59,21 @@
 /* Begin PBXFileReference section */
 		332551BBBA3CA22FC8109CE0 /* Pods-myRecipick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipick.debug.xcconfig"; path = "Target Support Files/Pods-myRecipick/Pods-myRecipick.debug.xcconfig"; sourceTree = "<group>"; };
 		46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipickTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4F5C5F5026241FC8003D94E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Identifiable.swift"; sourceTree = "<group>"; };
+		4F5C5F5E2624207D003D94E2 /* CommonDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDefine.swift; sourceTree = "<group>"; };
+		4F5C5F6326242112003D94E2 /* UserDefaultKeyDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeyDefine.swift; sourceTree = "<group>"; };
+		4F5C5F682624212A003D94E2 /* NotificationNameDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNameDefine.swift; sourceTree = "<group>"; };
+		4F5C5F6D26242178003D94E2 /* JSONConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
+		4F5C5F6E26242178003D94E2 /* ServerUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerUtil.swift; sourceTree = "<group>"; };
+		4F5C5F6F26242178003D94E2 /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		4F5C5F76262422F7003D94E2 /* CryptoUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoUtil.swift; sourceTree = "<group>"; };
+		4F5C5F7B26242AA9003D94E2 /* CryptoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoKit.framework; path = System/Library/Frameworks/CryptoKit.framework; sourceTree = SDKROOT; };
+		4F5C5F9026242BBD003D94E2 /* ClassIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassIdentifiable.swift; sourceTree = "<group>"; };
+		4F5C5F9126242BBD003D94E2 /* NibIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibIdentifiable.swift; sourceTree = "<group>"; };
+		4F5C5F9726242BF9003D94E2 /* Data + HexString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data + HexString.swift"; sourceTree = "<group>"; };
+		4F5C5F9C26242C76003D94E2 /* JsonDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataProtocol.swift; sourceTree = "<group>"; };
 		607EF82CCBF70045A6E09CAB /* Pods-myRecipickTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.release.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.release.xcconfig"; sourceTree = "<group>"; };
 		7653C90059012835E948493D /* Pods_myRecipick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -54,8 +81,6 @@
 		78AC52BB2621D75D002B7C02 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		78AC52C32621D856002B7C02 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		78C8C1542615C45500F84CAB /* myRecipick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myRecipick.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		78C8C1572615C45500F84CAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		78C8C1592615C45500F84CAB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		78C8C15B2615C45500F84CAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		78C8C15E2615C45500F84CAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78C8C1632615C45600F84CAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,6 +127,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F5C5F4826241F8E003D94E2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */,
+				4F5C5F9726242BF9003D94E2 /* Data + HexString.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		4F5C5F4926241F8E003D94E2 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				4F5C5F5E2624207D003D94E2 /* CommonDefine.swift */,
+				4F5C5F6326242112003D94E2 /* UserDefaultKeyDefine.swift */,
+				4F5C5F682624212A003D94E2 /* NotificationNameDefine.swift */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		4F5C5F4A26241F8E003D94E2 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4F5C5F9C26242C76003D94E2 /* JsonDataProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		4F5C5F4B26241F8E003D94E2 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				4F5C5F9026242BBD003D94E2 /* ClassIdentifiable.swift */,
+				4F5C5F9126242BBD003D94E2 /* NibIdentifiable.swift */,
+				4F5C5F76262422F7003D94E2 /* CryptoUtil.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		4F5C5F4C26241F8E003D94E2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F5C5F4D26241F8E003D94E2 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				4F5C5F6F26242178003D94E2 /* HttpRequest.swift */,
+				4F5C5F6D26242178003D94E2 /* JSONConverter.swift */,
+				4F5C5F6E26242178003D94E2 /* ServerUtil.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		4F5C5F4E26241FC8003D94E2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */,
+				4F5C5F5026241FC8003D94E2 /* SceneDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		78AC52B22621D632002B7C02 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,9 +225,14 @@
 		78C8C1562615C45500F84CAB /* myRecipick */ = {
 			isa = PBXGroup;
 			children = (
+				4F5C5F4826241F8E003D94E2 /* Extension */,
+				4F5C5F4926241F8E003D94E2 /* Define */,
+				4F5C5F4D26241F8E003D94E2 /* Networking */,
+				4F5C5F4E26241FC8003D94E2 /* Supporting Files */,
 				78C8C1962615C81A00F84CAB /* Resources */,
-				78C8C1572615C45500F84CAB /* AppDelegate.swift */,
-				78C8C1592615C45500F84CAB /* SceneDelegate.swift */,
+				4F5C5F4C26241F8E003D94E2 /* Model */,
+				4F5C5F4A26241F8E003D94E2 /* Protocol */,
+				4F5C5F4B26241F8E003D94E2 /* Util */,
 				78C8C15B2615C45500F84CAB /* ViewController.swift */,
 				78C8C15D2615C45500F84CAB /* Main.storyboard */,
 				78C8C1622615C45600F84CAB /* LaunchScreen.storyboard */,
@@ -197,6 +290,7 @@
 		7F0E28CFBE75F06CB56817D9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F5C5F7B26242AA9003D94E2 /* CryptoKit.framework */,
 				7653C90059012835E948493D /* Pods_myRecipick.framework */,
 				46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */,
 			);
@@ -481,11 +575,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */,
+				4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */,
+				4F5C5F9826242BF9003D94E2 /* Data + HexString.swift in Sources */,
+				4F5C5F9226242BBD003D94E2 /* ClassIdentifiable.swift in Sources */,
+				4F5C5F7126242178003D94E2 /* ServerUtil.swift in Sources */,
+				4F5C5F692624212A003D94E2 /* NotificationNameDefine.swift in Sources */,
 				78C8C15C2615C45500F84CAB /* ViewController.swift in Sources */,
-				78C8C1582615C45500F84CAB /* AppDelegate.swift in Sources */,
+				4F5C5F9D26242C76003D94E2 /* JsonDataProtocol.swift in Sources */,
+				4F5C5F7226242178003D94E2 /* HttpRequest.swift in Sources */,
+				4F5C5F7026242178003D94E2 /* JSONConverter.swift in Sources */,
+				4F5C5F5F2624207D003D94E2 /* CommonDefine.swift in Sources */,
 				78C8C1A02615C81A00F84CAB /* LocalizedMap.swift in Sources */,
+				4F5C5F6426242112003D94E2 /* UserDefaultKeyDefine.swift in Sources */,
+				4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */,
+				4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */,
+				4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */,
 				78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */,
-				78C8C15A2615C45500F84CAB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
