@@ -1,13 +1,18 @@
-# myRecipick
+# 🥙🌯 myRecipick
 
 ## 소개
-🥙🌯
-나만의 조합을 통해 꿀레시피 조합을 찾아 공유해보세요!
-[디자이너와 프로그래머가 만났을 때](https://www.depromeet.com/) 9기 [myRecipick](https://github.com/depromeet/myRecipick_iOS)
+ - 나만의 조합을 통해 꿀레시피 조합을 찾아 공유해보세요!
+ - [디자이너와 프로그래머가 만났을 때](https://www.depromeet.com/) 9기 [myRecipick](https://github.com/depromeet/myRecipick_iOS)
 
-## 개발자 (가나다 순)
-- 👩🏻‍💻[김성민]()
-- 👨🏻‍💻[이한위](https://github.com/HanweeeeLee) 📧 Email: mobiledev@kakao.com 🤝 [LinkedIn: ](https://www.linkedin.com/in/%ED%95%9C%EC%9C%84-%EC%9D%B4-6581a3181) 
+## 컨트리뷰터 (가나다 순)
+- 👩🏻‍💻[김성민](https://naver.com)
+- 👨🏻‍💻[이한위](https://www.linkedin.com/in/%ED%95%9C%EC%9C%84-%EC%9D%B4-6581a3181) 📧 Email: mobiledev@kakao.com
+
+## 디자이너
+
+## 다른 플랫폼
+[서버](https://github.com/depromeet/9th_7team_myRecipick_BE)
+[안드로이드](https://github.com/depromeet/9th_7team_android)
 
 ## 아키텍쳐
 > MVVM-C
@@ -16,6 +21,12 @@
  - 객체지향 프로그래밍
  - 프로토콜지향 프로그래밍
  - xcunittest
+
+
+## 기능 구현
+| 화면 | 기능 | 담당자 |  
+|:-----:|:-----------------------:|:-------:|
+
 
 ## 의존성
 > 서드파티 프레임워크 및 라이브러리는 Swift Package Manager와 CocoaPods을 사용해 관리합니다.
