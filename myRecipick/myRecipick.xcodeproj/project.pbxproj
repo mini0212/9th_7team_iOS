@@ -25,6 +25,7 @@
 		78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52B32621D632002B7C02 /* Assets.xcassets */; };
 		78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52BB2621D75D002B7C02 /* Colors.xcassets */; };
 		78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC52C32621D856002B7C02 /* Assets+Generated.swift */; };
+		78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE67F326245F5700FDDFD8 /* APIError.swift */; };
 		78C8C15C2615C45500F84CAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C15B2615C45500F84CAB /* ViewController.swift */; };
 		78C8C15F2615C45500F84CAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C15D2615C45500F84CAB /* Main.storyboard */; };
 		78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C1622615C45600F84CAB /* LaunchScreen.storyboard */; };
@@ -80,6 +81,7 @@
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78AC52BB2621D75D002B7C02 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		78AC52C32621D856002B7C02 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
+		78BE67F326245F5700FDDFD8 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		78C8C1542615C45500F84CAB /* myRecipick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myRecipick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C8C15B2615C45500F84CAB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		78C8C15E2615C45500F84CAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 		4F5C5F4C26241F8E003D94E2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				78BE67F326245F5700FDDFD8 /* APIError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */,
 				4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */,
 				78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */,
+				78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -666,6 +670,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -727,6 +732,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
