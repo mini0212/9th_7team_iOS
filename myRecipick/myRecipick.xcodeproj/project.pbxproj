@@ -33,6 +33,7 @@
 		4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73626253A4900609CF0 /* TestViewController.swift */; };
 		4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9DC73726253A4900609CF0 /* TestViewController.xib */; };
 		4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */; };
+		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
 		78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52B32621D632002B7C02 /* Assets.xcassets */; };
 		78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52BB2621D75D002B7C02 /* Colors.xcassets */; };
@@ -125,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */,
 				78C8C1CE2615CC3800F84CAB /* SwiftyJSON in Frameworks */,
 				78C8C1D42615CC6900F84CAB /* SnapKit in Frameworks */,
 				9AF401E67CA0C0BC12ADA2E0 /* Pods_myRecipick.framework in Frameworks */,
@@ -396,6 +398,7 @@
 			packageProductDependencies = (
 				78C8C1CD2615CC3800F84CAB /* SwiftyJSON */,
 				78C8C1D32615CC6900F84CAB /* SnapKit */,
+				78A864432625ACA200E1A7DD /* Kingfisher */,
 			);
 			productName = myRecipick;
 			productReference = 78C8C1542615C45500F84CAB /* myRecipick.app */;
@@ -475,6 +478,7 @@
 			packageReferences = (
 				78C8C1CC2615CC3800F84CAB /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				78C8C1D22615CC6900F84CAB /* XCRemoteSwiftPackageReference "SnapKit" */,
+				78A864422625ACA200E1A7DD /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 78C8C1552615C45500F84CAB /* Products */;
 			projectDirPath = "";
@@ -1020,6 +1024,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		78A864422625ACA200E1A7DD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = exactVersion;
+				version = 6.2.1;
+			};
+		};
 		78C8C1CC2615CC3800F84CAB /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON";
@@ -1039,6 +1051,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		78A864432625ACA200E1A7DD /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78A864422625ACA200E1A7DD /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		78C8C1CD2615CC3800F84CAB /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 78C8C1CC2615CC3800F84CAB /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

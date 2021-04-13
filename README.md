@@ -6,13 +6,13 @@
 
 ## 컨트리뷰터 (가나다 순)
 - 👩🏻‍💻[김성민](https://naver.com)
-- 👨🏻‍💻[이한위](https://www.linkedin.com/in/%ED%95%9C%EC%9C%84-%EC%9D%B4-6581a3181) 📧 Email: mobiledev@kakao.com
+- 👨🏻‍💻[이한위](https://www.linkedin.com/in/%ED%95%9C%EC%9C%84-%EC%9D%B4-6581a3181) 📧: mobiledev@kakao.com
 
 ## 디자이너
 
 ## 다른 플랫폼
-[서버](https://github.com/depromeet/9th_7team_myRecipick_BE)
-[안드로이드](https://github.com/depromeet/9th_7team_android)
+ - [서버](https://github.com/depromeet/9th_7team_myRecipick_BE)
+ - [안드로이드](https://github.com/depromeet/9th_7team_android)
 
 ## 아키텍쳐
 > MVVM-C
@@ -23,7 +23,7 @@
  - xcunittest
 
 
-## 기능 구현
+## 기능구현
 | 화면 | 기능 | 담당자 |  
 |:-----:|:-----------------------:|:-------:|
 
@@ -31,13 +31,14 @@
 ## 의존성
 > 서드파티 프레임워크 및 라이브러리는 Swift Package Manager와 CocoaPods을 사용해 관리합니다.
 
- - RxSwift
- - RxCocoa
- - SwiftLint
- - SwiftGen
- - Alamofire
- - SwiftyJson
- - Snapkit
+ - [RxSwift](https://github.com/ReactiveX/RxSwift)
+ - [RxCocoa](https://github.com/ReactiveX/RxSwift)
+ - [SwiftLint](https://github.com/realm/SwiftLint)
+ - [SwiftGen](https://github.com/SwiftGen/SwiftGen)
+ - [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire)
+ - [SwiftyJson](https://github.com/SwiftyJSON/SwiftyJSON)
+ - [Snapkit](https://github.com/SnapKit/SnapKit)
+ - [Kingfisher](https://github.com/onevcat/Kingfisher)
  
 ## 코드 컨벤션 관리
  > 코드 컨벤션은 SwiftLint로 관리됩니다.
