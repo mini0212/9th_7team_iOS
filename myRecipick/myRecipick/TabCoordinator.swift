@@ -34,7 +34,7 @@ class TabCoordinator: CoordinatorProtocol {
         self.yourPageCoordinator = YourPageCoordinator(navigationController: self.navigationController)
 
         var controllers: [UIViewController] = []
-        let homeViewController = HomeViewController.makeViewController(coordinator: self.homeCoordinator)
+        let homeViewController = HomeViewController.makeViewController(coordinator: self.homeCoordinator, viewModel: HomeViewModel())
         homeViewController.tabBarItem = UITabBarItem(title: "home", image: UIImage.init(systemName: "square.and.arrow.up"), selectedImage: UIImage.init(systemName: "square.and.arrow.up.fill"))
         controllers.append(homeViewController)
         let customViewController = CustomViewController()

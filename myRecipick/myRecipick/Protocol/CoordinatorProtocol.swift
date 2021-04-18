@@ -13,9 +13,12 @@ protocol CoordinatorProtocol: class {
 //    var childCoordinators: [CoordinatorProtocol] { get set } // 샘플에는 이런게 들어있던데 어따쓰는지 몰라서 주석처리...........
 }
 
-protocol CoordinatorViewControllerProtocol: class {
+protocol CoordinatorViewControllerBaseProtocol: class {
     associatedtype CoordinatorType: CoordinatorProtocol
-    associatedtype SelfType: CoordinatorViewControllerProtocol
     var coordinator: CoordinatorType! { get set }
+}
+
+protocol CoordinatorViewControllerProtocol: CoordinatorViewControllerBaseProtocol {
+    associatedtype SelfType: CoordinatorViewControllerProtocol
     static func makeViewController(coordinator: CoordinatorType) -> SelfType
 }

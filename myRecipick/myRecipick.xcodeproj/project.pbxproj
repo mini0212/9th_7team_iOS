@@ -33,6 +33,9 @@
 		4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73626253A4900609CF0 /* TestViewController.swift */; };
 		4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9DC73726253A4900609CF0 /* TestViewController.xib */; };
 		4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */; };
+		78575E59262C4EA00060BB63 /* MVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E58262C4EA00060BB63 /* MVVMProtocol.swift */; };
+		78575E5E262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */; };
+		78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E7E262C51460060BB63 /* HomeViewModel.swift */; };
 		789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */; };
 		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
@@ -101,6 +104,9 @@
 		4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoordinator.swift; sourceTree = "<group>"; };
 		607EF82CCBF70045A6E09CAB /* Pods-myRecipickTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.release.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.release.xcconfig"; sourceTree = "<group>"; };
 		7653C90059012835E948493D /* Pods_myRecipick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78575E58262C4EA00060BB63 /* MVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMProtocol.swift; sourceTree = "<group>"; };
+		78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMVVMProtocol.swift; sourceTree = "<group>"; };
+		78575E7E262C51460060BB63 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Snapshot.swift"; sourceTree = "<group>"; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,6 +184,8 @@
 			children = (
 				4F5C5F9C26242C76003D94E2 /* JsonDataProtocol.swift */,
 				4F9DC6CD262516A900609CF0 /* CoordinatorProtocol.swift */,
+				78575E58262C4EA00060BB63 /* MVVMProtocol.swift */,
+				78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 				4F9DC72E2625336D00609CF0 /* Home.storyboard */,
 				4F9DC6D92625188D00609CF0 /* HomeCoordinator.swift */,
 				4F9DC6E82625204200609CF0 /* HomeViewController.swift */,
+				78575E7E262C51460060BB63 /* HomeViewModel.swift */,
 				4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */,
 				4F9DC73626253A4900609CF0 /* TestViewController.swift */,
 				4F9DC73726253A4900609CF0 /* TestViewController.xib */,
@@ -658,6 +667,7 @@
 				4F9DC6E92625204200609CF0 /* HomeViewController.swift in Sources */,
 				4F5C5F9226242BBD003D94E2 /* ClassIdentifiable.swift in Sources */,
 				4F5C5F7126242178003D94E2 /* ServerUtil.swift in Sources */,
+				78575E5E262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift in Sources */,
 				4F5C5F692624212A003D94E2 /* NotificationNameDefine.swift in Sources */,
 				4F5C5F9D26242C76003D94E2 /* JsonDataProtocol.swift in Sources */,
 				4F5C5F7226242178003D94E2 /* HttpRequest.swift in Sources */,
@@ -672,9 +682,11 @@
 				4F9DC6DF2625189600609CF0 /* CustomCoordinator.swift in Sources */,
 				4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */,
 				4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */,
+				78575E59262C4EA00060BB63 /* MVVMProtocol.swift in Sources */,
 				4F9DC6DA2625188D00609CF0 /* HomeCoordinator.swift in Sources */,
 				78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */,
 				78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */,
+				78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */,
 				789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
