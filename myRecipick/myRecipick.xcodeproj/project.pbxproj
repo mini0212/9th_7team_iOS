@@ -36,6 +36,9 @@
 		78575E59262C4EA00060BB63 /* MVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E58262C4EA00060BB63 /* MVVMProtocol.swift */; };
 		78575E5E262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */; };
 		78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E7E262C51460060BB63 /* HomeViewModel.swift */; };
+		78575E88262C55520060BB63 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 78575E87262C55520060BB63 /* SideMenu */; };
+		78575E8E262C55870060BB63 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = 78575E8D262C55870060BB63 /* Hero */; };
+		78575E8F262C55870060BB63 /* Hero in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 78575E8D262C55870060BB63 /* Hero */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */; };
 		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
@@ -71,6 +74,20 @@
 			remoteInfo = myRecipick;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		78575E90262C55870060BB63 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				78575E8F262C55870060BB63 /* Hero in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		332551BBBA3CA22FC8109CE0 /* Pods-myRecipick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipick.debug.xcconfig"; path = "Target Support Files/Pods-myRecipick/Pods-myRecipick.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +154,8 @@
 				78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */,
 				78C8C1CE2615CC3800F84CAB /* SwiftyJSON in Frameworks */,
 				78C8C1D42615CC6900F84CAB /* SnapKit in Frameworks */,
+				78575E88262C55520060BB63 /* SideMenu in Frameworks */,
+				78575E8E262C55870060BB63 /* Hero in Frameworks */,
 				9AF401E67CA0C0BC12ADA2E0 /* Pods_myRecipick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +420,7 @@
 				DAEFEC6A826159255F80AFE6 /* [CP] Embed Pods Frameworks */,
 				78AC52482621CC8A002B7C02 /* Lint Script */,
 				78AC52AE2621D5BB002B7C02 /* SwiftGen Script */,
+				78575E90262C55870060BB63 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -411,6 +431,8 @@
 				78C8C1CD2615CC3800F84CAB /* SwiftyJSON */,
 				78C8C1D32615CC6900F84CAB /* SnapKit */,
 				78A864432625ACA200E1A7DD /* Kingfisher */,
+				78575E87262C55520060BB63 /* SideMenu */,
+				78575E8D262C55870060BB63 /* Hero */,
 			);
 			productName = myRecipick;
 			productReference = 78C8C1542615C45500F84CAB /* myRecipick.app */;
@@ -491,6 +513,8 @@
 				78C8C1CC2615CC3800F84CAB /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				78C8C1D22615CC6900F84CAB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				78A864422625ACA200E1A7DD /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				78575E86262C55520060BB63 /* XCRemoteSwiftPackageReference "SideMenu" */,
+				78575E8C262C55870060BB63 /* XCRemoteSwiftPackageReference "Hero" */,
 			);
 			productRefGroup = 78C8C1552615C45500F84CAB /* Products */;
 			projectDirPath = "";
@@ -1040,6 +1064,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		78575E86262C55520060BB63 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
+		78575E8C262C55870060BB63 /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/HeroTransitions/Hero";
+			requirement = {
+				kind = exactVersion;
+				version = 1.6.1;
+			};
+		};
 		78A864422625ACA200E1A7DD /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -1067,6 +1107,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		78575E87262C55520060BB63 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78575E86262C55520060BB63 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
+		78575E8D262C55870060BB63 /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78575E8C262C55870060BB63 /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
+		};
 		78A864432625ACA200E1A7DD /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 78A864422625ACA200E1A7DD /* XCRemoteSwiftPackageReference "Kingfisher" */;
