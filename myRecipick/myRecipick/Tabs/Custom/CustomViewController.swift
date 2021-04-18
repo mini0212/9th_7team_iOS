@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomViewController: UIViewController, CoordinatorViewControllerProtocol {
+class CustomViewController: UIViewController, CoordinatorViewControllerProtocol, ClassIdentifiable {
     
     typealias SelfType = CustomViewController
     typealias CoordinatorType = CustomCoordinator

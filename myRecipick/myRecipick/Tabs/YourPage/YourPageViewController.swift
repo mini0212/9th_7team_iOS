@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YourPageViewController: UIViewController, CoordinatorViewControllerProtocol {
+class YourPageViewController: UIViewController, CoordinatorViewControllerProtocol, ClassIdentifiable {
     
     typealias SelfType = YourPageViewController
     typealias CoordinatorType = YourPageCoordinator

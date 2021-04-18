@@ -5,10 +5,12 @@
  - [디자이너와 프로그래머가 만났을 때](https://www.depromeet.com/) 9기 [myRecipick](https://github.com/depromeet/myRecipick_iOS)
 
 ## 컨트리뷰터 (가나다 순)
-- 👩🏻‍💻[김성민](https://naver.com)
-- 👨🏻‍💻[이한위](https://www.linkedin.com/in/%ED%95%9C%EC%9C%84-%EC%9D%B4-6581a3181) 📧: mobiledev@kakao.com
+- 👩🏻‍💻[김성민](https://github.com/mini0212)
+- 👨🏻‍💻[이한위](https://www.linkedin.com/in/%ED%95%9C%EC%9C%84-%EC%9D%B4-6581a3181) ✉️: mobiledev@kakao.com
 
-## 디자이너
+## 디자이너 (가나다 순)
+- 👩‍🎨부자영 ✉️: buja025@gmail.com
+- 👩🏻‍🎨정진아 ✉️: jjinaya93@gmail.com
 
 ## 다른 플랫폼
  - [서버](https://github.com/depromeet/9th_7team_myRecipick_BE)
@@ -39,6 +41,9 @@
  - [SwiftyJson](https://github.com/SwiftyJSON/SwiftyJSON)
  - [Snapkit](https://github.com/SnapKit/SnapKit)
  - [Kingfisher](https://github.com/onevcat/Kingfisher)
+ - [SideMenu](https://github.com/jonkykong/SideMenu)
+ - [SwipeTransition](https://github.com/tattn/SwipeTransition)
+ - [Hero](https://github.com/HeroTransitions/Hero)
  
 ## 코드 컨벤션 관리
  > 코드 컨벤션은 SwiftLint로 관리됩니다.

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, CoordinatorViewControllerProtocol {
+class HomeViewController: UIViewController, CoordinatorViewControllerProtocol, ClassIdentifiable {
     
     typealias SelfType = HomeViewController
     typealias CoordinatorType = HomeCoordinator
@@ -33,7 +33,7 @@ class HomeViewController: UIViewController, CoordinatorViewControllerProtocol {
     // MARK: func
     
     static func makeViewController(coordinator: HomeCoordinator) -> HomeViewController {
-        let homeViewController: HomeViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: "HomeViewController")
+        let homeViewController: HomeViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: HomeViewController.identifier)
         homeViewController.coordinator = coordinator
         return homeViewController
     }
