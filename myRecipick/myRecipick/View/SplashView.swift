@@ -30,7 +30,6 @@ class SplashView: UIView, NibIdentifiable {
     // MARK: internal function
     
     class func instance() -> SplashView? {
-//        return UINib(nibName: "SplashView", bundle: .main).instantiate(withOwner: nil, options: nil).first as! SplashView
         return nib.instantiate(withOwner: nil, options: nil).first as? SplashView
     }
     

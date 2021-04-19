@@ -23,7 +23,7 @@
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="systemPurpleColor"/>
             <constraints>
                 <constraint firstItem="pz0-Yh-okr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9Fu-zg-bpj"/>
                 <constraint firstItem="pz0-Yh-okr" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hrC-Qo-Pg7"/>
@@ -32,8 +32,8 @@
         </view>
     </objects>
     <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

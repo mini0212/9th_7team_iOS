@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxAlamofire
 import Alamofire
+import SwiftyJSON
 
 protocol HttPRequestRx {
     func requestRx<T: Decodable>(with request: HttpRequest) -> Observable<T>
@@ -18,6 +19,26 @@ struct ServerUtil {
     static let shared = ServerUtil()
     private init() { }
     let manager = Alamofire.Session.default
+    
+    @discardableResult func request(with request: HttpRequest, success: @escaping (JSON) -> Void, failure: @escaping (Error) -> Void) -> DataRequest? {
+        let baseURL = APIDefine.BASE_URL
+        let dataRequest: DataRequest = AF.request(baseURL + request.url,
+                                                  method: request.method.toAlamofire,
+                                                  parameters: request.parameters,
+                                                  encoding: request.encoding?.toAlamofire ?? JSONEncoding.default,
+                                                  headers: request.headers?.toAlamofire
+        ).validate().responseJSON { (responseObject) -> Void in
+            switch responseObject.result {
+            case .success(let value):
+                let resJson = JSON(value)
+                success(resJson)
+            case .failure(let error):
+                let errorValue: Error = error
+                failure(errorValue)
+            }
+        }
+        return dataRequest
+    }
 }
 
 extension ServerUtil: ReactiveCompatible { }
@@ -58,7 +79,7 @@ extension Observable where Element == (HTTPURLResponse, Any) {
 
 extension Session {
     fileprivate func httpRequest(with httpRequest: HttpRequest) -> Observable<(HTTPURLResponse, Any)> {
-        let baseURL = "https://api.upbit.com/v1/"
+        let baseURL = APIDefine.BASE_URL
         return Session.default.rx.responseJSON(httpRequest.alamofireMethod,
                                                baseURL + httpRequest.url,
                                                parameters: httpRequest.parameters,

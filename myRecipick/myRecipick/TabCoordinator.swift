@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class TabCoordinator: NSObject, CoordinatorProtocol {
+class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     
     // MARK: property
     
@@ -28,6 +29,9 @@ class TabCoordinator: NSObject, CoordinatorProtocol {
     let customViewController: CustomViewController
     let yourPageViewController: YourPageViewController
     
+    weak var targetView: UIView?
+    var attachedView: UIView? = SplashView.instance()
+    
     // MARK: state
     
     weak var currentSelectedTabCoordinator: MainTabCoordinatorProtocol?
@@ -36,7 +40,7 @@ class TabCoordinator: NSObject, CoordinatorProtocol {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.tabController = UITabBarController()
+        self.tabController = MainTabBarViewController()
         self.homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
         self.customCoordinator = CustomCoordinator(navigationController: self.navigationController)
         self.yourPageCoordinator = YourPageCoordinator(navigationController: self.navigationController)
@@ -57,6 +61,20 @@ class TabCoordinator: NSObject, CoordinatorProtocol {
         super.init()
         self.tabController.delegate = self
         self.currentSelectedTabCoordinator = self.homeCoordinator
+        
+        self.targetView = self.navigationController.view
+        self.showSplashView(completion: { [weak self] in
+            BrandModel.shared.requestBandList(completeHandler: { [weak self] responseJson in
+                let items = responseJson // Response 구조 바뀌면 바뀔듯?? 예상) responseJson["data"] 이런식??
+                BrandModel.shared.fetchBrandList(items: items)
+                self?.hideSplashView(completion: nil)
+            }, failureHandler: { [weak self] err in
+                print("********* todo alert??? ***********")
+                print("error:\(err.localizedDescription)")
+                print("********************")
+                self?.hideSplashView(completion: nil)
+            })
+        })
     }
     
     deinit {

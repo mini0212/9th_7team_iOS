@@ -17,21 +17,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZu-XC-hPC">
-                                <rect key="frame" x="175.5" y="433" width="63" height="30"/>
-                                <state key="normal" title="TestPush"/>
-                                <connections>
-                                    <action selector="testPushAction:" destination="J1h-tO-NyE" eventType="touchUpInside" id="ynm-O3-AU3"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gkn-cg-PCq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kt-n8-pPD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZu-XC-hPC">
+                                        <rect key="frame" x="175.5" y="394" width="63" height="30"/>
+                                        <state key="normal" title="TestPush"/>
+                                        <connections>
+                                            <action selector="testPushAction:" destination="J1h-tO-NyE" eventType="touchUpInside" id="ynm-O3-AU3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="tZu-XC-hPC" firstAttribute="centerY" secondItem="2kt-n8-pPD" secondAttribute="centerY" id="4SK-Ti-zgS"/>
+                                    <constraint firstItem="tZu-XC-hPC" firstAttribute="centerX" secondItem="2kt-n8-pPD" secondAttribute="centerX" id="qbI-LD-c3f"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zcQ-DH-dhJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="tZu-XC-hPC" firstAttribute="centerX" secondItem="pC9-7b-pZl" secondAttribute="centerX" id="MXi-tt-w1m"/>
-                            <constraint firstItem="tZu-XC-hPC" firstAttribute="centerY" secondItem="pC9-7b-pZl" secondAttribute="centerY" id="vRf-HR-qt7"/>
+                            <constraint firstItem="zcQ-DH-dhJ" firstAttribute="bottom" secondItem="2kt-n8-pPD" secondAttribute="bottom" id="4JV-JE-G89"/>
+                            <constraint firstItem="Gkn-cg-PCq" firstAttribute="leading" secondItem="zcQ-DH-dhJ" secondAttribute="leading" id="8r4-IR-hio"/>
+                            <constraint firstItem="2kt-n8-pPD" firstAttribute="leading" secondItem="zcQ-DH-dhJ" secondAttribute="leading" id="FKr-d0-SJ9"/>
+                            <constraint firstItem="Gkn-cg-PCq" firstAttribute="top" secondItem="pC9-7b-pZl" secondAttribute="top" id="N65-g9-8CG"/>
+                            <constraint firstItem="2kt-n8-pPD" firstAttribute="top" secondItem="zcQ-DH-dhJ" secondAttribute="top" id="Ql3-I9-0GC"/>
+                            <constraint firstItem="zcQ-DH-dhJ" firstAttribute="trailing" secondItem="2kt-n8-pPD" secondAttribute="trailing" id="Wpl-oh-WJX"/>
+                            <constraint firstAttribute="bottom" secondItem="Gkn-cg-PCq" secondAttribute="bottom" id="fNu-f2-zzR"/>
+                            <constraint firstItem="zcQ-DH-dhJ" firstAttribute="trailing" secondItem="Gkn-cg-PCq" secondAttribute="trailing" id="vMr-77-eIk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backgroundView" destination="Gkn-cg-PCq" id="zoR-lx-2z6"/>
+                        <outlet property="mainContainerView" destination="2kt-n8-pPD" id="AKP-Q5-nyn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F2Z-sb-cXA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

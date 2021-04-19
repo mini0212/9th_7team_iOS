@@ -17,7 +17,9 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     typealias CoordinatorType = HomeCoordinator
 
     // MARK: outlet
-
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var mainContainerView: UIView!
+    
     // MARK: property
 
     var coordinator: HomeCoordinator!
