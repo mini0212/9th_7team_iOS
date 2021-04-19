@@ -54,6 +54,9 @@
 		78C8C1A02615C81A00F84CAB /* LocalizedMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C19D2615C81A00F84CAB /* LocalizedMap.swift */; };
 		78C8C1CE2615CC3800F84CAB /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 78C8C1CD2615CC3800F84CAB /* SwiftyJSON */; };
 		78C8C1D42615CC6900F84CAB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 78C8C1D32615CC6900F84CAB /* SnapKit */; };
+		78D7681B262D84C00010A07E /* SplashViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D7681A262D84C00010A07E /* SplashViewProtocol.swift */; };
+		78D76820262D85310010A07E /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D7681F262D85310010A07E /* SplashView.swift */; };
+		78D76824262D85390010A07E /* SplashView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78D76823262D85390010A07E /* SplashView.xib */; };
 		8B6D5309E5A7D7825A2D9A29 /* Pods_myRecipickTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */; };
 		9AF401E67CA0C0BC12ADA2E0 /* Pods_myRecipick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7653C90059012835E948493D /* Pods_myRecipick.framework */; };
 /* End PBXBuildFile section */
@@ -142,6 +145,9 @@
 		78C8C19A2615C81A00F84CAB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		78C8C19C2615C81A00F84CAB /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		78C8C19D2615C81A00F84CAB /* LocalizedMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedMap.swift; sourceTree = "<group>"; };
+		78D7681A262D84C00010A07E /* SplashViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewProtocol.swift; sourceTree = "<group>"; };
+		78D7681F262D85310010A07E /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		78D76823262D85390010A07E /* SplashView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashView.xib; sourceTree = "<group>"; };
 		8AF64932C82596AAE6A9C39B /* Pods-myRecipick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipick.release.xcconfig"; path = "Target Support Files/Pods-myRecipick/Pods-myRecipick.release.xcconfig"; sourceTree = "<group>"; };
 		BDDB51F3B8AE16956C504572 /* Pods-myRecipickTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.debug.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +211,7 @@
 				4F9DC6CD262516A900609CF0 /* CoordinatorProtocol.swift */,
 				78575E58262C4EA00060BB63 /* MVVMProtocol.swift */,
 				78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */,
+				78D7681A262D84C00010A07E /* SplashViewProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -325,6 +332,7 @@
 			children = (
 				4F5C5F4826241F8E003D94E2 /* Extension */,
 				4F5C5F4926241F8E003D94E2 /* Define */,
+				78D7681E262D85150010A07E /* View */,
 				4F5C5F4D26241F8E003D94E2 /* Networking */,
 				4F5C5F4E26241FC8003D94E2 /* Supporting Files */,
 				78C8C1962615C81A00F84CAB /* Resources */,
@@ -383,6 +391,15 @@
 				78C8C19B2615C81A00F84CAB /* InfoPlist.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		78D7681E262D85150010A07E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78D7681F262D85310010A07E /* SplashView.swift */,
+				78D76823262D85390010A07E /* SplashView.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		7F0E28CFBE75F06CB56817D9 /* Frameworks */ = {
@@ -533,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F9DC72F2625336D00609CF0 /* Home.storyboard in Resources */,
+				78D76824262D85390010A07E /* SplashView.xib in Resources */,
 				78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */,
 				78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */,
 				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
@@ -692,6 +710,7 @@
 				4F5C5F9226242BBD003D94E2 /* ClassIdentifiable.swift in Sources */,
 				4F5C5F7126242178003D94E2 /* ServerUtil.swift in Sources */,
 				78575E5E262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift in Sources */,
+				78D7681B262D84C00010A07E /* SplashViewProtocol.swift in Sources */,
 				4F5C5F692624212A003D94E2 /* NotificationNameDefine.swift in Sources */,
 				4F5C5F9D26242C76003D94E2 /* JsonDataProtocol.swift in Sources */,
 				4F5C5F7226242178003D94E2 /* HttpRequest.swift in Sources */,
@@ -703,6 +722,7 @@
 				4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */,
 				4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */,
 				4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */,
+				78D76820262D85310010A07E /* SplashView.swift in Sources */,
 				4F9DC6DF2625189600609CF0 /* CustomCoordinator.swift in Sources */,
 				4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */,
 				4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */,

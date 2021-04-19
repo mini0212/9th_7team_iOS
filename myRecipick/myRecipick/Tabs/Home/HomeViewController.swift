@@ -40,7 +40,6 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     }
     
     override func viewDidLayoutSubviews() {
-        print("viewDidLayoutSubviews")
         self.coordinator.makeNavigationItems()
     }
 
@@ -64,10 +63,6 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     // MARK: action
     @IBAction func testPushAction(_ sender: Any) {
         self.coordinator?.push(route: .test, animated: true)
-    }
-    
-    @objc func addTapped(sender: UIBarButtonItem) {
-        print("얍")
     }
     
 }
