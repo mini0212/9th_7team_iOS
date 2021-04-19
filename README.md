@@ -9,8 +9,8 @@
 - 👨🏻‍💻[이한위](https://www.linkedin.com/in/%ED%95%9C%EC%9C%84-%EC%9D%B4-6581a3181) ✉️: mobiledev@kakao.com
 
 ## 디자이너 (가나다 순)
-- 👩‍🎨부자영 ✉️: buja025@gmail.com
-- 👩🏻‍🎨정진아 ✉️: jjinaya93@gmail.com
+- 🍋부자영 ✉️: buja025@gmail.com
+- 🍇정진아 ✉️: jjinaya93@gmail.com
 
 ## 다른 플랫폼
  - [서버](https://github.com/depromeet/9th_7team_myRecipick_BE)

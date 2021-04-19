@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomCoordinator: CoordinatorProtocol {
+class CustomCoordinator: MainTabCoordinatorProtocol {
     // MARK: outlet
     
     // MARK: property
@@ -26,6 +26,10 @@ class CustomCoordinator: CoordinatorProtocol {
     }
     
     // MARK: func
+    
+    func didSelected(tabCoordinator: TabCoordinator) {
+        print("didSelected CustomCoordinator")
+    }
     
     // MARK: action
 }

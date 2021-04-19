@@ -17,7 +17,9 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     typealias CoordinatorType = HomeCoordinator
 
     // MARK: outlet
-
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var mainContainerView: UIView!
+    
     // MARK: property
 
     var coordinator: HomeCoordinator!
@@ -36,6 +38,11 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .brown
+        initUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.coordinator.makeNavigationItems()
     }
 
     // MARK: func
@@ -45,6 +52,10 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
         homeViewController.coordinator = coordinator
         homeViewController.viewModel = viewModel
         return homeViewController
+    }
+    
+    func initUI() {
+        print("initUI")
     }
     
     func bind(viewModel: MVVMViewModel) {
