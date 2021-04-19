@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HomeCoordinator: CoordinatorProtocol {
+class HomeCoordinator: MainTabCoordinatorProtocol {
     
     enum Route {
         case test
@@ -37,5 +37,22 @@ class HomeCoordinator: CoordinatorProtocol {
             let vc = TestViewController.makeTestViewController(coordinator: testCoordinator)
             self.navigationController.pushViewController(vc, animated: animated)
         }
+    }
+    
+    func didSelected(tabCoordinator: TabCoordinator) {
+        print("didSelected HomeCoordinator")
+        makeNavigationItems()
+    }
+    
+    func makeNavigationItems() {
+        self.navigationController.navigationBar.topItem?.title = "홈~?"
+        let barButtonItem = UIBarButtonItem(image: UIImage.init(systemName: "square.and.arrow.up")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(addTapped))
+        self.navigationController.navigationBar.topItem?.leftBarButtonItem = barButtonItem
+    }
+    
+    // MARK: action
+    
+    @objc func addTapped(sender: UIBarButtonItem) {
+        print("얍")
     }
 }

@@ -36,6 +36,12 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .brown
+        initUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        print("viewDidLayoutSubviews")
+        self.coordinator.makeNavigationItems()
     }
 
     // MARK: func
@@ -47,6 +53,10 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
         return homeViewController
     }
     
+    func initUI() {
+        print("initUI")
+    }
+    
     func bind(viewModel: MVVMViewModel) {
         
     }
@@ -54,6 +64,10 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     // MARK: action
     @IBAction func testPushAction(_ sender: Any) {
         self.coordinator?.push(route: .test, animated: true)
+    }
+    
+    @objc func addTapped(sender: UIBarButtonItem) {
+        print("얍")
     }
     
 }

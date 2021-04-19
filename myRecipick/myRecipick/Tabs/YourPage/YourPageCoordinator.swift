@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YourPageCoordinator: CoordinatorProtocol {
+class YourPageCoordinator: MainTabCoordinatorProtocol {
     // MARK: outlet
     
     // MARK: property
@@ -25,6 +25,16 @@ class YourPageCoordinator: CoordinatorProtocol {
     }
     
     // MARK: func
+    
+    func didSelected(tabCoordinator: TabCoordinator) {
+        print("didSelected YourPageCoordinator")
+        makeNavigationItems()
+    }
+    
+    func makeNavigationItems() {
+        self.navigationController.navigationBar.topItem?.title = "마이페이지~?"
+        self.navigationController.navigationBar.topItem?.leftBarButtonItem = nil
+    }
     
     // MARK: action
 }
