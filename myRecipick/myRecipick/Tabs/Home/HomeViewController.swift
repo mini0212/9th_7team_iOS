@@ -67,4 +67,8 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
         self.coordinator?.push(route: .test, animated: true)
     }
     
+    @IBAction func testMoveOtherTabAction(_ sender: Any) {
+        self.coordinator?.moveTo(tab: .yourPage)
+    }
+    
 }

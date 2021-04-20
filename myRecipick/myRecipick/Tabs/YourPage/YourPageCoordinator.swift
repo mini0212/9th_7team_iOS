@@ -9,11 +9,13 @@
 import UIKit
 
 class YourPageCoordinator: MainTabCoordinatorProtocol {
+    
     // MARK: outlet
     
     // MARK: property
     
     var navigationController: UINavigationController
+    weak var parentsCoordinator: CoordinatorProtocol?
     
     // MARK: lifeCycle
     init(navigationController: UINavigationController) {
@@ -34,6 +36,10 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
     func makeNavigationItems() {
         self.navigationController.navigationBar.topItem?.title = "마이페이지~?"
         self.navigationController.navigationBar.topItem?.leftBarButtonItem = nil
+    }
+    
+    func moveTo(tab: TabCoordinator.Tab) {
+        self.parentsCoordinator?.moveTo?(tab: tab)
     }
     
     // MARK: action

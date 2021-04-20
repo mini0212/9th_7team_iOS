@@ -31,11 +31,21 @@
                                             <action selector="testPushAction:" destination="J1h-tO-NyE" eventType="touchUpInside" id="ynm-O3-AU3"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ixf-Yf-qbR">
+                                        <rect key="frame" x="0.0" y="434" width="414" height="30"/>
+                                        <state key="normal" title="Move Other tab"/>
+                                        <connections>
+                                            <action selector="testMoveOtherTabAction:" destination="J1h-tO-NyE" eventType="touchUpInside" id="2T8-dh-NMK"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="tZu-XC-hPC" firstAttribute="centerY" secondItem="2kt-n8-pPD" secondAttribute="centerY" id="4SK-Ti-zgS"/>
+                                    <constraint firstItem="Ixf-Yf-qbR" firstAttribute="leading" secondItem="2kt-n8-pPD" secondAttribute="leading" id="S8f-Uq-wU2"/>
                                     <constraint firstItem="tZu-XC-hPC" firstAttribute="centerX" secondItem="2kt-n8-pPD" secondAttribute="centerX" id="qbI-LD-c3f"/>
+                                    <constraint firstItem="Ixf-Yf-qbR" firstAttribute="top" secondItem="tZu-XC-hPC" secondAttribute="bottom" constant="10" id="rZv-fk-Uup"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ixf-Yf-qbR" secondAttribute="trailing" id="wj1-EE-xR2"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -61,10 +71,28 @@
             </objects>
             <point key="canvasLocation" x="-410" y="-13"/>
         </scene>
+        <!--Brand Select View Controller-->
+        <scene sceneID="3Uw-d0-CtG">
+            <objects>
+                <viewController storyboardIdentifier="BrandSelectViewController" id="lXa-8u-VGa" customClass="BrandSelectViewController" customModule="myRecipick" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Oma-LM-k46">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="3It-pd-IaT"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5tx-6l-tbz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="300" y="-13"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

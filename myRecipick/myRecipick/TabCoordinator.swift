@@ -11,6 +11,12 @@ import SwiftyJSON
 
 class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     
+    @objc enum Tab: Int {
+        case home = 0
+        case custom
+        case yourPage
+    }
+    
     // MARK: property
     
     var rootViewController: UIViewController {
@@ -20,6 +26,7 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     var navigationController: UINavigationController = UINavigationController()
     
     let tabController: UITabBarController
+    weak var parentsCoordinator: CoordinatorProtocol?
     
     let homeCoordinator: HomeCoordinator
     let customCoordinator: CustomCoordinator
@@ -34,7 +41,7 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     
     // MARK: state
     
-    weak var currentSelectedTabCoordinator: MainTabCoordinatorProtocol?
+    var currentSelectedTab: TabCoordinator.Tab = .home
     
     // MARK: lifeCycle
     
@@ -60,7 +67,9 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         self.navigationController.viewControllers = [self.tabController]
         super.init()
         self.tabController.delegate = self
-        self.currentSelectedTabCoordinator = self.homeCoordinator
+        self.homeCoordinator.parentsCoordinator = self
+        self.customCoordinator.parentsCoordinator = self
+        self.yourPageCoordinator.parentsCoordinator = self
         
         self.targetView = self.navigationController.view
         self.showSplashView(completion: { [weak self] in
@@ -83,25 +92,41 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     
     // MARK: func
     
+    func moveTo(tab: Tab) {
+        self.tabController.selectedIndex = tab.rawValue
+        afterMoveTabActions(tab: tab)
+    }
+    
+    // MARk: private func
+    
+    private func afterMoveTabActions(tab: Tab) {
+        self.currentSelectedTab = tab
+        switch tab {
+        case .home:
+            self.homeCoordinator.didSelected(tabCoordinator: self)
+        case .custom:
+            self.customCoordinator.didSelected(tabCoordinator: self)
+        case .yourPage:
+            self.yourPageCoordinator.didSelected(tabCoordinator: self)
+        }
+    }
+    
 }
 
 extension TabCoordinator: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         switch viewController {
         case self.homeViewController:
-            if self.currentSelectedTabCoordinator !== self.homeCoordinator {
-                self.homeCoordinator.didSelected(tabCoordinator: self)
-                self.currentSelectedTabCoordinator = self.homeCoordinator
+            if self.currentSelectedTab != .home {
+                afterMoveTabActions(tab: .home)
             }
         case self.customViewController:
-            if self.currentSelectedTabCoordinator !== self.customCoordinator {
-                self.customCoordinator.didSelected(tabCoordinator: self)
-                self.currentSelectedTabCoordinator = self.customCoordinator
+            if self.currentSelectedTab != .custom {
+                afterMoveTabActions(tab: .custom)
             }
         case self.yourPageViewController:
-            if self.currentSelectedTabCoordinator !== self.yourPageCoordinator {
-                self.yourPageCoordinator.didSelected(tabCoordinator: self)
-                self.currentSelectedTabCoordinator = self.yourPageCoordinator
+            if self.currentSelectedTab != .yourPage {
+                afterMoveTabActions(tab: .yourPage)
             }
         default:
             print("selected unkownTab")

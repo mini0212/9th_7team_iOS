@@ -9,14 +9,17 @@
 import UIKit
 
 class TestCoordinator: CoordinatorProtocol {
+    
     // MARK: property
     
     var navigationController: UINavigationController
+    weak var parentsCoordinator: CoordinatorProtocol?
     
     // MARK: lifeCycle
     
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, parentsCoordinator: CoordinatorProtocol?) {
         self.navigationController = navigationController
+        self.parentsCoordinator = parentsCoordinator
     }
     
     deinit {
@@ -29,6 +32,7 @@ class TestCoordinator: CoordinatorProtocol {
         self.navigationController.popViewController(animated: animated)
     }
     
-    
-    
+    func moveTo(tab: TabCoordinator.Tab) {
+        self.parentsCoordinator?.moveTo?(tab: tab)
+    }
 }
