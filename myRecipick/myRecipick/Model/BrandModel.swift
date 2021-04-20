@@ -26,7 +26,7 @@ class BrandModel { // to 성민님, 혹시라도 쿼리할때 들어가야 할 �
     
     // MARK: function
     
-    internal static let shared: BrandModel = {
+    static let shared: BrandModel = {
         let instance = BrandModel()
         instance.initFunc()
         return instance
@@ -74,7 +74,7 @@ class BrandModel { // to 성민님, 혹시라도 쿼리할때 들어가야 할 �
         return self.getCurrentBrandInfo().logoImgUrl
     }
     
-    func getIsShowBrand() -> Bool {
+    func getCurrentBrandIsShow() -> Bool {
         return self.getCurrentBrandInfo().isShow
     }
 }

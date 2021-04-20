@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SideMenu
 
 class HomeCoordinator: MainTabCoordinatorProtocol {
     
@@ -53,6 +54,11 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
     // MARK: action
     
     @objc func addTapped(sender: UIBarButtonItem) {
-        print("얍")
+        guard let brandSelectViewController: BrandSelectViewController = BrandSelectViewController.makeViewController(viewModel: BrandSelectViewModel(service: BrandSelectService())) else { return }
+        let menu = SideMenuNavigationController(rootViewController: brandSelectViewController)
+        menu.leftSide = true
+        menu.menuWidth = 150
+        menu.presentationStyle = .viewSlideOutMenuIn
+        self.navigationController.present(menu, animated: true, completion: nil)
     }
 }
