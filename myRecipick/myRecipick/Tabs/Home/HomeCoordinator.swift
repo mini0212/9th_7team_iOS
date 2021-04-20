@@ -18,6 +18,7 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
     // MARK: property
     
     var navigationController: UINavigationController
+    weak var parentsCoordinator: CoordinatorProtocol?
     
     // MARK: lifeCycle
     
@@ -34,7 +35,7 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
     func push(route: Route, animated: Bool) {
         switch route {
         case .test:
-            let testCoordinator = TestCoordinator(navigationController: self.navigationController)
+            let testCoordinator = TestCoordinator(navigationController: self.navigationController, parentsCoordinator: self)
             let vc = TestViewController.makeTestViewController(coordinator: testCoordinator)
             self.navigationController.pushViewController(vc, animated: animated)
         }
@@ -47,13 +48,17 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
     
     func makeNavigationItems() {
         self.navigationController.navigationBar.topItem?.title = "홈~?"
-        let barButtonItem = UIBarButtonItem(image: UIImage.init(systemName: "square.and.arrow.up")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(addTapped))
+        let barButtonItem = UIBarButtonItem(image: UIImage.init(systemName: "square.and.arrow.up")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(showBrandSelectView))
         self.navigationController.navigationBar.topItem?.leftBarButtonItem = barButtonItem
+    }
+    
+    func moveTo(tab: TabCoordinator.Tab) {
+        self.parentsCoordinator?.moveTo?(tab: tab)
     }
     
     // MARK: action
     
-    @objc func addTapped(sender: UIBarButtonItem) {
+    @objc func showBrandSelectView(sender: UIBarButtonItem) {
         guard let brandSelectViewController: BrandSelectViewController = BrandSelectViewController.makeViewController(viewModel: BrandSelectViewModel(service: BrandSelectService())) else { return }
         let menu = SideMenuNavigationController(rootViewController: brandSelectViewController)
         menu.leftSide = true

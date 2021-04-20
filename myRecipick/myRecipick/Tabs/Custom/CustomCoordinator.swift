@@ -9,11 +9,13 @@
 import UIKit
 
 class CustomCoordinator: MainTabCoordinatorProtocol {
+    
     // MARK: outlet
     
     // MARK: property
     
     var navigationController: UINavigationController
+    weak var parentsCoordinator: CoordinatorProtocol?
     
     // MARK: lifeCycle
     
@@ -29,6 +31,10 @@ class CustomCoordinator: MainTabCoordinatorProtocol {
     
     func didSelected(tabCoordinator: TabCoordinator) {
         print("didSelected CustomCoordinator")
+    }
+    
+    func moveTo(tab: TabCoordinator.Tab) {
+        self.parentsCoordinator?.moveTo?(tab: tab)
     }
     
     // MARK: action
