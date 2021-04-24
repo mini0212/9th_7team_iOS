@@ -673,7 +673,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen xcassets ${TARGETNAME}/Resources/Assets/Colors.xcassets -t swift5 --output \"${TARGETNAME}/Resources/Assets+Generated.swift\"\n\n";
+			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen xcassets --param enumName=Colors ${TARGETNAME}/Resources/Assets/Colors.xcassets -t swift5 --output \"${TARGETNAME}/Resources/Assets+Generated.swift\"\n";
 		};
 		D6D5512E1D4F0D4CE4340D27 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

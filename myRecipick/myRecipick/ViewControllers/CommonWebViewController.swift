@@ -102,7 +102,7 @@ class CommonWebViewController: UIViewController {
         
         self.progressBar.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 2)
         self.progressBar.alpha = 0
-        self.progressBar.tintColor = UIColor(asset: Asset.sampleColor)
+        self.progressBar.tintColor = UIColor(asset: Colors.sampleColor)
         self.progressBar.autoresizingMask = .flexibleWidth
         
         self.webViewContainerView.addSubview(self.progressBar)
@@ -123,7 +123,7 @@ class CommonWebViewController: UIViewController {
     
     func setNavigationItems() {
         let titleLabel = UILabel()
-        titleLabel.textColor = UIColor(asset: Asset.sampleColor)
+        titleLabel.textColor = UIColor(asset: Colors.sampleColor)
         titleLabel.font = UIFont(name: FontKeys.medium, size: 20)
         titleLabel.text = self.naviTitle
         self.navigationItem.titleView = titleLabel
