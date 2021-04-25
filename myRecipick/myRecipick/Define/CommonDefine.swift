@@ -12,9 +12,8 @@ class CommonDefine: NSObject {
     
 }
 
-class FontKeys { // 폰트 정해지면 변경
-    static let bold: String = "NotoSansCJKkr-Bold"
+class FontKeys {
+    static let bold: String = "NotoSansKR-Bold"
     static let medium: String = "NotoSansKR-Medium"
-    static let regular: String = "NotoSansCJKkr-Regular"
-    static let light: String = "NotoSansKR-Light"
+    static let regular: String = "NotoSansKR-Regular"
 }

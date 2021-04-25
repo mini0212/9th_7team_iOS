@@ -42,6 +42,13 @@
 		78575E88262C55520060BB63 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 78575E87262C55520060BB63 /* SideMenu */; };
 		78575E8E262C55870060BB63 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = 78575E8D262C55870060BB63 /* Hero */; };
 		78575E8F262C55870060BB63 /* Hero in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 78575E8D262C55870060BB63 /* Hero */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		78644AAD263444D800C16C47 /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78644AA9263444D800C16C47 /* NotoSansKR-Bold.otf */; };
+		78644AAE263444D800C16C47 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 78644AAA263444D800C16C47 /* OFL.txt */; };
+		78644AAF263444D800C16C47 /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78644AAB263444D800C16C47 /* NotoSansKR-Medium.otf */; };
+		78644AB0263444D800C16C47 /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 78644AAC263444D800C16C47 /* NotoSansKR-Regular.otf */; };
+		7866F09A263024460037DB4C /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 7866F099263024460037DB4C /* license.html */; };
+		7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7866F0A8263025F20037DB4C /* CommonWebViewController.swift */; };
+		7866F0AB263025F20037DB4C /* CommonWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7866F0A9263025F20037DB4C /* CommonWebViewController.xib */; };
 		789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */; };
 		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
@@ -136,6 +143,13 @@
 		78575E58262C4EA00060BB63 /* MVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMProtocol.swift; sourceTree = "<group>"; };
 		78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMVVMProtocol.swift; sourceTree = "<group>"; };
 		78575E7E262C51460060BB63 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		78644AA9263444D800C16C47 /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		78644AAA263444D800C16C47 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		78644AAB263444D800C16C47 /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		78644AAC263444D800C16C47 /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		7866F099263024460037DB4C /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
+		7866F0A8263025F20037DB4C /* CommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
+		7866F0A9263025F20037DB4C /* CommonWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonWebViewController.xib; sourceTree = "<group>"; };
 		789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Snapshot.swift"; sourceTree = "<group>"; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -312,6 +326,34 @@
 			path = YourPage;
 			sourceTree = "<group>";
 		};
+		78644AA8263444D800C16C47 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				78644AAA263444D800C16C47 /* OFL.txt */,
+				78644AA9263444D800C16C47 /* NotoSansKR-Bold.otf */,
+				78644AAB263444D800C16C47 /* NotoSansKR-Medium.otf */,
+				78644AAC263444D800C16C47 /* NotoSansKR-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7866F098263024460037DB4C /* License */ = {
+			isa = PBXGroup;
+			children = (
+				7866F099263024460037DB4C /* license.html */,
+			);
+			path = License;
+			sourceTree = "<group>";
+		};
+		7866F09F263024D10037DB4C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7866F0A8263025F20037DB4C /* CommonWebViewController.swift */,
+				7866F0A9263025F20037DB4C /* CommonWebViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		78AC52B22621D632002B7C02 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +392,7 @@
 				4F5C5F4826241F8E003D94E2 /* Extension */,
 				4F5C5F4926241F8E003D94E2 /* Define */,
 				78D7681E262D85150010A07E /* View */,
+				7866F09F263024D10037DB4C /* ViewControllers */,
 				4F5C5F4D26241F8E003D94E2 /* Networking */,
 				4F5C5F4E26241FC8003D94E2 /* Supporting Files */,
 				78C8C1962615C81A00F84CAB /* Resources */,
@@ -387,18 +430,12 @@
 			isa = PBXGroup;
 			children = (
 				78AC52C32621D856002B7C02 /* Assets+Generated.swift */,
+				7866F098263024460037DB4C /* License */,
 				78AC52B22621D632002B7C02 /* Assets */,
-				78C8C1972615C81A00F84CAB /* Fonts */,
+				78644AA8263444D800C16C47 /* Fonts */,
 				78C8C1982615C81A00F84CAB /* Localization */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		78C8C1972615C81A00F84CAB /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		78C8C1982615C81A00F84CAB /* Localization */ = {
@@ -568,13 +605,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F9DC72F2625336D00609CF0 /* Home.storyboard in Resources */,
+				7866F0AB263025F20037DB4C /* CommonWebViewController.xib in Resources */,
+				78644AAF263444D800C16C47 /* NotoSansKR-Medium.otf in Resources */,
 				78D76824262D85390010A07E /* SplashView.xib in Resources */,
+				78644AB0263444D800C16C47 /* NotoSansKR-Regular.otf in Resources */,
 				78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */,
 				78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */,
 				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
 				78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */,
 				78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */,
+				78644AAE263444D800C16C47 /* OFL.txt in Resources */,
 				4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */,
+				7866F09A263024460037DB4C /* license.html in Resources */,
+				78644AAD263444D800C16C47 /* NotoSansKR-Bold.otf in Resources */,
 				78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,7 +673,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen xcassets ${TARGETNAME}/Resources/Assets/Colors.xcassets -t swift5 --output \"${TARGETNAME}/Resources/Assets+Generated.swift\"\n\n";
+			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen xcassets --param enumName=Colors ${TARGETNAME}/Resources/Assets/Colors.xcassets -t swift5 --output \"${TARGETNAME}/Resources/Assets+Generated.swift\"\n";
 		};
 		D6D5512E1D4F0D4CE4340D27 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -755,6 +798,7 @@
 				78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */,
 				78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */,
 				78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */,
+				7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */,
 				789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
