@@ -76,14 +76,15 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     
     @IBAction func showTipAction(_ sender: Any) {
         print("showTopAction")
+        self.coordinator.showTip()
     }
     
     @IBAction func testPushAction(_ sender: Any) {
-        self.coordinator?.push(route: .test, animated: true)
+        self.coordinator.push(route: .test, animated: true)
     }
     
     @IBAction func testMoveOtherTabAction(_ sender: Any) {
-        self.coordinator?.moveTo(tab: .yourPage)
+        self.coordinator.moveTo(tab: .yourPage)
     }
     
 }

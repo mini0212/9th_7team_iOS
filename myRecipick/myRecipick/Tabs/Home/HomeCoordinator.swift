@@ -56,6 +56,12 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
         self.parentsCoordinator?.moveTo?(tab: tab)
     }
     
+    func showTip() {
+        let tipViewController: HomeTipViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: HomeTipViewController.identifier)
+        tipViewController.modalPresentationStyle = .overFullScreen
+        self.navigationController.present(tipViewController, animated: false, completion: nil)
+    }
+    
     // MARK: action
     
     @objc func showBrandSelectView(sender: UIBarButtonItem) {
