@@ -1,0 +1,10 @@
+//
+//  InfoPlist.strings
+//  myRecipick
+//
+//  Created by hanwe on 2021/04/01.
+//
+
+
+"CFBundleDisplayName" = "마이레시픽";
+"NSCameraUsageDescription" = "";

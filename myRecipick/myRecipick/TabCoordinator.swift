@@ -77,8 +77,7 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
                 if 200..<300 ~= responseJson["status"].intValue {
                     let items = responseJson["data"]
                     BrandModel.shared.fetchBrandList(items: items)
-                }
-                else {
+                } else {
                     print("********* todo alert??? ***********")
                     print("error:\(responseJson["status"].intValue)")
                     print("********************")

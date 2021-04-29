@@ -19,6 +19,9 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     // MARK: outlet
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var mainContainerView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var bottomContainerView: UIView!
     
     // MARK: property
 
@@ -37,11 +40,11 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .brown
         initUI()
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         self.coordinator.makeNavigationItems()
     }
 
@@ -55,7 +58,14 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     }
     
     func initUI() {
-        print("initUI")
+        self.backgroundView.backgroundColor = UIColor(asset: Colors.white)
+        self.mainContainerView.backgroundColor = .clear
+        self.titleLabel.font = UIFont.myRecipickFont(.title1)
+        self.titleLabel.textColor = UIColor(asset: Colors.grayScale33)
+        self.titleLabel.numberOfLines = 20
+        self.titleLabel.text = LocalizedMap.HOME_TITLE.localized
+        self.collectionView.backgroundColor = .clear
+        self.bottomContainerView.backgroundColor = UIColor(asset: Colors.homeBottomColor)
     }
     
     func bind(viewModel: MVVMViewModel) {
@@ -63,6 +73,11 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     }
 
     // MARK: action
+    
+    @IBAction func showTipAction(_ sender: Any) {
+        print("showTopAction")
+    }
+    
     @IBAction func testPushAction(_ sender: Any) {
         self.coordinator?.push(route: .test, animated: true)
     }
