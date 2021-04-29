@@ -55,6 +55,7 @@
 		78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52B32621D632002B7C02 /* Assets.xcassets */; };
 		78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52BB2621D75D002B7C02 /* Colors.xcassets */; };
 		78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC52C32621D856002B7C02 /* Assets+Generated.swift */; };
+		78B299EA263AB259005B6ECF /* UIFont + MyRecipickFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */; };
 		78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE67F326245F5700FDDFD8 /* APIError.swift */; };
 		78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C1622615C45600F84CAB /* LaunchScreen.storyboard */; };
 		78C8C16F2615C45600F84CAB /* myRecipickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C16E2615C45600F84CAB /* myRecipickTests.swift */; };
@@ -155,6 +156,7 @@
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78AC52BB2621D75D002B7C02 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		78AC52C32621D856002B7C02 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
+		78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + MyRecipickFont.swift"; sourceTree = "<group>"; };
 		78BE67F326245F5700FDDFD8 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		78C8C1542615C45500F84CAB /* myRecipick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myRecipick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C8C1632615C45600F84CAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */,
 				4F5C5F9726242BF9003D94E2 /* Data + HexString.swift */,
 				789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */,
+				78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -363,6 +366,13 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		78B299EF263AB2AF005B6ECF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		78C8C14B2615C45500F84CAB = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +421,7 @@
 		78C8C16D2615C45600F84CAB /* myRecipickTests */ = {
 			isa = PBXGroup;
 			children = (
+				78B299EF263AB2AF005B6ECF /* Extension */,
 				78C8C16E2615C45600F84CAB /* myRecipickTests.swift */,
 				78C8C1702615C45600F84CAB /* Info.plist */,
 			);
@@ -800,6 +811,7 @@
 				78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */,
 				7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */,
 				789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */,
+				78B299EA263AB259005B6ECF /* UIFont + MyRecipickFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
