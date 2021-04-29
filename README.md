@@ -5,7 +5,7 @@
  - [디자이너와 프로그래머가 만났을 때](https://www.depromeet.com/) 9기 [myRecipick](https://github.com/depromeet/myRecipick_iOS)
 
 ## 컨트리뷰터 (가나다 순)
-- 👩🏻‍💻[김성민](https://github.com/mini0212)
+- 👩🏻‍💻[김성민](https://github.com/mini0212) ✉️: ksmini0212@gmail.com
 - 👨🏻‍💻[이한위](https://www.linkedin.com/in/%ED%95%9C%EC%9C%84-%EC%9D%B4-6581a3181) ✉️: mobiledev@kakao.com
 
 ## 디자이너 (가나다 순)
