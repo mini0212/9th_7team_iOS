@@ -32,6 +32,7 @@ internal enum Colors {
   internal static let primaryLight = ColorAsset(name: "PrimaryLight")
   internal static let primaryNormal = ColorAsset(name: "PrimaryNormal")
   internal static let sampleColor = ColorAsset(name: "SampleColor")
+  internal static let scrimBlack = ColorAsset(name: "ScrimBlack")
   internal static let secondaryGreen = ColorAsset(name: "SecondaryGreen")
   internal static let white = ColorAsset(name: "White")
 }
