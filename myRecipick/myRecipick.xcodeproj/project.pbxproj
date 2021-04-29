@@ -55,6 +55,9 @@
 		78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52B32621D632002B7C02 /* Assets.xcassets */; };
 		78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52BB2621D75D002B7C02 /* Colors.xcassets */; };
 		78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC52C32621D856002B7C02 /* Assets+Generated.swift */; };
+		78B299EA263AB259005B6ECF /* UIFont + MyRecipickFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */; };
+		78B29A04263AD14B005B6ECF /* String + Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B29A03263AD14B005B6ECF /* String + Localized.swift */; };
+		78B29A1A263ADCB2005B6ECF /* HomeTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B29A19263ADCB2005B6ECF /* HomeTipViewController.swift */; };
 		78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BE67F326245F5700FDDFD8 /* APIError.swift */; };
 		78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C8C1622615C45600F84CAB /* LaunchScreen.storyboard */; };
 		78C8C16F2615C45600F84CAB /* myRecipickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C8C16E2615C45600F84CAB /* myRecipickTests.swift */; };
@@ -155,6 +158,11 @@
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78AC52BB2621D75D002B7C02 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		78AC52C32621D856002B7C02 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
+		78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + MyRecipickFont.swift"; sourceTree = "<group>"; };
+		78B29A03263AD14B005B6ECF /* String + Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Localized.swift"; sourceTree = "<group>"; };
+		78B29A14263AD9B2005B6ECF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		78B29A15263AD9B2005B6ECF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		78B29A19263ADCB2005B6ECF /* HomeTipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTipViewController.swift; sourceTree = "<group>"; };
 		78BE67F326245F5700FDDFD8 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		78C8C1542615C45500F84CAB /* myRecipick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myRecipick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C8C1632615C45600F84CAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -216,6 +224,8 @@
 				4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */,
 				4F5C5F9726242BF9003D94E2 /* Data + HexString.swift */,
 				789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */,
+				78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */,
+				78B29A03263AD14B005B6ECF /* String + Localized.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -294,6 +304,7 @@
 		4F9DC6D32625178300609CF0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				78B29A18263ADC84005B6ECF /* SubViewControllers */,
 				4F9DC72E2625336D00609CF0 /* Home.storyboard */,
 				4F9DC6D92625188D00609CF0 /* HomeCoordinator.swift */,
 				4F9DC6E82625204200609CF0 /* HomeViewController.swift */,
@@ -363,6 +374,21 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		78B299EF263AB2AF005B6ECF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		78B29A18263ADC84005B6ECF /* SubViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				78B29A19263ADCB2005B6ECF /* HomeTipViewController.swift */,
+			);
+			path = SubViewControllers;
+			sourceTree = "<group>";
+		};
 		78C8C14B2615C45500F84CAB = {
 			isa = PBXGroup;
 			children = (
@@ -411,6 +437,7 @@
 		78C8C16D2615C45600F84CAB /* myRecipickTests */ = {
 			isa = PBXGroup;
 			children = (
+				78B299EF263AB2AF005B6ECF /* Extension */,
 				78C8C16E2615C45600F84CAB /* myRecipickTests.swift */,
 				78C8C1702615C45600F84CAB /* Info.plist */,
 			);
@@ -762,6 +789,7 @@
 			files = (
 				4F9DC6E4262518A000609CF0 /* YourPageCoordinator.swift in Sources */,
 				4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */,
+				78B29A04263AD14B005B6ECF /* String + Localized.swift in Sources */,
 				4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */,
 				78D76830262D89900010A07E /* MainTabBarViewController.swift in Sources */,
 				4F9DC6CE262516A900609CF0 /* CoordinatorProtocol.swift in Sources */,
@@ -790,6 +818,7 @@
 				4F0CA934262E4C9E007CD326 /* BrandSelectViewController.swift in Sources */,
 				4F0CA93C262E52F4007CD326 /* BrandSelectService.swift in Sources */,
 				4F9DC6DF2625189600609CF0 /* CustomCoordinator.swift in Sources */,
+				78B29A1A263ADCB2005B6ECF /* HomeTipViewController.swift in Sources */,
 				4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */,
 				78D76836262D8C1C0010A07E /* BrandModel.swift in Sources */,
 				4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */,
@@ -800,6 +829,7 @@
 				78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */,
 				7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */,
 				789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */,
+				78B299EA263AB259005B6ECF /* UIFont + MyRecipickFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,6 +877,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				78C8C19A2615C81A00F84CAB /* ko */,
+				78B29A15263AD9B2005B6ECF /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -855,6 +886,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				78C8C19C2615C81A00F84CAB /* ko */,
+				78B29A14263AD9B2005B6ECF /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

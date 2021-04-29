@@ -6,5 +6,6 @@
 //
 
 class LocalizedMap {
-    
+    // MARK: Home
+    static let HOME_TITLE: String = "home_title"
 }

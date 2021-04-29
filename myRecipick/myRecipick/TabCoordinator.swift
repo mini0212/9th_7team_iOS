@@ -74,8 +74,14 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         self.targetView = self.navigationController.view
         self.showSplashView(completion: { [weak self] in
             BrandModel.shared.requestBandList(completeHandler: { [weak self] responseJson in
-                let items = responseJson // Response 구조 바뀌면 바뀔듯?? 예상) responseJson["data"] 이런식??
-                BrandModel.shared.fetchBrandList(items: items)
+                if 200..<300 ~= responseJson["status"].intValue {
+                    let items = responseJson["data"]
+                    BrandModel.shared.fetchBrandList(items: items)
+                } else {
+                    print("********* todo alert??? ***********")
+                    print("error:\(responseJson["status"].intValue)")
+                    print("********************")
+                }
                 self?.hideSplashView(completion: nil)
             }, failureHandler: { [weak self] err in
                 print("********* todo alert??? ***********")
