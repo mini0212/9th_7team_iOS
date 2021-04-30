@@ -53,6 +53,7 @@
 		78759790263C1BCA00305227 /* BrandSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875978D263C1BCA00305227 /* BrandSelectViewModel.swift */; };
 		78759795263C1BFF00305227 /* BrandSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */; };
 		78759796263C1BFF00305227 /* BrandSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */; };
+		7875979A263C28C600305227 /* RequestBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78759799263C28C600305227 /* RequestBrandViewController.swift */; };
 		789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */; };
 		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
@@ -161,6 +162,7 @@
 		7875978D263C1BCA00305227 /* BrandSelectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectViewModel.swift; sourceTree = "<group>"; };
 		78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectTableViewCell.swift; sourceTree = "<group>"; };
 		78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandSelectTableViewCell.xib; sourceTree = "<group>"; };
+		78759799263C28C600305227 /* RequestBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBrandViewController.swift; sourceTree = "<group>"; };
 		789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Snapshot.swift"; sourceTree = "<group>"; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 			children = (
 				78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */,
 				78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */,
+				78759799263C28C600305227 /* RequestBrandViewController.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -816,6 +819,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7875979A263C28C600305227 /* RequestBrandViewController.swift in Sources */,
 				4F9DC6E4262518A000609CF0 /* YourPageCoordinator.swift in Sources */,
 				4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */,
 				78B29A04263AD14B005B6ECF /* String + Localized.swift in Sources */,

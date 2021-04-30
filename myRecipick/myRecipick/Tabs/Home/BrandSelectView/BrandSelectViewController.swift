@@ -10,6 +10,10 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol BrandSelectViewControllerDelegate: AnyObject {
+    func pushRequestBrandViewController()
+}
+
 class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, ClassIdentifiable {
     
     typealias SelfType = BrandSelectViewController
@@ -33,6 +37,8 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
     
     var isViewModelBinded: Bool = false
     var viewModel: BrandSelectViewModel!
+    
+    weak var delegate: BrandSelectViewControllerDelegate?
     
     // MARK: lifeCycle
     
@@ -110,7 +116,9 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
     
     // MARK: action
     @IBAction func requestNewBrandAction(_ sender: Any) {
-        print("requestNewBrandAction")
+        self.dismiss(animated: false, completion: { [weak self] in
+            self?.delegate?.pushRequestBrandViewController()
+        })
     }
     
 }
