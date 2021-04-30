@@ -38,6 +38,7 @@ class HomeTipViewController: UIViewController, ClassIdentifiable {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
+        self.tipContainerView.alpha = 0
     }
     
     // MARK: function
@@ -87,15 +88,22 @@ class HomeTipViewController: UIViewController, ClassIdentifiable {
         self.step3ContentsLabel.text = "친구들에게 자유롭게 공유해보세요."
         self.step3ContentsLabel.numberOfLines = 2
         
-        
-        
-//        
-//        @IBOutlet weak var confirmBtn: UIButton!
+        self.confirmBtn.layer.cornerRadius = 10
+        self.confirmBtn.layer.masksToBounds = true
+        self.confirmBtn.adjustsImageWhenHighlighted = false
+        self.confirmBtn.showsTouchWhenHighlighted = false
+        self.confirmBtn.setBackgroundColor(UIColor(asset: Colors.primaryNormal) ?? .orange, for: .normal)
+        self.confirmBtn.setBackgroundColor(UIColor(asset: Colors.primaryDark) ?? .orange, for: .highlighted)
+        self.confirmBtn.setTitle("확인", for: .normal)
+        self.confirmBtn.setTitleColor(.white, for: .normal)
+        self.confirmBtn.titleLabel?.font = UIFont.myRecipickFont(.subTitle2)
     }
     
     // MARK: action
     @IBAction func confirmAction(_ sender: Any) {
-        print("confirmAction")
+        self.tipContainerView.fadeOut { [weak self] in
+            self?.dismiss(animated: false, completion: nil)
+        }
     }
     
 }

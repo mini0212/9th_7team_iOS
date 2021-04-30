@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F0CA934262E4C9E007CD326 /* BrandSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0CA933262E4C9E007CD326 /* BrandSelectViewController.swift */; };
-		4F0CA938262E4DA3007CD326 /* BrandSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0CA937262E4DA3007CD326 /* BrandSelectViewModel.swift */; };
-		4F0CA93C262E52F4007CD326 /* BrandSelectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0CA93B262E52F4007CD326 /* BrandSelectService.swift */; };
+		4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */; };
+		4F497E4C263B964B00571CEF /* UIButton + BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */; };
 		4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */; };
 		4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F5026241FC8003D94E2 /* SceneDelegate.swift */; };
 		4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */; };
@@ -49,6 +48,12 @@
 		7866F09A263024460037DB4C /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 7866F099263024460037DB4C /* license.html */; };
 		7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7866F0A8263025F20037DB4C /* CommonWebViewController.swift */; };
 		7866F0AB263025F20037DB4C /* CommonWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7866F0A9263025F20037DB4C /* CommonWebViewController.xib */; };
+		7875978E263C1BCA00305227 /* BrandSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875978A263C1BCA00305227 /* BrandSelectViewController.swift */; };
+		7875978F263C1BCA00305227 /* BrandSelectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875978C263C1BCA00305227 /* BrandSelectService.swift */; };
+		78759790263C1BCA00305227 /* BrandSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875978D263C1BCA00305227 /* BrandSelectViewModel.swift */; };
+		78759795263C1BFF00305227 /* BrandSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */; };
+		78759796263C1BFF00305227 /* BrandSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */; };
+		7875979A263C28C600305227 /* RequestBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78759799263C28C600305227 /* RequestBrandViewController.swift */; };
 		789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */; };
 		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
@@ -111,9 +116,8 @@
 /* Begin PBXFileReference section */
 		332551BBBA3CA22FC8109CE0 /* Pods-myRecipick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipick.debug.xcconfig"; path = "Target Support Files/Pods-myRecipick/Pods-myRecipick.debug.xcconfig"; sourceTree = "<group>"; };
 		46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipickTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4F0CA933262E4C9E007CD326 /* BrandSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectViewController.swift; sourceTree = "<group>"; };
-		4F0CA937262E4DA3007CD326 /* BrandSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectViewModel.swift; sourceTree = "<group>"; };
-		4F0CA93B262E52F4007CD326 /* BrandSelectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectService.swift; sourceTree = "<group>"; };
+		4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + FadeInOut.swift"; sourceTree = "<group>"; };
+		4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + BackgroundColor.swift"; sourceTree = "<group>"; };
 		4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F5C5F5026241FC8003D94E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Identifiable.swift"; sourceTree = "<group>"; };
@@ -153,6 +157,12 @@
 		7866F099263024460037DB4C /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		7866F0A8263025F20037DB4C /* CommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
 		7866F0A9263025F20037DB4C /* CommonWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonWebViewController.xib; sourceTree = "<group>"; };
+		7875978A263C1BCA00305227 /* BrandSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectViewController.swift; sourceTree = "<group>"; };
+		7875978C263C1BCA00305227 /* BrandSelectService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectService.swift; sourceTree = "<group>"; };
+		7875978D263C1BCA00305227 /* BrandSelectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectViewModel.swift; sourceTree = "<group>"; };
+		78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectTableViewCell.swift; sourceTree = "<group>"; };
+		78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandSelectTableViewCell.xib; sourceTree = "<group>"; };
+		78759799263C28C600305227 /* RequestBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBrandViewController.swift; sourceTree = "<group>"; };
 		789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Snapshot.swift"; sourceTree = "<group>"; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,6 +236,8 @@
 				789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */,
 				78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */,
 				78B29A03263AD14B005B6ECF /* String + Localized.swift */,
+				4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */,
+				4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -304,6 +316,7 @@
 		4F9DC6D32625178300609CF0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				78759789263C1BCA00305227 /* BrandSelectView */,
 				78B29A18263ADC84005B6ECF /* SubViewControllers */,
 				4F9DC72E2625336D00609CF0 /* Home.storyboard */,
 				4F9DC6D92625188D00609CF0 /* HomeCoordinator.swift */,
@@ -312,9 +325,6 @@
 				4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */,
 				4F9DC73626253A4900609CF0 /* TestViewController.swift */,
 				4F9DC73726253A4900609CF0 /* TestViewController.xib */,
-				4F0CA933262E4C9E007CD326 /* BrandSelectViewController.swift */,
-				4F0CA937262E4DA3007CD326 /* BrandSelectViewModel.swift */,
-				4F0CA93B262E52F4007CD326 /* BrandSelectService.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -363,6 +373,27 @@
 				7866F0A9263025F20037DB4C /* CommonWebViewController.xib */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		78759789263C1BCA00305227 /* BrandSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				7875978B263C1BCA00305227 /* SubView */,
+				7875978A263C1BCA00305227 /* BrandSelectViewController.swift */,
+				7875978D263C1BCA00305227 /* BrandSelectViewModel.swift */,
+				7875978C263C1BCA00305227 /* BrandSelectService.swift */,
+			);
+			path = BrandSelectView;
+			sourceTree = "<group>";
+		};
+		7875978B263C1BCA00305227 /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */,
+				78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */,
+				78759799263C28C600305227 /* RequestBrandViewController.swift */,
+			);
+			path = SubView;
 			sourceTree = "<group>";
 		};
 		78AC52B22621D632002B7C02 /* Assets */ = {
@@ -638,6 +669,7 @@
 				78644AB0263444D800C16C47 /* NotoSansKR-Regular.otf in Resources */,
 				78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */,
 				78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */,
+				78759796263C1BFF00305227 /* BrandSelectTableViewCell.xib in Resources */,
 				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
 				78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */,
 				78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */,
@@ -787,9 +819,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7875979A263C28C600305227 /* RequestBrandViewController.swift in Sources */,
 				4F9DC6E4262518A000609CF0 /* YourPageCoordinator.swift in Sources */,
 				4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */,
 				78B29A04263AD14B005B6ECF /* String + Localized.swift in Sources */,
+				7875978F263C1BCA00305227 /* BrandSelectService.swift in Sources */,
 				4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */,
 				78D76830262D89900010A07E /* MainTabBarViewController.swift in Sources */,
 				4F9DC6CE262516A900609CF0 /* CoordinatorProtocol.swift in Sources */,
@@ -797,32 +831,34 @@
 				4F9DC6F32625205900609CF0 /* YourPageViewController.swift in Sources */,
 				4F9DC6C92625168C00609CF0 /* TabCoordinator.swift in Sources */,
 				4F9DC6E92625204200609CF0 /* HomeViewController.swift in Sources */,
+				78759795263C1BFF00305227 /* BrandSelectTableViewCell.swift in Sources */,
 				4F5C5F9226242BBD003D94E2 /* ClassIdentifiable.swift in Sources */,
 				4F5C5F7126242178003D94E2 /* ServerUtil.swift in Sources */,
 				78575E5E262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift in Sources */,
 				78D7681B262D84C00010A07E /* SplashViewProtocol.swift in Sources */,
 				4F5C5F692624212A003D94E2 /* NotificationNameDefine.swift in Sources */,
 				4F5C5F9D26242C76003D94E2 /* JsonDataProtocol.swift in Sources */,
+				7875978E263C1BCA00305227 /* BrandSelectViewController.swift in Sources */,
 				4F5C5F7226242178003D94E2 /* HttpRequest.swift in Sources */,
+				4F497E4C263B964B00571CEF /* UIButton + BackgroundColor.swift in Sources */,
 				4F5C5F7026242178003D94E2 /* JSONConverter.swift in Sources */,
 				4F5C5F5F2624207D003D94E2 /* CommonDefine.swift in Sources */,
 				78C8C1A02615C81A00F84CAB /* LocalizedMap.swift in Sources */,
 				78D7683C262DA1800010A07E /* APIDefine.swift in Sources */,
-				4F0CA938262E4DA3007CD326 /* BrandSelectViewModel.swift in Sources */,
+				4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */,
 				4F9DC6EE2625205300609CF0 /* CustomViewController.swift in Sources */,
 				4F5C5F6426242112003D94E2 /* UserDefaultKeyDefine.swift in Sources */,
 				4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */,
 				4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */,
 				4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */,
 				78D76820262D85310010A07E /* SplashView.swift in Sources */,
-				4F0CA934262E4C9E007CD326 /* BrandSelectViewController.swift in Sources */,
-				4F0CA93C262E52F4007CD326 /* BrandSelectService.swift in Sources */,
 				4F9DC6DF2625189600609CF0 /* CustomCoordinator.swift in Sources */,
 				78B29A1A263ADCB2005B6ECF /* HomeTipViewController.swift in Sources */,
 				4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */,
 				78D76836262D8C1C0010A07E /* BrandModel.swift in Sources */,
 				4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */,
 				78575E59262C4EA00060BB63 /* MVVMProtocol.swift in Sources */,
+				78759790263C1BCA00305227 /* BrandSelectViewModel.swift in Sources */,
 				4F9DC6DA2625188D00609CF0 /* HomeCoordinator.swift in Sources */,
 				78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */,
 				78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */,

@@ -80,7 +80,7 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     }
     
     @IBAction func testPushAction(_ sender: Any) {
-        self.coordinator.push(route: .test, animated: true)
+//        self.coordinator.push(route: .test, animated: true)
     }
     
     @IBAction func testMoveOtherTabAction(_ sender: Any) {
