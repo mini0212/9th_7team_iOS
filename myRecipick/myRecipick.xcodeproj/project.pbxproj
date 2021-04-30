@@ -10,6 +10,8 @@
 		4F0CA934262E4C9E007CD326 /* BrandSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0CA933262E4C9E007CD326 /* BrandSelectViewController.swift */; };
 		4F0CA938262E4DA3007CD326 /* BrandSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0CA937262E4DA3007CD326 /* BrandSelectViewModel.swift */; };
 		4F0CA93C262E52F4007CD326 /* BrandSelectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0CA93B262E52F4007CD326 /* BrandSelectService.swift */; };
+		4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */; };
+		4F497E4C263B964B00571CEF /* UIButton + BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */; };
 		4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */; };
 		4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F5026241FC8003D94E2 /* SceneDelegate.swift */; };
 		4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */; };
@@ -114,6 +116,8 @@
 		4F0CA933262E4C9E007CD326 /* BrandSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectViewController.swift; sourceTree = "<group>"; };
 		4F0CA937262E4DA3007CD326 /* BrandSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectViewModel.swift; sourceTree = "<group>"; };
 		4F0CA93B262E52F4007CD326 /* BrandSelectService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectService.swift; sourceTree = "<group>"; };
+		4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + FadeInOut.swift"; sourceTree = "<group>"; };
+		4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + BackgroundColor.swift"; sourceTree = "<group>"; };
 		4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F5C5F5026241FC8003D94E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView + Identifiable.swift"; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */,
 				78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */,
 				78B29A03263AD14B005B6ECF /* String + Localized.swift */,
+				4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */,
+				4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -804,11 +810,13 @@
 				4F5C5F692624212A003D94E2 /* NotificationNameDefine.swift in Sources */,
 				4F5C5F9D26242C76003D94E2 /* JsonDataProtocol.swift in Sources */,
 				4F5C5F7226242178003D94E2 /* HttpRequest.swift in Sources */,
+				4F497E4C263B964B00571CEF /* UIButton + BackgroundColor.swift in Sources */,
 				4F5C5F7026242178003D94E2 /* JSONConverter.swift in Sources */,
 				4F5C5F5F2624207D003D94E2 /* CommonDefine.swift in Sources */,
 				78C8C1A02615C81A00F84CAB /* LocalizedMap.swift in Sources */,
 				78D7683C262DA1800010A07E /* APIDefine.swift in Sources */,
 				4F0CA938262E4DA3007CD326 /* BrandSelectViewModel.swift in Sources */,
+				4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */,
 				4F9DC6EE2625205300609CF0 /* CustomViewController.swift in Sources */,
 				4F5C5F6426242112003D94E2 /* UserDefaultKeyDefine.swift in Sources */,
 				4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */,

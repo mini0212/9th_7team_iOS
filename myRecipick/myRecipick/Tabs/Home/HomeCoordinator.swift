@@ -59,7 +59,9 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
     func showTip() {
         let tipViewController: HomeTipViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: HomeTipViewController.identifier)
         tipViewController.modalPresentationStyle = .overFullScreen
-        self.navigationController.present(tipViewController, animated: false, completion: nil)
+        self.navigationController.present(tipViewController, animated: false, completion: {
+            tipViewController.tipContainerView.fadeIn(duration: 0.1, completeHandler: nil)
+        })
     }
     
     // MARK: action
