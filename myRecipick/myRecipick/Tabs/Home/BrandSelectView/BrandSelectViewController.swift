@@ -39,6 +39,7 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
+        self.tableView.register(UINib(nibName: "BrandSelectTableViewCell", bundle: nil), forCellReuseIdentifier: "BrandSelectTableViewCell")
         bindingViewModel(viewModel: self.viewModel)
     }
     
@@ -60,10 +61,21 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
                 })
                 .disposed(by: self.disposeBag)
             
-            vm.outputs.brands.subscribe(onNext: { [weak self] brands in
-                print("brands:\(brands)")
-            })
-            .disposed(by: self.disposeBag)
+            vm.outputs.brands
+                .observe(on: MainScheduler.instance)
+                .bind(to: self.tableView.rx.items) { tableView, row, item in
+                    guard let cell: BrandSelectTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BrandSelectTableViewCell") as? BrandSelectTableViewCell else { return UITableViewCell() }
+                    cell.selectionStyle = .none
+                    cell.infoData = item
+                    return cell
+                }
+                .disposed(by: self.disposeBag)
+            
+            self.tableView.rx.itemSelected
+                .subscribe(onNext: { index in
+                    print("index: \(index)")
+                })
+                .disposed(by: self.disposeBag)
             
         }
     }
@@ -87,6 +99,7 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
         
         self.tableView.separatorStyle = .none
         self.tableView.bounces = false
+        self.tableView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
         
         self.bottomContainerView.backgroundColor = .clear
         self.bottomContentsLabel.font = UIFont.myRecipickFont(.subTitle1)

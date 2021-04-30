@@ -55,7 +55,6 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
     }
     
     func makeNavigationItems() {
-        self.navigationController.navigationBar.topItem?.title = "홈~?"
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "uilBars")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(showBrandSelectView))
         self.navigationController.navigationBar.topItem?.leftBarButtonItem = barButtonItem
     }
