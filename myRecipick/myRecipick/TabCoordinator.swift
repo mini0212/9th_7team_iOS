@@ -54,15 +54,16 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
 
         var controllers: [UIViewController] = []
         homeViewController = HomeViewController.makeViewController(coordinator: self.homeCoordinator, viewModel: HomeViewModel())
-        homeViewController.tabBarItem = UITabBarItem(title: "home", image: UIImage.init(systemName: "square.and.arrow.up"), selectedImage: UIImage.init(systemName: "square.and.arrow.up.fill"))
+        homeViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32Home"), selectedImage: UIImage(named: "iconsNavigation32Home"))
         controllers.append(homeViewController)
         customViewController = CustomViewController()
-        customViewController.tabBarItem = UITabBarItem(title: "custom", image: UIImage.init(systemName: "square.and.arrow.up"), selectedImage: UIImage.init(systemName: "square.and.arrow.up.fill"))
+        customViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32Plus"), selectedImage: UIImage(named: "iconsNavigation32Plus"))
         controllers.append(customViewController)
         yourPageViewController = YourPageViewController()
-        yourPageViewController.tabBarItem = UITabBarItem(title: "history", image: UIImage.init(systemName: "square.and.arrow.up"), selectedImage: UIImage.init(systemName: "square.and.arrow.up.fill"))
+        yourPageViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32History"), selectedImage: UIImage(named: "iconsNavigation32History"))
         controllers.append(yourPageViewController)
         tabController.viewControllers = controllers
+        tabController.tabBar.tintColor = UIColor(asset: Colors.primaryNormal)
         self.tabController.tabBar.isTranslucent = false
         self.navigationController.viewControllers = [self.tabController]
         super.init()
