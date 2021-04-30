@@ -27,7 +27,7 @@ class YourPageViewController: UIViewController, CoordinatorViewControllerProtoco
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .lightGray
+        self.view.backgroundColor = .green
     }
     
     // MARK: func

@@ -64,9 +64,11 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         controllers.append(yourPageViewController)
         tabController.viewControllers = controllers
         tabController.tabBar.tintColor = UIColor(asset: Colors.primaryNormal)
+        tabController.tabBar.unselectedItemTintColor = UIColor(asset: Colors.black)
         self.tabController.tabBar.isTranslucent = false
         self.navigationController.viewControllers = [self.tabController]
         super.init()
+        setClearNavigation()
         self.tabController.delegate = self
         self.homeCoordinator.parentsCoordinator = self
         self.customCoordinator.parentsCoordinator = self
@@ -102,6 +104,13 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     func moveTo(tab: Tab) {
         self.tabController.selectedIndex = tab.rawValue
         afterMoveTabActions(tab: tab)
+    }
+    
+    func setClearNavigation() {
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().isTranslucent = true
     }
     
     // MARk: private func

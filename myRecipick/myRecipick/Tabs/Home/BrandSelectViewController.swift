@@ -16,6 +16,17 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
     typealias MVVMViewModelClassType = BrandSelectViewModel
 
     // MARK: outlet
+    @IBOutlet weak var backgroundContainerView: UIView!
+    @IBOutlet weak var mainContainerView: UIView!
+    
+    @IBOutlet weak var topContainerView: UIView!
+    @IBOutlet weak var topContentsLabel: UILabel!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var bottomContainerView: UIView!
+    @IBOutlet weak var bottomContentsLabel: UILabel!
+    
     
     // MARK: property
     var disposeBag: DisposeBag = DisposeBag()
@@ -66,9 +77,27 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
     }
     
     func initUI() {
+        self.backgroundContainerView.backgroundColor = UIColor(asset: Colors.white)
+        self.mainContainerView.backgroundColor = .clear
+        
+        self.topContainerView.backgroundColor = .clear
+        self.topContentsLabel.font = UIFont.myRecipickFont(.subTitle1)
+        self.topContentsLabel.textColor = UIColor(asset: Colors.grayScale33)
+        self.topContentsLabel.text = "브랜드 변경"
+        
+        self.tableView.separatorStyle = .none
+        self.tableView.bounces = false
+        
+        self.bottomContainerView.backgroundColor = .clear
+        self.bottomContentsLabel.font = UIFont.myRecipickFont(.subTitle1)
+        self.bottomContentsLabel.textColor = UIColor(asset: Colors.grayScale33)
+        self.bottomContentsLabel.text = "브랜드 추가 요청"
         
     }
     
     // MARK: action
-
+    @IBAction func requestNewBrandAction(_ sender: Any) {
+        print("requestNewBrandAction")
+    }
+    
 }
