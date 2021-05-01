@@ -29,6 +29,7 @@ internal enum Colors {
   internal static let grayScaleEE = ColorAsset(name: "GrayScaleEE")
   internal static let grayScaleF7 = ColorAsset(name: "GrayScaleF7")
   internal static let homeBottomColor = ColorAsset(name: "HomeBottomColor")
+  internal static let navigationTitle = ColorAsset(name: "NavigationTitle")
   internal static let positive = ColorAsset(name: "Positive")
   internal static let primaryDark = ColorAsset(name: "PrimaryDark")
   internal static let primaryLight = ColorAsset(name: "PrimaryLight")
