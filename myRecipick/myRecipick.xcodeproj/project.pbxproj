@@ -35,6 +35,7 @@
 		4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73626253A4900609CF0 /* TestViewController.swift */; };
 		4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9DC73726253A4900609CF0 /* TestViewController.xib */; };
 		4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */; };
+		7817E830263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */; };
 		78575E59262C4EA00060BB63 /* MVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E58262C4EA00060BB63 /* MVVMProtocol.swift */; };
 		78575E5E262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */; };
 		78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E7E262C51460060BB63 /* HomeViewModel.swift */; };
@@ -149,6 +150,7 @@
 		4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoordinator.swift; sourceTree = "<group>"; };
 		607EF82CCBF70045A6E09CAB /* Pods-myRecipickTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.release.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.release.xcconfig"; sourceTree = "<group>"; };
 		7653C90059012835E948493D /* Pods_myRecipick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributeString + InSpecificString.swift"; sourceTree = "<group>"; };
 		78575E58262C4EA00060BB63 /* MVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMProtocol.swift; sourceTree = "<group>"; };
 		78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMVVMProtocol.swift; sourceTree = "<group>"; };
 		78575E7E262C51460060BB63 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */,
 				785C7ACB263D3D2900A163CC /* UIView + RemoveAllSubViews.swift */,
 				4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */,
+				7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				78D76830262D89900010A07E /* MainTabBarViewController.swift in Sources */,
 				4F9DC6CE262516A900609CF0 /* CoordinatorProtocol.swift in Sources */,
 				4F5C5F9826242BF9003D94E2 /* Data + HexString.swift in Sources */,
+				7817E830263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift in Sources */,
 				4F9DC6F32625205900609CF0 /* YourPageViewController.swift in Sources */,
 				4F9DC6C92625168C00609CF0 /* TabCoordinator.swift in Sources */,
 				4F9DC6E92625204200609CF0 /* HomeViewController.swift in Sources */,

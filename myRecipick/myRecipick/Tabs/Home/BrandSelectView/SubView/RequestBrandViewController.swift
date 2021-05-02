@@ -101,30 +101,27 @@ class RequestBrandViewController: UIViewController, ClassIdentifiable {
         completeHandler()
     }
     
-    // MARK: action
-    @IBAction func requestAction(_ sender: Any) {
-        print("requestAction")
-        self.navigationController?.popViewController(animated: true)
+    func requestActionFunc() {
         // todo loading start
         requestNewBrandQuery(completeHandler: {
             // todo loading end
-            
+            CommonAlertView.shared.showOneBtnAlert(message: "소중한 의견 감사합니다.", btnText: "확인", confirmHandler: {
+                CommonAlertView.shared.hide()
+                self.navigationController?.popViewController(animated: true)
+            })
         }, failureHandler: {
             // todo loading end
             // todo alert?
         })
     }
     
+    // MARK: action
+    @IBAction func requestAction(_ sender: Any) {
+        requestActionFunc()
+    }
+    
     @objc func popButtonClicked(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-        // todo loading start
-        requestNewBrandQuery(completeHandler: {
-            // todo loading end
-            
-        }, failureHandler: {
-            // todo loading end
-            // todo alert?
-        })
+        requestActionFunc()
     }
 
 }
