@@ -34,8 +34,10 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
     }
     
     func makeNavigationItems() {
-        self.navigationController.navigationBar.topItem?.title = "마이페이지~?"
+        self.navigationController.navigationBar.topItem?.title = "내 커스텀 기록"
+        self.navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.myRecipickFont(.subTitle1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33)]
         self.navigationController.navigationBar.topItem?.leftBarButtonItem = nil
+        self.navigationController.navigationBar.topItem?.rightBarButtonItem = nil
     }
     
     func moveTo(tab: TabCoordinator.Tab) {

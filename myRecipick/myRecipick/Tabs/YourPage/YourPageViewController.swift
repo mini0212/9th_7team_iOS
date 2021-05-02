@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class YourPageViewController: UIViewController, CoordinatorViewControllerProtocol, ClassIdentifiable {
+class YourPageViewController: UIViewController, CoordinatorMVVMViewController, ClassIdentifiable {
     
+    typealias MVVMViewModelClassType = YourPageViewModel
     typealias SelfType = YourPageViewController
     typealias CoordinatorType = YourPageCoordinator
     
@@ -18,6 +21,11 @@ class YourPageViewController: UIViewController, CoordinatorViewControllerProtoco
     // MARK: property
     
     var coordinator: YourPageCoordinator!
+    var viewModel: YourPageViewModel!
+    var disposeBag: DisposeBag = DisposeBag()
+    
+    // MARK: state
+    var isViewModelBinded: Bool = false
     
     // MARK: lifeCycle
     
@@ -27,15 +35,31 @@ class YourPageViewController: UIViewController, CoordinatorViewControllerProtoco
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .green
+        initUI()
+        bindingViewModel(viewModel: self.viewModel)
+    }
+    
+    func bind(viewModel: MVVMViewModel) {
+        if type(of: viewModel) == YourPageViewModel.self {
+            guard let vm: YourPageViewModel = (viewModel as? YourPageViewModel) else { return }
+            print("bind!!")
+        }
     }
     
     // MARK: func
+    static func makeViewController(coordinator: YourPageCoordinator, viewModel: MVVMViewModelClassType) -> YourPageViewController {
+        let yourPageViewController: YourPageViewController = UIStoryboard(name: "YourPage", bundle: nil).instantiateViewController(identifier: YourPageViewController.identifier)
+        yourPageViewController.coordinator = coordinator
+        yourPageViewController.viewModel = viewModel
+        return yourPageViewController
+    }
     
-    static func makeViewController(coordinator: YourPageCoordinator) -> YourPageViewController {
-        return YourPageViewController()
+    func initUI() {
+        
     }
     
     // MARK: action
     
 }
+
+

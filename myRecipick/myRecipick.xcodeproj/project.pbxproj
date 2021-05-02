@@ -36,6 +36,9 @@
 		4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9DC73726253A4900609CF0 /* TestViewController.xib */; };
 		4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */; };
 		7817E830263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */; };
+		7817E838263E8C5E003AC910 /* YourPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7817E837263E8C5E003AC910 /* YourPage.storyboard */; };
+		7817E83C263E8CE7003AC910 /* YourPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E83B263E8CE7003AC910 /* YourPageViewModel.swift */; };
+		7817E840263E8D03003AC910 /* YourPageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E83F263E8D03003AC910 /* YourPageService.swift */; };
 		78575E59262C4EA00060BB63 /* MVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E58262C4EA00060BB63 /* MVVMProtocol.swift */; };
 		78575E5E262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */; };
 		78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E7E262C51460060BB63 /* HomeViewModel.swift */; };
@@ -151,6 +154,9 @@
 		607EF82CCBF70045A6E09CAB /* Pods-myRecipickTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.release.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.release.xcconfig"; sourceTree = "<group>"; };
 		7653C90059012835E948493D /* Pods_myRecipick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributeString + InSpecificString.swift"; sourceTree = "<group>"; };
+		7817E837263E8C5E003AC910 /* YourPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YourPage.storyboard; sourceTree = "<group>"; };
+		7817E83B263E8CE7003AC910 /* YourPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPageViewModel.swift; sourceTree = "<group>"; };
+		7817E83F263E8D03003AC910 /* YourPageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPageService.swift; sourceTree = "<group>"; };
 		78575E58262C4EA00060BB63 /* MVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMProtocol.swift; sourceTree = "<group>"; };
 		78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMVVMProtocol.swift; sourceTree = "<group>"; };
 		78575E7E262C51460060BB63 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -349,8 +355,11 @@
 		4F9DC6D52625178300609CF0 /* YourPage */ = {
 			isa = PBXGroup;
 			children = (
+				7817E837263E8C5E003AC910 /* YourPage.storyboard */,
 				4F9DC6E3262518A000609CF0 /* YourPageCoordinator.swift */,
 				4F9DC6F22625205900609CF0 /* YourPageViewController.swift */,
+				7817E83B263E8CE7003AC910 /* YourPageViewModel.swift */,
+				7817E83F263E8D03003AC910 /* YourPageService.swift */,
 			);
 			path = YourPage;
 			sourceTree = "<group>";
@@ -689,6 +698,7 @@
 				78759796263C1BFF00305227 /* BrandSelectTableViewCell.xib in Resources */,
 				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
 				78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */,
+				7817E838263E8C5E003AC910 /* YourPage.storyboard in Resources */,
 				78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */,
 				78644AAE263444D800C16C47 /* OFL.txt in Resources */,
 				4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */,
@@ -866,8 +876,10 @@
 				78D7683C262DA1800010A07E /* APIDefine.swift in Sources */,
 				4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */,
 				4F9DC6EE2625205300609CF0 /* CustomViewController.swift in Sources */,
+				7817E83C263E8CE7003AC910 /* YourPageViewModel.swift in Sources */,
 				785C7AC6263D3CD400A163CC /* CommonAlertView.swift in Sources */,
 				4F5C5F6426242112003D94E2 /* UserDefaultKeyDefine.swift in Sources */,
+				7817E840263E8D03003AC910 /* YourPageService.swift in Sources */,
 				4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */,
 				4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */,
 				4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */,
