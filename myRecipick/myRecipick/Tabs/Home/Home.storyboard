@@ -509,10 +509,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIl-Yj-fzl">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lmk-gh-9Hn">
-                                                        <rect key="frame" x="39" y="360.5" width="336" height="97"/>
+                                                        <rect key="frame" x="39" y="336.5" width="336" height="97"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FX-KF-Xfo">
                                                                 <rect key="frame" x="0.0" y="0.0" width="336" height="21"/>
@@ -524,7 +524,7 @@
                                                                 <rect key="frame" x="0.0" y="49" width="336" height="48"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7yX-bF-S21">
-                                                                        <rect key="frame" x="0.0" y="14" width="336" height="20"/>
+                                                                        <rect key="frame" x="16" y="14" width="304" height="20"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="20" id="TsH-yH-o7G"/>
                                                                         </constraints>
@@ -535,9 +535,9 @@
                                                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="6sg-oU-LnZ"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="7yX-bF-S21" secondAttribute="trailing" id="I8B-ur-ygQ"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="7yX-bF-S21" secondAttribute="trailing" constant="16" id="I8B-ur-ygQ"/>
                                                                     <constraint firstItem="7yX-bF-S21" firstAttribute="centerY" secondItem="gyn-Bh-YmI" secondAttribute="centerY" id="OLY-Tk-IBG"/>
-                                                                    <constraint firstItem="7yX-bF-S21" firstAttribute="leading" secondItem="gyn-Bh-YmI" secondAttribute="leading" id="zfQ-rk-VhA"/>
+                                                                    <constraint firstItem="7yX-bF-S21" firstAttribute="leading" secondItem="gyn-Bh-YmI" secondAttribute="leading" constant="16" id="zfQ-rk-VhA"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -553,7 +553,7 @@
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4L-pn-DST">
-                                                        <rect key="frame" x="24" y="734" width="366" height="50"/>
+                                                        <rect key="frame" x="24" y="686" width="366" height="50"/>
                                                         <color key="backgroundColor" name="PrimaryDark"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="UH1-xU-Woc"/>
@@ -570,7 +570,7 @@
                                                     <constraint firstItem="x4L-pn-DST" firstAttribute="leading" secondItem="DIl-Yj-fzl" secondAttribute="leading" constant="24" id="II3-eA-e5k"/>
                                                     <constraint firstAttribute="bottom" secondItem="x4L-pn-DST" secondAttribute="bottom" constant="34" id="Na1-Jl-To2"/>
                                                     <constraint firstItem="Lmk-gh-9Hn" firstAttribute="centerY" secondItem="DIl-Yj-fzl" secondAttribute="centerY" id="klC-Ia-9oY"/>
-                                                    <constraint firstAttribute="height" constant="818" id="qPY-kU-dXt"/>
+                                                    <constraint firstAttribute="height" constant="770" id="qPY-kU-dXt"/>
                                                     <constraint firstItem="Lmk-gh-9Hn" firstAttribute="leading" secondItem="DIl-Yj-fzl" secondAttribute="leading" constant="39" id="vmQ-su-Ol7"/>
                                                     <constraint firstAttribute="trailing" secondItem="x4L-pn-DST" secondAttribute="trailing" constant="24" id="yyM-ia-9Bc"/>
                                                 </constraints>

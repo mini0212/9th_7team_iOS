@@ -24,11 +24,16 @@ class RequestBrandViewController: UIViewController, ClassIdentifiable {
     
     // MARK: property
     
+    var originMainContainerViewBottomConstraint: CGFloat = 0
+    
     // MARK: lifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationItems()
         initUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // MARK: function
@@ -39,8 +44,6 @@ class RequestBrandViewController: UIViewController, ClassIdentifiable {
         self.mainContainerView.backgroundColor = .clear
         
         self.scrollView.backgroundColor = .clear
-        self.scrollView.delegate = self
-        
         
         self.contentsContainerView.backgroundColor = .clear
         self.centerContainerView.backgroundColor = .clear
@@ -53,6 +56,8 @@ class RequestBrandViewController: UIViewController, ClassIdentifiable {
         self.textField.font = UIFont.myRecipickFont(.subTitle2)
         self.textField.textColor = UIColor(asset: Colors.black)
         self.textField.placeholder = "여기에 입력"
+        self.textField.returnKeyType = .done
+        self.textField.delegate = self
         
         
         self.requestBtn.adjustsImageWhenHighlighted = false
@@ -62,19 +67,69 @@ class RequestBrandViewController: UIViewController, ClassIdentifiable {
         self.requestBtn.setTitle("제출", for: .normal)
         self.requestBtn.setTitleColor(.white, for: .normal)
         self.requestBtn.titleLabel?.font = UIFont.myRecipickFont(.subTitle2)
+        self.requestBtn.layer.cornerRadius = 10
+        self.requestBtn.layer.masksToBounds = true
         
+    }
+    
+    func setNavigationItems() {
+        let titleLabel = UILabel()
+        titleLabel.textColor = UIColor(asset: Colors.navigationTitle)
+        titleLabel.font = UIFont.myRecipickFont(.subTitle1)
+        titleLabel.text = "브랜드 추가 요청"
+        self.navigationItem.titleView = titleLabel
+        self.navigationItem.rightBarButtonItem = nil
+        let imgIcon = UIImage(named: "iconsNavigation24ArrowLeft")?.withRenderingMode(.alwaysOriginal)
+        let barButtonItem = UIBarButtonItem(image: imgIcon, style: .plain, target: self, action: #selector(popButtonClicked(_:)))
+        self.navigationItem.leftBarButtonItem = barButtonItem
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardHeight = (notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height else { return }
+        self.mainContainerViewBottomConstraint.constant = keyboardHeight
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        self.mainContainerViewBottomConstraint.constant = self.originMainContainerViewBottomConstraint
+        UIView.animate(withDuration: 1.0, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func requestNewBrandQuery(completeHandler: @escaping () -> Void, failureHandler: @escaping () -> Void) {
+        print("todo requestNewBrandQuery")
+        completeHandler()
+    }
+    
+    func requestActionFunc() {
+        // todo loading start
+        requestNewBrandQuery(completeHandler: {
+            // todo loading end
+            CommonAlertView.shared.showOneBtnAlert(message: "소중한 의견 감사합니다.", btnText: "확인", confirmHandler: {
+                CommonAlertView.shared.hide()
+                self.navigationController?.popViewController(animated: true)
+            })
+        }, failureHandler: {
+            // todo loading end
+            // todo alert?
+        })
     }
     
     // MARK: action
     @IBAction func requestAction(_ sender: Any) {
-        print("requestAction")
+        requestActionFunc()
     }
     
+    @objc func popButtonClicked(_ sender: UIButton) {
+        requestActionFunc()
+    }
 
 }
 
-extension RequestBrandViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+
+extension RequestBrandViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.textField.endEditing(true)
+        return true
     }
 }
