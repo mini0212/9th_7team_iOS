@@ -19,6 +19,7 @@ enum MyRecipickFonts {
     case body2
     case caption
     case button
+    case yourRecipe
 }
 
 extension UIFont {
@@ -45,6 +46,8 @@ extension UIFont {
             tmpFont = UIFont(name: FontKeys.medium, size: 12)
         case .button:
             tmpFont = UIFont(name: FontKeys.medium, size: 14)
+        case .yourRecipe:
+            tmpFont = UIFont(name: FontKeys.regular, size: 12)
         }
         guard let returnFont = tmpFont else { print("font is null") ; return UIFont() }
         return returnFont
