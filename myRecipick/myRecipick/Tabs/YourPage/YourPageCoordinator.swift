@@ -55,6 +55,14 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
         self.parentsCoordinator?.moveTo?(tab: tab)
     }
     
+    func attachViewToTabBar(_ view: UIView) {
+        self.parentsCoordinator?.attachViewToTabBar?(view)
+    }
+    
+    func detachAllViewFromTabBar() {
+        self.parentsCoordinator?.detachAllViewFromTabBar?()
+    }
+    
     // MARK: action
     
     @objc func editAction(_ sender: UIButton) {

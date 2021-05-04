@@ -35,6 +35,8 @@
 		4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73626253A4900609CF0 /* TestViewController.swift */; };
 		4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9DC73726253A4900609CF0 /* TestViewController.xib */; };
 		4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */; };
+		4FF5490C2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */; };
+		4FF5490E2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */; };
 		7817E830263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */; };
 		7817E838263E8C5E003AC910 /* YourPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7817E837263E8C5E003AC910 /* YourPage.storyboard */; };
 		7817E83C263E8CE7003AC910 /* YourPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E83B263E8CE7003AC910 /* YourPageViewModel.swift */; };
@@ -155,6 +157,8 @@
 		4F9DC73626253A4900609CF0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		4F9DC73726253A4900609CF0 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoordinator.swift; sourceTree = "<group>"; };
+		4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditYourCustomHistroyConfirmBtnView.swift; sourceTree = "<group>"; };
+		4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditYourCustomHistroyConfirmBtnView.xib; sourceTree = "<group>"; };
 		607EF82CCBF70045A6E09CAB /* Pods-myRecipickTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.release.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.release.xcconfig"; sourceTree = "<group>"; };
 		7653C90059012835E948493D /* Pods_myRecipick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributeString + InSpecificString.swift"; sourceTree = "<group>"; };
@@ -380,6 +384,8 @@
 				7817E847263EAEC9003AC910 /* YourPageTableViewCell.xib */,
 				7817E84E263EAEEF003AC910 /* YourPageZeroYourrecipeView.swift */,
 				7817E85A263EAF38003AC910 /* YourPageZeroYourrecipeView.xib */,
+				4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */,
+				4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -711,6 +717,7 @@
 				4F9DC72F2625336D00609CF0 /* Home.storyboard in Resources */,
 				7817E849263EAEC9003AC910 /* YourPageTableViewCell.xib in Resources */,
 				7866F0AB263025F20037DB4C /* CommonWebViewController.xib in Resources */,
+				4FF5490E2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib in Resources */,
 				78644AAF263444D800C16C47 /* NotoSansKR-Medium.otf in Resources */,
 				78D76824262D85390010A07E /* SplashView.xib in Resources */,
 				78644AB0263444D800C16C47 /* NotoSansKR-Regular.otf in Resources */,
@@ -871,6 +878,7 @@
 				7875979A263C28C600305227 /* RequestBrandViewController.swift in Sources */,
 				4F9DC6E4262518A000609CF0 /* YourPageCoordinator.swift in Sources */,
 				4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */,
+				4FF5490C2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift in Sources */,
 				78B29A04263AD14B005B6ECF /* String + Localized.swift in Sources */,
 				7875978F263C1BCA00305227 /* BrandSelectService.swift in Sources */,
 				4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */,

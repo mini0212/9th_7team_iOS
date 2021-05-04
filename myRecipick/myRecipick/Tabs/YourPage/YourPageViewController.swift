@@ -80,8 +80,10 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
     
     func SetEditableUI(isEditable: Bool) {
         if isEditable {
+            showDeleteBtnContainerView()
             makeEditableNavigationItems()
         } else {
+            removeDeleteBtnContainerView()
             self.coordinator.makeNavigationItems() // todo 이 함수를 VC안으로 끌고오자
         }
     }
@@ -104,6 +106,16 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
         self.coordinator.navigationController.navigationBar.topItem?.leftBarButtonItem = editCompleteBtn
     }
     
+    func showDeleteBtnContainerView() {
+        guard let deleteBtnView = EditYourCustomHistroyConfirmBtnView.instance() else { return }
+        deleteBtnView.delegate = self
+        self.coordinator.attachViewToTabBar(deleteBtnView)
+    }
+    
+    func removeDeleteBtnContainerView() {
+        self.coordinator.detachAllViewFromTabBar()
+    }
+    
     
     // MARK: action
     
@@ -114,6 +126,7 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
     }
     
     @objc func editCompleteAction(_ sender: UIButton) {
+        self.checkedIndexRowsSet.removeAll()
         self.isEditable = !self.isEditable
     }
     
@@ -135,6 +148,12 @@ extension YourPageViewController: YourPageTableViewCellDelegate {
         }
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
         refreshEditCheckedCntNaviItem()
+    }
+}
+
+extension YourPageViewController: EditYourCustomHistroyConfirmBtnViewDelegate {
+    func checkedItemDeleteBtnClicked() {
+        print("delete Items!!!!")
     }
 }
 
