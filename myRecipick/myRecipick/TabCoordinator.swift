@@ -25,7 +25,7 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     
     var navigationController: UINavigationController = UINavigationController()
     
-    let tabController: UITabBarController
+    let tabController: MainTabBarViewController
     weak var parentsCoordinator: CoordinatorProtocol?
     
     let homeCoordinator: HomeCoordinator
@@ -106,6 +106,14 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     func moveTo(tab: Tab) {
         self.tabController.selectedIndex = tab.rawValue
         afterMoveTabActions(tab: tab)
+    }
+    
+    func attachViewToTabBar(_ view: UIView) {
+        self.tabController.attachSubView(view)
+    }
+    
+    func detachAllViewFromTabBar() {
+        self.tabController.detachAllSubView()
     }
     
     func setClearNavigation() {

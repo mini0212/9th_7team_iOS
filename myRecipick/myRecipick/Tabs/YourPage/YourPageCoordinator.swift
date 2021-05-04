@@ -39,7 +39,7 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
         makeNavigationItems()
     }
     
-    func makeNavigationItems() { // 네비게이션의 UI를 Set해주는것도 ViewController에서 해줘야 할것같음.. 코디네이터는 화면이동에만 관여해야하지 않을까 todo) 모든 코디네이터의 네비게이션 UI Set을 ViewController 안으로 넣어버리기
+    func makeNavigationItems() {
         self.navigationController.navigationBar.topItem?.title = "내 커스텀 기록"
         self.navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.myRecipickFont(.subTitle1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray]
 
@@ -53,6 +53,14 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
     
     func moveTo(tab: TabCoordinator.Tab) {
         self.parentsCoordinator?.moveTo?(tab: tab)
+    }
+    
+    func attachViewToTabBar(_ view: UIView) {
+        self.parentsCoordinator?.attachViewToTabBar?(view)
+    }
+    
+    func detachAllViewFromTabBar() {
+        self.parentsCoordinator?.detachAllViewFromTabBar?()
     }
     
     // MARK: action

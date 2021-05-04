@@ -7,11 +7,52 @@
 //
 
 import UIKit
+import SnapKit
 
 class MainTabBarViewController: UITabBarController {
-
+    
+    // MARK: outlet
+    
+    // MARK: property
+    
+    var attachedViewPool: [UIView] = []
+    var bottomPadding: CGFloat = 0
+    
+    // MARK: lifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initUI()
     }
+    
+    // MARK: func
+    
+    func initUI() {
+        self.bottomPadding = self.view.safeAreaInsets.bottom
+    }
+    
+    func attachSubView(_ attachedView: UIView) {
+        attachedViewPool.append(attachedView)
+        self.view.addSubview(attachedView)
+        attachedView.snp.makeConstraints { (make) in
+            make.leading.equalTo(self.view.snp.leading)
+            make.trailing.equalTo(self.view.snp.trailing)
+            make.bottom.equalTo(self.view.snp.bottom)
+            make.height.equalTo(self.tabBar.frame.height)
+        }
+    }
+    
+    func detachAllSubView() {
+        for i in 0..<self.attachedViewPool.count {
+            self.attachedViewPool[i].removeFromSuperview()
+        }
+        self.attachedViewPool.removeAll()
+    }
+    
+    // MARK: action
+
+    
+    
+    
 
 }

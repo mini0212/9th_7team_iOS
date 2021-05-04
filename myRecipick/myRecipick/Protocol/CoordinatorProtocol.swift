@@ -13,6 +13,8 @@ import UIKit
 //    var childCoordinators: [CoordinatorProtocol] { get set } // 샘플에는 이런게 들어있던데 어따쓰는지 몰라서 주석처리...........
     var parentsCoordinator: CoordinatorProtocol? { get set }
     @objc optional func moveTo(tab: TabCoordinator.Tab)
+    @objc optional func attachViewToTabBar(_ view: UIView)
+    @objc optional func detachAllViewFromTabBar()
 }
 
 protocol MainTabCoordinatorProtocol: CoordinatorProtocol {
