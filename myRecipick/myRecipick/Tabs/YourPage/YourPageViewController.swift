@@ -84,7 +84,7 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
             makeEditableNavigationItems()
         } else {
             removeDeleteBtnContainerView()
-            self.coordinator.makeNavigationItems() // todo 이 함수를 VC안으로 끌고오자
+            self.coordinator.makeNavigationItems()
         }
     }
     
@@ -95,10 +95,15 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
     }
     
     func refreshEditCheckedCntNaviItem() {
-        let allUnckeckBtn = UIBarButtonItem(title: "\(self.checkedIndexRowsSet.count) 선택 해제", style: .plain, target: self, action: #selector(allUncheckAction(_:)))
+        let allUnckeckBtn = UIBarButtonItem(title: "선택 해제", style: .plain, target: self, action: #selector(allUncheckAction(_:)))
         allUnckeckBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.myRecipickFont(.body1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray], for: .normal)
         allUnckeckBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.myRecipickFont(.body1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray], for: .highlighted)
-        self.coordinator.navigationController.navigationBar.topItem?.rightBarButtonItem = allUnckeckBtn
+        
+        let checkedCntBtn = UIBarButtonItem(title: "\(self.checkedIndexRowsSet.count)", style: .plain, target: self, action: nil)
+        checkedCntBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.myRecipickFont(.body1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.primaryNormal) ?? .lightGray], for: .disabled)
+        checkedCntBtn.isEnabled = false
+        
+        self.coordinator.navigationController.navigationBar.topItem?.rightBarButtonItems = [allUnckeckBtn, checkedCntBtn]
         
         let editCompleteBtn = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(editCompleteAction(_:)))
         editCompleteBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.myRecipickFont(.body1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray], for: .normal)
