@@ -37,6 +37,10 @@
 		4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */; };
 		4FF5490C2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */; };
 		4FF5490E2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */; };
+		4FF549142640E6620086E30C /* CustomMenuCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF549122640E6620086E30C /* CustomMenuCardCollectionViewCell.swift */; };
+		4FF549152640E6620086E30C /* CustomMenuCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF549132640E6620086E30C /* CustomMenuCardCollectionViewCell.xib */; };
+		4FF5491826410F9D0086E30C /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FF5491726410F9D0086E30C /* Detail.storyboard */; };
+		4FF5491A26410FA70086E30C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5491926410FA70086E30C /* DetailViewController.swift */; };
 		7817E830263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */; };
 		7817E838263E8C5E003AC910 /* YourPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7817E837263E8C5E003AC910 /* YourPage.storyboard */; };
 		7817E83C263E8CE7003AC910 /* YourPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E83B263E8CE7003AC910 /* YourPageViewModel.swift */; };
@@ -159,6 +163,10 @@
 		4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoordinator.swift; sourceTree = "<group>"; };
 		4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditYourCustomHistroyConfirmBtnView.swift; sourceTree = "<group>"; };
 		4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditYourCustomHistroyConfirmBtnView.xib; sourceTree = "<group>"; };
+		4FF549122640E6620086E30C /* CustomMenuCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		4FF549132640E6620086E30C /* CustomMenuCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMenuCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		4FF5491726410F9D0086E30C /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		4FF5491926410FA70086E30C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		607EF82CCBF70045A6E09CAB /* Pods-myRecipickTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.release.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.release.xcconfig"; sourceTree = "<group>"; };
 		7653C90059012835E948493D /* Pods_myRecipick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributeString + InSpecificString.swift"; sourceTree = "<group>"; };
@@ -377,6 +385,24 @@
 			path = YourPage;
 			sourceTree = "<group>";
 		};
+		4FF549112640E59F0086E30C /* CommonCells */ = {
+			isa = PBXGroup;
+			children = (
+				4FF549122640E6620086E30C /* CustomMenuCardCollectionViewCell.swift */,
+				4FF549132640E6620086E30C /* CustomMenuCardCollectionViewCell.xib */,
+			);
+			path = CommonCells;
+			sourceTree = "<group>";
+		};
+		4FF5491626410F870086E30C /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				4FF5491726410F9D0086E30C /* Detail.storyboard */,
+				4FF5491926410FA70086E30C /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
 		7817E845263EAEB8003AC910 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -506,9 +532,11 @@
 				78C8C1962615C81A00F84CAB /* Resources */,
 				4F5C5F4C26241F8E003D94E2 /* Model */,
 				4F5C5F4A26241F8E003D94E2 /* Protocol */,
-				4F5C5F4B26241F8E003D94E2 /* Util */,
-				4F9DC6D22625178300609CF0 /* Tabs */,
 				785C7AC4263D3C3700A163CC /* Module */,
+				4F5C5F4B26241F8E003D94E2 /* Util */,
+				4FF549112640E59F0086E30C /* CommonCells */,
+				4F9DC6D22625178300609CF0 /* Tabs */,
+				4FF5491626410F870086E30C /* Detail */,
 				4F9DC6C82625168C00609CF0 /* TabCoordinator.swift */,
 				78D7682F262D89900010A07E /* MainTabBarViewController.swift */,
 				78C8C1622615C45600F84CAB /* LaunchScreen.storyboard */,
@@ -723,11 +751,13 @@
 				78644AB0263444D800C16C47 /* NotoSansKR-Regular.otf in Resources */,
 				7817E85B263EAF38003AC910 /* YourPageZeroYourrecipeView.xib in Resources */,
 				78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */,
+				4FF549152640E6620086E30C /* CustomMenuCardCollectionViewCell.xib in Resources */,
 				78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */,
 				78759796263C1BFF00305227 /* BrandSelectTableViewCell.xib in Resources */,
 				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
 				78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */,
 				7817E838263E8C5E003AC910 /* YourPage.storyboard in Resources */,
+				4FF5491826410F9D0086E30C /* Detail.storyboard in Resources */,
 				78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */,
 				78644AAE263444D800C16C47 /* OFL.txt in Resources */,
 				4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */,
@@ -917,11 +947,13 @@
 				4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */,
 				78D76820262D85310010A07E /* SplashView.swift in Sources */,
 				4F9DC6DF2625189600609CF0 /* CustomCoordinator.swift in Sources */,
+				4FF549142640E6620086E30C /* CustomMenuCardCollectionViewCell.swift in Sources */,
 				78B29A1A263ADCB2005B6ECF /* HomeTipViewController.swift in Sources */,
 				4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */,
 				78D76836262D8C1C0010A07E /* BrandModel.swift in Sources */,
 				4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */,
 				78575E59262C4EA00060BB63 /* MVVMProtocol.swift in Sources */,
+				4FF5491A26410FA70086E30C /* DetailViewController.swift in Sources */,
 				78759790263C1BCA00305227 /* BrandSelectViewModel.swift in Sources */,
 				4F9DC6DA2625188D00609CF0 /* HomeCoordinator.swift in Sources */,
 				78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */,

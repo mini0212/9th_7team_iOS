@@ -20,6 +20,8 @@ enum MyRecipickFonts {
     case caption
     case button
     case yourRecipe
+    case cardCustomMenuTitle
+    case detailMenuTitle
 }
 
 extension UIFont {
@@ -48,6 +50,10 @@ extension UIFont {
             tmpFont = UIFont(name: FontKeys.medium, size: 14)
         case .yourRecipe:
             tmpFont = UIFont(name: FontKeys.regular, size: 12)
+        case .cardCustomMenuTitle:
+            tmpFont = UIFont(name: FontKeys.bold, size: 20)
+        case .detailMenuTitle:
+            tmpFont = UIFont(name: FontKeys.bold, size: 24)
         }
         guard let returnFont = tmpFont else { print("font is null") ; return UIFont() }
         return returnFont
