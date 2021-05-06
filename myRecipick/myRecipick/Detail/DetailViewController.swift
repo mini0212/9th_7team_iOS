@@ -46,6 +46,12 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         super.viewDidLoad()
         initUI()
         bindingViewModel(viewModel: self.viewModel)
+        self.coordinator.setClearNavigation()
+        self.coordinator.makeNavigationItems()
+    }
+    
+    deinit {
+        print("- \(type(of: self)) deinit")
     }
     
     // MARK: func
@@ -57,8 +63,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         return detailViewController
     }
     
-    func initUI() {
-        self.backgroundContainerView.backgroundColor = UIColor(asset: Colors.white)
+    func initUI() {self.backgroundContainerView.backgroundColor = .purple // 어떤 색갈이 나올 수 있는지 알아야함
         self.mainContainerView.backgroundColor = .clear
         self.tableView.dataSource = self
         self.topContentsContainerView.backgroundColor = .clear

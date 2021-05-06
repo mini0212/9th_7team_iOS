@@ -68,10 +68,14 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
         self.parentsCoordinator?.detachAllViewFromTabBar?()
     }
     
-    func present(route: Route, animated: Bool, completion: (() -> Void)?) {
+    func present(route: Route, animated: Bool, presentStyle: UIModalPresentationStyle = .pageSheet, completion: (() -> Void)?) {
         switch route {
         case .detail(let data):
-            DetailViewController()
+            let navigationController: UINavigationController = UINavigationController()
+            let vc = DetailViewController.makeViewController(coordinator: DetailViewCoordinator(navigationController: navigationController), viewModel: DetailViewModel())
+            navigationController.setViewControllers([vc], animated: false)
+            navigationController.modalPresentationStyle = presentStyle
+            self.navigationController.present(navigationController, animated: animated, completion: completion)
         }
     }
     

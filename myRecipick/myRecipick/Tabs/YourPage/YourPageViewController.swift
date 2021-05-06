@@ -194,7 +194,7 @@ extension YourPageViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        self.coordinator.present(route: .detail("나중에 데이터가 생기면 데이터를 넣자"), animated: true, presentStyle: .fullScreen, completion: nil)
     }
     
 }

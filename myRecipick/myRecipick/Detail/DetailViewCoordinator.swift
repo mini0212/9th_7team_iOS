@@ -22,10 +22,29 @@ class DetailViewCoordinator: CoordinatorProtocol {
         self.navigationController = navigationController
     }
     
+    deinit {
+        print("- \(type(of: self)) deinit")
+    }
+    
     // MARK: func
+    
+    func makeNavigationItems() {
+        let barButtonItem = UIBarButtonItem(image: UIImage(named: "evaCloseFill")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(closeButtonClicked(_:)))
+        self.navigationController.navigationBar.topItem?.rightBarButtonItem = barButtonItem
+    }
+    
+    func setClearNavigation() {
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().isTranslucent = true
+    }
     
     // MARK: action
     
+    @objc func closeButtonClicked(_ sender: UIButton) {
+        self.navigationController.dismiss(animated: true, completion: nil)
+    }
     
     
     

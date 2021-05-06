@@ -9,5 +9,7 @@
 import UIKit
 
 class DetailService: NSObject {
-
+    deinit {
+        print("- \(type(of: self)) deinit")
+    }
 }

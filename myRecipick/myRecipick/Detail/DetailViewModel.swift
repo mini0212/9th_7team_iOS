@@ -23,6 +23,10 @@ class DetailViewModel: MVVMViewModel {
         
     }
     
+    deinit {
+        print("- \(type(of: self)) deinit")
+    }
+    
     // MARK: func
     
     // MARK: action
