@@ -193,6 +193,10 @@ extension YourPageViewController: UITableViewDataSource, UITableViewDelegate {
         return 98
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
 }
 
 

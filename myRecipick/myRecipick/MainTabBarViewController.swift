@@ -16,7 +16,6 @@ class MainTabBarViewController: UITabBarController {
     // MARK: property
     
     var attachedViewPool: [UIView] = []
-    var bottomPadding: CGFloat = 0
     
     // MARK: lifeCycle
     
@@ -28,7 +27,7 @@ class MainTabBarViewController: UITabBarController {
     // MARK: func
     
     func initUI() {
-        self.bottomPadding = self.view.safeAreaInsets.bottom
+        
     }
     
     func attachSubView(_ attachedView: UIView) {

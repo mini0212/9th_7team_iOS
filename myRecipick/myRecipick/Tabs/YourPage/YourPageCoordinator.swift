@@ -14,6 +14,10 @@ protocol YourPageCoordinatorDelegate: AnyObject {
 
 class YourPageCoordinator: MainTabCoordinatorProtocol {
     
+    enum Route {
+        case detail(String?) // String을 Model Object로 바꿔야할듯? 디테일 하나에 대한 데이터.. API 젭알 나와주세요... ㅠㅠ
+    }
+    
     // MARK: outlet
     
     // MARK: property
@@ -48,6 +52,7 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
         editBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.myRecipickFont(.body1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray], for: .highlighted)
         
         self.navigationController.navigationBar.topItem?.leftBarButtonItem = nil
+        self.navigationController.navigationBar.topItem?.rightBarButtonItems?.removeAll()
         self.navigationController.navigationBar.topItem?.rightBarButtonItem = editBtn
     }
     
@@ -61,6 +66,13 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
     
     func detachAllViewFromTabBar() {
         self.parentsCoordinator?.detachAllViewFromTabBar?()
+    }
+    
+    func present(route: Route, animated: Bool, completion: (() -> Void)?) {
+        switch route {
+        case .detail(let data):
+            DetailViewController()
+        }
     }
     
     // MARK: action

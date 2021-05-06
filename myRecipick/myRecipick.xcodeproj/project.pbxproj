@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64726436F3B0085D629 /* DetailViewModel.swift */; };
+		4F2FD64A26436F470085D629 /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64926436F470085D629 /* DetailService.swift */; };
+		4F2FD64C26436F740085D629 /* DetailViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64B26436F740085D629 /* DetailViewCoordinator.swift */; };
 		4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */; };
 		4F497E4C263B964B00571CEF /* UIButton + BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */; };
 		4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */; };
@@ -132,6 +135,9 @@
 /* Begin PBXFileReference section */
 		332551BBBA3CA22FC8109CE0 /* Pods-myRecipick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipick.debug.xcconfig"; path = "Target Support Files/Pods-myRecipick/Pods-myRecipick.debug.xcconfig"; sourceTree = "<group>"; };
 		46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipickTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F2FD64726436F3B0085D629 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		4F2FD64926436F470085D629 /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
+		4F2FD64B26436F740085D629 /* DetailViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCoordinator.swift; sourceTree = "<group>"; };
 		4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + FadeInOut.swift"; sourceTree = "<group>"; };
 		4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + BackgroundColor.swift"; sourceTree = "<group>"; };
 		4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -398,7 +404,10 @@
 			isa = PBXGroup;
 			children = (
 				4FF5491726410F9D0086E30C /* Detail.storyboard */,
+				4F2FD64B26436F740085D629 /* DetailViewCoordinator.swift */,
 				4FF5491926410FA70086E30C /* DetailViewController.swift */,
+				4F2FD64726436F3B0085D629 /* DetailViewModel.swift */,
+				4F2FD64926436F470085D629 /* DetailService.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -911,6 +920,7 @@
 				4FF5490C2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift in Sources */,
 				78B29A04263AD14B005B6ECF /* String + Localized.swift in Sources */,
 				7875978F263C1BCA00305227 /* BrandSelectService.swift in Sources */,
+				4F2FD64A26436F470085D629 /* DetailService.swift in Sources */,
 				4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */,
 				78D76830262D89900010A07E /* MainTabBarViewController.swift in Sources */,
 				7817E848263EAEC9003AC910 /* YourPageTableViewCell.swift in Sources */,
@@ -936,6 +946,7 @@
 				78C8C1A02615C81A00F84CAB /* LocalizedMap.swift in Sources */,
 				78D7683C262DA1800010A07E /* APIDefine.swift in Sources */,
 				7817E84F263EAEEF003AC910 /* YourPageZeroYourrecipeView.swift in Sources */,
+				4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */,
 				4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */,
 				4F9DC6EE2625205300609CF0 /* CustomViewController.swift in Sources */,
 				7817E83C263E8CE7003AC910 /* YourPageViewModel.swift in Sources */,
@@ -947,6 +958,7 @@
 				4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */,
 				78D76820262D85310010A07E /* SplashView.swift in Sources */,
 				4F9DC6DF2625189600609CF0 /* CustomCoordinator.swift in Sources */,
+				4F2FD64C26436F740085D629 /* DetailViewCoordinator.swift in Sources */,
 				4FF549142640E6620086E30C /* CustomMenuCardCollectionViewCell.swift in Sources */,
 				78B29A1A263ADCB2005B6ECF /* HomeTipViewController.swift in Sources */,
 				4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */,

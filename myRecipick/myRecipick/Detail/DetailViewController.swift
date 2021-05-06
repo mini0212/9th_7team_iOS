@@ -7,8 +7,15 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, CoordinatorMVVMViewController, ClassIdentifiable {
+    
+    typealias SelfType = DetailViewController
+    typealias CoordinatorType = DetailViewCoordinator
+    typealias MVVMViewModelClassType = DetailViewModel
+    
 
     // MARK: outlet
     @IBOutlet weak var backgroundContainerView: UIView!
@@ -25,14 +32,30 @@ class DetailViewController: UIViewController {
     
     // MARK: property
     
+    var coordinator: DetailViewCoordinator!
+    var disposeBag: DisposeBag = DisposeBag()
+    var isViewModelBinded: Bool = false
+    var viewModel: DetailViewModel!
+    func bind(viewModel: MVVMViewModel) {
+        
+    }
+    
     // MARK: lifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
+        bindingViewModel(viewModel: self.viewModel)
     }
     
     // MARK: func
+    
+    static func makeViewController(coordinator: DetailViewCoordinator, viewModel: DetailViewModel) -> DetailViewController {
+        let detailViewController: DetailViewController = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(identifier: DetailViewController.identifier)
+        detailViewController.coordinator = coordinator
+        detailViewController.viewModel = viewModel
+        return detailViewController
+    }
     
     func initUI() {
         self.backgroundContainerView.backgroundColor = UIColor(asset: Colors.white)
@@ -46,7 +69,6 @@ class DetailViewController: UIViewController {
         self.menuTitleLabel.font = UIFont.myRecipickFont(.yourRecipe)
         self.menuTitleLabel.textColor = UIColor(asset: Colors.grayScale33)
         self.ingredientsContainerView.backgroundColor = .clear
-        
     }
     
     // MARK: action
