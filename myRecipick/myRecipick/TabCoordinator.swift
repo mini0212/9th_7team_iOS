@@ -56,8 +56,8 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         homeViewController = HomeViewController.makeViewController(coordinator: self.homeCoordinator, viewModel: HomeViewModel())
         homeViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32Home.image, selectedImage: Images.iconsNavigation32Home.image)
         controllers.append(homeViewController)
-        customViewController = CustomViewController()
-        customViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32Plus.image, selectedImage: Images.iconsNavigation32Plus.image)
+        customViewController = CustomViewController.makeViewController(coordinator: self.customCoordinator)
+        customViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32Plus"), selectedImage: UIImage(named: "iconsNavigation32Plus"))
         controllers.append(customViewController)
         yourPageViewController = YourPageViewController.makeViewController(coordinator: self.yourPageCoordinator, viewModel: YourPageViewModel())
         yourPageViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32History.image, selectedImage: Images.iconsNavigation32History.image)
@@ -142,10 +142,11 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         switch tab {
         case .home:
             self.homeCoordinator.didSelected(tabCoordinator: self)
-        case .custom:
-            self.customCoordinator.didSelected(tabCoordinator: self)
+//        case .custom:
+//            self.customCoordinator.didSelected(tabCoordinator: self)
         case .yourPage:
             self.yourPageCoordinator.didSelected(tabCoordinator: self)
+        default: break
         }
     }
     
@@ -158,10 +159,10 @@ extension TabCoordinator: UITabBarControllerDelegate {
             if self.currentSelectedTab != .home {
                 afterMoveTabActions(tab: .home)
             }
-        case self.customViewController:
-            if self.currentSelectedTab != .custom {
-                afterMoveTabActions(tab: .custom)
-            }
+//        case self.customViewController:
+//            if self.currentSelectedTab != .custom {
+//                afterMoveTabActions(tab: .custom)
+//            }
         case self.yourPageViewController:
             if self.currentSelectedTab != .yourPage {
                 afterMoveTabActions(tab: .yourPage)
@@ -170,4 +171,17 @@ extension TabCoordinator: UITabBarControllerDelegate {
             print("selected unkownTab")
         }
     }
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        switch viewController {
+        case self.customViewController:
+            let vc = CustomViewController.makeViewController(coordinator: self.customCoordinator)
+//            vc.modalPresentationStyle = .fullScreen
+            rootViewController.present(vc, animated: true, completion: nil)
+            return false
+        default: break
+        }
+        return true
+    }
+    
 }

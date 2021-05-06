@@ -27,13 +27,14 @@ class CustomViewController: UIViewController, CoordinatorViewControllerProtocol,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .darkGray
+        
     }
     
     // MARK: func
     
     static func makeViewController(coordinator: CustomCoordinator) -> CustomViewController {
-        return CustomViewController()
+        let vc = CustomViewController(nibName: self.identifier, bundle: nil)
+        return vc
     }
     
     // MARK: action
