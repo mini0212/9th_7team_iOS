@@ -13,7 +13,7 @@ class DetailViewCoordinator: CoordinatorProtocol {
     // MARK: outlet
     
     // MARK: property
-    var navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
     weak var parentsCoordinator: CoordinatorProtocol?
     
     // MARK: lifeCycle
@@ -30,7 +30,7 @@ class DetailViewCoordinator: CoordinatorProtocol {
     
     func makeNavigationItems() {
         let barButtonItem = UIBarButtonItem(image: UIImage(named: "evaCloseFill")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(closeButtonClicked(_:)))
-        self.navigationController.navigationBar.topItem?.rightBarButtonItem = barButtonItem
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButtonItem
     }
     
     func setClearNavigation() {
@@ -43,7 +43,7 @@ class DetailViewCoordinator: CoordinatorProtocol {
     // MARK: action
     
     @objc func closeButtonClicked(_ sender: UIButton) {
-        self.navigationController.dismiss(animated: true, completion: nil)
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     

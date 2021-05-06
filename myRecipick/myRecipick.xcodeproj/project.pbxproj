@@ -266,6 +266,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F2FD64D2643811B0085D629 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		4F5C5F4826241F8E003D94E2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +410,7 @@
 		4FF5491626410F870086E30C /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				4F2FD64D2643811B0085D629 /* SubViews */,
 				4FF5491726410F9D0086E30C /* Detail.storyboard */,
 				4F2FD64B26436F740085D629 /* DetailViewCoordinator.swift */,
 				4FF5491926410FA70086E30C /* DetailViewController.swift */,

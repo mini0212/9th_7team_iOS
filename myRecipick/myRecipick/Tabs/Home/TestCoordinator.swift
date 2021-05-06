@@ -12,7 +12,7 @@ class TestCoordinator: CoordinatorProtocol {
     
     // MARK: property
     
-    var navigationController: UINavigationController
+    var navigationController: UINavigationController?
     weak var parentsCoordinator: CoordinatorProtocol?
     
     // MARK: lifeCycle
@@ -29,7 +29,7 @@ class TestCoordinator: CoordinatorProtocol {
     // MARK: func
     
     func pop(animated: Bool) {
-        self.navigationController.popViewController(animated: animated)
+        self.navigationController?.popViewController(animated: animated)
     }
     
     func moveTo(tab: TabCoordinator.Tab) {

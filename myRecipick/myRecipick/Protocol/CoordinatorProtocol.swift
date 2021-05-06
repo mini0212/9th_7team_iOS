@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol CoordinatorProtocol: AnyObject {
-    var navigationController: UINavigationController { get set }
+    var navigationController: UINavigationController? { get set }
 //    var childCoordinators: [CoordinatorProtocol] { get set } // 샘플에는 이런게 들어있던데 어따쓰는지 몰라서 주석처리...........
     var parentsCoordinator: CoordinatorProtocol? { get set }
     @objc optional func moveTo(tab: TabCoordinator.Tab)
