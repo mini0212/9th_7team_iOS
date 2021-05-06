@@ -15,4 +15,8 @@ extension ClassIdentifiable {
     static var identifier: String {
         return String(describing: self)
     }
+    
+    var identifier: String {
+        return String(describing: type(of: self))
+    }
 }

@@ -16,6 +16,9 @@
 		4F2FD6512643854D0085D629 /* IngredientsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2FD6502643854D0085D629 /* IngredientsView.xib */; };
 		39A4492126426D90001DD3C4 /* ActivityIndicatorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492026426D90001DD3C4 /* ActivityIndicatorable.swift */; };
 		39A4492526443907001DD3C4 /* CustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A4492426443907001DD3C4 /* CustomViewController.xib */; };
+		39A4492726443D70001DD3C4 /* BaseCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492626443D70001DD3C4 /* BaseCustomView.swift */; };
+		39A4492926443F68001DD3C4 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492826443F68001DD3C4 /* CustomNavigationView.swift */; };
+		39A4492B26443F76001DD3C4 /* CustomNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A4492A26443F76001DD3C4 /* CustomNavigationView.xib */; };
 		4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */; };
 		4F497E4C263B964B00571CEF /* UIButton + BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */; };
 		4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */; };
@@ -145,6 +148,9 @@
 		332551BBBA3CA22FC8109CE0 /* Pods-myRecipick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipick.debug.xcconfig"; path = "Target Support Files/Pods-myRecipick/Pods-myRecipick.debug.xcconfig"; sourceTree = "<group>"; };
 		39A4492026426D90001DD3C4 /* ActivityIndicatorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorable.swift; sourceTree = "<group>"; };
 		39A4492426443907001DD3C4 /* CustomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewController.xib; sourceTree = "<group>"; };
+		39A4492626443D70001DD3C4 /* BaseCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomView.swift; sourceTree = "<group>"; };
+		39A4492826443F68001DD3C4 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		39A4492A26443F76001DD3C4 /* CustomNavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNavigationView.xib; sourceTree = "<group>"; };
 		46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipickTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F163C8E2644CE4200739107 /* ImageAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageAssets+Generated.swift"; sourceTree = "<group>"; };
 		4F163C902644CE8700739107 /* ColorAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorAssets+Generated.swift"; sourceTree = "<group>"; };
@@ -631,6 +637,9 @@
 		78D7681E262D85150010A07E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				39A4492626443D70001DD3C4 /* BaseCustomView.swift */,
+				39A4492826443F68001DD3C4 /* CustomNavigationView.swift */,
+				39A4492A26443F76001DD3C4 /* CustomNavigationView.xib */,
 				78D7681F262D85310010A07E /* SplashView.swift */,
 				78D76823262D85390010A07E /* SplashView.xib */,
 				78234D762647B55700B15DC6 /* ReleaseCheckTestView.swift */,
@@ -812,6 +821,7 @@
 				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
 				78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */,
 				7817E838263E8C5E003AC910 /* YourPage.storyboard in Resources */,
+				39A4492B26443F76001DD3C4 /* CustomNavigationView.xib in Resources */,
 				4FF5491826410F9D0086E30C /* Detail.storyboard in Resources */,
 				78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */,
 				78644AAE263444D800C16C47 /* OFL.txt in Resources */,
@@ -982,6 +992,7 @@
 				7875979A263C28C600305227 /* RequestBrandViewController.swift in Sources */,
 				4F9DC6E4262518A000609CF0 /* YourPageCoordinator.swift in Sources */,
 				4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */,
+				39A4492926443F68001DD3C4 /* CustomNavigationView.swift in Sources */,
 				4FF5490C2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift in Sources */,
 				78B29A04263AD14B005B6ECF /* String + Localized.swift in Sources */,
 				7875978F263C1BCA00305227 /* BrandSelectService.swift in Sources */,
@@ -1015,6 +1026,7 @@
 				7817E84F263EAEEF003AC910 /* YourPageZeroYourrecipeView.swift in Sources */,
 				4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */,
 				4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */,
+				39A4492726443D70001DD3C4 /* BaseCustomView.swift in Sources */,
 				4F9DC6EE2625205300609CF0 /* CustomViewController.swift in Sources */,
 				78E9B3A7264BF9B70019854B /* KeyChainKeyDefine.swift in Sources */,
 				7817E83C263E8CE7003AC910 /* YourPageViewModel.swift in Sources */,
