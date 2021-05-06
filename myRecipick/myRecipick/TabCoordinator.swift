@@ -23,7 +23,7 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         return tabController
     }
     
-    var navigationController: UINavigationController = UINavigationController()
+    var navigationController: UINavigationController? = UINavigationController()
     
     let tabController: MainTabBarViewController
     weak var parentsCoordinator: CoordinatorProtocol?
@@ -48,9 +48,9 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         self.tabController = MainTabBarViewController()
-        self.homeCoordinator = HomeCoordinator(navigationController: self.navigationController)
-        self.customCoordinator = CustomCoordinator(navigationController: self.navigationController)
-        self.yourPageCoordinator = YourPageCoordinator(navigationController: self.navigationController)
+        self.homeCoordinator = HomeCoordinator(navigationController: self.navigationController ?? UINavigationController())
+        self.customCoordinator = CustomCoordinator(navigationController: self.navigationController ?? UINavigationController())
+        self.yourPageCoordinator = YourPageCoordinator(navigationController: self.navigationController ?? UINavigationController())
 
         var controllers: [UIViewController] = []
         homeViewController = HomeViewController.makeViewController(coordinator: self.homeCoordinator, viewModel: HomeViewModel())
@@ -67,7 +67,7 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         tabController.tabBar.tintColor = UIColor(asset: Colors.primaryNormal)
         tabController.tabBar.unselectedItemTintColor = UIColor(asset: Colors.black)
         self.tabController.tabBar.isTranslucent = false
-        self.navigationController.viewControllers = [self.tabController]
+        self.navigationController?.viewControllers = [self.tabController]
         super.init()
         setClearNavigation()
         self.tabController.delegate = self
@@ -75,7 +75,7 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         self.customCoordinator.parentsCoordinator = self
         self.yourPageCoordinator.parentsCoordinator = self
         
-        self.targetView = self.navigationController.view
+        self.targetView = self.navigationController?.view
         self.showSplashView(completion: { [weak self] in
             BrandModel.shared.requestBandList(completeHandler: { [weak self] responseJson in
                 if 200..<300 ~= responseJson["status"].intValue {

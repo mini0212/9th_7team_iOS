@@ -14,7 +14,7 @@ class CustomCoordinator: MainTabCoordinatorProtocol {
     
     // MARK: property
     
-    var navigationController: UINavigationController
+    var navigationController: UINavigationController?
     weak var parentsCoordinator: CoordinatorProtocol?
     
     // MARK: lifeCycle

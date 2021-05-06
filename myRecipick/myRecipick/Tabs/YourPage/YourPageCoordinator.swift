@@ -14,11 +14,15 @@ protocol YourPageCoordinatorDelegate: AnyObject {
 
 class YourPageCoordinator: MainTabCoordinatorProtocol {
     
+    enum Route {
+        case detail(String?) // String을 Model Object로 바꿔야할듯? 디테일 하나에 대한 데이터.. API 젭알 나와주세요... ㅠㅠ
+    }
+    
     // MARK: outlet
     
     // MARK: property
     
-    var navigationController: UINavigationController
+    var navigationController: UINavigationController?
     weak var parentsCoordinator: CoordinatorProtocol?
     
     weak var delegate: YourPageCoordinatorDelegate?
@@ -40,15 +44,16 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
     }
     
     func makeNavigationItems() {
-        self.navigationController.navigationBar.topItem?.title = "내 커스텀 기록"
-        self.navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.myRecipickFont(.subTitle1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray]
+        self.navigationController?.navigationBar.topItem?.title = "내 커스텀 기록"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.myRecipickFont(.subTitle1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray]
 
         let editBtn = UIBarButtonItem(title: "편집", style: .plain, target: self, action: #selector(editAction(_:)))
         editBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.myRecipickFont(.body1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray], for: .normal)
         editBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.myRecipickFont(.body1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray], for: .highlighted)
         
-        self.navigationController.navigationBar.topItem?.leftBarButtonItem = nil
-        self.navigationController.navigationBar.topItem?.rightBarButtonItem = editBtn
+        self.navigationController?.navigationBar.topItem?.leftBarButtonItem = nil
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItems?.removeAll()
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = editBtn
     }
     
     func moveTo(tab: TabCoordinator.Tab) {
@@ -61,6 +66,17 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
     
     func detachAllViewFromTabBar() {
         self.parentsCoordinator?.detachAllViewFromTabBar?()
+    }
+    
+    func present(route: Route, animated: Bool, presentStyle: UIModalPresentationStyle = .pageSheet, completion: (() -> Void)?) {
+        switch route {
+        case .detail(let data):
+            let navigationController: UINavigationController = UINavigationController()
+            let vc = DetailViewController.makeViewController(coordinator: DetailViewCoordinator(navigationController: navigationController), viewModel: DetailViewModel())
+            navigationController.setViewControllers([vc], animated: false)
+            navigationController.modalPresentationStyle = presentStyle
+            self.navigationController?.present(navigationController, animated: animated, completion: completion)
+        }
     }
     
     // MARK: action

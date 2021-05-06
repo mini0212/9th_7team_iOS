@@ -89,8 +89,8 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
     }
     
     func makeEditableNavigationItems() {
-        self.coordinator.navigationController.navigationBar.topItem?.title = ""
-        self.coordinator.navigationController.navigationBar.topItem?.leftBarButtonItem = nil
+        self.coordinator.navigationController?.navigationBar.topItem?.title = ""
+        self.coordinator.navigationController?.navigationBar.topItem?.leftBarButtonItem = nil
         refreshEditCheckedCntNaviItem()
     }
     
@@ -103,12 +103,12 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
         checkedCntBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.myRecipickFont(.body1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.primaryNormal) ?? .lightGray], for: .disabled)
         checkedCntBtn.isEnabled = false
         
-        self.coordinator.navigationController.navigationBar.topItem?.rightBarButtonItems = [allUnckeckBtn, checkedCntBtn]
+        self.coordinator.navigationController?.navigationBar.topItem?.rightBarButtonItems = [allUnckeckBtn, checkedCntBtn]
         
         let editCompleteBtn = UIBarButtonItem(title: "완료", style: .plain, target: self, action: #selector(editCompleteAction(_:)))
         editCompleteBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.myRecipickFont(.body1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray], for: .normal)
         editCompleteBtn.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.myRecipickFont(.body1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray], for: .highlighted)
-        self.coordinator.navigationController.navigationBar.topItem?.leftBarButtonItem = editCompleteBtn
+        self.coordinator.navigationController?.navigationBar.topItem?.leftBarButtonItem = editCompleteBtn
     }
     
     func showDeleteBtnContainerView() {
@@ -191,6 +191,10 @@ extension YourPageViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 98
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.coordinator.present(route: .detail("나중에 데이터가 생기면 데이터를 넣자"), animated: true, presentStyle: .fullScreen, completion: nil)
     }
     
 }
