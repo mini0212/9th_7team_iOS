@@ -10,6 +10,8 @@
 		4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64726436F3B0085D629 /* DetailViewModel.swift */; };
 		4F2FD64A26436F470085D629 /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64926436F470085D629 /* DetailService.swift */; };
 		4F2FD64C26436F740085D629 /* DetailViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64B26436F740085D629 /* DetailViewCoordinator.swift */; };
+		4F2FD64F2643852A0085D629 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64E2643852A0085D629 /* IngredientsView.swift */; };
+		4F2FD6512643854D0085D629 /* IngredientsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2FD6502643854D0085D629 /* IngredientsView.xib */; };
 		4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */; };
 		4F497E4C263B964B00571CEF /* UIButton + BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */; };
 		4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */; };
@@ -38,6 +40,7 @@
 		4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73626253A4900609CF0 /* TestViewController.swift */; };
 		4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9DC73726253A4900609CF0 /* TestViewController.xib */; };
 		4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */; };
+		4FDD11C42643B9DE00CA261F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDD11C32643B9DE00CA261F /* TestView.swift */; };
 		4FF5490C2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */; };
 		4FF5490E2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */; };
 		4FF549142640E6620086E30C /* CustomMenuCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF549122640E6620086E30C /* CustomMenuCardCollectionViewCell.swift */; };
@@ -138,6 +141,8 @@
 		4F2FD64726436F3B0085D629 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4F2FD64926436F470085D629 /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
 		4F2FD64B26436F740085D629 /* DetailViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCoordinator.swift; sourceTree = "<group>"; };
+		4F2FD64E2643852A0085D629 /* IngredientsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientsView.swift; sourceTree = "<group>"; };
+		4F2FD6502643854D0085D629 /* IngredientsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IngredientsView.xib; sourceTree = "<group>"; };
 		4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + FadeInOut.swift"; sourceTree = "<group>"; };
 		4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + BackgroundColor.swift"; sourceTree = "<group>"; };
 		4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 		4F9DC73626253A4900609CF0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		4F9DC73726253A4900609CF0 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoordinator.swift; sourceTree = "<group>"; };
+		4FDD11C32643B9DE00CA261F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditYourCustomHistroyConfirmBtnView.swift; sourceTree = "<group>"; };
 		4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditYourCustomHistroyConfirmBtnView.xib; sourceTree = "<group>"; };
 		4FF549122640E6620086E30C /* CustomMenuCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuCardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -269,6 +275,9 @@
 		4F2FD64D2643811B0085D629 /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				4F2FD64E2643852A0085D629 /* IngredientsView.swift */,
+				4F2FD6502643854D0085D629 /* IngredientsView.xib */,
+				4FDD11C32643B9DE00CA261F /* TestView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -764,6 +773,7 @@
 				7866F0AB263025F20037DB4C /* CommonWebViewController.xib in Resources */,
 				4FF5490E2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib in Resources */,
 				78644AAF263444D800C16C47 /* NotoSansKR-Medium.otf in Resources */,
+				4F2FD6512643854D0085D629 /* IngredientsView.xib in Resources */,
 				78D76824262D85390010A07E /* SplashView.xib in Resources */,
 				78644AB0263444D800C16C47 /* NotoSansKR-Regular.otf in Resources */,
 				7817E85B263EAF38003AC910 /* YourPageZeroYourrecipeView.xib in Resources */,
@@ -922,6 +932,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FDD11C42643B9DE00CA261F /* TestView.swift in Sources */,
 				7875979A263C28C600305227 /* RequestBrandViewController.swift in Sources */,
 				4F9DC6E4262518A000609CF0 /* YourPageCoordinator.swift in Sources */,
 				4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */,
@@ -979,6 +990,7 @@
 				78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */,
 				78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */,
 				78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */,
+				4F2FD64F2643852A0085D629 /* IngredientsView.swift in Sources */,
 				7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */,
 				789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */,
 				78B299EA263AB259005B6ECF /* UIFont + MyRecipickFont.swift in Sources */,
