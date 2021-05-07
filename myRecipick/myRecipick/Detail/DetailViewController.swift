@@ -60,8 +60,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         bindingViewModel(viewModel: self.viewModel)
         self.coordinator.setClearNavigation()
         self.coordinator.makeNavigationItems()
-        print("test:\(calculateIngredientsContainerViewHeight())")
-        
     }
     
     deinit {
@@ -77,7 +75,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                 .subscribe(onNext: { [weak self] in
                     guard let self = self else { return }
                     let yOffset = self.tableView.contentOffset.y + self.originTopContentsViewHeightConstraint
-                    print("yOffset:\(yOffset)")
                     self.topContentsViewTopConstraint.constant = -yOffset
                     var percent: CGFloat = yOffset/self.originTopContentsViewHeightConstraint
                     if 0 > percent {
@@ -107,7 +104,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     }
     
     func initUI() {
-        print("initUI")
         self.backgroundContainerView.backgroundColor = .purple // 어떤 색갈이 나올 수 있는지 알아야함
         self.mainContainerView.backgroundColor = .clear
         self.tableView.dataSource = self

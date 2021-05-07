@@ -40,7 +40,6 @@
 		4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73626253A4900609CF0 /* TestViewController.swift */; };
 		4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9DC73726253A4900609CF0 /* TestViewController.xib */; };
 		4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */; };
-		4FDD11C42643B9DE00CA261F /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FDD11C32643B9DE00CA261F /* TestView.swift */; };
 		4FF5490C2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */; };
 		4FF5490E2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */; };
 		4FF549142640E6620086E30C /* CustomMenuCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF549122640E6620086E30C /* CustomMenuCardCollectionViewCell.swift */; };
@@ -172,7 +171,6 @@
 		4F9DC73626253A4900609CF0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		4F9DC73726253A4900609CF0 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
 		4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoordinator.swift; sourceTree = "<group>"; };
-		4FDD11C32643B9DE00CA261F /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditYourCustomHistroyConfirmBtnView.swift; sourceTree = "<group>"; };
 		4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditYourCustomHistroyConfirmBtnView.xib; sourceTree = "<group>"; };
 		4FF549122640E6620086E30C /* CustomMenuCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuCardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -277,7 +275,6 @@
 			children = (
 				4F2FD64E2643852A0085D629 /* IngredientsView.swift */,
 				4F2FD6502643854D0085D629 /* IngredientsView.xib */,
-				4FDD11C32643B9DE00CA261F /* TestView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -932,7 +929,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FDD11C42643B9DE00CA261F /* TestView.swift in Sources */,
 				7875979A263C28C600305227 /* RequestBrandViewController.swift in Sources */,
 				4F9DC6E4262518A000609CF0 /* YourPageCoordinator.swift in Sources */,
 				4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */,

@@ -92,7 +92,7 @@
                                                     <constraint firstItem="Ukv-XU-DbT" firstAttribute="centerY" secondItem="MfA-WW-7vU" secondAttribute="centerY" id="qrW-KS-4DZ"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mac-aj-TSM" customClass="TestView" customModule="myRecipick" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mac-aj-TSM">
                                                 <rect key="frame" x="64" y="355" width="286" height="0.0"/>
                                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                 <constraints>
