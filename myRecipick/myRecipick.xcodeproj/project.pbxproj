@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F163C8F2644CE4200739107 /* ImageAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F163C8E2644CE4200739107 /* ImageAssets+Generated.swift */; };
+		4F163C912644CE8700739107 /* ColorAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F163C902644CE8700739107 /* ColorAssets+Generated.swift */; };
 		4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64726436F3B0085D629 /* DetailViewModel.swift */; };
 		4F2FD64A26436F470085D629 /* DetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64926436F470085D629 /* DetailService.swift */; };
 		4F2FD64C26436F740085D629 /* DetailViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64B26436F740085D629 /* DetailViewCoordinator.swift */; };
@@ -80,7 +82,6 @@
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
 		78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52B32621D632002B7C02 /* Assets.xcassets */; };
 		78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52BB2621D75D002B7C02 /* Colors.xcassets */; };
-		78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AC52C32621D856002B7C02 /* Assets+Generated.swift */; };
 		78B299EA263AB259005B6ECF /* UIFont + MyRecipickFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */; };
 		78B29A04263AD14B005B6ECF /* String + Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B29A03263AD14B005B6ECF /* String + Localized.swift */; };
 		78B29A1A263ADCB2005B6ECF /* HomeTipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B29A19263ADCB2005B6ECF /* HomeTipViewController.swift */; };
@@ -137,6 +138,8 @@
 /* Begin PBXFileReference section */
 		332551BBBA3CA22FC8109CE0 /* Pods-myRecipick.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipick.debug.xcconfig"; path = "Target Support Files/Pods-myRecipick/Pods-myRecipick.debug.xcconfig"; sourceTree = "<group>"; };
 		46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipickTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F163C8E2644CE4200739107 /* ImageAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageAssets+Generated.swift"; sourceTree = "<group>"; };
+		4F163C902644CE8700739107 /* ColorAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorAssets+Generated.swift"; sourceTree = "<group>"; };
 		4F2FD64726436F3B0085D629 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		4F2FD64926436F470085D629 /* DetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailService.swift; sourceTree = "<group>"; };
 		4F2FD64B26436F740085D629 /* DetailViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCoordinator.swift; sourceTree = "<group>"; };
@@ -209,7 +212,6 @@
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78AC52BB2621D75D002B7C02 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		78AC52C32621D856002B7C02 /* Assets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assets+Generated.swift"; sourceTree = "<group>"; };
 		78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + MyRecipickFont.swift"; sourceTree = "<group>"; };
 		78B29A03263AD14B005B6ECF /* String + Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Localized.swift"; sourceTree = "<group>"; };
 		78B29A14263AD9B2005B6ECF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -590,7 +592,8 @@
 		78C8C1962615C81A00F84CAB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				78AC52C32621D856002B7C02 /* Assets+Generated.swift */,
+				4F163C902644CE8700739107 /* ColorAssets+Generated.swift */,
+				4F163C8E2644CE4200739107 /* ImageAssets+Generated.swift */,
 				7866F098263024460037DB4C /* License */,
 				78AC52B22621D632002B7C02 /* Assets */,
 				78644AA8263444D800C16C47 /* Fonts */,
@@ -652,7 +655,8 @@
 				78C8C1522615C45500F84CAB /* Resources */,
 				DAEFEC6A826159255F80AFE6 /* [CP] Embed Pods Frameworks */,
 				78AC52482621CC8A002B7C02 /* Lint Script */,
-				78AC52AE2621D5BB002B7C02 /* SwiftGen Script */,
+				78AC52AE2621D5BB002B7C02 /* SwiftGen Color Script */,
+				4F163C892644CCDF00739107 /* SwiftGen Image Script */,
 				78575E90262C55870060BB63 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -808,6 +812,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4F163C892644CCDF00739107 /* SwiftGen Image Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftGen Image Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen xcassets --param enumName=Images ${TARGETNAME}/Resources/Assets/Assets.xcassets -t swift5 --output \"${TARGETNAME}/Resources/ImageAssets+Generated.swift\"\n";
+		};
 		78AC52482621CC8A002B7C02 /* Lint Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -826,7 +848,7 @@
 			shellPath = /bin/sh;
 			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint\n";
 		};
-		78AC52AE2621D5BB002B7C02 /* SwiftGen Script */ = {
+		78AC52AE2621D5BB002B7C02 /* SwiftGen Color Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -835,14 +857,14 @@
 			);
 			inputPaths = (
 			);
-			name = "SwiftGen Script";
+			name = "SwiftGen Color Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen xcassets --param enumName=Colors ${TARGETNAME}/Resources/Assets/Colors.xcassets -t swift5 --output \"${TARGETNAME}/Resources/Assets+Generated.swift\"\n";
+			shellScript = "${PODS_ROOT}/SwiftGen/bin/swiftgen xcassets --param enumName=Colors ${TARGETNAME}/Resources/Assets/Colors.xcassets -t swift5 --output \"${TARGETNAME}/Resources/ColorAssets+Generated.swift\"\n";
 		};
 		D6D5512E1D4F0D4CE4340D27 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -952,6 +974,7 @@
 				78575E5E262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift in Sources */,
 				78D7681B262D84C00010A07E /* SplashViewProtocol.swift in Sources */,
 				4F5C5F692624212A003D94E2 /* NotificationNameDefine.swift in Sources */,
+				4F163C912644CE8700739107 /* ColorAssets+Generated.swift in Sources */,
 				4F5C5F9D26242C76003D94E2 /* JsonDataProtocol.swift in Sources */,
 				7875978E263C1BCA00305227 /* BrandSelectViewController.swift in Sources */,
 				4F5C5F7226242178003D94E2 /* HttpRequest.swift in Sources */,
@@ -969,6 +992,7 @@
 				4F5C5F6426242112003D94E2 /* UserDefaultKeyDefine.swift in Sources */,
 				7817E840263E8D03003AC910 /* YourPageService.swift in Sources */,
 				4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */,
+				4F163C8F2644CE4200739107 /* ImageAssets+Generated.swift in Sources */,
 				4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */,
 				4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */,
 				78D76820262D85310010A07E /* SplashView.swift in Sources */,
@@ -983,7 +1007,6 @@
 				4FF5491A26410FA70086E30C /* DetailViewController.swift in Sources */,
 				78759790263C1BCA00305227 /* BrandSelectViewModel.swift in Sources */,
 				4F9DC6DA2625188D00609CF0 /* HomeCoordinator.swift in Sources */,
-				78AC52C42621D856002B7C02 /* Assets+Generated.swift in Sources */,
 				78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */,
 				78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */,
 				4F2FD64F2643852A0085D629 /* IngredientsView.swift in Sources */,

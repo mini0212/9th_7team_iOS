@@ -54,9 +54,10 @@ class YourPageTableViewCell: UITableViewCell {
     
     func refreshStateUI() {
         if self.isChecked {
-            self.editBtnImgView.image = UIImage(named: "editCheck")
+            self.editBtnImgView.image = Images.editCheck.image
+            
         } else {
-            self.editBtnImgView.image = UIImage(named: "editNonCheck")
+            self.editBtnImgView.image = Images.editNonCheck.image
         }
         
         if isEditable {

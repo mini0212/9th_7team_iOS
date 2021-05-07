@@ -54,13 +54,13 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
 
         var controllers: [UIViewController] = []
         homeViewController = HomeViewController.makeViewController(coordinator: self.homeCoordinator, viewModel: HomeViewModel())
-        homeViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32Home"), selectedImage: UIImage(named: "iconsNavigation32Home"))
+        homeViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32Home.image, selectedImage: Images.iconsNavigation32Home.image)
         controllers.append(homeViewController)
         customViewController = CustomViewController()
-        customViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32Plus"), selectedImage: UIImage(named: "iconsNavigation32Plus"))
+        customViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32Plus.image, selectedImage: Images.iconsNavigation32Plus.image)
         controllers.append(customViewController)
         yourPageViewController = YourPageViewController.makeViewController(coordinator: self.yourPageCoordinator, viewModel: YourPageViewModel())
-        yourPageViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32History"), selectedImage: UIImage(named: "iconsNavigation32History"))
+        yourPageViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32History.image, selectedImage: Images.iconsNavigation32History.image)
         controllers.append(yourPageViewController)
         tabController.viewControllers = controllers
         tabController.tabBar.tintColor = UIColor(asset: Colors.primaryNormal)
