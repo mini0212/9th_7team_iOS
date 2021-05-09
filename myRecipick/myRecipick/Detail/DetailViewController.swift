@@ -114,7 +114,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.backgroundContainerView.backgroundColor = .purple // 어떤 색갈이 나올 수 있는지 알아야함
         self.mainContainerView.backgroundColor = .clear
         self.tableView.dataSource = self
-        self.topContentsContainerView.backgroundColor = .clear
+        self.topContentsContainerView.backgroundColor = .blue
         self.topContentsContainerView.isUserInteractionEnabled = false
         self.customMenuTitleLabel.font = UIFont.myRecipickFont(.detailMenuTitle)
         self.customMenuTitleLabel.textColor = UIColor(asset: Colors.white)
@@ -144,7 +144,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     
     func getIngredientsViewCnt() -> Int {
         // todo API나오면 개발예정
-        return 13
+        return 18
     }
     
     func calculateIngredientsContainerViewHeight() -> CGFloat {
@@ -160,10 +160,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
             }
             currentLineWidth += (self.ingredientsCellViewWidth + self.ingredientsCellRightInterval)
         }
-        if currentLineWidth != 0 {
-            resultValue += (self.ingredientsCellBottomInterval + self.ingredientsCellViewHeight)
-            self.ingredientsContainerViewTotalLineCnt += 1
-        }
+//        if currentLineWidth != 0 {
+//            resultValue += (self.ingredientsCellBottomInterval + self.ingredientsCellViewHeight)
+//            self.ingredientsContainerViewTotalLineCnt += 1
+//        }
         
         return resultValue
     }
