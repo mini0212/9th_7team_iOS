@@ -23,6 +23,10 @@ class IngredientsView: UIView, NibIdentifiable {
         initUI()
     }
     
+    deinit {
+        print("- \(type(of: self)) deinit")
+    }
+    
     // MARK: func
     
     class func instance() -> IngredientsView? {

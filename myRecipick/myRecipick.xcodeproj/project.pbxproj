@@ -56,6 +56,7 @@
 		7817E849263EAEC9003AC910 /* YourPageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7817E847263EAEC9003AC910 /* YourPageTableViewCell.xib */; };
 		7817E84F263EAEEF003AC910 /* YourPageZeroYourrecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E84E263EAEEF003AC910 /* YourPageZeroYourrecipeView.swift */; };
 		7817E85B263EAF38003AC910 /* YourPageZeroYourrecipeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7817E85A263EAF38003AC910 /* YourPageZeroYourrecipeView.xib */; };
+		78234D772647B55700B15DC6 /* ReleaseCheckTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78234D762647B55700B15DC6 /* ReleaseCheckTestView.swift */; };
 		78575E59262C4EA00060BB63 /* MVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E58262C4EA00060BB63 /* MVVMProtocol.swift */; };
 		78575E5E262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */; };
 		78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78575E7E262C51460060BB63 /* HomeViewModel.swift */; };
@@ -190,6 +191,7 @@
 		7817E847263EAEC9003AC910 /* YourPageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourPageTableViewCell.xib; sourceTree = "<group>"; };
 		7817E84E263EAEEF003AC910 /* YourPageZeroYourrecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPageZeroYourrecipeView.swift; sourceTree = "<group>"; };
 		7817E85A263EAF38003AC910 /* YourPageZeroYourrecipeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YourPageZeroYourrecipeView.xib; sourceTree = "<group>"; };
+		78234D762647B55700B15DC6 /* ReleaseCheckTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleaseCheckTestView.swift; sourceTree = "<group>"; };
 		78575E58262C4EA00060BB63 /* MVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVVMProtocol.swift; sourceTree = "<group>"; };
 		78575E5D262C4F9E0060BB63 /* CoordinatorMVVMProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMVVMProtocol.swift; sourceTree = "<group>"; };
 		78575E7E262C51460060BB63 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -617,6 +619,7 @@
 			children = (
 				78D7681F262D85310010A07E /* SplashView.swift */,
 				78D76823262D85390010A07E /* SplashView.xib */,
+				78234D762647B55700B15DC6 /* ReleaseCheckTestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -999,6 +1002,7 @@
 				4F9DC6DF2625189600609CF0 /* CustomCoordinator.swift in Sources */,
 				4F2FD64C26436F740085D629 /* DetailViewCoordinator.swift in Sources */,
 				4FF549142640E6620086E30C /* CustomMenuCardCollectionViewCell.swift in Sources */,
+				78234D772647B55700B15DC6 /* ReleaseCheckTestView.swift in Sources */,
 				78B29A1A263ADCB2005B6ECF /* HomeTipViewController.swift in Sources */,
 				4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */,
 				78D76836262D8C1C0010A07E /* BrandModel.swift in Sources */,
