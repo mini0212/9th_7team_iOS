@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -92,11 +92,11 @@
                                                     <constraint firstItem="Ukv-XU-DbT" firstAttribute="centerY" secondItem="MfA-WW-7vU" secondAttribute="centerY" id="qrW-KS-4DZ"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mac-aj-TSM" customClass="TestView" customModule="myRecipick" customModuleProvider="target">
-                                                <rect key="frame" x="64" y="355" width="286" height="0.0"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mac-aj-TSM">
+                                                <rect key="frame" x="24" y="355" width="366" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" id="tJA-Fv-GNS"/>
+                                                    <constraint firstAttribute="height" constant="30" id="tJA-Fv-GNS"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -110,9 +110,9 @@
                                             <constraint firstItem="ocX-9o-HyI" firstAttribute="top" secondItem="Opz-3R-zOX" secondAttribute="top" id="fL5-T2-fEl"/>
                                             <constraint firstItem="MfA-WW-7vU" firstAttribute="centerX" secondItem="Opz-3R-zOX" secondAttribute="centerX" id="iTH-a1-N2z"/>
                                             <constraint firstItem="MfA-WW-7vU" firstAttribute="top" secondItem="8tj-PR-D28" secondAttribute="bottom" constant="15" id="iyI-uW-O3m"/>
-                                            <constraint firstItem="mac-aj-TSM" firstAttribute="leading" secondItem="Opz-3R-zOX" secondAttribute="leading" constant="64" id="jnv-dd-2Z6"/>
+                                            <constraint firstItem="mac-aj-TSM" firstAttribute="leading" secondItem="Opz-3R-zOX" secondAttribute="leading" constant="24" id="jnv-dd-2Z6"/>
                                             <constraint firstItem="8tj-PR-D28" firstAttribute="leading" secondItem="Opz-3R-zOX" secondAttribute="leading" id="moj-Oc-U83"/>
-                                            <constraint firstAttribute="trailing" secondItem="mac-aj-TSM" secondAttribute="trailing" constant="64" id="ojo-ou-uck"/>
+                                            <constraint firstAttribute="trailing" secondItem="mac-aj-TSM" secondAttribute="trailing" constant="24" id="ojo-ou-uck"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -145,7 +145,9 @@
                         <outlet property="backgroundContainerView" destination="bwb-dH-vqk" id="AcM-TD-7px"/>
                         <outlet property="customMenuTitleLabel" destination="8tj-PR-D28" id="daZ-r8-gfP"/>
                         <outlet property="ingredientsContainerView" destination="mac-aj-TSM" id="qKS-jT-mIj"/>
-                        <outlet property="ingredientsHeightConstraint" destination="tJA-Fv-GNS" id="9wS-Ka-N3Y"/>
+                        <outlet property="ingredientsContainerViewHeightConstraint" destination="tJA-Fv-GNS" id="rcu-Gp-OIv"/>
+                        <outlet property="ingredientsContainerViewLeadingConstraint" destination="jnv-dd-2Z6" id="gwc-bc-Vq2"/>
+                        <outlet property="ingredientsContainerViewTraillingConstraint" destination="ojo-ou-uck" id="eJA-o7-vQe"/>
                         <outlet property="mainContainerView" destination="5GY-73-J5Z" id="GrW-TD-9uE"/>
                         <outlet property="mainImgContainerViewHeightConstraint" destination="RDD-lx-0m2" id="La4-u7-MPo"/>
                         <outlet property="mainImgContainerViewWidthConstraint" destination="s9n-Lo-pwu" id="BXQ-Z4-MXo"/>

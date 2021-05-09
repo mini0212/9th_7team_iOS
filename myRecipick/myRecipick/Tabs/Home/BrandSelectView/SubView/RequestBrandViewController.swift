@@ -79,7 +79,7 @@ class RequestBrandViewController: UIViewController, ClassIdentifiable {
         titleLabel.text = "브랜드 추가 요청"
         self.navigationItem.titleView = titleLabel
         self.navigationItem.rightBarButtonItem = nil
-        let imgIcon = UIImage(named: "iconsNavigation24ArrowLeft")?.withRenderingMode(.alwaysOriginal)
+        let imgIcon = Images.iconsNavigation24ArrowLeft.image.withRenderingMode(.alwaysOriginal)
         let barButtonItem = UIBarButtonItem(image: imgIcon, style: .plain, target: self, action: #selector(popButtonClicked(_:)))
         self.navigationItem.leftBarButtonItem = barButtonItem
     }

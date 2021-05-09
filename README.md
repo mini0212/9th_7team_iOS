@@ -52,6 +52,7 @@
  - Github
  - Notion
  - Figma
+ - Zeplin
  - Gather Town
   
 ## 스크린샷

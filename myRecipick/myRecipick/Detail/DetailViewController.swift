@@ -32,7 +32,9 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBOutlet weak var menuImgView: UIImageView!
     @IBOutlet weak var menuTitleLabel: UILabel!
     @IBOutlet weak var ingredientsContainerView: UIView!
-    @IBOutlet weak var ingredientsHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var ingredientsContainerViewLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var ingredientsContainerViewTraillingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var ingredientsContainerViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: property
     
@@ -41,7 +43,8 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     var isViewModelBinded: Bool = false
     var viewModel: DetailViewModel!
     
-    let ingredientsContainerViewLeadingTraillingConstraint: CGFloat = 24 // 임의 지정
+    lazy var ingredientsContainerViewMaxWidth: CGFloat = UIScreen.main.bounds.width - self.ingredientsContainerViewLeadingConstraint.constant - self.ingredientsContainerViewTraillingConstraint.constant
+    var ingredientsContainerViewTotalLineCnt: Int = 0
     let ingredientsCellRightInterval: CGFloat = 4
     let ingredientsCellBottomInterval: CGFloat = 4
     let ingredientsCellViewWidth: CGFloat = 70
@@ -60,8 +63,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         bindingViewModel(viewModel: self.viewModel)
         self.coordinator.setClearNavigation()
         self.coordinator.makeNavigationItems()
-        print("test:\(calculateIngredientsContainerViewHeight())")
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     deinit {
@@ -77,7 +82,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                 .subscribe(onNext: { [weak self] in
                     guard let self = self else { return }
                     let yOffset = self.tableView.contentOffset.y + self.originTopContentsViewHeightConstraint
-                    print("yOffset:\(yOffset)")
                     self.topContentsViewTopConstraint.constant = -yOffset
                     var percent: CGFloat = yOffset/self.originTopContentsViewHeightConstraint
                     if 0 > percent {
@@ -107,11 +111,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     }
     
     func initUI() {
-        print("initUI")
         self.backgroundContainerView.backgroundColor = .purple // 어떤 색갈이 나올 수 있는지 알아야함
         self.mainContainerView.backgroundColor = .clear
         self.tableView.dataSource = self
-        self.topContentsContainerView.backgroundColor = .clear
+        self.topContentsContainerView.backgroundColor = .blue
         self.topContentsContainerView.isUserInteractionEnabled = false
         self.customMenuTitleLabel.font = UIFont.myRecipickFont(.detailMenuTitle)
         self.customMenuTitleLabel.textColor = UIColor(asset: Colors.white)
@@ -119,10 +122,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.menuContainerView.layer.cornerRadius = 20
         self.menuTitleLabel.font = UIFont.myRecipickFont(.yourRecipe)
         self.menuTitleLabel.textColor = UIColor(asset: Colors.grayScale33)
-        self.ingredientsContainerView.backgroundColor = .green
+        self.ingredientsContainerView.backgroundColor = .darkGray
         self.ingredientsContainerView.isUserInteractionEnabled = false
-        self.ingredientsHeightConstraint.constant = calculateIngredientsContainerViewHeight()
-        self.topContentsViewHeightConstraint.constant += self.ingredientsHeightConstraint.constant
+        self.ingredientsContainerViewHeightConstraint.constant = calculateIngredientsContainerViewHeight()
+        self.topContentsViewHeightConstraint.constant += self.ingredientsContainerViewHeightConstraint.constant
         self.originTopContentsViewHeightConstraint = self.topContentsViewHeightConstraint.constant
         self.tableView.contentInset = UIEdgeInsets(top: self.topContentsViewHeightConstraint.constant, left: 0, bottom: 0, right: 0)
         self.tableView.contentOffset = CGPoint(x: 0, y: -self.originTopContentsViewHeightConstraint)
@@ -130,31 +133,116 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.originMainImgContainerViewWidthConstraint = self.mainImgContainerViewWidthConstraint.constant
         self.originMainImgContainerViewHeightConstraint = self.mainImgContainerViewHeightConstraint.constant
         
+        // testCode, API가 나오면 옵저빙해서 Set해주자!
+        var mockData: [String] = []
+        for _ in 0..<getIngredientsViewCnt() {
+            mockData.append("temp")
+        }
+        makeIngredientsViews(data: mockData)
+        // testCode, API가 나오면 옵저빙해서 Set해주자!
     }
     
     func getIngredientsViewCnt() -> Int {
         // todo API나오면 개발예정
-        return 50
+        return 18
     }
     
     func calculateIngredientsContainerViewHeight() -> CGFloat {
         var resultValue: CGFloat = self.ingredientsCellViewHeight
-        
-        let screenWidth: CGFloat = UIScreen.main.bounds.width
-        let enableMaxWidth: CGFloat = screenWidth - (self.ingredientsContainerViewLeadingTraillingConstraint * 2)
+        self.ingredientsContainerViewTotalLineCnt = 1
         let totalIngredientsCnt: Int = getIngredientsViewCnt()
-        
         var currentLineWidth: CGFloat = 0
         for _ in 0..<totalIngredientsCnt {
-            if (currentLineWidth + self.ingredientsCellRightInterval + ingredientsCellViewWidth) > enableMaxWidth {
+            if (currentLineWidth + ingredientsCellViewWidth) > self.ingredientsContainerViewMaxWidth {
                 resultValue += (self.ingredientsCellBottomInterval + self.ingredientsCellViewHeight)
+                self.ingredientsContainerViewTotalLineCnt += 1
                 currentLineWidth = 0
-                continue
             }
-            currentLineWidth += (self.ingredientsCellBottomInterval + self.ingredientsCellViewHeight)
+            currentLineWidth += (self.ingredientsCellViewWidth + self.ingredientsCellRightInterval)
         }
+//        if currentLineWidth != 0 {
+//            resultValue += (self.ingredientsCellBottomInterval + self.ingredientsCellViewHeight)
+//            self.ingredientsContainerViewTotalLineCnt += 1
+//        }
         
         return resultValue
+    }
+    
+    // MARK: private func
+    
+    private func makeNewIngredientsView(data: String) -> IngredientsView? { // 모델 생기면 인풋 파람 교체예정
+        let newView: IngredientsView? = IngredientsView.instance()
+        return newView
+    }
+    
+    private func makeIngredientsViews(data: [String]) { // 모델 생기면 인풋 파람 교체예정, viewModel에서 옵저빙하자.
+        self.ingredientsContainerView.removeAllSubview()
+        var numberOfItemInLine: Int = data.count/self.ingredientsContainerViewTotalLineCnt
+        if data.count%self.ingredientsContainerViewTotalLineCnt != 0 {
+            numberOfItemInLine += 1
+        }
+        print("numberOfItemInLine:\(numberOfItemInLine)")
+        var currentYOffset: CGFloat = 0
+        var currentIndex: Int = 0
+        while true {
+            if currentIndex > data.count - 1 {
+                break
+            }
+            let lineContainerView: ReleaseCheckPrintView = ReleaseCheckPrintView()
+            lineContainerView.backgroundColor = .lightGray
+            self.ingredientsContainerView.addSubview(lineContainerView)
+            lineContainerView.snp.makeConstraints { (make) in
+                make.top.equalTo(self.ingredientsContainerView.snp.top).offset(currentYOffset)
+                make.centerX.equalTo(self.ingredientsContainerView.snp.centerX).offset(0)
+                make.height.equalTo(self.ingredientsCellViewHeight)
+            }
+            weak var beforeItemView: IngredientsView?
+            for i in 0..<numberOfItemInLine {
+                if currentIndex > data.count - 1 {
+                    break
+                }
+                let item = data[currentIndex]
+                guard let itemView: IngredientsView = self.makeNewIngredientsView(data: item) else { print("detail Item Index error") ; continue }
+                lineContainerView.addSubview(itemView)
+                if i == 0 && currentIndex == data.count - 1 {
+                    itemView.snp.makeConstraints { (make) in
+                        make.top.equalTo(lineContainerView.snp.top).offset(0)
+                        make.width.equalTo(self.ingredientsCellViewWidth)
+                        make.height.equalTo(self.ingredientsCellViewHeight)
+                        make.leading.equalTo(lineContainerView.snp.leading).offset(0)
+                        make.trailing.equalTo(lineContainerView.snp.trailing).offset(0)
+                    }
+                } else if i == 0 {
+                    itemView.snp.makeConstraints { (make) in
+                        make.top.equalTo(lineContainerView.snp.top).offset(0)
+                        make.leading.equalTo(lineContainerView.snp.leading).offset(0)
+                        make.width.equalTo(self.ingredientsCellViewWidth)
+                        make.height.equalTo(self.ingredientsCellViewHeight)
+                    }
+                    beforeItemView = itemView
+                } else if i == (numberOfItemInLine - 1) || currentIndex == data.count - 1 {
+                    guard let nonNullBeforeItemView = beforeItemView else { print("detail Item Index error") ; continue }
+                    itemView.snp.makeConstraints { (make) in
+                        make.top.equalTo(lineContainerView.snp.top).offset(0)
+                        make.leading.equalTo(nonNullBeforeItemView.snp.trailing).offset(self.ingredientsCellRightInterval)
+                        make.width.equalTo(self.ingredientsCellViewWidth)
+                        make.height.equalTo(self.ingredientsCellViewHeight)
+                        make.trailing.equalTo(lineContainerView.snp.trailing).offset(0)
+                    }
+                    currentYOffset += (self.ingredientsCellViewHeight + self.ingredientsCellBottomInterval)
+                } else {
+                    guard let nonNullBeforeItemView = beforeItemView else { print("detail Item Index error") ; continue }
+                    itemView.snp.makeConstraints { (make) in
+                        make.top.equalTo(lineContainerView.snp.top).offset(0)
+                        make.leading.equalTo(nonNullBeforeItemView.snp.trailing).offset(self.ingredientsCellRightInterval)
+                        make.width.equalTo(self.ingredientsCellViewWidth)
+                        make.height.equalTo(self.ingredientsCellViewHeight)
+                    }
+                    beforeItemView = itemView
+                }
+                currentIndex += 1
+            }
+        }
     }
     
     // MARK: action

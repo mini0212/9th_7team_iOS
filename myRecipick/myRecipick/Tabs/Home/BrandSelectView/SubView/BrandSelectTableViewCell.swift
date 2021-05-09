@@ -25,7 +25,7 @@ class BrandSelectTableViewCell: UITableViewCell, NibIdentifiable, ClassIdentifia
                 return
             }
             self.contentsLabel.text = info.name
-            self.imgView.kf.setImage(with: URL(string: info.logoImgUrl), placeholder: UIImage(named: "sample"), options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+            self.imgView.kf.setImage(with: URL(string: info.logoImgUrl), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
                 self?.imgView.fadeIn(duration: 0.1, completeHandler: nil)
             })
         }

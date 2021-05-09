@@ -29,7 +29,7 @@ class DetailViewCoordinator: CoordinatorProtocol {
     // MARK: func
     
     func makeNavigationItems() {
-        let barButtonItem = UIBarButtonItem(image: UIImage(named: "evaCloseFill")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(closeButtonClicked(_:)))
+        let barButtonItem = UIBarButtonItem(image: Images.evaCloseFill.image.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(closeButtonClicked(_:)))
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButtonItem
     }
     

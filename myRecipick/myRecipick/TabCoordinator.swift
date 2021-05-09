@@ -54,14 +54,13 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
 
         var controllers: [UIViewController] = []
         homeViewController = HomeViewController.makeViewController(coordinator: self.homeCoordinator, viewModel: HomeViewModel())
-        homeViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32Home"), selectedImage: UIImage(named: "iconsNavigation32Home"))
+        homeViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32Home.image, selectedImage: Images.iconsNavigation32Home.image)
         controllers.append(homeViewController)
         customViewController = CustomViewController()
-        customViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32Plus"), selectedImage: UIImage(named: "iconsNavigation32Plus"))
+        customViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32Plus.image, selectedImage: Images.iconsNavigation32Plus.image)
         controllers.append(customViewController)
         yourPageViewController = YourPageViewController.makeViewController(coordinator: self.yourPageCoordinator, viewModel: YourPageViewModel())
-//        yourPageViewController = YourPageViewController()
-        yourPageViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32History"), selectedImage: UIImage(named: "iconsNavigation32History"))
+        yourPageViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32History.image, selectedImage: Images.iconsNavigation32History.image)
         controllers.append(yourPageViewController)
         tabController.viewControllers = controllers
         tabController.tabBar.tintColor = UIColor(asset: Colors.primaryNormal)
@@ -82,19 +81,18 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
                     let items = responseJson["data"]
                     BrandModel.shared.fetchBrandList(items: items)
                 } else {
-                    print("********* todo alert??? ***********")
-                    print("error:\(responseJson["status"].intValue)")
-                    print("********************")
+                    CommonAlertView.shared.showOneBtnAlert(message: "오류\n\(responseJson["status"].intValue)", btnText: "확인", confirmHandler: {
+                        CommonAlertView.shared.hide()
+                    })
                 }
                 self?.hideSplashView(completion: nil)
             }, failureHandler: { [weak self] err in
-                print("********* todo alert??? ***********")
-                print("error:\(err.localizedDescription)")
-                print("********************")
+                CommonAlertView.shared.showOneBtnAlert(message: "오류\n\(err.localizedDescription)", btnText: "확인", confirmHandler: {
+                    CommonAlertView.shared.hide()
+                })
                 self?.hideSplashView(completion: nil)
             })
         })
-        print("end init")
     }
     
     deinit {
