@@ -177,13 +177,15 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     
     private func makeIngredientsViews(data: [String]) { // 모델 생기면 인풋 파람 교체예정, viewModel에서 옵저빙하자.
         self.ingredientsContainerView.removeAllSubview()
-        var numberOfItemInLine: Int = data.count/self.ingredientsContainerViewTotalLineCnt
+        let roundHalfDownNumberOfItemInLine: Int = data.count/self.ingredientsContainerViewTotalLineCnt
+        var isExsistRemainder: Bool = false
         if data.count%self.ingredientsContainerViewTotalLineCnt != 0 {
-            numberOfItemInLine += 1
+            isExsistRemainder = true
         }
-        print("numberOfItemInLine:\(numberOfItemInLine)")
+        print("roundHalfDownNumberOfItemInLine:\(roundHalfDownNumberOfItemInLine)")
         var currentYOffset: CGFloat = 0
         var currentIndex: Int = 0
+        var numberOfItemInLineCorrectionValue: Int = 0
         while true {
             if currentIndex > data.count - 1 {
                 break
@@ -197,6 +199,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                 make.height.equalTo(self.ingredientsCellViewHeight)
             }
             weak var beforeItemView: IngredientsView?
+            if isExsistRemainder {
+                numberOfItemInLineCorrectionValue = numberOfItemInLineCorrectionValue == 0 ? 1 : 0
+            }
+            let numberOfItemInLine = roundHalfDownNumberOfItemInLine + numberOfItemInLineCorrectionValue
             for i in 0..<numberOfItemInLine {
                 if currentIndex > data.count - 1 {
                     break
