@@ -80,18 +80,32 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
                 if 200..<300 ~= responseJson["status"].intValue {
                     let items = responseJson["data"]
                     BrandModel.shared.fetchBrandList(items: items)
+                    if UniqueUUIDManager.shared.uniqueUUID != "" { // todo rx로 브랜드 가져오기 쿼리랑 묶어버리기
+                        self?.hideSplashView(completion: nil)
+                    } else {
+                        UniqueUUIDManager.shared.registAndSaveUUID(completeHandler: {
+                            self?.hideSplashView(completion: nil)
+                        }, failureHandler: { [weak self] errMsg in
+                            CommonAlertView.shared.showOneBtnAlert(message: "오류\n\(errMsg)", btnText: "확인", confirmHandler: {
+                                CommonAlertView.shared.hide()
+                                self?.hideSplashView(completion: nil)
+                            })
+                        })
+                    }
                 } else {
                     CommonAlertView.shared.showOneBtnAlert(message: "오류\n\(responseJson["status"].intValue)", btnText: "확인", confirmHandler: {
                         CommonAlertView.shared.hide()
+                        self?.hideSplashView(completion: nil)
                     })
                 }
-                self?.hideSplashView(completion: nil)
+//                self?.hideSplashView(completion: nil)
             }, failureHandler: { [weak self] err in
                 CommonAlertView.shared.showOneBtnAlert(message: "오류\n\(err.localizedDescription)", btnText: "확인", confirmHandler: {
                     CommonAlertView.shared.hide()
                 })
                 self?.hideSplashView(completion: nil)
             })
+            UniqueUUIDManager.shared.registAndSaveUUID(completeHandler: {}, failureHandler: {err in})
         })
     }
     

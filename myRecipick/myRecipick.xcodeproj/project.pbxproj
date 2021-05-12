@@ -102,6 +102,8 @@
 		78D76836262D8C1C0010A07E /* BrandModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D76835262D8C1C0010A07E /* BrandModel.swift */; };
 		78D7683C262DA1800010A07E /* APIDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D7683B262DA1800010A07E /* APIDefine.swift */; };
 		78E9B39E264BF6000019854B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 78E9B39D264BF6000019854B /* KeychainAccess */; };
+		78E9B3A3264BF7D40019854B /* UniqueUUIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B3A2264BF7D40019854B /* UniqueUUIDManager.swift */; };
+		78E9B3A7264BF9B70019854B /* KeyChainKeyDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B3A6264BF9B70019854B /* KeyChainKeyDefine.swift */; };
 		8B6D5309E5A7D7825A2D9A29 /* Pods_myRecipickTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */; };
 		9AF401E67CA0C0BC12ADA2E0 /* Pods_myRecipick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7653C90059012835E948493D /* Pods_myRecipick.framework */; };
 /* End PBXBuildFile section */
@@ -239,6 +241,8 @@
 		78D7682F262D89900010A07E /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		78D76835262D8C1C0010A07E /* BrandModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandModel.swift; sourceTree = "<group>"; };
 		78D7683B262DA1800010A07E /* APIDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDefine.swift; sourceTree = "<group>"; };
+		78E9B3A2264BF7D40019854B /* UniqueUUIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueUUIDManager.swift; sourceTree = "<group>"; };
+		78E9B3A6264BF9B70019854B /* KeyChainKeyDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainKeyDefine.swift; sourceTree = "<group>"; };
 		8AF64932C82596AAE6A9C39B /* Pods-myRecipick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipick.release.xcconfig"; path = "Target Support Files/Pods-myRecipick/Pods-myRecipick.release.xcconfig"; sourceTree = "<group>"; };
 		BDDB51F3B8AE16956C504572 /* Pods-myRecipickTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.debug.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -308,6 +312,7 @@
 				4F5C5F6326242112003D94E2 /* UserDefaultKeyDefine.swift */,
 				4F5C5F682624212A003D94E2 /* NotificationNameDefine.swift */,
 				78D7683B262DA1800010A07E /* APIDefine.swift */,
+				78E9B3A6264BF9B70019854B /* KeyChainKeyDefine.swift */,
 			);
 			path = Define;
 			sourceTree = "<group>";
@@ -559,6 +564,7 @@
 				4F5C5F4D26241F8E003D94E2 /* Networking */,
 				4F5C5F4E26241FC8003D94E2 /* Supporting Files */,
 				78C8C1962615C81A00F84CAB /* Resources */,
+				78E9B3A1264BF7950019854B /* Manager */,
 				4F5C5F4C26241F8E003D94E2 /* Model */,
 				4F5C5F4A26241F8E003D94E2 /* Protocol */,
 				785C7AC4263D3C3700A163CC /* Module */,
@@ -624,6 +630,14 @@
 				78234D762647B55700B15DC6 /* ReleaseCheckTestView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		78E9B3A1264BF7950019854B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				78E9B3A2264BF7D40019854B /* UniqueUUIDManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		7F0E28CFBE75F06CB56817D9 /* Frameworks */ = {
@@ -985,6 +999,7 @@
 				4F5C5F9D26242C76003D94E2 /* JsonDataProtocol.swift in Sources */,
 				7875978E263C1BCA00305227 /* BrandSelectViewController.swift in Sources */,
 				4F5C5F7226242178003D94E2 /* HttpRequest.swift in Sources */,
+				78E9B3A3264BF7D40019854B /* UniqueUUIDManager.swift in Sources */,
 				4F497E4C263B964B00571CEF /* UIButton + BackgroundColor.swift in Sources */,
 				4F5C5F7026242178003D94E2 /* JSONConverter.swift in Sources */,
 				4F5C5F5F2624207D003D94E2 /* CommonDefine.swift in Sources */,
@@ -994,6 +1009,7 @@
 				4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */,
 				4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */,
 				4F9DC6EE2625205300609CF0 /* CustomViewController.swift in Sources */,
+				78E9B3A7264BF9B70019854B /* KeyChainKeyDefine.swift in Sources */,
 				7817E83C263E8CE7003AC910 /* YourPageViewModel.swift in Sources */,
 				785C7AC6263D3CD400A163CC /* CommonAlertView.swift in Sources */,
 				4F5C5F6426242112003D94E2 /* UserDefaultKeyDefine.swift in Sources */,

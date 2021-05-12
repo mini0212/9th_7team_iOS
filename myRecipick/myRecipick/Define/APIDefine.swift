@@ -10,4 +10,5 @@ class APIDefine {
     static let BASE_URL: String = "https://api.myrecipick.com/v1/"
     
     static let GET_BRANDS: String = "brands"
+    static let REGIST_USER: String = "users"
 }
