@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomViewController" customModule="myRecipick" customModuleProvider="target">
             <connections>
+                <outlet property="navigationView" destination="HqD-De-RPl" id="9vK-yK-apM"/>
                 <outlet property="view" destination="iN0-l3-epB" id="ghe-Tq-ORk"/>
             </connections>
         </placeholder>
