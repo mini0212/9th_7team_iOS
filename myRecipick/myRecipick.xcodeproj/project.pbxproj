@@ -20,6 +20,7 @@
 		39D9D5A0264EB8BC000434B7 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D9D59E264EB8BC000434B7 /* MenuCollectionViewCell.xib */; };
 		39D9D5A5264EBB8C000434B7 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9D5A3264EBB8C000434B7 /* MenuListViewController.swift */; };
 		39D9D5A6264EBB8C000434B7 /* MenuListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D9D5A4264EBB8C000434B7 /* MenuListViewController.xib */; };
+		39D9D5A8264EC521000434B7 /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9D5A7264EC521000434B7 /* MenuModel.swift */; };
 		4F163C8F2644CE4200739107 /* ImageAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F163C8E2644CE4200739107 /* ImageAssets+Generated.swift */; };
 		4F163C912644CE8700739107 /* ColorAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F163C902644CE8700739107 /* ColorAssets+Generated.swift */; };
 		4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64726436F3B0085D629 /* DetailViewModel.swift */; };
@@ -167,6 +168,7 @@
 		39D9D59E264EB8BC000434B7 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		39D9D5A3264EBB8C000434B7 /* MenuListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
 		39D9D5A4264EBB8C000434B7 /* MenuListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuListViewController.xib; sourceTree = "<group>"; };
+		39D9D5A7264EC521000434B7 /* MenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
 		46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipickTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F163C8E2644CE4200739107 /* ImageAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageAssets+Generated.swift"; sourceTree = "<group>"; };
 		4F163C902644CE8700739107 /* ColorAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorAssets+Generated.swift"; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			children = (
 				78BE67F326245F5700FDDFD8 /* APIError.swift */,
 				78D76835262D8C1C0010A07E /* BrandModel.swift */,
+				39D9D5A7264EC521000434B7 /* MenuModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1084,6 +1087,7 @@
 				7817E840263E8D03003AC910 /* YourPageService.swift in Sources */,
 				4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */,
 				4F163C8F2644CE4200739107 /* ImageAssets+Generated.swift in Sources */,
+				39D9D5A8264EC521000434B7 /* MenuModel.swift in Sources */,
 				4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */,
 				4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */,
 				78D76820262D85310010A07E /* SplashView.swift in Sources */,
