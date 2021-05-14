@@ -16,24 +16,9 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="303" height="373"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hiq-Om-ULd">
-                        <rect key="frame" x="130.5" y="176" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <constraints>
-                <constraint firstItem="Hiq-Om-ULd" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="UAe-ic-IVL"/>
-                <constraint firstItem="Hiq-Om-ULd" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="hWQ-kV-hkh"/>
-            </constraints>
             <size key="customSize" width="303" height="373"/>
-            <connections>
-                <outlet property="lbael" destination="Hiq-Om-ULd" id="3RY-qt-fZ8"/>
-            </connections>
             <point key="canvasLocation" x="213.768115942029" y="205.91517857142856"/>
         </collectionViewCell>
     </objects>

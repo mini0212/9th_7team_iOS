@@ -9,15 +9,28 @@
 import UIKit
 
 class MenuCollectionViewCell: UICollectionViewCell, ClassIdentifiable {
-
-    @IBOutlet weak var lbael: UILabel!
+    
+    let vc: MenuListViewController = {
+        let vc = MenuListViewController(nibName: MenuListViewController.identifier, bundle: nil)
+        return vc
+    }()
+    
+    private var menuList: [String] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        initMenuListViewController()
     }
     
-    func label(index: Int) {
-        lbael.text = "\(index + 1) 번째"
+    private func initMenuListViewController() {
+        contentView.addSubview(vc.view)
+        
+    }
+    
+    func menuList(list: [String]?) {
+        guard let list = list else { return }
+        menuList = list
+        print(list)
     }
 
 }

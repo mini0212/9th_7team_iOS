@@ -18,6 +18,8 @@
 		39D9D59C264EAA09000434B7 /* MenuCategoryBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D9D59B264EAA09000434B7 /* MenuCategoryBar.xib */; };
 		39D9D59F264EB8BC000434B7 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9D59D264EB8BC000434B7 /* MenuCollectionViewCell.swift */; };
 		39D9D5A0264EB8BC000434B7 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D9D59E264EB8BC000434B7 /* MenuCollectionViewCell.xib */; };
+		39D9D5A5264EBB8C000434B7 /* MenuListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9D5A3264EBB8C000434B7 /* MenuListViewController.swift */; };
+		39D9D5A6264EBB8C000434B7 /* MenuListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D9D5A4264EBB8C000434B7 /* MenuListViewController.xib */; };
 		4F163C8F2644CE4200739107 /* ImageAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F163C8E2644CE4200739107 /* ImageAssets+Generated.swift */; };
 		4F163C912644CE8700739107 /* ColorAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F163C902644CE8700739107 /* ColorAssets+Generated.swift */; };
 		4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64726436F3B0085D629 /* DetailViewModel.swift */; };
@@ -163,6 +165,8 @@
 		39D9D59B264EAA09000434B7 /* MenuCategoryBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCategoryBar.xib; sourceTree = "<group>"; };
 		39D9D59D264EB8BC000434B7 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		39D9D59E264EB8BC000434B7 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		39D9D5A3264EBB8C000434B7 /* MenuListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuListViewController.swift; sourceTree = "<group>"; };
+		39D9D5A4264EBB8C000434B7 /* MenuListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuListViewController.xib; sourceTree = "<group>"; };
 		46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipickTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F163C8E2644CE4200739107 /* ImageAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageAssets+Generated.swift"; sourceTree = "<group>"; };
 		4F163C902644CE8700739107 /* ColorAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorAssets+Generated.swift"; sourceTree = "<group>"; };
@@ -443,6 +447,8 @@
 				4F9DC6DE2625189600609CF0 /* CustomCoordinator.swift */,
 				4F9DC6ED2625205300609CF0 /* CustomViewController.swift */,
 				39A4492426443907001DD3C4 /* CustomViewController.xib */,
+				39D9D5A3264EBB8C000434B7 /* MenuListViewController.swift */,
+				39D9D5A4264EBB8C000434B7 /* MenuListViewController.xib */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -862,6 +868,7 @@
 				78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */,
 				78644AAE263444D800C16C47 /* OFL.txt in Resources */,
 				4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */,
+				39D9D5A6264EBB8C000434B7 /* MenuListViewController.xib in Resources */,
 				7866F09A263024460037DB4C /* license.html in Resources */,
 				78644AAD263444D800C16C47 /* NotoSansKR-Bold.otf in Resources */,
 				39A4492526443907001DD3C4 /* CustomViewController.xib in Resources */,
@@ -1065,6 +1072,7 @@
 				4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */,
 				4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */,
 				39D9D599264EA7F6000434B7 /* MenuCategoryCollectionViewCell.swift in Sources */,
+				39D9D5A5264EBB8C000434B7 /* MenuListViewController.swift in Sources */,
 				39A4492726443D70001DD3C4 /* BaseCustomView.swift in Sources */,
 				39D9D596264E682E000434B7 /* MenuCategoryBar.swift in Sources */,
 				4F9DC6EE2625205300609CF0 /* CustomViewController.swift in Sources */,

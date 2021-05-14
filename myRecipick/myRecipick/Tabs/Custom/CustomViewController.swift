@@ -28,7 +28,7 @@ class CustomViewController: UIViewController, CoordinatorViewControllerProtocol,
     
     var coordinator: CustomCoordinator!
     
-    private var menuList: [String] = [] {
+    private var menuList: [String: Any] = [:] {
         didSet {
             menuCollectionView.reloadData()
         }
@@ -58,8 +58,11 @@ class CustomViewController: UIViewController, CoordinatorViewControllerProtocol,
     
     private func initCategoryView() {
         menuCategoryView.delegate = self
-        menuList = ["샌드위치", "찹샐러드"]
-        menuCategoryView.menuList = menuList
+        menuList = [
+            "샌드위치": ["로스트 치킨 베이컨", "로스트 치킨 아보카도", "로스트 치킨", "스테이크 & 치즈"],
+            "찹샐러드": ["로스트 치킨", "스테이크 & 치즈", "터키베이컨 아보카도", "로티세리 치킨"]
+        ]
+        menuCategoryView.menuList = menuList.keys.sorted()
     }
     
     private func initCollectionView() {
@@ -89,7 +92,7 @@ extension CustomViewController: MenuCategoryBarDelegate {
 extension CustomViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCollectionViewCell.identifier, for: indexPath) as? MenuCollectionViewCell else { return .init() }
-        cell.label(index: indexPath.item)
+        cell.menuList(list: Array(menuList)[indexPath.item].value as? [String])
         return cell
     }
     
