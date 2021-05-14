@@ -16,7 +16,6 @@ class CustomViewController: UIViewController, CoordinatorViewControllerProtocol,
         return vc
     }
     
-    
     typealias SelfType = CustomViewController
     typealias CoordinatorType = CustomCoordinator
 
@@ -48,6 +47,8 @@ class CustomViewController: UIViewController, CoordinatorViewControllerProtocol,
         initCollectionView()
     }
     
+    // MARK: func
+    
     private func initNavigationView() {
         navigationController?.setNavigationBarHidden(true, animated: false)
         navigationView.setTitle("메뉴선택")
@@ -62,39 +63,59 @@ class CustomViewController: UIViewController, CoordinatorViewControllerProtocol,
     }
     
     private func initCollectionView() {
-        
+        menuCollectionView.register(UINib(nibName: MenuCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: MenuCollectionViewCell.identifier)
     }
     
-    // MARK: func
-    
-    
+}
 
-    // MARK: action
+// MARK: action
 
+extension CustomViewController {
     @objc
     private func dismiss(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
 }
 
-
 extension CustomViewController: MenuCategoryBarDelegate {
     func tapTabbar(scrollTo index: Int) {
         let indexPath = IndexPath(row: index, section: 0)
-        print(indexPath)
+        menuCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
     }
-    
-    
 }
 
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
-extension CustomViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+// MARK: - UICollectionViewDataSource
+extension CustomViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return .init()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MenuCollectionViewCell.identifier, for: indexPath) as? MenuCollectionViewCell else { return .init() }
+        cell.label(index: indexPath.item)
+        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return menuList.count
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension CustomViewController: UICollectionViewDelegate {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let itemAt = Int(targetContentOffset.pointee.x / self.view.frame.width)
+        let indexPath = IndexPath(item: itemAt, section: 0)
+        menuCategoryView.moveIndicator(in: indexPath.item)
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension CustomViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: menuCollectionView.frame.width, height: menuCollectionView.frame.height)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }
