@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39A4492126426D90001DD3C4 /* ActivityIndicatorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492026426D90001DD3C4 /* ActivityIndicatorable.swift */; };
+		39A4492526443907001DD3C4 /* CustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A4492426443907001DD3C4 /* CustomViewController.xib */; };
+		39A4492726443D70001DD3C4 /* BaseCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492626443D70001DD3C4 /* BaseCustomView.swift */; };
+		39A4492926443F68001DD3C4 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492826443F68001DD3C4 /* CustomNavigationView.swift */; };
+		39A4492B26443F76001DD3C4 /* CustomNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A4492A26443F76001DD3C4 /* CustomNavigationView.xib */; };
+		39D9D596264E682E000434B7 /* MenuCategoryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9D595264E682E000434B7 /* MenuCategoryBar.swift */; };
+		39D9D599264EA7F6000434B7 /* MenuCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D9D597264EA7F6000434B7 /* MenuCategoryCollectionViewCell.swift */; };
+		39D9D59A264EA7F6000434B7 /* MenuCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D9D598264EA7F6000434B7 /* MenuCategoryCollectionViewCell.xib */; };
+		39D9D59C264EAA09000434B7 /* MenuCategoryBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39D9D59B264EAA09000434B7 /* MenuCategoryBar.xib */; };
 		4F163C8F2644CE4200739107 /* ImageAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F163C8E2644CE4200739107 /* ImageAssets+Generated.swift */; };
 		4F163C912644CE8700739107 /* ColorAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F163C902644CE8700739107 /* ColorAssets+Generated.swift */; };
 		4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64726436F3B0085D629 /* DetailViewModel.swift */; };
@@ -14,11 +23,6 @@
 		4F2FD64C26436F740085D629 /* DetailViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64B26436F740085D629 /* DetailViewCoordinator.swift */; };
 		4F2FD64F2643852A0085D629 /* IngredientsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2FD64E2643852A0085D629 /* IngredientsView.swift */; };
 		4F2FD6512643854D0085D629 /* IngredientsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F2FD6502643854D0085D629 /* IngredientsView.xib */; };
-		39A4492126426D90001DD3C4 /* ActivityIndicatorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492026426D90001DD3C4 /* ActivityIndicatorable.swift */; };
-		39A4492526443907001DD3C4 /* CustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A4492426443907001DD3C4 /* CustomViewController.xib */; };
-		39A4492726443D70001DD3C4 /* BaseCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492626443D70001DD3C4 /* BaseCustomView.swift */; };
-		39A4492926443F68001DD3C4 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492826443F68001DD3C4 /* CustomNavigationView.swift */; };
-		39A4492B26443F76001DD3C4 /* CustomNavigationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A4492A26443F76001DD3C4 /* CustomNavigationView.xib */; };
 		4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */; };
 		4F497E4C263B964B00571CEF /* UIButton + BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */; };
 		4F5C5F5126241FC8003D94E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F5C5F4F26241FC8003D94E2 /* AppDelegate.swift */; };
@@ -151,6 +155,10 @@
 		39A4492626443D70001DD3C4 /* BaseCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomView.swift; sourceTree = "<group>"; };
 		39A4492826443F68001DD3C4 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		39A4492A26443F76001DD3C4 /* CustomNavigationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNavigationView.xib; sourceTree = "<group>"; };
+		39D9D595264E682E000434B7 /* MenuCategoryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryBar.swift; sourceTree = "<group>"; };
+		39D9D597264EA7F6000434B7 /* MenuCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		39D9D598264EA7F6000434B7 /* MenuCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		39D9D59B264EAA09000434B7 /* MenuCategoryBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCategoryBar.xib; sourceTree = "<group>"; };
 		46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipickTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F163C8E2644CE4200739107 /* ImageAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImageAssets+Generated.swift"; sourceTree = "<group>"; };
 		4F163C902644CE8700739107 /* ColorAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ColorAssets+Generated.swift"; sourceTree = "<group>"; };
@@ -638,6 +646,10 @@
 			isa = PBXGroup;
 			children = (
 				39A4492626443D70001DD3C4 /* BaseCustomView.swift */,
+				39D9D595264E682E000434B7 /* MenuCategoryBar.swift */,
+				39D9D59B264EAA09000434B7 /* MenuCategoryBar.xib */,
+				39D9D597264EA7F6000434B7 /* MenuCategoryCollectionViewCell.swift */,
+				39D9D598264EA7F6000434B7 /* MenuCategoryCollectionViewCell.xib */,
 				39A4492826443F68001DD3C4 /* CustomNavigationView.swift */,
 				39A4492A26443F76001DD3C4 /* CustomNavigationView.xib */,
 				78D7681F262D85310010A07E /* SplashView.swift */,
@@ -808,6 +820,7 @@
 				4F9DC72F2625336D00609CF0 /* Home.storyboard in Resources */,
 				7817E849263EAEC9003AC910 /* YourPageTableViewCell.xib in Resources */,
 				7866F0AB263025F20037DB4C /* CommonWebViewController.xib in Resources */,
+				39D9D59A264EA7F6000434B7 /* MenuCategoryCollectionViewCell.xib in Resources */,
 				4FF5490E2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib in Resources */,
 				78644AAF263444D800C16C47 /* NotoSansKR-Medium.otf in Resources */,
 				4F2FD6512643854D0085D629 /* IngredientsView.xib in Resources */,
@@ -829,6 +842,7 @@
 				7866F09A263024460037DB4C /* license.html in Resources */,
 				78644AAD263444D800C16C47 /* NotoSansKR-Bold.otf in Resources */,
 				39A4492526443907001DD3C4 /* CustomViewController.xib in Resources */,
+				39D9D59C264EAA09000434B7 /* MenuCategoryBar.xib in Resources */,
 				78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1026,7 +1040,9 @@
 				7817E84F263EAEEF003AC910 /* YourPageZeroYourrecipeView.swift in Sources */,
 				4F2FD64826436F3B0085D629 /* DetailViewModel.swift in Sources */,
 				4F497E4A263B94A200571CEF /* UIView + FadeInOut.swift in Sources */,
+				39D9D599264EA7F6000434B7 /* MenuCategoryCollectionViewCell.swift in Sources */,
 				39A4492726443D70001DD3C4 /* BaseCustomView.swift in Sources */,
+				39D9D596264E682E000434B7 /* MenuCategoryBar.swift in Sources */,
 				4F9DC6EE2625205300609CF0 /* CustomViewController.swift in Sources */,
 				78E9B3A7264BF9B70019854B /* KeyChainKeyDefine.swift in Sources */,
 				7817E83C263E8CE7003AC910 /* YourPageViewModel.swift in Sources */,

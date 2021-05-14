@@ -22,10 +22,18 @@ class CustomViewController: UIViewController, CoordinatorViewControllerProtocol,
 
     // MARK: outlet
     @IBOutlet weak var navigationView: CustomNavigationView!
+    @IBOutlet weak var menuCategoryView: MenuCategoryBar!
+    @IBOutlet weak var menuCollectionView: UICollectionView!
     
     // MARK: property
     
     var coordinator: CustomCoordinator!
+    
+    private var menuList: [String] = [] {
+        didSet {
+            menuCollectionView.reloadData()
+        }
+    }
     
     // MARK: lifeCycle
     
@@ -36,6 +44,8 @@ class CustomViewController: UIViewController, CoordinatorViewControllerProtocol,
     override func viewDidLoad() {
         super.viewDidLoad()
         initNavigationView()
+        initCategoryView()
+        initCollectionView()
     }
     
     private func initNavigationView() {
@@ -43,6 +53,16 @@ class CustomViewController: UIViewController, CoordinatorViewControllerProtocol,
         navigationView.setTitle("메뉴선택")
         navigationView.setLeftButtonText("닫기")
         navigationView.leftButton.addTarget(self, action: #selector(dismiss(_:)), for: .touchUpInside)
+    }
+    
+    private func initCategoryView() {
+        menuCategoryView.delegate = self
+        menuList = ["샌드위치", "찹샐러드"]
+        menuCategoryView.menuList = menuList
+    }
+    
+    private func initCollectionView() {
+        
     }
     
     // MARK: func
@@ -54,5 +74,27 @@ class CustomViewController: UIViewController, CoordinatorViewControllerProtocol,
     @objc
     private func dismiss(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+
+extension CustomViewController: MenuCategoryBarDelegate {
+    func tapTabbar(scrollTo index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        print(indexPath)
+    }
+    
+    
+}
+
+
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
+extension CustomViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return .init()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return menuList.count
     }
 }
