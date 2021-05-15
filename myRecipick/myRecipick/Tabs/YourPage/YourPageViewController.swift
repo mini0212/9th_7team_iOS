@@ -50,13 +50,34 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
         bindingViewModel(viewModel: self.viewModel)
         self.coordinator.delegate = self
         self.tableView.register(UINib(nibName: "YourPageTableViewCell", bundle: nil), forCellReuseIdentifier: "YourPageTableViewCell")
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        self.tableView
+            .rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
     }
     
     func bind(viewModel: MVVMViewModel) {
         if type(of: viewModel) == YourPageViewModel.self {
             guard let vm: YourPageViewModel = (viewModel as? YourPageViewModel) else { return }
+            vm.outputs.customMenus
+                .observe(on: MainScheduler.instance)
+                .bind(to: self.tableView.rx.items) { tableView, row, item in
+                    guard let cell: YourPageTableViewCell = tableView.dequeueReusableCell(withIdentifier: "YourPageTableViewCell") as? YourPageTableViewCell else { return UITableViewCell() }
+                    cell.infoData = item
+                    cell.row = row
+                    cell.isEditable = self.isEditable
+                    cell.delegate = self
+                    cell.selectionStyle = .none
+                    if self.checkedIndexRowsSet.contains(row) {
+                        cell.isChecked = true
+                    } else {
+                        cell.isChecked = false
+                    }
+                    cell.refreshStateUI()
+                    
+                    return cell
+                }
+                .disposed(by: self.disposeBag)
         }
     }
     
@@ -145,14 +166,20 @@ extension YourPageViewController: YourPageCoordinatorDelegate {
 }
 
 extension YourPageViewController: YourPageTableViewCellDelegate {
-    func isClicked(_ cell: UITableViewCell, indexPath: IndexPath) {
-        if self.checkedIndexRowsSet.contains(indexPath.row) {
-            self.checkedIndexRowsSet.remove(indexPath.row)
+    func isClicked(_ cell: UITableViewCell, indexPathRow: Int) {
+        if self.checkedIndexRowsSet.contains(indexPathRow) {
+            self.checkedIndexRowsSet.remove(indexPathRow)
         } else {
-            self.checkedIndexRowsSet.insert(indexPath.row)
+            self.checkedIndexRowsSet.insert(indexPathRow)
         }
-        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+        self.tableView.reloadRows(at: [IndexPath(row: indexPathRow, section: 0)], with: .automatic)
         refreshEditCheckedCntNaviItem()
+    }
+    
+    func cellClicked(indexPathRow: Int, data: CustomMenuObjModel) {
+        if !self.isEditable {
+            self.coordinator.present(route: .detail("나중에 데이터가 생기면 데이터를 넣자"), animated: true, presentStyle: .fullScreen, completion: nil)
+        }
     }
 }
 
@@ -162,41 +189,12 @@ extension YourPageViewController: EditYourCustomHistroyConfirmBtnViewDelegate {
     }
 }
 
-extension YourPageViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: YourPageTableViewCell = tableView.dequeueReusableCell(withIdentifier: "YourPageTableViewCell", for: indexPath) as? YourPageTableViewCell else {
-            return UITableViewCell()
-        }
-        cell.indexPath = indexPath
-        cell.isEditable = self.isEditable
-        cell.delegate = self
-        cell.selectionStyle = .none
-        if self.checkedIndexRowsSet.contains(indexPath.row) {
-            cell.isChecked = true
-        } else {
-            cell.isChecked = false
-        }
-        if indexPath.row % 2 == 0 {
-            cell.backgroundColor = .brown
-        } else {
-            cell.backgroundColor = .lightGray
-        }
-        cell.refreshStateUI()
-        return cell
-    }
-    
+extension YourPageViewController: UITableViewDelegate {
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 98
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.coordinator.present(route: .detail("나중에 데이터가 생기면 데이터를 넣자"), animated: true, presentStyle: .fullScreen, completion: nil)
-    }
-    
+
 }
 
 
