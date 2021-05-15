@@ -10,14 +10,31 @@ import UIKit
 import RxSwift
 
 class YourPageViewModel: MVVMViewModel {
-    var disposeBag: DisposeBag = DisposeBag()
     
-    func subscribeInputs() {
-        
+    // MARK: property
+    
+    var disposeBag: DisposeBag = DisposeBag()
+    var service: YourPageServiceProtocol
+    
+    // MARK: lifeCycle
+    init(service: YourPageServiceProtocol) {
+        self.service = service
     }
     
     deinit {
         print("- \(type(of: self)) deinit")
     }
+    
+    func subscribeInputs() {
+        print("subscribeInputs")
+    }
+    
+    // MARK: function
+    
+    
+    
+    
+    
+    
 
 }

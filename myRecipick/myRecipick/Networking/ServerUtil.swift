@@ -11,9 +11,9 @@ import RxAlamofire
 import Alamofire
 import SwiftyJSON
 
-protocol HttPRequestRx {
-    func requestRx<T: Decodable>(with request: HttpRequest) -> Observable<T>
-}
+// protocol HttPRequestRx { // 이거 사용 하나요?
+//    func requestRx<T: Decodable>(with request: HttpRequest) -> Observable<T>
+// }
 
 struct ServerUtil {
     static let shared = ServerUtil()
@@ -48,11 +48,17 @@ extension Reactive where Base == ServerUtil {
         return base.manager.httpRequest(with: request)
             .decodedObject()
     }
+    
+    func requestRxToJson(with request: HttpRequest) -> Observable<JSON> {
+        return base.manager.httpRequest(with: request)
+            .swiftyJsonDataObject()
+    }
 }
 
 extension Observable where Element == (HTTPURLResponse, Any) {
     fileprivate func decodedObject<T: Decodable>() -> Observable<T> {
         return flatMap { (response, json) -> Observable<T> in
+            
             switch response.statusCode {
             case 200..<300:
                 if let response: T = JSONConverter.decode(from: json) {
@@ -60,6 +66,18 @@ extension Observable where Element == (HTTPURLResponse, Any) {
                 } else {
                     return .error(self.updateWithError(with: json))
                 }
+            default:
+                return .error(self.updateWithError(with: json))
+            }
+        }
+    }
+    
+    fileprivate func swiftyJsonDataObject() -> Observable<JSON> {
+        return flatMap { (response, json) -> Observable<JSON> in
+            switch response.statusCode {
+            case 200..<300:
+                let data = JSON(json)["data"]
+                return .just(data)
             default:
                 return .error(self.updateWithError(with: json))
             }

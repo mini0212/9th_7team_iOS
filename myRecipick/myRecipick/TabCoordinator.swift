@@ -59,7 +59,7 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         customViewController = CustomViewController.makeViewController(coordinator: self.customCoordinator)
         customViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(named: "iconsNavigation32Plus"), selectedImage: UIImage(named: "iconsNavigation32Plus"))
         controllers.append(customViewController)
-        yourPageViewController = YourPageViewController.makeViewController(coordinator: self.yourPageCoordinator, viewModel: YourPageViewModel())
+        yourPageViewController = YourPageViewController.makeViewController(coordinator: self.yourPageCoordinator, viewModel: YourPageViewModel(service: YourPageService()))
         yourPageViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32History.image, selectedImage: Images.iconsNavigation32History.image)
         controllers.append(yourPageViewController)
         tabController.viewControllers = controllers

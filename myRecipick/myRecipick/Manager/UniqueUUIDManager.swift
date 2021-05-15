@@ -36,15 +36,15 @@ class UniqueUUIDManager {
         })
     }
     
-    func getUniqueUUID() -> String? {
-        let bundleID: String = Bundle.main.bundleIdentifier ?? "com.depromeet.myRecipick"
-        let keychain = Keychain(service: bundleID)
-        return keychain[KeyChainKeyDefine.UNIQUE_UUID_KEY]
-    }
-    
     // MARK: private function
     private func createUUID() -> String {
         return UUID().uuidString
+    }
+    
+    private func getUniqueUUID() -> String? {
+        let bundleID: String = Bundle.main.bundleIdentifier ?? "com.depromeet.myRecipick"
+        let keychain = Keychain(service: bundleID)
+        return keychain[KeyChainKeyDefine.UNIQUE_UUID_KEY]
     }
     
     private func saveUUID(registedUUID: String) { // 반드시 서버에 등록되어있는 uuid를 등록해야한다.
