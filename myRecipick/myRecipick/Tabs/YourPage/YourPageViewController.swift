@@ -78,6 +78,12 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
                     return cell
                 }
                 .disposed(by: self.disposeBag)
+            vm.error.subscribe(onNext: { msg in
+                CommonAlertView.shared.showOneBtnAlert(message: "오류", subMessage: msg, btnText: "확인", confirmHandler: {
+                    CommonAlertView.shared.hide()
+                })
+            })
+            .disposed(by: self.disposeBag)
         }
     }
     

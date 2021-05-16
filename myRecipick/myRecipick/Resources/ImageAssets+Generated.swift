@@ -19,16 +19,21 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Images {
+  internal static let bottom = ImageAsset(name: "bottom")
   internal static let editCheck = ImageAsset(name: "editCheck")
   internal static let editNonCheck = ImageAsset(name: "editNonCheck")
   internal static let evaCloseFill = ImageAsset(name: "evaCloseFill")
   internal static let iconPlus = ImageAsset(name: "iconPlus")
   internal static let iconSwitch = ImageAsset(name: "iconSwitch")
+  internal static let iconsListEmpty = ImageAsset(name: "iconsListEmpty")
   internal static let iconsNavigation24ArrowLeft = ImageAsset(name: "iconsNavigation24ArrowLeft")
   internal static let iconsNavigation32History = ImageAsset(name: "iconsNavigation32History")
   internal static let iconsNavigation32Home = ImageAsset(name: "iconsNavigation32Home")
   internal static let iconsNavigation32Plus = ImageAsset(name: "iconsNavigation32Plus")
   internal static let sample = ImageAsset(name: "sample")
+  internal static let tip11 = ImageAsset(name: "tip11")
+  internal static let tip21 = ImageAsset(name: "tip21")
+  internal static let tip31 = ImageAsset(name: "tip31")
   internal static let uilBars = ImageAsset(name: "uilBars")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
