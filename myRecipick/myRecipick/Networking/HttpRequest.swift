@@ -74,11 +74,14 @@ enum HttpEncoding {
 
 enum HttpHeaders {
     case `default`
+    case customMenus(uniqueId: String)
     
     var toAlamofire: HTTPHeaders {
         switch self {
         case .default:
             return ["Content-Type": "application/json"]
+        case .customMenus(let uniqueId):
+            return ["Content-Type": "application/json", "userId": uniqueId]
         }
     }
     

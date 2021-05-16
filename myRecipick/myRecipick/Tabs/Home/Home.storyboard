@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -27,13 +27,13 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rva-Yp-TFr">
-                                        <rect key="frame" x="24" y="10" width="366" height="21"/>
+                                        <rect key="frame" x="24" y="10" width="366" height="267"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dXM-FI-wSh">
-                                        <rect key="frame" x="0.0" y="68" width="414" height="364"/>
+                                        <rect key="frame" x="0.0" y="314" width="414" height="364"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="364" id="z7E-ma-HE2"/>
@@ -56,10 +56,13 @@
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYg-3J-DQM">
-                                        <rect key="frame" x="0.0" y="476" width="414" height="342"/>
+                                        <rect key="frame" x="0.0" y="722" width="414" height="96"/>
                                         <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Hlj-4Y-HOF">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                                            </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qp6-rp-1rd">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="342"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                                 <connections>
                                                     <action selector="showTipAction:" destination="J1h-tO-NyE" eventType="touchUpInside" id="Dyf-Gy-ruv"/>
                                                 </connections>
@@ -67,10 +70,14 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <constraints>
+                                            <constraint firstItem="Hlj-4Y-HOF" firstAttribute="leading" secondItem="qYg-3J-DQM" secondAttribute="leading" id="1w6-lS-MMi"/>
                                             <constraint firstItem="Qp6-rp-1rd" firstAttribute="top" secondItem="qYg-3J-DQM" secondAttribute="top" id="6I5-yw-K8g"/>
                                             <constraint firstItem="Qp6-rp-1rd" firstAttribute="leading" secondItem="qYg-3J-DQM" secondAttribute="leading" id="Ft2-r9-63Q"/>
                                             <constraint firstAttribute="trailing" secondItem="Qp6-rp-1rd" secondAttribute="trailing" id="MvS-ha-MFd"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hlj-4Y-HOF" secondAttribute="trailing" id="NwP-jn-aU9"/>
+                                            <constraint firstItem="Hlj-4Y-HOF" firstAttribute="top" secondItem="qYg-3J-DQM" secondAttribute="top" id="T70-jK-TH0"/>
                                             <constraint firstAttribute="bottom" secondItem="Qp6-rp-1rd" secondAttribute="bottom" id="UnE-57-1b2"/>
+                                            <constraint firstAttribute="bottom" secondItem="Hlj-4Y-HOF" secondAttribute="bottom" id="g7D-LX-h7x"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -284,7 +291,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6O-7v-bNl">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="rkv-bg-3kM">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tip11" translatesAutoresizingMaskIntoConstraints="NO" id="rkv-bg-3kM">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                             </imageView>
                                                         </subviews>
@@ -330,7 +337,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vnx-P0-SrY">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="anb-yz-yrP">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tip21" translatesAutoresizingMaskIntoConstraints="NO" id="anb-yz-yrP">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                             </imageView>
                                                         </subviews>
@@ -376,7 +383,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEU-CM-tjv">
                                                         <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="gf5-gq-hpt">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tip31" translatesAutoresizingMaskIntoConstraints="NO" id="gf5-gq-hpt">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                                             </imageView>
                                                         </subviews>
@@ -627,9 +634,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bottom" width="375" height="96"/>
         <image name="iconPlus" width="22" height="22"/>
         <image name="iconSwitch" width="24" height="24"/>
-        <image name="sample" width="340" height="356"/>
+        <image name="tip11" width="60" height="60"/>
+        <image name="tip21" width="60" height="60"/>
+        <image name="tip31" width="60" height="60"/>
         <namedColor name="PrimaryDark">
             <color red="0.87800002098083496" green="0.32499998807907104" blue="0.10599999874830246" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

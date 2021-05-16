@@ -16,6 +16,17 @@ class IngredientsView: UIView, NibIdentifiable {
     
     // MARK: property
     
+    var infoData: CustomMenuDetailOptionGroupOptionsObjModel? {
+        didSet {
+            guard let info = self.infoData else { return }
+            if let url = info.imageUrl {
+                self.imgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                    self?.imgView.fadeIn(duration: 0.1, completeHandler: nil)
+                })
+            }
+        }
+    }
+    
     // MARK: lifeCycle
     
     override func awakeFromNib() {

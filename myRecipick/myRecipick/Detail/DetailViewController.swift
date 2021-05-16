@@ -98,6 +98,53 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                     }
             })
             .disposed(by: self.disposeBag)
+            
+            vm.outputs.customMenuInfo
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] data in
+                guard let self = self else { return }
+                if let url = data.imageUrl {
+                    self.mainImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                        self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
+                    })
+                    self.menuImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                        self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
+                    })
+                }
+                self.customMenuTitleLabel.text = data.name
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.detailCustomMenu
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] data in
+                guard let self = self else { return }
+                
+                self.menuTitleLabel.text = data.name
+                
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.allIngredients
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] data in
+                guard let self = self else { return }
+                self.ingredientsContainerViewHeightConstraint.constant = self.calculateIngredientsContainerViewHeight(data: data)
+                self.makeIngredientsViews(data: data)
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.allIngredients
+                .observe(on: MainScheduler.instance)
+                .bind(to: self.tableView.rx.items) { tableView, row, item in
+                    //                    guard let cell: BrandSelectTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BrandSelectTableViewCell") as? BrandSelectTableViewCell else { return UITableViewCell() }
+                    //                    cell.selectionStyle = .none
+                    //                    cell.infoData = item
+                    //                    return cell
+                    print("item:\(item)")
+                    return UITableViewCell()
+                }
+                .disposed(by: self.disposeBag)
         }
     }
     
@@ -113,7 +160,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     func initUI() {
         self.backgroundContainerView.backgroundColor = .purple // 어떤 색갈이 나올 수 있는지 알아야함
         self.mainContainerView.backgroundColor = .clear
-        self.tableView.dataSource = self
         self.topContentsContainerView.backgroundColor = .blue
         self.topContentsContainerView.isUserInteractionEnabled = false
         self.customMenuTitleLabel.font = UIFont.myRecipickFont(.detailMenuTitle)
@@ -124,7 +170,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.menuTitleLabel.textColor = UIColor(asset: Colors.grayScale33)
         self.ingredientsContainerView.backgroundColor = .darkGray
         self.ingredientsContainerView.isUserInteractionEnabled = false
-        self.ingredientsContainerViewHeightConstraint.constant = calculateIngredientsContainerViewHeight()
         self.topContentsViewHeightConstraint.constant += self.ingredientsContainerViewHeightConstraint.constant
         self.originTopContentsViewHeightConstraint = self.topContentsViewHeightConstraint.constant
         self.tableView.contentInset = UIEdgeInsets(top: self.topContentsViewHeightConstraint.constant, left: 0, bottom: 0, right: 0)
@@ -133,24 +178,14 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.originMainImgContainerViewWidthConstraint = self.mainImgContainerViewWidthConstraint.constant
         self.originMainImgContainerViewHeightConstraint = self.mainImgContainerViewHeightConstraint.constant
         
-        // testCode, API가 나오면 옵저빙해서 Set해주자!
-        var mockData: [String] = []
-        for _ in 0..<getIngredientsViewCnt() {
-            mockData.append("temp")
-        }
-        makeIngredientsViews(data: mockData)
-        // testCode, API가 나오면 옵저빙해서 Set해주자!
     }
     
-    func getIngredientsViewCnt() -> Int {
-        // todo API나오면 개발예정
-        return 18
-    }
+    // MARK: private func
     
-    func calculateIngredientsContainerViewHeight() -> CGFloat {
+    private func calculateIngredientsContainerViewHeight(data: [CustomMenuDetailOptionGroupOptionsObjModel]) -> CGFloat {
         var resultValue: CGFloat = self.ingredientsCellViewHeight
         self.ingredientsContainerViewTotalLineCnt = 1
-        let totalIngredientsCnt: Int = getIngredientsViewCnt()
+        let totalIngredientsCnt: Int = data.count
         var currentLineWidth: CGFloat = 0
         for _ in 0..<totalIngredientsCnt {
             if (currentLineWidth + ingredientsCellViewWidth) > self.ingredientsContainerViewMaxWidth {
@@ -160,22 +195,17 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
             }
             currentLineWidth += (self.ingredientsCellViewWidth + self.ingredientsCellRightInterval)
         }
-//        if currentLineWidth != 0 {
-//            resultValue += (self.ingredientsCellBottomInterval + self.ingredientsCellViewHeight)
-//            self.ingredientsContainerViewTotalLineCnt += 1
-//        }
         
         return resultValue
     }
     
-    // MARK: private func
-    
-    private func makeNewIngredientsView(data: String) -> IngredientsView? { // 모델 생기면 인풋 파람 교체예정
+    private func makeNewIngredientsView(data: CustomMenuDetailOptionGroupOptionsObjModel) -> IngredientsView? {
         let newView: IngredientsView? = IngredientsView.instance()
+        newView?.infoData = data
         return newView
     }
     
-    private func makeIngredientsViews(data: [String]) { // 모델 생기면 인풋 파람 교체예정, viewModel에서 옵저빙하자.
+    private func makeIngredientsViews(data: [CustomMenuDetailOptionGroupOptionsObjModel]) {
         self.ingredientsContainerView.removeAllSubview()
         let roundHalfDownNumberOfItemInLine: Int = data.count/self.ingredientsContainerViewTotalLineCnt
         var isExsistRemainder: Bool = false

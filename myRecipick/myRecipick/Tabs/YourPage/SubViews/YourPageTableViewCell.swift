@@ -9,7 +9,8 @@
 import UIKit
 
 protocol YourPageTableViewCellDelegate: AnyObject {
-    func isClicked(_ cell: UITableViewCell, indexPath: IndexPath)
+    func isClicked(_ cell: UITableViewCell, indexPathRow: Int)
+    func cellClicked(indexPathRow: Int, data: CustomMenuObjModel)
 }
 
 class YourPageTableViewCell: UITableViewCell {
@@ -26,8 +27,21 @@ class YourPageTableViewCell: UITableViewCell {
     // MARK: property
     
     var originEditContainerViewWidthConstraint: CGFloat = 0
-    var indexPath: IndexPath?
+    var row: Int?
     weak var delegate: YourPageTableViewCellDelegate?
+    
+    var infoData: CustomMenuObjModel? {
+        didSet {
+            guard let info = self.infoData else { return }
+            self.menuTitleLabel.text = info.name
+            self.menuRecipeLabel.text = info.description
+            if let imgUrl = info.imageUrl {
+                self.imgView.kf.setImage(with: URL(string: imgUrl), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                    self?.imgView.fadeIn(duration: 0.1, completeHandler: nil)
+                })
+            }
+        }
+    }
     
     // MARK: State
     var isChecked: Bool = false
@@ -71,7 +85,12 @@ class YourPageTableViewCell: UITableViewCell {
     
     // MARK: action
     @IBAction func editBtnClickedAction(_ sender: Any) {
-        guard let path = self.indexPath else { print("indexPath is null") ; return  }
-        self.delegate?.isClicked(self, indexPath: path)
+        guard let row = self.row else { print("indexPath is null") ; return  }
+        self.delegate?.isClicked(self, indexPathRow: row)
+    }
+    @IBAction func cellClickedAction(_ sender: Any) {
+        guard let row = self.row else { return }
+        guard let info = self.infoData else { return }
+        self.delegate?.cellClicked(indexPathRow: row, data: info)
     }
 }

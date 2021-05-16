@@ -15,7 +15,7 @@ protocol YourPageCoordinatorDelegate: AnyObject {
 class YourPageCoordinator: MainTabCoordinatorProtocol {
     
     enum Route {
-        case detail(String?) // String을 Model Object로 바꿔야할듯? 디테일 하나에 대한 데이터.. API 젭알 나와주세요... ㅠㅠ
+        case detail(DetailService.DetailServiceInfoModel)
     }
     
     // MARK: outlet
@@ -72,7 +72,7 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
         switch route {
         case .detail(let data):
             let navigationController: UINavigationController = UINavigationController()
-            let vc = DetailViewController.makeViewController(coordinator: DetailViewCoordinator(navigationController: navigationController), viewModel: DetailViewModel())
+            let vc = DetailViewController.makeViewController(coordinator: DetailViewCoordinator(navigationController: navigationController), viewModel: DetailViewModel(service: DetailService(data: data)))
             navigationController.setViewControllers([vc], animated: false)
             navigationController.modalPresentationStyle = presentStyle
             self.navigationController?.present(navigationController, animated: animated, completion: completion)
