@@ -16,7 +16,7 @@ class IngredientsView: UIView, NibIdentifiable {
     
     // MARK: property
     
-    var infoData: CustomMenuDetailOptionGroupObjModel? {
+    var infoData: CustomMenuDetailOptionGroupOptionsObjModel? {
         didSet {
             guard let info = self.infoData else { return }
             if let url = info.imageUrl {

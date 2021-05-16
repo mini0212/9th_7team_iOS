@@ -17,7 +17,7 @@ protocol YourPageViewModelOutput {
     var error: PublishSubject<String> { get }
     var isLoading: PublishSubject<Bool> { get }
     var customMenus: BehaviorSubject<[CustomMenuObjModel]> { get }
-    var presentDetailView: PublishSubject<CustomMenuDetailObjModel> { get }
+    var presentDetailView: PublishSubject<DetailService.DetailServiceInfoModel> { get }
 }
 
 protocol YourPageViewModelType {
@@ -41,7 +41,7 @@ class YourPageViewModel: MVVMViewModel, YourPageViewModelType, YourPageViewModel
     var error: PublishSubject<String>
     var isLoading: PublishSubject<Bool>
     var customMenus: BehaviorSubject<[CustomMenuObjModel]>
-    var presentDetailView: PublishSubject<CustomMenuDetailObjModel>
+    var presentDetailView: PublishSubject<DetailService.DetailServiceInfoModel>
     
     // MARK: lifeCycle
     init(service: YourPageServiceProtocol) {
@@ -71,7 +71,8 @@ class YourPageViewModel: MVVMViewModel, YourPageViewModelType, YourPageViewModel
     func requestDetailCustomMenuInfo(data: CustomMenuObjModel) {
         self.isLoading.onNext(true)
         self.service.getDetailCustomMenuData(data: data).subscribe(onNext: { [weak self] responseData in
-            self?.presentDetailView.onNext(responseData)
+            let detailInfoData: DetailService.DetailServiceInfoModel = DetailService.DetailServiceInfoModel(customMenuDetailObjModel: responseData, customMenuObjModel: data)
+            self?.presentDetailView.onNext(detailInfoData)
         }, onCompleted: { [weak self] in
             self?.isLoading.onNext(false)
         })

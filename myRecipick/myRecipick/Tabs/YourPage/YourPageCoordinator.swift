@@ -15,7 +15,7 @@ protocol YourPageCoordinatorDelegate: AnyObject {
 class YourPageCoordinator: MainTabCoordinatorProtocol {
     
     enum Route {
-        case detail(CustomMenuDetailObjModel)
+        case detail(DetailService.DetailServiceInfoModel)
     }
     
     // MARK: outlet

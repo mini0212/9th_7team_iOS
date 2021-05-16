@@ -11,17 +11,23 @@ import RxSwift
 
 protocol DetailServiceProtocol {
     func getObservableDetailInfo() -> Observable<CustomMenuDetailObjModel>
+    func getObservableCustomMenu() -> Observable<CustomMenuObjModel>
 }
 
 class DetailService: DetailServiceProtocol {
     
+    struct DetailServiceInfoModel {
+        let customMenuDetailObjModel: CustomMenuDetailObjModel
+        let customMenuObjModel: CustomMenuObjModel
+    }
+    
     // MARK: property
     
-    private var infoData: CustomMenuDetailObjModel
+    private var infoData: DetailService.DetailServiceInfoModel
     
     // MARK: lifeCycle
     
-    init(data: CustomMenuDetailObjModel) {
+    init(data: DetailServiceInfoModel) {
         self.infoData = data
     }
     
@@ -34,7 +40,16 @@ class DetailService: DetailServiceProtocol {
     func getObservableDetailInfo() -> Observable<CustomMenuDetailObjModel> {
         return Observable.create { [weak self] emitter in
             guard let self = self else { return Disposables.create() }
-            emitter.onNext(self.infoData)
+            emitter.onNext(self.infoData.customMenuDetailObjModel)
+            emitter.onCompleted()
+            return Disposables.create()
+        }
+    }
+    
+    func getObservableCustomMenu() -> Observable<CustomMenuObjModel> {
+        return Observable.create { [weak self] emitter in
+            guard let self = self else { return Disposables.create() }
+            emitter.onNext(self.infoData.customMenuObjModel)
             emitter.onCompleted()
             return Disposables.create()
         }
@@ -89,11 +104,13 @@ struct CustomMenuDetailOptionGroupOptionsObjModel: JsonDataProtocol {
     var type: String = ""
     var name: String = ""
     var imageUrl: String?
+    var category: String?
     
     enum CodingKeys: String, CodingKey {
         case type
         case name
         case imageUrl = "image"
+        case category
     }
 }
 

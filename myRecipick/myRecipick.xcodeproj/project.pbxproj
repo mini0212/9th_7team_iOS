@@ -62,6 +62,8 @@
 		4FF549152640E6620086E30C /* CustomMenuCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF549132640E6620086E30C /* CustomMenuCardCollectionViewCell.xib */; };
 		4FF5491826410F9D0086E30C /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FF5491726410F9D0086E30C /* Detail.storyboard */; };
 		4FF5491A26410FA70086E30C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5491926410FA70086E30C /* DetailViewController.swift */; };
+		7815C5C126510D2000581D4E /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7815C5BF26510D2000581D4E /* DetailTableViewCell.swift */; };
+		7815C5C226510D2000581D4E /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7815C5C026510D2000581D4E /* DetailTableViewCell.xib */; };
 		7817E830263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */; };
 		7817E838263E8C5E003AC910 /* YourPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7817E837263E8C5E003AC910 /* YourPage.storyboard */; };
 		7817E83C263E8CE7003AC910 /* YourPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7817E83B263E8CE7003AC910 /* YourPageViewModel.swift */; };
@@ -214,6 +216,8 @@
 		4FF5491926410FA70086E30C /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		607EF82CCBF70045A6E09CAB /* Pods-myRecipickTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.release.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.release.xcconfig"; sourceTree = "<group>"; };
 		7653C90059012835E948493D /* Pods_myRecipick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myRecipick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7815C5BF26510D2000581D4E /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		7815C5C026510D2000581D4E /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributeString + InSpecificString.swift"; sourceTree = "<group>"; };
 		7817E837263E8C5E003AC910 /* YourPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = YourPage.storyboard; sourceTree = "<group>"; };
 		7817E83B263E8CE7003AC910 /* YourPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPageViewModel.swift; sourceTree = "<group>"; };
@@ -333,6 +337,8 @@
 			children = (
 				4F2FD64E2643852A0085D629 /* IngredientsView.swift */,
 				4F2FD6502643854D0085D629 /* IngredientsView.xib */,
+				7815C5BF26510D2000581D4E /* DetailTableViewCell.swift */,
+				7815C5C026510D2000581D4E /* DetailTableViewCell.xib */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -864,6 +870,7 @@
 				78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */,
 				78759796263C1BFF00305227 /* BrandSelectTableViewCell.xib in Resources */,
 				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
+				7815C5C226510D2000581D4E /* DetailTableViewCell.xib in Resources */,
 				78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */,
 				7817E838263E8C5E003AC910 /* YourPage.storyboard in Resources */,
 				39A4492B26443F76001DD3C4 /* CustomNavigationView.xib in Resources */,
@@ -1106,6 +1113,7 @@
 				78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */,
 				78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */,
 				4F2FD64F2643852A0085D629 /* IngredientsView.swift in Sources */,
+				7815C5C126510D2000581D4E /* DetailTableViewCell.swift in Sources */,
 				7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */,
 				789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */,
 				78B299EA263AB259005B6ECF /* UIFont + MyRecipickFont.swift in Sources */,

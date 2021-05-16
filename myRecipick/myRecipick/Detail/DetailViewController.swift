@@ -99,14 +99,52 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
             })
             .disposed(by: self.disposeBag)
             
-            vm.outputs.detailCustomMenu.subscribe(onNext: { [weak self] data in
+            vm.outputs.customMenuInfo
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] data in
                 guard let self = self else { return }
-                self.ingredientsContainerViewHeightConstraint.constant = self.calculateIngredientsContainerViewHeight(data: self.viewModel.getIngredients(data: data))
-                self.makeIngredientsViews(data: self.viewModel.getIngredients(data: data))
+                if let url = data.imageUrl {
+                    self.mainImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                        self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
+                    })
+                    self.menuImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                        self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
+                    })
+                }
+                self.customMenuTitleLabel.text = data.name
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.detailCustomMenu
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] data in
+                guard let self = self else { return }
+                
+                self.menuTitleLabel.text = data.name
                 
             })
             .disposed(by: self.disposeBag)
             
+            vm.outputs.allIngredients
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] data in
+                guard let self = self else { return }
+                self.ingredientsContainerViewHeightConstraint.constant = self.calculateIngredientsContainerViewHeight(data: data)
+                self.makeIngredientsViews(data: data)
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.allIngredients
+                .observe(on: MainScheduler.instance)
+                .bind(to: self.tableView.rx.items) { tableView, row, item in
+                    //                    guard let cell: BrandSelectTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BrandSelectTableViewCell") as? BrandSelectTableViewCell else { return UITableViewCell() }
+                    //                    cell.selectionStyle = .none
+                    //                    cell.infoData = item
+                    //                    return cell
+                    print("item:\(item)")
+                    return UITableViewCell()
+                }
+                .disposed(by: self.disposeBag)
         }
     }
     
@@ -144,7 +182,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     
     // MARK: private func
     
-    private func calculateIngredientsContainerViewHeight(data: [CustomMenuDetailOptionGroupObjModel]) -> CGFloat {
+    private func calculateIngredientsContainerViewHeight(data: [CustomMenuDetailOptionGroupOptionsObjModel]) -> CGFloat {
         var resultValue: CGFloat = self.ingredientsCellViewHeight
         self.ingredientsContainerViewTotalLineCnt = 1
         let totalIngredientsCnt: Int = data.count
@@ -161,13 +199,13 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         return resultValue
     }
     
-    private func makeNewIngredientsView(data: CustomMenuDetailOptionGroupObjModel) -> IngredientsView? {
+    private func makeNewIngredientsView(data: CustomMenuDetailOptionGroupOptionsObjModel) -> IngredientsView? {
         let newView: IngredientsView? = IngredientsView.instance()
         newView?.infoData = data
         return newView
     }
     
-    private func makeIngredientsViews(data: [CustomMenuDetailOptionGroupObjModel]) {
+    private func makeIngredientsViews(data: [CustomMenuDetailOptionGroupOptionsObjModel]) {
         self.ingredientsContainerView.removeAllSubview()
         let roundHalfDownNumberOfItemInLine: Int = data.count/self.ingredientsContainerViewTotalLineCnt
         var isExsistRemainder: Bool = false

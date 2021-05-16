@@ -17,7 +17,8 @@ protocol DetailViewModelOutput {
     var error: PublishSubject<String> { get }
     var isLoading: PublishSubject<Bool> { get }
     var detailCustomMenu: BehaviorSubject<CustomMenuDetailObjModel> { get }
-    func getIngredients(data: CustomMenuDetailObjModel) -> [CustomMenuDetailOptionGroupObjModel]
+    var customMenuInfo: BehaviorSubject<CustomMenuObjModel> { get }
+    var allIngredients: BehaviorSubject<[CustomMenuDetailOptionGroupOptionsObjModel]> { get }
 }
 
 protocol DetailViewModelType {
@@ -40,6 +41,8 @@ class DetailViewModel: MVVMViewModel, DetailViewModelType, DetailViewModelInput,
     var error: PublishSubject<String>
     var isLoading: PublishSubject<Bool>
     var detailCustomMenu: BehaviorSubject<CustomMenuDetailObjModel>
+    var customMenuInfo: BehaviorSubject<CustomMenuObjModel>
+    var allIngredients: BehaviorSubject<[CustomMenuDetailOptionGroupOptionsObjModel]>
     
     // MARK: lifeCycle
     
@@ -48,10 +51,20 @@ class DetailViewModel: MVVMViewModel, DetailViewModelType, DetailViewModelInput,
         self.error = .init()
         self.isLoading = .init()
         self.detailCustomMenu = .init(value: CustomMenuDetailObjModel())
+        self.allIngredients = .init(value: [])
+        self.customMenuInfo = .init(value: CustomMenuObjModel())
         self.service.getObservableDetailInfo().subscribe(onNext: { [weak self] detailObjData in
-            self?.detailCustomMenu.onNext(detailObjData)
+            guard let self = self else { return }
+            self.detailCustomMenu.onNext(detailObjData)
+            self.allIngredients.onNext(self.getAllIngredients(data: detailObjData))
         })
         .disposed(by: self.disposeBag)
+        self.service.getObservableCustomMenu().subscribe(onNext: { [weak self] customMenuObjData in
+            guard let self = self else { return }
+            self.customMenuInfo.onNext(customMenuObjData)
+        })
+        .disposed(by: self.disposeBag)
+        
     }
     
     func subscribeInputs() {
@@ -62,12 +75,22 @@ class DetailViewModel: MVVMViewModel, DetailViewModelType, DetailViewModelInput,
         print("- \(type(of: self)) deinit")
     }
     
-    // MARK: outputFunction
+    // MARK: output function
     
-    func getIngredients(data: CustomMenuDetailObjModel) -> [CustomMenuDetailOptionGroupObjModel] {
-        return data.optionGroups
+    // MARK: private function
+    
+    private func getAllIngredients(data: CustomMenuDetailObjModel) -> [CustomMenuDetailOptionGroupOptionsObjModel] {
+        var returnArr: [CustomMenuDetailOptionGroupOptionsObjModel] = []
+        let optionGroups = data.optionGroups
+        for i in 0..<optionGroups.count {
+            let optionGroupItem = optionGroups[i]
+            for j in 0..<optionGroupItem.options.count {
+                var item = optionGroupItem.options[j]
+                item.category = optionGroupItem.name
+                returnArr.append(item)
+            }
+        }
+        return returnArr
     }
-    
-    // MARK: action
 
 }
