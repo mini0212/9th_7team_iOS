@@ -7,10 +7,37 @@
 //
 
 import UIKit
+import RxSwift
 
-class DetailService: NSObject {
+protocol DetailServiceProtocol {
+    func getObservableDetailInfo() -> Observable<CustomMenuDetailObjModel>
+}
+
+class DetailService: DetailServiceProtocol {
+    
+    // MARK: property
+    
+    private var infoData: CustomMenuDetailObjModel
+    
+    // MARK: lifeCycle
+    
+    init(data: CustomMenuDetailObjModel) {
+        self.infoData = data
+    }
+    
     deinit {
         print("- \(type(of: self)) deinit")
+    }
+    
+    // MARK: function
+    
+    func getObservableDetailInfo() -> Observable<CustomMenuDetailObjModel> {
+        return Observable.create { [weak self] emitter in
+            guard let self = self else { return Disposables.create() }
+            emitter.onNext(self.infoData)
+            emitter.onCompleted()
+            return Disposables.create()
+        }
     }
 }
 

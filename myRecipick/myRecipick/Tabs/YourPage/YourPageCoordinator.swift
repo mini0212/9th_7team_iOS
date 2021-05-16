@@ -72,7 +72,7 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
         switch route {
         case .detail(let data):
             let navigationController: UINavigationController = UINavigationController()
-            let vc = DetailViewController.makeViewController(coordinator: DetailViewCoordinator(navigationController: navigationController), viewModel: DetailViewModel())
+            let vc = DetailViewController.makeViewController(coordinator: DetailViewCoordinator(navigationController: navigationController), viewModel: DetailViewModel(service: DetailService(data: data)))
             navigationController.setViewControllers([vc], animated: false)
             navigationController.modalPresentationStyle = presentStyle
             self.navigationController?.present(navigationController, animated: animated, completion: completion)
