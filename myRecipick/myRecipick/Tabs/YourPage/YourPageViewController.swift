@@ -29,6 +29,8 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
     
     var checkedIndexRowsSet: Set<Int> = Set()
     
+    var zeroItemCntView: YourPageZeroYourrecipeView? = YourPageZeroYourrecipeView.instance()
+    
     // MARK: state
     var isViewModelBinded: Bool = false
     var isEditable: Bool = false {
@@ -78,6 +80,20 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
                     return cell
                 }
                 .disposed(by: self.disposeBag)
+            
+            vm.outputs.customMenus
+                .map { value in
+                    if value.count == 0 {
+                        self.zeroItemCntView?.isHidden = false
+                    } else {
+                        self.zeroItemCntView?.isHidden = true
+                    }
+                }
+                .subscribe(onNext: {
+                    
+                })
+                .disposed(by: self.disposeBag)
+            
             vm.error.subscribe(onNext: { msg in
                 CommonAlertView.shared.showOneBtnAlert(message: "오류", subMessage: msg, btnText: "확인", confirmHandler: {
                     CommonAlertView.shared.hide()
@@ -103,6 +119,16 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
         self.tableView.backgroundColor = .clear
         self.tableView.separatorStyle = .none
         self.tableView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        if let zeroItemCntView = self.zeroItemCntView {
+            self.mainContentsView.addSubview(zeroItemCntView)
+            zeroItemCntView.snp.makeConstraints { (make) in
+                make.top.equalTo(mainContentsView.snp.top).offset(0)
+                make.bottom.equalTo(mainContentsView.snp.bottom).offset(0)
+                make.leading.equalTo(mainContentsView.snp.leading).offset(0)
+                make.trailing.equalTo(mainContentsView.snp.trailing).offset(0)
+            }
+            zeroItemCntView.isHidden = true
+        }
     }
     
     func SetEditableUI(isEditable: Bool) {
