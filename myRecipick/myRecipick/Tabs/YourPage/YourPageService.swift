@@ -14,6 +14,7 @@ import SwiftyJSON
 protocol YourPageServiceProtocol {
     var error: PublishSubject<String> { get set }
     func getYourCustomMenus() -> Observable<[CustomMenuObjModel]>
+    func getDetailCustomMenuData(data: CustomMenuObjModel) -> Observable<CustomMenuDetailObjModel>
 }
 
 class YourPageService: YourPageServiceProtocol {
@@ -54,12 +55,44 @@ class YourPageService: YourPageServiceProtocol {
         }
     }
     
+    func getDetailCustomMenuData(data: CustomMenuObjModel) -> Observable<CustomMenuDetailObjModel> {
+        return Observable.create { [weak self] emitter in
+            guard let self = self else { return Disposables.create() }
+            self.requestDetailYourCustomMenu(menuId: data.id)
+                .subscribe(onNext: { [weak self] responseJson in
+                        let json: JSON = responseJson
+                        let jsonData = json.rawString()?.data(using: .utf8)
+                        if let item: CustomMenuDetailObjModel = CustomMenuDetailObjModel.fromJson(jsonData: jsonData, object: CustomMenuDetailObjModel()) {
+                            emitter.onNext(item)
+                            emitter.onCompleted()
+                        } else {
+                            self?.error.onNext("데이터 역직렬화 실패")
+                            emitter.onCompleted()
+                        }
+                }, onError: { [weak self] err in
+                    self?.error.onNext(err.localizedDescription)
+                })
+                .disposed(by: self.disposeBag)
+            return Disposables.create()
+        }
+    }
+    
     // MARK: private function
     
     private func requestYourCustomMenus() -> Observable<JSON> {
         var httpRequest = HttpRequest()
         httpRequest.url = APIDefine.MY_CUSTOM_MENUS
         httpRequest.headers = .customMenus(uniqueId: UniqueUUIDManager.shared.uniqueUUID)
+        return ServerUtil.shared.rx.requestRxToJson(with: httpRequest)
+            .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
+            .observe(on: MainScheduler.instance)
+            .retry(3)
+    }
+    
+    private func requestDetailYourCustomMenu(menuId: String) -> Observable<JSON> {
+        var httpRequest = HttpRequest()
+        httpRequest.url = APIDefine.MY_CUSTOM_MENU_DETAIL + "/\(menuId)"
+        httpRequest.headers = .default
         return ServerUtil.shared.rx.requestRxToJson(with: httpRequest)
             .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
             .observe(on: MainScheduler.instance)

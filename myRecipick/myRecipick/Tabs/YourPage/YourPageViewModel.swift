@@ -10,12 +10,14 @@ import UIKit
 import RxSwift
 
 protocol YourPageViewModelInput {
-    
+    func requestDetailCustomMenuInfo(data: CustomMenuObjModel)
 }
 
 protocol YourPageViewModelOutput {
     var error: PublishSubject<String> { get }
+    var isLoading: PublishSubject<Bool> { get }
     var customMenus: BehaviorSubject<[CustomMenuObjModel]> { get }
+    var presentDetailView: PublishSubject<CustomMenuDetailObjModel> { get }
 }
 
 protocol YourPageViewModelType {
@@ -37,13 +39,17 @@ class YourPageViewModel: MVVMViewModel, YourPageViewModelType, YourPageViewModel
     var disposeBag: DisposeBag = DisposeBag()
     var service: YourPageServiceProtocol
     var error: PublishSubject<String>
+    var isLoading: PublishSubject<Bool>
     var customMenus: BehaviorSubject<[CustomMenuObjModel]>
+    var presentDetailView: PublishSubject<CustomMenuDetailObjModel>
     
     // MARK: lifeCycle
     init(service: YourPageServiceProtocol) {
         self.service = service
         self.error = .init()
+        self.isLoading = .init()
         self.customMenus = .init(value: [])
+        self.presentDetailView = .init()
         self.service.getYourCustomMenus().subscribe(onNext: { [weak self] response in
             self?.customMenus.onNext(response)
         })
@@ -61,7 +67,21 @@ class YourPageViewModel: MVVMViewModel, YourPageViewModelType, YourPageViewModel
         .disposed(by: self.disposeBag)
     }
     
-    // MARK: function
+    // MARK: input function
+    func requestDetailCustomMenuInfo(data: CustomMenuObjModel) {
+        self.isLoading.onNext(true)
+        self.service.getDetailCustomMenuData(data: data).subscribe(onNext: { [weak self] responseData in
+            self?.presentDetailView.onNext(responseData)
+        }, onCompleted: { [weak self] in
+            self?.isLoading.onNext(false)
+        })
+        .disposed(by: self.disposeBag)
+    }
+    
+    // MARK: output function
+    
+    
+    // MARK: private function
     
 
 }

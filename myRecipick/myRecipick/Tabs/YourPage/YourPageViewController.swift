@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class YourPageViewController: UIViewController, CoordinatorMVVMViewController, ClassIdentifiable {
+class YourPageViewController: UIViewController, CoordinatorMVVMViewController, ClassIdentifiable, ActivityIndicatorable {
     
     typealias MVVMViewModelClassType = YourPageViewModel
     typealias SelfType = YourPageViewController
@@ -94,12 +94,27 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
                 })
                 .disposed(by: self.disposeBag)
             
-            vm.error.subscribe(onNext: { msg in
+            vm.outputs.error.subscribe(onNext: { msg in
                 CommonAlertView.shared.showOneBtnAlert(message: "오류", subMessage: msg, btnText: "확인", confirmHandler: {
                     CommonAlertView.shared.hide()
                 })
             })
             .disposed(by: self.disposeBag)
+            
+            vm.outputs.isLoading.subscribe(onNext: { [weak self] in
+                if $0 {
+                    self?.startIndicatorAnimating()
+                } else {
+                    self?.stopIndicatorAnimating()
+                }
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.presentDetailView.subscribe(onNext: { [weak self] data in
+                self?.coordinator.present(route: .detail(data), animated: true, presentStyle: .fullScreen, completion: nil)
+            })
+            .disposed(by: self.disposeBag)
+        
         }
     }
     
@@ -210,7 +225,7 @@ extension YourPageViewController: YourPageTableViewCellDelegate {
     
     func cellClicked(indexPathRow: Int, data: CustomMenuObjModel) {
         if !self.isEditable {
-            self.coordinator.present(route: .detail("나중에 데이터가 생기면 데이터를 넣자"), animated: true, presentStyle: .fullScreen, completion: nil)
+            self.viewModel.inputs.requestDetailCustomMenuInfo(data: data)
         }
     }
 }
