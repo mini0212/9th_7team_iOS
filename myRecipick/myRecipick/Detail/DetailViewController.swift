@@ -95,11 +95,11 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                         percent = 1
                     }
                     
-                    if 0 > (yOffset + self.minImgResizeScrollYOffset) {
-                        let test = yOffset + self.minImgResizeScrollYOffset
-                        self.mainImgContainerViewWidthConstraint.constant = self.originMainImgContainerViewWidthConstraint + abs(test)
-                        self.mainImgContainerViewHeightConstraint.constant = self.originMainImgContainerViewHeightConstraint + abs(test)
-                    }
+//                    if 0 > (yOffset + self.minImgResizeScrollYOffset) {
+//                        let test = yOffset + self.minImgResizeScrollYOffset
+//                        self.mainImgContainerViewWidthConstraint.constant = self.originMainImgContainerViewWidthConstraint + abs(test)
+//                        self.mainImgContainerViewHeightConstraint.constant = self.originMainImgContainerViewHeightConstraint + abs(test)
+//                    }
             })
             .disposed(by: self.disposeBag)
             
@@ -174,10 +174,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.menuTitleLabel.textColor = UIColor(asset: Colors.grayScale33)
         self.ingredientsContainerView.backgroundColor = .darkGray
         self.ingredientsContainerView.isUserInteractionEnabled = false
-//        self.topContentsViewHeightConstraint.constant += self.ingredientsContainerViewHeightConstraint.constant
-//        self.originTopContentsViewHeightConstraint = self.topContentsViewHeightConstraint.constant
-//        self.tableView.contentInset = UIEdgeInsets(top: self.topContentsViewHeightConstraint.constant, left: 0, bottom: 0, right: 0)
-//        self.tableView.contentOffset = CGPoint(x: 0, y: -self.originTopContentsViewHeightConstraint)
+        self.tableView.separatorStyle = .none
         
         self.originMainImgContainerViewWidthConstraint = self.mainImgContainerViewWidthConstraint.constant
         self.originMainImgContainerViewHeightConstraint = self.mainImgContainerViewHeightConstraint.constant
@@ -297,5 +294,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
 }
 
 extension DetailViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 72
+    }
 }
