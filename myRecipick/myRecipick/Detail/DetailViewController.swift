@@ -63,6 +63,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         bindingViewModel(viewModel: self.viewModel)
         self.coordinator.setClearNavigation()
         self.coordinator.makeNavigationItems()
+        self.tableView.register(UINib(nibName: DetailTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailTableViewCell.identifier)
+        self.tableView
+            .rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -128,21 +132,21 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
             vm.outputs.allIngredients
                 .observe(on: MainScheduler.instance)
                 .subscribe(onNext: { [weak self] data in
-                guard let self = self else { return }
-                self.ingredientsContainerViewHeightConstraint.constant = self.calculateIngredientsContainerViewHeight(data: data)
-                self.makeIngredientsViews(data: data)
+                    guard let self = self else { return }
+                    self.ingredientsContainerViewHeightConstraint.constant = self.calculateIngredientsContainerViewHeight(data: data)
+                    self.makeIngredientsViews(data: data)
+                    self.refreshTableViewInset()
             })
             .disposed(by: self.disposeBag)
             
             vm.outputs.allIngredients
                 .observe(on: MainScheduler.instance)
                 .bind(to: self.tableView.rx.items) { tableView, row, item in
-                    //                    guard let cell: BrandSelectTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BrandSelectTableViewCell") as? BrandSelectTableViewCell else { return UITableViewCell() }
-                    //                    cell.selectionStyle = .none
-                    //                    cell.infoData = item
-                    //                    return cell
-                    print("item:\(item)")
-                    return UITableViewCell()
+                    print("testItem: \(item)")
+                    guard let cell: DetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell else { return UITableViewCell() }
+                    cell.infoData = item
+                    cell.selectionStyle = .none
+                    return cell
                 }
                 .disposed(by: self.disposeBag)
         }
@@ -170,10 +174,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.menuTitleLabel.textColor = UIColor(asset: Colors.grayScale33)
         self.ingredientsContainerView.backgroundColor = .darkGray
         self.ingredientsContainerView.isUserInteractionEnabled = false
-        self.topContentsViewHeightConstraint.constant += self.ingredientsContainerViewHeightConstraint.constant
-        self.originTopContentsViewHeightConstraint = self.topContentsViewHeightConstraint.constant
-        self.tableView.contentInset = UIEdgeInsets(top: self.topContentsViewHeightConstraint.constant, left: 0, bottom: 0, right: 0)
-        self.tableView.contentOffset = CGPoint(x: 0, y: -self.originTopContentsViewHeightConstraint)
+//        self.topContentsViewHeightConstraint.constant += self.ingredientsContainerViewHeightConstraint.constant
+//        self.originTopContentsViewHeightConstraint = self.topContentsViewHeightConstraint.constant
+//        self.tableView.contentInset = UIEdgeInsets(top: self.topContentsViewHeightConstraint.constant, left: 0, bottom: 0, right: 0)
+//        self.tableView.contentOffset = CGPoint(x: 0, y: -self.originTopContentsViewHeightConstraint)
         
         self.originMainImgContainerViewWidthConstraint = self.mainImgContainerViewWidthConstraint.constant
         self.originMainImgContainerViewHeightConstraint = self.mainImgContainerViewHeightConstraint.constant
@@ -281,24 +285,17 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         }
     }
     
+    private func refreshTableViewInset() {
+        self.topContentsViewHeightConstraint.constant += self.ingredientsContainerViewHeightConstraint.constant
+        self.originTopContentsViewHeightConstraint = self.topContentsViewHeightConstraint.constant
+        self.tableView.contentInset = UIEdgeInsets(top: self.topContentsViewHeightConstraint.constant, left: 0, bottom: 0, right: 0)
+        self.tableView.contentOffset = CGPoint(x: 0, y: -self.originTopContentsViewHeightConstraint)
+    }
+    
     // MARK: action
 
 }
 
-
-extension DetailViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell()
-        if indexPath.row == 0 {
-            cell.backgroundColor = .brown
-        }
-        return cell
-    }
-    
+extension DetailViewController: UITableViewDelegate {
     
 }

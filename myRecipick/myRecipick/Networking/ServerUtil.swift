@@ -11,9 +11,9 @@ import RxAlamofire
 import Alamofire
 import SwiftyJSON
 
-// protocol HttPRequestRx { // 이거 사용 하나요?
-//    func requestRx<T: Decodable>(with request: HttpRequest) -> Observable<T>
-// }
+ protocol HttPRequestRx {
+    func requestRx<T: Decodable>(with request: HttpRequest) -> Observable<T>
+ }
 
 struct ServerUtil {
     static let shared = ServerUtil()
