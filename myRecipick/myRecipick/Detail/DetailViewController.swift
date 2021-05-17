@@ -9,8 +9,23 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class DetailViewController: UIViewController, CoordinatorMVVMViewController, ClassIdentifiable {
+    
+    struct MySection: SectionModelType {
+        typealias Item = CellModel
+        var items: [CellModel]
+        init(original: DetailViewController.MySection, items: [CellModel]) {
+            self.items = items
+            self = original
+        }
+    }
+    
+    enum CellModel {
+      case customMenuObjModel(CustomMenuObjModel)
+      case ingredient(CustomMenuDetailOptionGroupOptionsObjModel)
+    }
     
     typealias SelfType = DetailViewController
     typealias CoordinatorType = DetailViewCoordinator
@@ -106,18 +121,18 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
             vm.outputs.customMenuInfo
                 .observe(on: MainScheduler.instance)
                 .subscribe(onNext: { [weak self] data in
-                guard let self = self else { return }
-                if let url = data.imageUrl {
-                    self.mainImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
-                        self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
-                    })
-                    self.menuImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
-                        self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
-                    })
-                }
-                self.customMenuTitleLabel.text = data.name
-            })
-            .disposed(by: self.disposeBag)
+                    guard let self = self else { return }
+                    if let url = data.imageUrl {
+                        self.mainImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                            self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
+                        })
+                        self.menuImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                            self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
+                        })
+                    }
+                    self.customMenuTitleLabel.text = data.name
+                })
+                .disposed(by: self.disposeBag)
             
             vm.outputs.detailCustomMenu
                 .observe(on: MainScheduler.instance)
@@ -139,16 +154,34 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
             })
             .disposed(by: self.disposeBag)
             
-            vm.outputs.allIngredients
-                .observe(on: MainScheduler.instance)
-                .bind(to: self.tableView.rx.items) { tableView, row, item in
-                    print("testItem: \(item)")
-                    guard let cell: DetailTableViewCell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell else { return UITableViewCell() }
-                    cell.infoData = item
-                    cell.selectionStyle = .none
-                    return cell
-                }
+            Observable.zip(vm.outputs.customMenuInfo, vm.outputs.allIngredients)
+                .subscribe(onNext: { [weak self] response in
+                    var ingredientCellArr: [CellModel] = []
+                    for i in 0..<response.1.count {
+                        ingredientCellArr.append(CellModel.ingredient(response.1[i]))
+                    }
+                    let sections = Observable.just([
+                        SectionModel(model: "menu", items: [
+                            CellModel.customMenuObjModel(response.0)
+                        ]),
+                        SectionModel(model: "ingredients", items: ingredientCellArr)
+                    ])
+                    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, CellModel>>(configureCell: { dataSource, table, indexPath, item in
+                        switch item {
+                        case .customMenuObjModel(let contents):
+                            return self?.makeMenuCell(with: contents, from: table) ?? UITableViewCell()
+                        case .ingredient(let contents):
+                            return self?.makeingredientCell(with: contents, from: table) ?? UITableViewCell()
+                        }
+                    })
+                    guard let self = self else { return }
+                    sections
+                        .bind(to: self.tableView.rx.items(dataSource: dataSource))
+                        .disposed(by: self.disposeBag)
+                    
+                })
                 .disposed(by: self.disposeBag)
+            
         }
     }
     
@@ -288,6 +321,24 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.tableView.contentInset = UIEdgeInsets(top: self.topContentsViewHeightConstraint.constant, left: 0, bottom: 0, right: 0)
         self.tableView.contentOffset = CGPoint(x: 0, y: -self.originTopContentsViewHeightConstraint)
     }
+    
+    private func makeMenuCell(with element: CustomMenuObjModel, from table: UITableView) -> UITableViewCell {
+        guard let cell = table.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell else { return UITableViewCell() }
+        cell.type = .menu
+        cell.titleLabel.text = "메뉴"
+        cell.contentsLabel.text = element.name
+      return cell
+    }
+
+    private func makeingredientCell(with element: CustomMenuDetailOptionGroupOptionsObjModel, from table: UITableView) -> UITableViewCell {
+        guard let cell = table.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell else { return UITableViewCell() }
+        cell.type = .ingredients
+        cell.titleLabel.text = element.category ?? ""
+        cell.contentsLabel.text = element.name
+      return cell
+    }
+    
+    // todo 나머지 셀들 구현하기
     
     // MARK: action
 
