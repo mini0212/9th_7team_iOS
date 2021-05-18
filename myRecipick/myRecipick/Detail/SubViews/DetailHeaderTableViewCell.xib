@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailHeaderTableViewCell" rowHeight="111" id="KGk-i7-Jjw" customClass="DetailHeaderTableViewCell" customModule="myRecipick" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="372" height="111"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="372" height="111"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKR-Eo-b2p" customClass="TopConerRadiusView" customModule="myRecipick" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="111"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VQx-iw-vN7">
+                                <rect key="frame" x="0.0" y="99" width="372" height="1"/>
+                                <color key="backgroundColor" name="GrayScaleEE"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="xlb-cL-LoT"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NR-H4-Ouk">
+                                <rect key="frame" x="31" y="45" width="284" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-7C-wC9">
+                                <rect key="frame" x="320" y="41.5" width="28" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="G1K-3y-WaX"/>
+                                    <constraint firstAttribute="height" constant="28" id="MCC-wc-y56"/>
+                                </constraints>
+                                <state key="normal" image="iconsNavigation24ArrowClose"/>
+                                <connections>
+                                    <action selector="FoldBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Utj-HF-jtV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VQx-iw-vN7" secondAttribute="trailing" id="0dX-nP-g0h"/>
+                            <constraint firstAttribute="bottom" secondItem="VQx-iw-vN7" secondAttribute="bottom" constant="11" id="1NA-gp-u9x"/>
+                            <constraint firstItem="jjw-7C-wC9" firstAttribute="leading" secondItem="6NR-H4-Ouk" secondAttribute="trailing" constant="5" id="3bg-YE-lUx"/>
+                            <constraint firstAttribute="trailing" secondItem="jjw-7C-wC9" secondAttribute="trailing" constant="24" id="IdW-sj-2MO"/>
+                            <constraint firstItem="6NR-H4-Ouk" firstAttribute="centerY" secondItem="QKR-Eo-b2p" secondAttribute="centerY" id="PJr-z4-Co3"/>
+                            <constraint firstItem="VQx-iw-vN7" firstAttribute="leading" secondItem="QKR-Eo-b2p" secondAttribute="leading" id="PdT-9j-b0B"/>
+                            <constraint firstItem="jjw-7C-wC9" firstAttribute="centerY" secondItem="QKR-Eo-b2p" secondAttribute="centerY" id="qnX-IV-QSP"/>
+                            <constraint firstItem="6NR-H4-Ouk" firstAttribute="leading" secondItem="QKR-Eo-b2p" secondAttribute="leading" constant="31" id="xpW-A8-ck0"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="QKR-Eo-b2p" secondAttribute="bottom" id="7Jh-3A-QS5"/>
+                    <constraint firstItem="QKR-Eo-b2p" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="JQX-jl-YTe"/>
+                    <constraint firstAttribute="trailing" secondItem="QKR-Eo-b2p" secondAttribute="trailing" id="maa-da-KG7"/>
+                    <constraint firstItem="QKR-Eo-b2p" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rk7-7g-LrV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="mainContainerView" destination="QKR-Eo-b2p" id="oIB-0g-aGO"/>
+                <outlet property="titleLabel" destination="6NR-H4-Ouk" id="wY5-AH-3CH"/>
+            </connections>
+            <point key="canvasLocation" x="175.36231884057972" y="104.12946428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="iconsNavigation24ArrowClose" width="28" height="28"/>
+        <namedColor name="GrayScaleEE">
+            <color red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

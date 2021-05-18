@@ -29,8 +29,8 @@ class DetailViewCoordinator: CoordinatorProtocol {
     // MARK: func
     
     func makeNavigationItems() {
-        let barButtonItem = UIBarButtonItem(image: Images.evaCloseFill.image.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(closeButtonClicked(_:)))
-        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButtonItem
+//        let barButtonItem = UIBarButtonItem(image: Images.evaCloseFill.image.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(closeButtonClicked(_:)))
+//        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButtonItem
     }
     
     func setClearNavigation() {
@@ -38,6 +38,10 @@ class DetailViewCoordinator: CoordinatorProtocol {
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().backgroundColor = .clear
         UINavigationBar.appearance().isTranslucent = true
+    }
+    
+    func dismiss(animated: Bool, completion: (() -> Void)?) {
+        self.navigationController?.dismiss(animated: animated, completion: nil)
     }
     
     // MARK: action

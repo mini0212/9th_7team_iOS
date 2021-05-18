@@ -9,7 +9,7 @@
 import Alamofire
 import SwiftyJSON
 
-class BrandModel { // to 성민님, 혹시라도 쿼리할때 들어가야 할 수도 있을것같아서 싱글톤으로 만들어놓겠슴다.
+class BrandModel {
     
     // MARK: property
     
@@ -31,8 +31,6 @@ class BrandModel { // to 성민님, 혹시라도 쿼리할때 들어가야 할 �
         instance.initFunc()
         return instance
     }()
-    
-    // to 성민님, 혹시 아래의 함수 이름이나 방식이 맘에 안드신다면 바꾸셔도 됩니다 !
     
     func requestBandList(completeHandler: @escaping (JSON) -> Void, failureHandler: @escaping (Error) -> Void) {
         let httpRequest: HttpRequest = HttpRequest(url: APIDefine.GET_BRANDS, method: .get, parameters: nil, headers: .default, encoding: .jsonDefault)

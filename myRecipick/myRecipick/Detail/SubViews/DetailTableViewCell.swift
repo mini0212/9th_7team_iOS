@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailTableViewCell: UITableViewCell {
+class DetailTableViewCell: UITableViewCell, ClassIdentifiable {
     
     enum CellType {
         case menu
