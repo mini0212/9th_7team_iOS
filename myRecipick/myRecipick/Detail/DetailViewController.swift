@@ -23,8 +23,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     }
     
     enum CellModel {
-      case customMenuObjModel(CustomMenuObjModel)
-      case ingredient(CustomMenuDetailOptionGroupOptionsObjModel)
+        case header
+        case customMenuObjModel(CustomMenuObjModel)
+        case ingredient(CustomMenuDetailOptionGroupOptionsObjModel)
+        case comment(String) // 모델 나오면 수정
     }
     
     typealias SelfType = DetailViewController
@@ -79,6 +81,8 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.coordinator.setClearNavigation()
         self.coordinator.makeNavigationItems()
         self.tableView.register(UINib(nibName: DetailTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailTableViewCell.identifier)
+        self.tableView.register(UINib(nibName: DetailHeaderTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailHeaderTableViewCell.identifier)
+        self.tableView.register(UINib(nibName: DetailCommentTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailCommentTableViewCell.identifier)
         self.tableView
             .rx.setDelegate(self)
             .disposed(by: disposeBag)
@@ -161,17 +165,27 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                         ingredientCellArr.append(CellModel.ingredient(response.1[i]))
                     }
                     let sections = Observable.just([
+                        SectionModel(model: "header", items: [
+                            CellModel.header
+                        ]),
                         SectionModel(model: "menu", items: [
                             CellModel.customMenuObjModel(response.0)
                         ]),
-                        SectionModel(model: "ingredients", items: ingredientCellArr)
+                        SectionModel(model: "ingredients", items: ingredientCellArr),
+                        SectionModel(model: "comment", items: [
+                            CellModel.comment("데이터 나오면 바꿔야함")
+                        ])
                     ])
                     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, CellModel>>(configureCell: { dataSource, table, indexPath, item in
                         switch item {
+                        case .header:
+                            return self?.makeHeaderCell(from: table) ?? UITableViewCell()
                         case .customMenuObjModel(let contents):
                             return self?.makeMenuCell(with: contents, from: table) ?? UITableViewCell()
                         case .ingredient(let contents):
-                            return self?.makeingredientCell(with: contents, from: table) ?? UITableViewCell()
+                            return self?.makeIngredientCell(with: contents, from: table) ?? UITableViewCell()
+                        case .comment(let contents):
+                            return self?.makeCommentCell(with: contents, from: table) ?? UITableViewCell()
                         }
                     })
                     guard let self = self else { return }
@@ -207,6 +221,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.menuTitleLabel.textColor = UIColor(asset: Colors.grayScale33)
         self.ingredientsContainerView.backgroundColor = .darkGray
         self.ingredientsContainerView.isUserInteractionEnabled = false
+        self.tableView.backgroundColor = .clear
         self.tableView.separatorStyle = .none
         
         self.originMainImgContainerViewWidthConstraint = self.mainImgContainerViewWidthConstraint.constant
@@ -327,15 +342,26 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         cell.type = .menu
         cell.titleLabel.text = "메뉴"
         cell.contentsLabel.text = element.name
-      return cell
+        return cell
     }
-
-    private func makeingredientCell(with element: CustomMenuDetailOptionGroupOptionsObjModel, from table: UITableView) -> UITableViewCell {
+    
+    private func makeIngredientCell(with element: CustomMenuDetailOptionGroupOptionsObjModel, from table: UITableView) -> UITableViewCell {
         guard let cell = table.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell else { return UITableViewCell() }
         cell.type = .ingredients
         cell.titleLabel.text = element.category ?? ""
         cell.contentsLabel.text = element.name
-      return cell
+        return cell
+    }
+    
+    private func makeHeaderCell(from table: UITableView) -> UITableViewCell {
+        guard let cell = table.dequeueReusableCell(withIdentifier: DetailHeaderTableViewCell.identifier) as? DetailHeaderTableViewCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    private func makeCommentCell(with element: String, from table: UITableView) -> UITableViewCell { // 모델 나오면 수정
+        guard let cell = table.dequeueReusableCell(withIdentifier: DetailCommentTableViewCell.identifier) as? DetailCommentTableViewCell else { return UITableViewCell() }
+        return cell
     }
     
     // todo 나머지 셀들 구현하기
@@ -346,6 +372,17 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
 
 extension DetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 72
+        var returnValue: CGFloat = 0
+        if indexPath.section == 0 {
+            returnValue = 85
+        } else if indexPath.section == 1 {
+            returnValue = 72
+        } else if indexPath.section == 2 {
+            returnValue = 72
+        } else {
+            returnValue = 113
+        }
+        
+        return returnValue
     }
 }

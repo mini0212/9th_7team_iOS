@@ -88,6 +88,12 @@
 		7866F09A263024460037DB4C /* license.html in Resources */ = {isa = PBXBuildFile; fileRef = 7866F099263024460037DB4C /* license.html */; };
 		7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7866F0A8263025F20037DB4C /* CommonWebViewController.swift */; };
 		7866F0AB263025F20037DB4C /* CommonWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7866F0A9263025F20037DB4C /* CommonWebViewController.xib */; };
+		786ACD6D2653D9350034E2AA /* DetailHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786ACD6B2653D9350034E2AA /* DetailHeaderTableViewCell.swift */; };
+		786ACD6E2653D9350034E2AA /* DetailHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786ACD6C2653D9350034E2AA /* DetailHeaderTableViewCell.xib */; };
+		786ACD722653DCE40034E2AA /* UIView + CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786ACD712653DCE40034E2AA /* UIView + CornerRadius.swift */; };
+		786ACD7A2653E00E0034E2AA /* TopConerRadiusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786ACD792653E00E0034E2AA /* TopConerRadiusView.swift */; };
+		786ACD812653E0E60034E2AA /* DetailCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786ACD7F2653E0E60034E2AA /* DetailCommentTableViewCell.swift */; };
+		786ACD822653E0E60034E2AA /* DetailCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786ACD802653E0E60034E2AA /* DetailCommentTableViewCell.xib */; };
 		7875978E263C1BCA00305227 /* BrandSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875978A263C1BCA00305227 /* BrandSelectViewController.swift */; };
 		7875978F263C1BCA00305227 /* BrandSelectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875978C263C1BCA00305227 /* BrandSelectService.swift */; };
 		78759790263C1BCA00305227 /* BrandSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875978D263C1BCA00305227 /* BrandSelectViewModel.swift */; };
@@ -239,6 +245,12 @@
 		7866F099263024460037DB4C /* license.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = license.html; sourceTree = "<group>"; };
 		7866F0A8263025F20037DB4C /* CommonWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonWebViewController.swift; sourceTree = "<group>"; };
 		7866F0A9263025F20037DB4C /* CommonWebViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommonWebViewController.xib; sourceTree = "<group>"; };
+		786ACD6B2653D9350034E2AA /* DetailHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		786ACD6C2653D9350034E2AA /* DetailHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		786ACD712653DCE40034E2AA /* UIView + CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + CornerRadius.swift"; sourceTree = "<group>"; };
+		786ACD792653E00E0034E2AA /* TopConerRadiusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopConerRadiusView.swift; sourceTree = "<group>"; };
+		786ACD7F2653E0E60034E2AA /* DetailCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommentTableViewCell.swift; sourceTree = "<group>"; };
+		786ACD802653E0E60034E2AA /* DetailCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCommentTableViewCell.xib; sourceTree = "<group>"; };
 		7875978A263C1BCA00305227 /* BrandSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectViewController.swift; sourceTree = "<group>"; };
 		7875978C263C1BCA00305227 /* BrandSelectService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectService.swift; sourceTree = "<group>"; };
 		7875978D263C1BCA00305227 /* BrandSelectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectViewModel.swift; sourceTree = "<group>"; };
@@ -328,6 +340,7 @@
 			children = (
 				39D9D595264E682E000434B7 /* MenuCategoryBar.swift */,
 				39D9D59B264EAA09000434B7 /* MenuCategoryBar.xib */,
+				786ACD792653E00E0034E2AA /* TopConerRadiusView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -339,6 +352,10 @@
 				4F2FD6502643854D0085D629 /* IngredientsView.xib */,
 				7815C5BF26510D2000581D4E /* DetailTableViewCell.swift */,
 				7815C5C026510D2000581D4E /* DetailTableViewCell.xib */,
+				786ACD6B2653D9350034E2AA /* DetailHeaderTableViewCell.swift */,
+				786ACD6C2653D9350034E2AA /* DetailHeaderTableViewCell.xib */,
+				786ACD7F2653E0E60034E2AA /* DetailCommentTableViewCell.swift */,
+				786ACD802653E0E60034E2AA /* DetailCommentTableViewCell.xib */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -355,6 +372,7 @@
 				785C7ACB263D3D2900A163CC /* UIView + RemoveAllSubViews.swift */,
 				4F497E4B263B964B00571CEF /* UIButton + BackgroundColor.swift */,
 				7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */,
+				786ACD712653DCE40034E2AA /* UIView + CornerRadius.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -870,6 +888,7 @@
 				78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */,
 				78759796263C1BFF00305227 /* BrandSelectTableViewCell.xib in Resources */,
 				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
+				786ACD6E2653D9350034E2AA /* DetailHeaderTableViewCell.xib in Resources */,
 				7815C5C226510D2000581D4E /* DetailTableViewCell.xib in Resources */,
 				78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */,
 				7817E838263E8C5E003AC910 /* YourPage.storyboard in Resources */,
@@ -877,6 +896,7 @@
 				4FF5491826410F9D0086E30C /* Detail.storyboard in Resources */,
 				78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */,
 				78644AAE263444D800C16C47 /* OFL.txt in Resources */,
+				786ACD822653E0E60034E2AA /* DetailCommentTableViewCell.xib in Resources */,
 				4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */,
 				39D9D5A6264EBB8C000434B7 /* MenuListViewController.xib in Resources */,
 				7866F09A263024460037DB4C /* license.html in Resources */,
@@ -1048,6 +1068,7 @@
 				4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */,
 				39A4492926443F68001DD3C4 /* CustomNavigationView.swift in Sources */,
 				4FF5490C2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift in Sources */,
+				786ACD6D2653D9350034E2AA /* DetailHeaderTableViewCell.swift in Sources */,
 				78B29A04263AD14B005B6ECF /* String + Localized.swift in Sources */,
 				7875978F263C1BCA00305227 /* BrandSelectService.swift in Sources */,
 				4F2FD64A26436F470085D629 /* DetailService.swift in Sources */,
@@ -1099,12 +1120,14 @@
 				4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */,
 				78D76820262D85310010A07E /* SplashView.swift in Sources */,
 				4F9DC6DF2625189600609CF0 /* CustomCoordinator.swift in Sources */,
+				786ACD7A2653E00E0034E2AA /* TopConerRadiusView.swift in Sources */,
 				4F2FD64C26436F740085D629 /* DetailViewCoordinator.swift in Sources */,
 				4FF549142640E6620086E30C /* CustomMenuCardCollectionViewCell.swift in Sources */,
 				78234D772647B55700B15DC6 /* ReleaseCheckTestView.swift in Sources */,
 				78B29A1A263ADCB2005B6ECF /* HomeTipViewController.swift in Sources */,
 				4F5C5F9326242BBD003D94E2 /* NibIdentifiable.swift in Sources */,
 				78D76836262D8C1C0010A07E /* BrandModel.swift in Sources */,
+				786ACD812653E0E60034E2AA /* DetailCommentTableViewCell.swift in Sources */,
 				4F5C5F572624204B003D94E2 /* UITableView + Identifiable.swift in Sources */,
 				78575E59262C4EA00060BB63 /* MVVMProtocol.swift in Sources */,
 				4FF5491A26410FA70086E30C /* DetailViewController.swift in Sources */,
@@ -1113,6 +1136,7 @@
 				78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */,
 				78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */,
 				4F2FD64F2643852A0085D629 /* IngredientsView.swift in Sources */,
+				786ACD722653DCE40034E2AA /* UIView + CornerRadius.swift in Sources */,
 				7815C5C126510D2000581D4E /* DetailTableViewCell.swift in Sources */,
 				7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */,
 				789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */,

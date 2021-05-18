@@ -34,6 +34,7 @@ internal enum Colors {
   internal static let positive = ColorAsset(name: "Positive")
   internal static let primaryDark = ColorAsset(name: "PrimaryDark")
   internal static let primaryLight = ColorAsset(name: "PrimaryLight")
+  internal static let primaryLight2 = ColorAsset(name: "PrimaryLight2")
   internal static let primaryNormal = ColorAsset(name: "PrimaryNormal")
   internal static let sampleColor = ColorAsset(name: "SampleColor")
   internal static let scrimBlack = ColorAsset(name: "ScrimBlack")
