@@ -58,6 +58,8 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
 
     // MARK: outlet
     @IBOutlet weak var backgroundContainerView: UIView!
+    @IBOutlet weak var backgroundBottomView: UIView!
+    @IBOutlet weak var backgroundBottomViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainContainerView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var topContentsContainerView: UIView!
@@ -90,6 +92,8 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBOutlet weak var otherColor5View: UIView!
     
     @IBOutlet weak var closeBtnTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var shareBtn: UIButton!
     
     // MARK: property
     
@@ -151,6 +155,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
             .disposed(by: disposeBag)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
@@ -171,6 +179,9 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                     self.topContentsViewTopConstraint.constant = -yOffset
                     self.colorPickContainerViewTopConstraint.constant = -yOffset + self.originColorPickContainerViewTopConstraint
                     self.closeBtnTopConstraint.constant = -yOffset + self.originCloseBtnTopConstraint
+                    if yOffset >= 0 {
+                        self.backgroundBottomViewHeightConstraint.constant = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0) + yOffset
+                    }
                     
                     var percent: CGFloat = yOffset/self.originTopContentsViewHeightConstraint
                     if 0 > percent {
@@ -278,6 +289,8 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     
     func initUI() {
         self.backgroundContainerView.backgroundColor = self.currentBackgroundColor.getColor()
+        self.backgroundBottomView.backgroundColor = UIColor(asset: Colors.white)
+        self.backgroundBottomViewHeightConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
         self.mainContainerView.backgroundColor = .clear
         self.topContentsContainerView.backgroundColor = .clear
         self.topContentsContainerView.isUserInteractionEnabled = false
@@ -324,6 +337,26 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         
         self.otherColor5View.layer.cornerRadius = self.currentPickedColorViewWidthConstraint.constant/2
         self.otherColor5View.backgroundColor = DetailViewController.BackgroundColorEnum.green.getColor()
+        
+        self.editBtn.layer.cornerRadius = 10
+        self.editBtn.layer.masksToBounds = true
+        self.editBtn.adjustsImageWhenHighlighted = false
+        self.editBtn.showsTouchWhenHighlighted = false
+        self.editBtn.setBackgroundColor(UIColor(asset: Colors.grayScaleBD) ?? .lightGray, for: .normal)
+        self.editBtn.setBackgroundColor(UIColor(asset: Colors.grayScale99) ?? .darkGray, for: .highlighted)
+        self.editBtn.setTitle("수정하기", for: .normal)
+        self.editBtn.setTitleColor(.white, for: .normal)
+        self.editBtn.titleLabel?.font = UIFont.myRecipickFont(.subTitle2)
+        
+        self.shareBtn.adjustsImageWhenHighlighted = false
+        self.shareBtn.showsTouchWhenHighlighted = false
+        self.shareBtn.setBackgroundColor(UIColor(asset: Colors.primaryNormal) ?? .orange, for: .normal)
+        self.shareBtn.setBackgroundColor(UIColor(asset: Colors.primaryDark) ?? .orange, for: .highlighted)
+        self.shareBtn.setTitle("공유하기", for: .normal)
+        self.shareBtn.setTitleColor(.white, for: .normal)
+        self.shareBtn.titleLabel?.font = UIFont.myRecipickFont(.subTitle2)
+        self.shareBtn.layer.cornerRadius = 10
+        self.shareBtn.layer.masksToBounds = true
         
     }
     
@@ -490,6 +523,14 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBAction func otherColor5Action(_ sender: Any) {
         self.currentBackgroundColor = .green
         self.isSelectableBackgroundColor = false
+    }
+    
+    @IBAction func editAction(_ sender: Any) {
+        print("editAction")
+    }
+    
+    @IBAction func shareAction(_ sender: Any) {
+        print("shareAction")
     }
     
 }
