@@ -443,6 +443,7 @@
                         <outlet property="colorPickContainerView" destination="G1p-C6-Bm5" id="sDc-B3-X4l"/>
                         <outlet property="colorPickContainerViewTopConstraint" destination="DQW-ii-1OG" id="zv4-JL-ml6"/>
                         <outlet property="colorPickView" destination="rRv-Wy-rgH" id="Jla-IX-CsK"/>
+                        <outlet property="containerView" destination="5EZ-qb-Rvc" id="mfK-vy-LFt"/>
                         <outlet property="currentPickedColorView" destination="Sho-4c-j7k" id="lJd-wf-EW1"/>
                         <outlet property="currentPickedColorViewWidthConstraint" destination="Z2w-SZ-dOR" id="iwS-FM-slP"/>
                         <outlet property="customMenuTitleLabel" destination="8tj-PR-D28" id="daZ-r8-gfP"/>

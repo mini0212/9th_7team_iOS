@@ -57,6 +57,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     }
 
     // MARK: outlet
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var backgroundContainerView: UIView!
     @IBOutlet weak var backgroundBottomView: UIView!
     @IBOutlet weak var backgroundBottomViewHeightConstraint: NSLayoutConstraint!
@@ -530,7 +531,20 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     }
     
     @IBAction func shareAction(_ sender: Any) {
-        print("shareAction")
+        let statusbarArea = (self.view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
+
+        if let snapshot = self.containerView.snapshot(scrollView: self.tableView, top: statusbarArea, extraHeight: self.topContentsViewHeightConstraint.constant) {
+           print("snapshot: \(snapshot)")
+           let imageToShare = [ snapshot, self ]
+           let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+           activityViewController.title = "asd"
+           activityViewController.popoverPresentationController?.sourceView = self.shareBtn
+           activityViewController.isModalInPresentation = true
+
+           activityViewController.excludedActivityTypes = [ .airDrop, .message]
+
+           self.present(activityViewController, animated: true, completion: nil)
+       }
     }
     
 }
