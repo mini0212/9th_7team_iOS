@@ -8,3 +8,4 @@
 
 "CFBundleDisplayName" = "마이레시픽";
 "NSCameraUsageDescription" = "";
+"NSPhotoLibraryAddUsageDescription" = "레시피 사진을 저장하기위해서는 앨범접근 권한이 필요합니다.";

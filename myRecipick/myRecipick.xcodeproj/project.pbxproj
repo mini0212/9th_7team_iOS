@@ -107,7 +107,7 @@
 		78759795263C1BFF00305227 /* BrandSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */; };
 		78759796263C1BFF00305227 /* BrandSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */; };
 		7875979A263C28C600305227 /* RequestBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78759799263C28C600305227 /* RequestBrandViewController.swift */; };
-		789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */; };
+		789FD51F26270419003728A6 /* UIView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIView + Snapshot.swift */; };
 		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
 		78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52B32621D632002B7C02 /* Assets.xcassets */; };
@@ -271,7 +271,7 @@
 		78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectTableViewCell.swift; sourceTree = "<group>"; };
 		78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandSelectTableViewCell.xib; sourceTree = "<group>"; };
 		78759799263C28C600305227 /* RequestBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBrandViewController.swift; sourceTree = "<group>"; };
-		789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView + Snapshot.swift"; sourceTree = "<group>"; };
+		789FD51E26270419003728A6 /* UIView + Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Snapshot.swift"; sourceTree = "<group>"; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78AC52BB2621D75D002B7C02 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -356,7 +356,6 @@
 			children = (
 				39D9D595264E682E000434B7 /* MenuCategoryBar.swift */,
 				39D9D59B264EAA09000434B7 /* MenuCategoryBar.xib */,
-				786ACD792653E00E0034E2AA /* TopConerRadiusView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -381,7 +380,7 @@
 			children = (
 				4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */,
 				4F5C5F9726242BF9003D94E2 /* Data + HexString.swift */,
-				789FD51E26270419003728A6 /* UIScrollView + Snapshot.swift */,
+				789FD51E26270419003728A6 /* UIView + Snapshot.swift */,
 				78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */,
 				78B29A03263AD14B005B6ECF /* String + Localized.swift */,
 				4F497E49263B94A200571CEF /* UIView + FadeInOut.swift */,
@@ -730,6 +729,7 @@
 				39A4492A26443F76001DD3C4 /* CustomNavigationView.xib */,
 				78D7681F262D85310010A07E /* SplashView.swift */,
 				78D76823262D85390010A07E /* SplashView.xib */,
+				786ACD792653E00E0034E2AA /* TopConerRadiusView.swift */,
 				78234D762647B55700B15DC6 /* ReleaseCheckTestView.swift */,
 			);
 			path = View;
@@ -1167,7 +1167,7 @@
 				786ACD722653DCE40034E2AA /* UIView + CornerRadius.swift in Sources */,
 				7815C5C126510D2000581D4E /* DetailTableViewCell.swift in Sources */,
 				7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */,
-				789FD51F26270419003728A6 /* UIScrollView + Snapshot.swift in Sources */,
+				789FD51F26270419003728A6 /* UIView + Snapshot.swift in Sources */,
 				78B299EA263AB259005B6ECF /* UIFont + MyRecipickFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
