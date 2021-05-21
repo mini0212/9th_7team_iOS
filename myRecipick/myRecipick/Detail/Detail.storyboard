@@ -439,6 +439,7 @@
                         <outlet property="backgroundBottomView" destination="rD8-Tk-k2y" id="lz5-Eb-vfK"/>
                         <outlet property="backgroundBottomViewHeightConstraint" destination="qrA-Yf-edY" id="Vif-tp-VKL"/>
                         <outlet property="backgroundContainerView" destination="bwb-dH-vqk" id="AcM-TD-7px"/>
+                        <outlet property="buttonContainerViewHeightConstraint" destination="j6c-jm-uAE" id="M9k-4v-9wJ"/>
                         <outlet property="closeBtnTopConstraint" destination="XRG-72-ATw" id="vAu-zt-xIg"/>
                         <outlet property="colorPickContainerView" destination="G1p-C6-Bm5" id="sDc-B3-X4l"/>
                         <outlet property="colorPickContainerViewTopConstraint" destination="DQW-ii-1OG" id="zv4-JL-ml6"/>

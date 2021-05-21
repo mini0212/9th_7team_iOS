@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import LinkPresentation
 
 class DetailViewController: UIViewController, CoordinatorMVVMViewController, ClassIdentifiable {
     
@@ -95,6 +96,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBOutlet weak var closeBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var buttonContainerViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: property
     
@@ -532,16 +534,16 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     
     @IBAction func shareAction(_ sender: Any) {
         let statusbarArea = (self.view.window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0)
-
-        if let snapshot = self.containerView.snapshot(scrollView: self.tableView, top: statusbarArea, extraHeight: self.topContentsViewHeightConstraint.constant) {
-           print("snapshot: \(snapshot)")
+        let bottomPadding = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
+        let extraHeight: CGFloat = statusbarArea + self.topContentsViewHeightConstraint.constant + buttonContainerViewHeightConstraint.constant + bottomPadding
+        _ = self.containerView.snapshot(scrollView: self.tableView, extraHeight: extraHeight) // todo 수정
+        if let snapshot = self.containerView.snapshot(scrollView: self.tableView, extraHeight: extraHeight) {
            let imageToShare = [ snapshot, self ]
            let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
-           activityViewController.title = "asd"
            activityViewController.popoverPresentationController?.sourceView = self.shareBtn
            activityViewController.isModalInPresentation = true
 
-           activityViewController.excludedActivityTypes = [ .airDrop, .message]
+           activityViewController.excludedActivityTypes = [.airDrop, .message]
 
            self.present(activityViewController, animated: true, completion: nil)
        }
@@ -563,5 +565,21 @@ extension DetailViewController: UITableViewDelegate {
         }
         
         return returnValue
+    }
+}
+
+extension DetailViewController: UIActivityItemSource {
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        return ""
+    }
+    
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        return nil
+    }
+
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let metadata = LPLinkMetadata()
+        metadata.title = "나의 레시피를 공유해보세요!"
+        return metadata
     }
 }
