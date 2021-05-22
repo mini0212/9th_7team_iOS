@@ -85,8 +85,10 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
                 .map { value in
                     if value.count == 0 {
                         self.zeroItemCntView?.isHidden = false
+                        self.coordinator.removeRightBarButtonItems()
                     } else {
                         self.zeroItemCntView?.isHidden = true
+                        self.coordinator.makeEditBtn()
                     }
                 }
                 .subscribe(onNext: {
