@@ -103,18 +103,16 @@ class YourPageService: YourPageServiceProtocol {
 
 struct CustomMenuObjModel: JsonDataProtocol {
     var id: String = ""
-    var brandId: String = ""
     var name: String = ""
     var description: String = ""
     var imageUrl: String?
-    var isShow: Bool = false
+    var createdDate: String = ""
     
     enum CodingKeys: String, CodingKey {
         case id
-        case brandId
         case name
         case description
         case imageUrl = "image"
-        case isShow
+        case createdDate
     }
 }

@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol YourPageTableViewCellDelegate: AnyObject {
     func isClicked(_ cell: UITableViewCell, indexPathRow: Int)
     func cellClicked(indexPathRow: Int, data: CustomMenuObjModel)
 }
 
-class YourPageTableViewCell: UITableViewCell {
+class YourPageTableViewCell: UITableViewCell, ClassIdentifiable, NibIdentifiable {
 
     // MARK: IBOutlet
     @IBOutlet weak var mainContainerView: UIView!

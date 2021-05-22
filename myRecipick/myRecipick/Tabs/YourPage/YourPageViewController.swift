@@ -51,7 +51,7 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
         initUI()
         bindingViewModel(viewModel: self.viewModel)
         self.coordinator.delegate = self
-        self.tableView.register(UINib(nibName: "YourPageTableViewCell", bundle: nil), forCellReuseIdentifier: "YourPageTableViewCell")
+        self.tableView.register(YourPageTableViewCell.nib, forCellReuseIdentifier: YourPageTableViewCell.identifier)
         self.tableView
             .rx.setDelegate(self)
             .disposed(by: disposeBag)
