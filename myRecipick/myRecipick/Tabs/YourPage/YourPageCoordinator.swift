@@ -48,6 +48,7 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.myRecipickFont(.subTitle1), NSAttributedString.Key.foregroundColor: UIColor(asset: Colors.grayScale33) ?? .lightGray]
 
         self.navigationController?.navigationBar.topItem?.leftBarButtonItem = nil
+        makeEditBtn()
     }
     
     func makeEditBtn() {
@@ -60,6 +61,7 @@ class YourPageCoordinator: MainTabCoordinatorProtocol {
     }
     
     func removeRightBarButtonItems() {
+        self.navigationController?.navigationBar.topItem?.rightBarButtonItems?.removeAll()
         self.navigationController?.navigationBar.topItem?.rightBarButtonItem = nil
     }
     
