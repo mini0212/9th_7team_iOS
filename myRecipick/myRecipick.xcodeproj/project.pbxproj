@@ -104,8 +104,6 @@
 		7875978E263C1BCA00305227 /* BrandSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875978A263C1BCA00305227 /* BrandSelectViewController.swift */; };
 		7875978F263C1BCA00305227 /* BrandSelectService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875978C263C1BCA00305227 /* BrandSelectService.swift */; };
 		78759790263C1BCA00305227 /* BrandSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7875978D263C1BCA00305227 /* BrandSelectViewModel.swift */; };
-		78759795263C1BFF00305227 /* BrandSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */; };
-		78759796263C1BFF00305227 /* BrandSelectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */; };
 		7875979A263C28C600305227 /* RequestBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78759799263C28C600305227 /* RequestBrandViewController.swift */; };
 		789FD51F26270419003728A6 /* UIView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIView + Snapshot.swift */; };
 		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
@@ -133,6 +131,8 @@
 		78E9B39E264BF6000019854B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 78E9B39D264BF6000019854B /* KeychainAccess */; };
 		78E9B3A3264BF7D40019854B /* UniqueUUIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B3A2264BF7D40019854B /* UniqueUUIDManager.swift */; };
 		78E9B3A7264BF9B70019854B /* KeyChainKeyDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B3A6264BF9B70019854B /* KeyChainKeyDefine.swift */; };
+		78FC10882658F1A1005776A4 /* BrandSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FC10862658F1A1005776A4 /* BrandSelectCollectionViewCell.swift */; };
+		78FC10892658F1A1005776A4 /* BrandSelectCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78FC10872658F1A1005776A4 /* BrandSelectCollectionViewCell.xib */; };
 		8B6D5309E5A7D7825A2D9A29 /* Pods_myRecipickTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */; };
 		9AF401E67CA0C0BC12ADA2E0 /* Pods_myRecipick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7653C90059012835E948493D /* Pods_myRecipick.framework */; };
 /* End PBXBuildFile section */
@@ -268,8 +268,6 @@
 		7875978A263C1BCA00305227 /* BrandSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectViewController.swift; sourceTree = "<group>"; };
 		7875978C263C1BCA00305227 /* BrandSelectService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectService.swift; sourceTree = "<group>"; };
 		7875978D263C1BCA00305227 /* BrandSelectViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandSelectViewModel.swift; sourceTree = "<group>"; };
-		78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectTableViewCell.swift; sourceTree = "<group>"; };
-		78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandSelectTableViewCell.xib; sourceTree = "<group>"; };
 		78759799263C28C600305227 /* RequestBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBrandViewController.swift; sourceTree = "<group>"; };
 		789FD51E26270419003728A6 /* UIView + Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Snapshot.swift"; sourceTree = "<group>"; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -301,6 +299,8 @@
 		78D7683B262DA1800010A07E /* APIDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDefine.swift; sourceTree = "<group>"; };
 		78E9B3A2264BF7D40019854B /* UniqueUUIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueUUIDManager.swift; sourceTree = "<group>"; };
 		78E9B3A6264BF9B70019854B /* KeyChainKeyDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainKeyDefine.swift; sourceTree = "<group>"; };
+		78FC10862658F1A1005776A4 /* BrandSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandSelectCollectionViewCell.swift; sourceTree = "<group>"; };
+		78FC10872658F1A1005776A4 /* BrandSelectCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BrandSelectCollectionViewCell.xib; sourceTree = "<group>"; };
 		8AF64932C82596AAE6A9C39B /* Pods-myRecipick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipick.release.xcconfig"; path = "Target Support Files/Pods-myRecipick/Pods-myRecipick.release.xcconfig"; sourceTree = "<group>"; };
 		BDDB51F3B8AE16956C504572 /* Pods-myRecipickTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.debug.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -599,9 +599,9 @@
 		7875978B263C1BCA00305227 /* SubView */ = {
 			isa = PBXGroup;
 			children = (
-				78759793263C1BFF00305227 /* BrandSelectTableViewCell.swift */,
-				78759794263C1BFF00305227 /* BrandSelectTableViewCell.xib */,
 				78759799263C28C600305227 /* RequestBrandViewController.swift */,
+				78FC10862658F1A1005776A4 /* BrandSelectCollectionViewCell.swift */,
+				78FC10872658F1A1005776A4 /* BrandSelectCollectionViewCell.xib */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -907,7 +907,6 @@
 				78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */,
 				4FF549152640E6620086E30C /* CustomMenuCardCollectionViewCell.xib in Resources */,
 				78C8C1642615C45600F84CAB /* LaunchScreen.storyboard in Resources */,
-				78759796263C1BFF00305227 /* BrandSelectTableViewCell.xib in Resources */,
 				78C8C19E2615C81A00F84CAB /* Localizable.strings in Resources */,
 				786ACD6E2653D9350034E2AA /* DetailHeaderTableViewCell.xib in Resources */,
 				7815C5C226510D2000581D4E /* DetailTableViewCell.xib in Resources */,
@@ -923,6 +922,7 @@
 				4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */,
 				39D9D5A6264EBB8C000434B7 /* MenuListViewController.xib in Resources */,
 				7866F09A263024460037DB4C /* license.html in Resources */,
+				78FC10892658F1A1005776A4 /* BrandSelectCollectionViewCell.xib in Resources */,
 				78644AAD263444D800C16C47 /* NotoSansKR-Bold.otf in Resources */,
 				39A4492526443907001DD3C4 /* CustomViewController.xib in Resources */,
 				39D9D59C264EAA09000434B7 /* MenuCategoryBar.xib in Resources */,
@@ -1107,7 +1107,6 @@
 				39D9D59F264EB8BC000434B7 /* MenuContainerCollectionViewCell.swift in Sources */,
 				4F9DC6E92625204200609CF0 /* HomeViewController.swift in Sources */,
 				393534E02655479A00C457EA /* CustomOptionViewController.swift in Sources */,
-				78759795263C1BFF00305227 /* BrandSelectTableViewCell.swift in Sources */,
 				4F5C5F9226242BBD003D94E2 /* ClassIdentifiable.swift in Sources */,
 				785C7ACC263D3D2900A163CC /* UIView + RemoveAllSubViews.swift in Sources */,
 				4F5C5F7126242178003D94E2 /* ServerUtil.swift in Sources */,
@@ -1166,6 +1165,7 @@
 				4F2FD64F2643852A0085D629 /* IngredientsView.swift in Sources */,
 				786ACD722653DCE40034E2AA /* UIView + CornerRadius.swift in Sources */,
 				7815C5C126510D2000581D4E /* DetailTableViewCell.swift in Sources */,
+				78FC10882658F1A1005776A4 /* BrandSelectCollectionViewCell.swift in Sources */,
 				7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */,
 				789FD51F26270419003728A6 /* UIView + Snapshot.swift in Sources */,
 				78B299EA263AB259005B6ECF /* UIFont + MyRecipickFont.swift in Sources */,

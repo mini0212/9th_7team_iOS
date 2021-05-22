@@ -1,19 +1,18 @@
 //
-//  BrandSelectTableViewCell.swift
+//  BrandSelectCollectionViewCell.swift
 //  myRecipick
 //
-//  Created by hanwe on 2021/04/30.
+//  Created by hanwe on 2021/05/22.
 //  Copyright © 2021 depromeet. All rights reserved.
 //
 
 import UIKit
-import Kingfisher
 
-class BrandSelectTableViewCell: UITableViewCell, NibIdentifiable, ClassIdentifiable {
-    
+class BrandSelectCollectionViewCell: UICollectionViewCell, ClassIdentifiable {
+
     // MARK: IBOutlet
-    
     @IBOutlet weak var mainContainerView: UIView!
+    @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var imgView: UIImageView!
     @IBOutlet weak var contentsLabel: UILabel!
     
@@ -24,6 +23,8 @@ class BrandSelectTableViewCell: UITableViewCell, NibIdentifiable, ClassIdentifia
             guard let info = self.infoData else {
                 return
             }
+            self.imageContainerView.layer.borderWidth = 1
+            self.imageContainerView.layer.borderColor = UIColor(asset: Colors.grayScaleEE)?.cgColor
             self.contentsLabel.text = info.name
             self.imgView.kf.setImage(with: URL(string: info.logoImgUrl), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
                 self?.imgView.fadeIn(duration: 0.1, completeHandler: nil)
@@ -38,8 +39,6 @@ class BrandSelectTableViewCell: UITableViewCell, NibIdentifiable, ClassIdentifia
         initUI()
     }
     
-    // MARK: function
-    
     func initUI() {
         self.mainContainerView.backgroundColor = .clear
         self.contentsLabel.font = UIFont.myRecipickFont(.body2)
@@ -47,6 +46,8 @@ class BrandSelectTableViewCell: UITableViewCell, NibIdentifiable, ClassIdentifia
         self.imgView.alpha = 0
     }
     
-    // MARK: action
+    // MARK: function
     
+    // MARK: action
+
 }

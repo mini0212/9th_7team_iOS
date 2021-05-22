@@ -14,7 +14,7 @@ protocol BrandSelectViewControllerDelegate: AnyObject {
     func pushRequestBrandViewController()
 }
 
-class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, ClassIdentifiable {
+class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, ClassIdentifiable, ActivityIndicatorable {
     
     typealias SelfType = BrandSelectViewController
     typealias MVVMViewModelClassType = BrandSelectViewModel
@@ -26,9 +26,10 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
     @IBOutlet weak var topContainerView: UIView!
     @IBOutlet weak var topContentsLabel: UILabel!
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var bottomContainerView: UIView!
+    @IBOutlet weak var bottomIconImageView: UIImageView!
     @IBOutlet weak var bottomContentsLabel: UILabel!
     
     
@@ -45,7 +46,7 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        self.tableView.register(UINib(nibName: "BrandSelectTableViewCell", bundle: nil), forCellReuseIdentifier: "BrandSelectTableViewCell")
+        self.collectionView.register(UINib(nibName: BrandSelectCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: BrandSelectCollectionViewCell.identifier)
         bindingViewModel(viewModel: self.viewModel)
     }
     
@@ -58,26 +59,23 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
             guard let vm: BrandSelectViewModel = (viewModel as? BrandSelectViewModel) else { return }
             
             vm.outputs.isLoading
-                .subscribe(onNext: {
+                .subscribe(onNext: { [weak self] in
                     if $0 {
-                        print("로딩 on!")
+                        self?.startIndicatorAnimating()
                     } else {
-                        print("로딩 off!")
+                        self?.stopIndicatorAnimating()
                     }
                 })
                 .disposed(by: self.disposeBag)
             
             vm.outputs.brands
                 .observe(on: MainScheduler.instance)
-                .bind(to: self.tableView.rx.items) { tableView, row, item in
-                    guard let cell: BrandSelectTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BrandSelectTableViewCell") as? BrandSelectTableViewCell else { return UITableViewCell() }
-                    cell.selectionStyle = .none
-                    cell.infoData = item
-                    return cell
+                .bind(to: self.collectionView.rx.items(cellIdentifier: BrandSelectCollectionViewCell.identifier, cellType: BrandSelectCollectionViewCell.self)) { [weak self] index, element, cell in
+                    cell.infoData = element
                 }
                 .disposed(by: self.disposeBag)
             
-            self.tableView.rx.itemSelected
+            self.collectionView.rx.itemSelected
                 .subscribe(onNext: { index in
                     print("index: \(index)")
                 })
@@ -103,15 +101,21 @@ class BrandSelectViewController: UIViewController, MVVMViewControllerProtocol, C
         self.topContentsLabel.textColor = UIColor(asset: Colors.grayScale33)
         self.topContentsLabel.text = "브랜드 변경"
         
-        self.tableView.separatorStyle = .none
-        self.tableView.bounces = false
-        self.tableView.contentInset = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
-        
         self.bottomContainerView.backgroundColor = .clear
         self.bottomContentsLabel.font = UIFont.myRecipickFont(.subTitle1)
-        self.bottomContentsLabel.textColor = UIColor(asset: Colors.grayScale33)
+        self.bottomContentsLabel.textColor = UIColor(asset: Colors.primaryNormal)
         self.bottomContentsLabel.text = "브랜드 추가 요청"
         
+        self.bottomIconImageView.image = self.bottomIconImageView.image?.withRenderingMode(.alwaysTemplate)
+        self.bottomIconImageView.tintColor = UIColor(asset: Colors.primaryNormal)
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 24
+        layout.minimumInteritemSpacing = 21
+        layout.itemSize = CGSize(width: 74, height: 111)
+        layout.sectionInset = UIEdgeInsets(top: 24, left: 24, bottom: 24, right: 24)
+        self.collectionView.collectionViewLayout = layout
     }
     
     // MARK: action
