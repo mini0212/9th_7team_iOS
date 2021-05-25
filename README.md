@@ -1,7 +1,7 @@
 # 🥙🌯 myRecipick
 
 ## 소개
- - 나만의 조합을 통해 꿀레시피 조합을 찾아 공유해보세요!
+ - 나만의 조합으로 꿀레시피를 찾아 공유해보세요!
  - [디자이너와 프로그래머가 만났을 때](https://www.depromeet.com/) 9기 [myRecipick](https://github.com/depromeet/myRecipick_iOS)
 
 ## 컨트리뷰터 (가나다 순)
@@ -35,6 +35,7 @@
 
  - [RxSwift](https://github.com/ReactiveX/RxSwift)
  - [RxCocoa](https://github.com/ReactiveX/RxSwift)
+ - [RxDataSources](https://github.com/RxSwiftCommunity/RxDataSources)
  - [SwiftLint](https://github.com/realm/SwiftLint)
  - [SwiftGen](https://github.com/SwiftGen/SwiftGen)
  - [RxAlamofire](https://github.com/RxSwiftCommunity/RxAlamofire)

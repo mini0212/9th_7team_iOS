@@ -30,33 +30,20 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6NR-H4-Ouk">
-                                <rect key="frame" x="31" y="45" width="284" height="21"/>
+                                <rect key="frame" x="31" y="45" width="331" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jjw-7C-wC9">
-                                <rect key="frame" x="320" y="41.5" width="28" height="28"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="28" id="G1K-3y-WaX"/>
-                                    <constraint firstAttribute="height" constant="28" id="MCC-wc-y56"/>
-                                </constraints>
-                                <state key="normal" image="iconsNavigation24ArrowClose"/>
-                                <connections>
-                                    <action selector="FoldBtnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Utj-HF-jtV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VQx-iw-vN7" secondAttribute="trailing" id="0dX-nP-g0h"/>
                             <constraint firstAttribute="bottom" secondItem="VQx-iw-vN7" secondAttribute="bottom" constant="11" id="1NA-gp-u9x"/>
-                            <constraint firstItem="jjw-7C-wC9" firstAttribute="leading" secondItem="6NR-H4-Ouk" secondAttribute="trailing" constant="5" id="3bg-YE-lUx"/>
-                            <constraint firstAttribute="trailing" secondItem="jjw-7C-wC9" secondAttribute="trailing" constant="24" id="IdW-sj-2MO"/>
                             <constraint firstItem="6NR-H4-Ouk" firstAttribute="centerY" secondItem="QKR-Eo-b2p" secondAttribute="centerY" id="PJr-z4-Co3"/>
                             <constraint firstItem="VQx-iw-vN7" firstAttribute="leading" secondItem="QKR-Eo-b2p" secondAttribute="leading" id="PdT-9j-b0B"/>
-                            <constraint firstItem="jjw-7C-wC9" firstAttribute="centerY" secondItem="QKR-Eo-b2p" secondAttribute="centerY" id="qnX-IV-QSP"/>
                             <constraint firstItem="6NR-H4-Ouk" firstAttribute="leading" secondItem="QKR-Eo-b2p" secondAttribute="leading" constant="31" id="xpW-A8-ck0"/>
+                            <constraint firstAttribute="trailing" secondItem="6NR-H4-Ouk" secondAttribute="trailing" constant="10" id="z5i-x8-D9S"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -78,7 +65,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="iconsNavigation24ArrowClose" width="28" height="28"/>
         <namedColor name="GrayScaleEE">
             <color red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
