@@ -60,6 +60,8 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     // MARK: outlet
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var backgroundContainerView: UIView!
+    @IBOutlet weak var bottomPaddingView: UIView!
+    @IBOutlet weak var bottomPaddingViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundBottomView: UIView!
     @IBOutlet weak var backgroundBottomViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainContainerView: UIView!
@@ -82,6 +84,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBOutlet weak var colorPickContainerView: UIView!
     @IBOutlet weak var colorPickContainerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var colorPickView: UIView!
+    @IBOutlet weak var colorPickViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var currentPickedColorView: UIView!
     @IBOutlet weak var currentPickedColorViewWidthConstraint: NSLayoutConstraint!
     
@@ -93,6 +96,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBOutlet weak var otherColor4View: UIView!
     @IBOutlet weak var otherColor5View: UIView!
     
+    @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var closeBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
@@ -179,11 +183,16 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                 .subscribe(onNext: { [weak self] in
                     guard let self = self else { return }
                     let yOffset = self.tableView.contentOffset.y + self.originTopContentsViewHeightConstraint
-                    self.topContentsViewTopConstraint.constant = -yOffset
-                    self.colorPickContainerViewTopConstraint.constant = -yOffset + self.originColorPickContainerViewTopConstraint
-                    self.closeBtnTopConstraint.constant = -yOffset + self.originCloseBtnTopConstraint
+                    let colorPickMoveOffset = self.tableView.contentOffset.y + self.originColorPickContainerViewTopConstraint + self.colorPickViewHeightConstraint.constant
+                    if colorPickMoveOffset > 0 {
+                        self.colorPickContainerView.isHidden = true
+                        self.closeBtn.isHidden = true
+                    } else {
+                        self.colorPickContainerView.isHidden = false
+                        self.closeBtn.isHidden = false
+                    }
                     if yOffset >= 0 {
-                        self.backgroundBottomViewHeightConstraint.constant = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0) + yOffset
+                        self.backgroundBottomViewHeightConstraint.constant = yOffset
                     }
                     
                     var percent: CGFloat = yOffset/self.originTopContentsViewHeightConstraint
@@ -293,7 +302,8 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     func initUI() {
         self.backgroundContainerView.backgroundColor = self.currentBackgroundColor.getColor()
         self.backgroundBottomView.backgroundColor = UIColor(asset: Colors.white)
-        self.backgroundBottomViewHeightConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
+        self.backgroundBottomViewHeightConstraint.constant = 0.0
+        self.bottomPaddingViewHeightConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
         self.mainContainerView.backgroundColor = .clear
         self.topContentsContainerView.backgroundColor = .clear
         self.topContentsContainerView.isUserInteractionEnabled = false
