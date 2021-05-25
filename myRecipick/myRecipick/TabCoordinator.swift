@@ -105,7 +105,6 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
                 })
                 self?.hideSplashView(completion: nil)
             })
-            UniqueUUIDManager.shared.registAndSaveUUID(completeHandler: {}, failureHandler: {err in})
         })
     }
     
