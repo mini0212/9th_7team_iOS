@@ -10,8 +10,8 @@ import UIKit
 
 class CustomOptionViewController: UIViewController, ClassIdentifiable {
 
-    static func makeViewController(menuID: String) -> CustomOptionViewController {
-        let vm = CustomOptionViewModel(menuID: menuID)
+    static func makeViewController(menu: MenuModel) -> CustomOptionViewController {
+        let vm = CustomOptionViewModel(menu: menu)
         let vc = CustomOptionViewController(nibName: self.identifier, bundle: nil)
         vc.viewModel = vm
         return vc
@@ -52,6 +52,7 @@ class CustomOptionViewController: UIViewController, ClassIdentifiable {
 
         initNavigationView()
         initCollectionView()
+        viewModel.fetchOption()
         updateSnapshot()
     }
     

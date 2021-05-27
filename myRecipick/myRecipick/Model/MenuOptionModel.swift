@@ -8,44 +8,33 @@
 
 import Foundation
 
-protocol MenuOptionDataProtocol {
-    var status: Int { get }
-    var data: [OptionKindModel] { get }
-}
-
-protocol OptionKindProtocol {
-    var id: String { get }
-    var type: String { get }
-    var name: String { get }
-    var order: Int { get }
-    var options: [OptionKindModel] { get }
-}
-
-protocol OptionProtocol {
-    var type: OptionType { get }
-    var name: String { get }
-    var image: String { get }
-    var order: Int { get }
-}
-
-struct MenuOptionDataModel: Decodable, MenuOptionDataProtocol {
+struct MenuOptionDataModel: Decodable {
     let status: Int
     let data: [OptionKindModel]
 }
 
-struct OptionKindModel: Decodable, OptionKindProtocol {
+struct OptionKindModel: Decodable {
     let id: String
     let type: String
     let name: String
+    let image: String
     let order: Int
-    let options: [OptionKindModel]
+    let policy: PolicyModel
+    let options: [OptionModel]
+    let createdDate: String
+    let updatedDate: String
 }
 
-struct OptionModel: Decodable, OptionProtocol {
+struct OptionModel: Decodable {
     let type: OptionType
     let name: String
     let image: String
     let order: Int
+}
+
+struct PolicyModel: Decodable {
+    let min: Int
+    let max: Int
 }
 
 enum OptionType: Decodable {

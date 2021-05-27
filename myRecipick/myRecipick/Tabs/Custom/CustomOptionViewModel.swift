@@ -7,12 +7,34 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class CustomOptionViewModel {
+    var menu: MenuModel?
     
-    var menuID: String?
+    private let optionList = BehaviorRelay<[OptionKindModel]>(value: [])
+    var optionListObservable: Observable<[OptionKindModel]> {
+        return optionList.asObservable()
+    }
     
-    init(menuID: String) {
-        self.menuID = menuID
+    var disposeBag = DisposeBag()
+    
+    init(menu: MenuModel) {
+        self.menu = menu
+    }
+    
+    func fetchOption() {
+        guard let menuItem = menu else { return }
+        var httpRequest = HttpRequest()
+        httpRequest.url = "menus/\(menuItem.id)/options"
+        
+        ServerUtil.shared.rx.requestRx(with: httpRequest)
+            .subscribe(onNext: { [weak self] (data: MenuOptionDataModel) in
+                self?.optionList.accept(data.data)
+                print(data)
+            }) { error in
+                print("error -> \(error)")
+            }.disposed(by: disposeBag)
     }
 }
