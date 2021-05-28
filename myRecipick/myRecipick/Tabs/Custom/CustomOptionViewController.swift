@@ -132,8 +132,14 @@ class CustomOptionViewController: UIViewController, ClassIdentifiable {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
-    private func showInfo(item: OptionModel) {
-        
+    private func showInfo(item: OptionModel?) {
+        guard let item = item else { return }
+        optionImageView.kf.setImage(with: URL(string: item.image),
+                                   placeholder: nil,
+                                   options: [.cacheMemoryOnly],
+                                   completionHandler: { [weak self] _ in
+                                    self?.optionImageView.fadeIn(duration: 0.1, completeHandler: nil)
+                                   })
     }
     
 }
@@ -159,13 +165,13 @@ extension CustomOptionViewController {
 class OptionDatasource: UICollectionViewDiffableDataSource<OptionSection, OptionItem>, UICollectionViewDelegate {
         
     var headerSelectClosure: (([OptionSection]) -> Void)?
-    var cellSelectClosure: ((OptionModel) -> Void)?
+    var cellSelectClosure: ((OptionModel?) -> Void)?
     
     weak var baseVC: UIViewController?
     
     init(collectionView: UICollectionView,
          headerSelectClosure: (([OptionSection]) -> Void)?,
-         cellSelectClosure: ((OptionModel) -> Void)?) {
+         cellSelectClosure: ((OptionModel?) -> Void)?) {
         super.init(collectionView: collectionView) { _, _, _ in nil }
         self.headerSelectClosure = headerSelectClosure
         self.cellSelectClosure = cellSelectClosure
@@ -199,7 +205,8 @@ class OptionDatasource: UICollectionViewDiffableDataSource<OptionSection, Option
             guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: CustomOptionTitleCell.identifier, for: indexPath) as? CustomOptionTitleCell else { fatalError("정의되지 않은 헤더입니다.") }
             let item = self.snapshot().sectionIdentifiers[indexPath.section]
             header.section = item
-            header.tapObservable.subscribe(onNext: { [weak item, weak self] in
+            header.tapObservable
+                .subscribe(onNext: { [weak item, weak self] in
                 guard let item = item, let self = self else { return }
                 self.snapshot().sectionIdentifiers.forEach { $0.isExpanded = false }
                 item.isExpanded = true
@@ -211,8 +218,11 @@ class OptionDatasource: UICollectionViewDiffableDataSource<OptionSection, Option
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = self.itemIdentifier(for: indexPath)
-        item?.isSelected = true
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomOptionSubTitleCell.identifier, for: indexPath) as? CustomOptionSubTitleCell,
+           let item = self.itemIdentifier(for: indexPath) {
+            cell.isSelected = true
+            cellSelectClosure?(item.item)
+        }
     }
     
 //    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {

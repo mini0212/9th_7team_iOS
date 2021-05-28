@@ -12,8 +12,10 @@ class CustomOptionSubTitleCell: UICollectionViewCell, ClassIdentifiable {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var questionImageView: UIImageView!
+    @IBOutlet weak var questionButton: UIButton!
     
+    var optionModel: OptionModel?
+    weak var vc: UIViewController?
     
     override var isSelected: Bool {
         didSet {
@@ -39,6 +41,7 @@ class CustomOptionSubTitleCell: UICollectionViewCell, ClassIdentifiable {
     }
     
     func bind(item: OptionModel) {
+        optionModel = item
         titleLabel.text = item.name
         switch item.type {
         case .check:
@@ -50,4 +53,13 @@ class CustomOptionSubTitleCell: UICollectionViewCell, ClassIdentifiable {
         default: break
         }
     }
+    
+    @IBAction func tapButton(_ sender: UIButton) {
+        guard let item = optionModel else { return }
+        print(item)
+//        if let baseVC = vc as? CustomOptionViewController {
+
+//        }
+    }
+    
 }
