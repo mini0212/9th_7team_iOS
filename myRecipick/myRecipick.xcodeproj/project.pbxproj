@@ -17,6 +17,8 @@
 		393ACCD22657B5C7003E8A13 /* CustomOptionTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393ACCD02657B5C7003E8A13 /* CustomOptionTitleCell.xib */; };
 		393ACCD92657B73D003E8A13 /* CustomOptionSubTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393ACCD72657B73D003E8A13 /* CustomOptionSubTitleCell.swift */; };
 		393ACCDA2657B73D003E8A13 /* CustomOptionSubTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393ACCD82657B73D003E8A13 /* CustomOptionSubTitleCell.xib */; };
+		397286DE26614E9D00D07056 /* OptionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397286DC26614E9D00D07056 /* OptionInfoViewController.swift */; };
+		397286DF26614E9D00D07056 /* OptionInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397286DD26614E9D00D07056 /* OptionInfoViewController.xib */; };
 		39A4492126426D90001DD3C4 /* ActivityIndicatorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492026426D90001DD3C4 /* ActivityIndicatorable.swift */; };
 		39A4492526443907001DD3C4 /* CustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A4492426443907001DD3C4 /* CustomViewController.xib */; };
 		39A4492726443D70001DD3C4 /* BaseCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492626443D70001DD3C4 /* BaseCustomView.swift */; };
@@ -187,6 +189,8 @@
 		393ACCD02657B5C7003E8A13 /* CustomOptionTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomOptionTitleCell.xib; sourceTree = "<group>"; };
 		393ACCD72657B73D003E8A13 /* CustomOptionSubTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOptionSubTitleCell.swift; sourceTree = "<group>"; };
 		393ACCD82657B73D003E8A13 /* CustomOptionSubTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomOptionSubTitleCell.xib; sourceTree = "<group>"; };
+		397286DC26614E9D00D07056 /* OptionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionInfoViewController.swift; sourceTree = "<group>"; };
+		397286DD26614E9D00D07056 /* OptionInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionInfoViewController.xib; sourceTree = "<group>"; };
 		39A4492026426D90001DD3C4 /* ActivityIndicatorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorable.swift; sourceTree = "<group>"; };
 		39A4492426443907001DD3C4 /* CustomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewController.xib; sourceTree = "<group>"; };
 		39A4492626443D70001DD3C4 /* BaseCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomView.swift; sourceTree = "<group>"; };
@@ -523,6 +527,8 @@
 			children = (
 				39D9D5A1264EB8CE000434B7 /* Cell */,
 				39D9D5A2264EB8EB000434B7 /* View */,
+				397286DC26614E9D00D07056 /* OptionInfoViewController.swift */,
+				397286DD26614E9D00D07056 /* OptionInfoViewController.xib */,
 				4F9DC6DE2625189600609CF0 /* CustomCoordinator.swift */,
 				39D9D5AF26529415000434B7 /* CustomViewModel.swift */,
 				4F9DC6ED2625205300609CF0 /* CustomViewController.swift */,
@@ -955,6 +961,7 @@
 				39D9D5AE2652522D000434B7 /* MenuCollectionViewCell.xib in Resources */,
 				4FF5491826410F9D0086E30C /* Detail.storyboard in Resources */,
 				78C8C19F2615C81A00F84CAB /* InfoPlist.strings in Resources */,
+				397286DF26614E9D00D07056 /* OptionInfoViewController.xib in Resources */,
 				78644AAE263444D800C16C47 /* OFL.txt in Resources */,
 				786ACD822653E0E60034E2AA /* DetailCommentTableViewCell.xib in Resources */,
 				4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */,
@@ -1203,6 +1210,7 @@
 				78575E59262C4EA00060BB63 /* MVVMProtocol.swift in Sources */,
 				4FF5491A26410FA70086E30C /* DetailViewController.swift in Sources */,
 				78759790263C1BCA00305227 /* BrandSelectViewModel.swift in Sources */,
+				397286DE26614E9D00D07056 /* OptionInfoViewController.swift in Sources */,
 				4F9DC6DA2625188D00609CF0 /* HomeCoordinator.swift in Sources */,
 				78BE67F426245F5700FDDFD8 /* APIError.swift in Sources */,
 				78575E7F262C51460060BB63 /* HomeViewModel.swift in Sources */,

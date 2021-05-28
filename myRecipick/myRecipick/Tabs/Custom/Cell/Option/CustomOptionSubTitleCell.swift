@@ -56,10 +56,10 @@ class CustomOptionSubTitleCell: UICollectionViewCell, ClassIdentifiable {
     
     @IBAction func tapButton(_ sender: UIButton) {
         guard let item = optionModel else { return }
-        print(item)
-//        if let baseVC = vc as? CustomOptionViewController {
-
-//        }
+        if let baseVC = vc as? CustomOptionViewController {
+            let vc = OptionInfoViewController.makeViewController(item: item)
+            baseVC.present(vc, animated: true, completion: nil)
+        }
     }
     
 }
