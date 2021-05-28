@@ -54,45 +54,42 @@ enum OptionType: Decodable {
 }
 
 class OptionSection: Hashable {
-    let title: String
+    let option: OptionKindModel
     let isSingleSelection: Bool
     var isExpanded = false
     var items: [OptionItem] = []
-
-    private let uuid = UUID()
     
     public func hash(into hasher: inout Hasher) {
          hasher.combine(ObjectIdentifier(self).hashValue)
     }
     
-    init(title: String, isSingleSelection: Bool = false, items: [OptionItem]) {
-        self.title = title
+    init(option: OptionKindModel, isSingleSelection: Bool = false, items: [OptionItem]) {
+        self.option = option
         self.isSingleSelection = isSingleSelection
         self.items = items
     }
     
     static func == (lhs: OptionSection, rhs: OptionSection) -> Bool {
-        lhs.hashValue == rhs.hashValue
+        lhs.hashValue == rhs.hashValue && lhs.isExpanded == rhs.isExpanded
     }
 }
 
 class OptionItem: Hashable {
-    let title: String
+    let item: OptionModel
     var isSelected = false
     var type: Options
-    private let uuid = UUID()
     
     public func hash(into hasher: inout Hasher) {
          hasher.combine(ObjectIdentifier(self).hashValue)
     }
     
-    init(title: String, type: Options = .option) {
-        self.title = title
+    init(item: OptionModel, type: Options = .option) {
+        self.item = item
         self.type = type
     }
     
     static func == (lhs: OptionItem, rhs: OptionItem) -> Bool {
-        lhs.hashValue == rhs.hashValue
+        lhs.hashValue == rhs.hashValue && lhs.isSelected == rhs.isSelected
     }
 }
 

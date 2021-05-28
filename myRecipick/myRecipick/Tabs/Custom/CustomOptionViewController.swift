@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Kingfisher
+import RxSwift
+import RxCocoa
 
 class CustomOptionViewController: UIViewController, ClassIdentifiable {
 
@@ -19,30 +22,18 @@ class CustomOptionViewController: UIViewController, ClassIdentifiable {
     
     @IBOutlet weak var navigationView: CustomNavigationView!
     @IBOutlet weak var tableTopView: UIView!
+    @IBOutlet weak var optionImageView: UIImageView!
     @IBOutlet weak var resetView: UIView!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var doneButton: UIButton!
     
-    var options: [OptionSection] = [
-        OptionSection(title: "빵", items: [OptionItem(title: "빵1"), OptionItem(title: "빵2"), OptionItem(title: "빵3")]),
-        OptionSection(title: "치즈", isSingleSelection: true, items: [OptionItem(title: "치즈1"), OptionItem(title: "치즈2"), OptionItem(title: "치즈3")]),
-        OptionSection(title: "야채", items: [OptionItem(title: "야채1"), OptionItem(title: "야채2"), OptionItem(title: "야채3"), OptionItem(title: "야채4"), OptionItem(title: "야채5"), OptionItem(title: "야채6")]),
-        OptionSection(title: "소스", isSingleSelection: true, items: [OptionItem(title: "소스1"), OptionItem(title: "소스2"), OptionItem(title: "소스3")]),
-        OptionSection(title: "추가 입력", items: [OptionItem(title: "이름", type: .additional)])
-    ]
+    var disposeBag = DisposeBag()
     
-    lazy var dataSource = OptionDatasource(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
-        switch item.type {
-        case .option:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomOptionSubTitleCell.identifier, for: indexPath) as? CustomOptionSubTitleCell else { fatalError() }
-            return cell
-        case .additional:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomOptionAdditionalCell.identifier, for: indexPath) as? CustomOptionAdditionalCell else { fatalError() }
-            return cell
-        }
-    } selectClosure: { [weak self] in
-        self?.updateSnapshot()
+    lazy var dataSource = OptionDatasource(collectionView: collectionView) { [weak self] list in
+        self?.updateSnapshot(list: list)
+    } cellSelectClosure: { [weak self] item in
+        self?.showInfo(item: item)
     }
     
     private var viewModel: CustomOptionViewModel!
@@ -52,21 +43,36 @@ class CustomOptionViewController: UIViewController, ClassIdentifiable {
 
         initNavigationView()
         initCollectionView()
+        initTableTopView()
+        initTableBottomView()
+        bind()
         viewModel.fetchOption()
-        updateSnapshot()
+    }
+    
+    private func bind() {
+        viewModel.optionListObservable
+            .bind(onNext: { [weak self] data in
+                self?.updateSnapshot(list: data)
+            }).disposed(by: disposeBag)
     }
     
     private func initNavigationView() {
         navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationView.setTitle("메뉴 이름")
-        navigationView.setLeftButtonImage("iconsNavigation24ArrowLeft")
+        navigationView.setTitle(viewModel.menu?.name ?? "")
+        navigationView.setLeftButtonImage(Images.iconsNavigation24ArrowLeft.name)
         navigationView.leftButton.addTarget(self, action: #selector(dismiss(_:)), for: .touchUpInside)
-        navigationView.setRightButtonImage("iconClose")
+        navigationView.setRightButtonImage(Images.iconClose.name)
         navigationView.rightButton.addTarget(self, action: #selector(popToRootView(_:)), for: .touchUpInside)
     }
     
     private func initTableTopView() {
         tableTopView.backgroundColor = Colors.grayScaleEE.color
+        optionImageView.kf.setImage(with: URL(string: viewModel.menu?.image ?? ""),
+                                   placeholder: nil,
+                                   options: [.cacheMemoryOnly],
+                                   completionHandler: { [weak self] _ in
+                                    self?.optionImageView.fadeIn(duration: 0.1, completeHandler: nil)
+                                   })
         resetView.roundCorners(corners: [.topLeft, .topRight], radius: 25)
         resetButton.setTitle("초기화", for: .normal)
         resetButton.setTitleColor(Colors.grayScale66.color, for: .normal)
@@ -79,11 +85,16 @@ class CustomOptionViewController: UIViewController, ClassIdentifiable {
         collectionView.register(UINib(nibName: CustomOptionTitleCell.identifier, bundle: nil), forSupplementaryViewOfKind: "header", withReuseIdentifier: CustomOptionTitleCell.identifier)
         collectionView.register(UINib(nibName: CustomOptionSubTitleCell.identifier, bundle: nil), forCellWithReuseIdentifier: CustomOptionSubTitleCell.identifier)
         collectionView.register(UINib(nibName: CustomOptionAdditionalCell.identifier, bundle: nil), forCellWithReuseIdentifier: CustomOptionAdditionalCell.identifier)
+        collectionView.contentInset = .init(top: 0, left: 0, bottom: 20, right: 0)
+        dataSource.baseVC = self
     }
     
     private func initTableBottomView() {
-        
-
+        doneButton.setTitle("커스텀 완료", for: .normal)
+        doneButton.setTitleColor(Colors.white.color, for: .normal)
+        doneButton.setBackgroundColor(Colors.primaryNormal.color, for: .normal)
+        doneButton.setBackgroundColor(Colors.primaryLight.color, for: .highlighted)
+        doneButton.roundCorner(radius: 4)
     }
     
     private func createCollectionViewLayout() -> UICollectionViewCompositionalLayout {
@@ -106,15 +117,23 @@ class CustomOptionViewController: UIViewController, ClassIdentifiable {
         return .init(section: section)
     }
     
-    private func updateSnapshot() {
+    private func updateSnapshot(list: [OptionSection]) {
         var snapshot = NSDiffableDataSourceSnapshot<OptionSection, OptionItem>()
-        snapshot.appendSections(options)
-        options.forEach {
+        snapshot.appendSections(list)
+        list.forEach {
             if $0.isExpanded {
                 snapshot.appendItems($0.items, toSection: $0)
             }
         }
+        apply(snapshot: snapshot)
+    }
+    
+    private func apply(snapshot: NSDiffableDataSourceSnapshot<OptionSection, OptionItem>) {
         dataSource.apply(snapshot, animatingDifferences: true)
+    }
+    
+    private func showInfo(item: OptionModel) {
+        
     }
     
 }
@@ -130,17 +149,26 @@ extension CustomOptionViewController {
     private func popToRootView(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @objc
+    private func resetAll(_ sender: UIButton) {
+        print("reset")
+    }
 }
 
 class OptionDatasource: UICollectionViewDiffableDataSource<OptionSection, OptionItem>, UICollectionViewDelegate {
+        
+    var headerSelectClosure: (([OptionSection]) -> Void)?
+    var cellSelectClosure: ((OptionModel) -> Void)?
     
-    var headerSelectClosure: (() -> Void)?
+    weak var baseVC: UIViewController?
     
     init(collectionView: UICollectionView,
-         cellProvider: @escaping UICollectionViewDiffableDataSource<OptionSection, OptionItem>.CellProvider,
-         selectClosure: (() -> Void)?) {
-        super.init(collectionView: collectionView, cellProvider: cellProvider)
-        self.headerSelectClosure = selectClosure
+         headerSelectClosure: (([OptionSection]) -> Void)?,
+         cellSelectClosure: ((OptionModel) -> Void)?) {
+        super.init(collectionView: collectionView) { _, _, _ in nil }
+        self.headerSelectClosure = headerSelectClosure
+        self.cellSelectClosure = cellSelectClosure
         collectionView.delegate = self
     }
     
@@ -148,11 +176,15 @@ class OptionDatasource: UICollectionViewDiffableDataSource<OptionSection, Option
         let item = itemIdentifier(for: indexPath)
         switch item?.type {
         case .option:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomOptionSubTitleCell.identifier, for: indexPath) as? CustomOptionSubTitleCell else { fatalError() }
-            let item = self.itemIdentifier(for: indexPath)
-            if item?.isSelected ?? false {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomOptionSubTitleCell.identifier, for: indexPath) as? CustomOptionSubTitleCell,
+                  let item = self.itemIdentifier(for: indexPath) else { fatalError() }
+            
+            if item.isSelected {
                 collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .init(rawValue: 0))
             }
+            cell.bind(item: item.item)
+            cell.vc = baseVC
+            
             return cell
         case .additional:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomOptionAdditionalCell.identifier, for: indexPath) as? CustomOptionAdditionalCell else { fatalError() }
@@ -171,7 +203,7 @@ class OptionDatasource: UICollectionViewDiffableDataSource<OptionSection, Option
                 guard let item = item, let self = self else { return }
                 self.snapshot().sectionIdentifiers.forEach { $0.isExpanded = false }
                 item.isExpanded = true
-                self.headerSelectClosure?()
+                self.headerSelectClosure?(self.snapshot().sectionIdentifiers)
             }).disposed(by: header.disposeBag)
             return header
         }
@@ -191,7 +223,9 @@ class OptionDatasource: UICollectionViewDiffableDataSource<OptionSection, Option
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         let section = self.snapshot().sectionIdentifiers[indexPath.section]
         if section.isSingleSelection {
-            section.items.enumerated().forEach { (offset, item) in
+            section.items
+                .enumerated()
+                .forEach { (offset, item) in
                 item.isSelected = false
                 collectionView.deselectItem(at: IndexPath(item: offset, section: indexPath.section), animated: true)
             }

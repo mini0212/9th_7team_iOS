@@ -13,8 +13,8 @@ import RxCocoa
 class CustomOptionViewModel {
     var menu: MenuModel?
     
-    private let optionList = BehaviorRelay<[OptionKindModel]>(value: [])
-    var optionListObservable: Observable<[OptionKindModel]> {
+    private let optionList = BehaviorRelay<[OptionSection]>(value: [])
+    var optionListObservable: Observable<[OptionSection]> {
         return optionList.asObservable()
     }
     
@@ -30,11 +30,21 @@ class CustomOptionViewModel {
         httpRequest.url = "menus/\(menuItem.id)/options"
         
         ServerUtil.shared.rx.requestRx(with: httpRequest)
-            .subscribe(onNext: { [weak self] (data: MenuOptionDataModel) in
-                self?.optionList.accept(data.data)
-                print(data)
-            }) { error in
-                print("error -> \(error)")
-            }.disposed(by: disposeBag)
+            .map({ (data: MenuOptionDataModel) -> [OptionSection] in
+                var sectionList: [OptionSection] = []
+                data.data.forEach {
+                    var itemList: [OptionItem] = []
+                    $0.options.forEach {
+                        let optionItem = OptionItem(item: $0)
+                        itemList.append(optionItem)
+                    }
+                    let sectionData = OptionSection(option: $0, isSingleSelection: $0.type == "SINGLE", items: itemList)
+                    sectionList.append(sectionData)
+                }
+                return sectionList
+            })
+            .bind(to: optionList)
+            .disposed(by: disposeBag)
     }
+    
 }

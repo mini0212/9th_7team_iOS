@@ -14,8 +14,8 @@ class CustomOptionTitleCell: UICollectionViewCell, ClassIdentifiable {
 
     @IBOutlet weak var contentsView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var descriptionLabel: UILabel!
-    @IBOutlet private weak var tooltipLabel: UILabel!
+    @IBOutlet private weak var optionLabel: UILabel!
+    @IBOutlet weak var arrowImageView: UIImageView!
     
     var tapObservable: Observable<Void> {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tabAction))
@@ -28,15 +28,15 @@ class CustomOptionTitleCell: UICollectionViewCell, ClassIdentifiable {
     var section: OptionSection? = nil {
         didSet {
             disposeBag = DisposeBag()
-            titleLabel.text = section?.title
-            descriptionLabel.text = section?.title
-            tooltipLabel.text = "여러개 선택가능"
+            titleLabel.text = section?.option.name
+            optionLabel.text = nil
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        initLabels()
     }
     
     override func prepareForReuse() {
@@ -44,7 +44,25 @@ class CustomOptionTitleCell: UICollectionViewCell, ClassIdentifiable {
         
     }
     
-    @objc private func tabAction() {
+    private func initLabels() {
+        titleLabel.text = nil
+        titleLabel.font = .myRecipickFont(.subTitle2)
+        titleLabel.textColor = Colors.grayScale33.color
         
+        optionLabel.text = nil
+        optionLabel.font = .myRecipickFont(.caption)
+        optionLabel.textColor = Colors.primaryNormal.color
+        optionLabel.isHidden = true
+        
+        arrowImageView.image = Images.iconsNavigation24ArrowClose.image.withRenderingMode(.alwaysTemplate)
+        arrowImageView.tintColor = Colors.grayScale99.color
+        
+    }
+    
+    @objc private func tabAction() {
+//        UIView.animate(withDuration: 0.5) {
+//            self.arrowImageView.transform = self.arrowImageView.transform.rotated(by: .pi)
+//
+//        }
     }
 }
