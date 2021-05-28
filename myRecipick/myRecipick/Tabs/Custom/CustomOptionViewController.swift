@@ -77,6 +77,7 @@ class CustomOptionViewController: UIViewController, ClassIdentifiable {
         resetButton.setTitle("초기화", for: .normal)
         resetButton.setTitleColor(Colors.grayScale66.color, for: .normal)
         resetButton.titleLabel?.font = .myRecipickFont(.button)
+        resetButton.addTarget(self, action: #selector(resetAll(_:)), for: .touchUpInside)
     }
     
     private func initCollectionView() {
@@ -95,6 +96,7 @@ class CustomOptionViewController: UIViewController, ClassIdentifiable {
         doneButton.setBackgroundColor(Colors.primaryNormal.color, for: .normal)
         doneButton.setBackgroundColor(Colors.primaryLight.color, for: .highlighted)
         doneButton.roundCorner(radius: 4)
+        doneButton.addTarget(self, action: #selector(saveCustomMenu(_:)), for: .touchUpInside)
     }
     
     private func createCollectionViewLayout() -> UICollectionViewCompositionalLayout {
@@ -160,6 +162,10 @@ extension CustomOptionViewController {
     private func resetAll(_ sender: UIButton) {
         print("reset")
     }
+    
+    @objc func saveCustomMenu(_ sender: UIButton) {
+        viewModel.saveCustomOption()
+    }
 }
 
 class OptionDatasource: UICollectionViewDiffableDataSource<OptionSection, OptionItem>, UICollectionViewDelegate {
@@ -207,28 +213,42 @@ class OptionDatasource: UICollectionViewDiffableDataSource<OptionSection, Option
             header.section = item
             header.tapObservable
                 .subscribe(onNext: { [weak item, weak self] in
-                guard let item = item, let self = self else { return }
-                self.snapshot().sectionIdentifiers.forEach { $0.isExpanded = false }
-                item.isExpanded = true
-                self.headerSelectClosure?(self.snapshot().sectionIdentifiers)
+                    guard let item = item, let self = self else { return }
+                    let sections = self.snapshot().sectionIdentifiers
+                    sections.forEach { $0.isExpanded = false }
+                    item.isExpanded = true
+                    self.headerSelectClosure?(sections)
             }).disposed(by: header.disposeBag)
+            
+            item.selectedItemsName
+                .bind(onNext: {
+                    header.updateSelectedMenu(with: $0)
+                })
+                .disposed(by: header.disposeBag)
+            
             return header
         }
         return .init()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomOptionSubTitleCell.identifier, for: indexPath) as? CustomOptionSubTitleCell,
-           let item = self.itemIdentifier(for: indexPath) {
-            cell.isSelected = true
+        if collectionView.dequeueReusableCell(withReuseIdentifier: CustomOptionSubTitleCell.identifier, for: indexPath) is CustomOptionSubTitleCell {
+            let section = self.snapshot().sectionIdentifiers[indexPath.section]
+            let item = section.items[indexPath.item]
+            item.isSelected = true
             cellSelectClosure?(item.item)
+            section.orderSelectString()
         }
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        let item = self.itemIdentifier(for: indexPath)
-//
-//    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if collectionView.dequeueReusableCell(withReuseIdentifier: CustomOptionSubTitleCell.identifier, for: indexPath) is CustomOptionSubTitleCell {
+            let section = self.snapshot().sectionIdentifiers[indexPath.section]
+            let item = section.items[indexPath.item]
+            item.isSelected = false
+            section.orderSelectString()
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         let section = self.snapshot().sectionIdentifiers[indexPath.section]
@@ -236,9 +256,9 @@ class OptionDatasource: UICollectionViewDiffableDataSource<OptionSection, Option
             section.items
                 .enumerated()
                 .forEach { (offset, item) in
-                item.isSelected = false
-                collectionView.deselectItem(at: IndexPath(item: offset, section: indexPath.section), animated: true)
-            }
+                    item.isSelected = false
+                    collectionView.deselectItem(at: IndexPath(item: offset, section: indexPath.section), animated: true)
+                }
         }
         return true
     }

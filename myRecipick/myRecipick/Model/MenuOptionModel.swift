@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxCocoa
 
 struct MenuOptionDataModel: Decodable {
     let status: Int
@@ -59,6 +60,16 @@ class OptionSection: Hashable {
     var isExpanded = false
     var items: [OptionItem] = []
     
+    let selectedItemsName = BehaviorRelay<String>(value: "")
+    
+    private var isSelectedItem: String {
+        items.filter { $0.isSelected }.map { $0.item.name }.joined(separator: " ")
+    }
+    
+    func orderSelectString() {
+        selectedItemsName.accept(isSelectedItem)
+    }
+    
     public func hash(into hasher: inout Hasher) {
          hasher.combine(ObjectIdentifier(self).hashValue)
     }
@@ -96,4 +107,21 @@ class OptionItem: Hashable {
 enum Options: Hashable {
     case option
     case additional
+}
+
+struct CustomMenuModel: Encodable {
+    let id: String
+    let name: String
+    let image: String
+}
+
+struct CustomOptionGroupModel: Encodable {
+    let id: String
+    let name: String
+    let options: [CustomOptionModel]
+}
+
+struct CustomOptionModel: Encodable {
+    let image: String
+    let name: String
 }

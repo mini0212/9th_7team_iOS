@@ -19,6 +19,7 @@
 		393ACCDA2657B73D003E8A13 /* CustomOptionSubTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393ACCD82657B73D003E8A13 /* CustomOptionSubTitleCell.xib */; };
 		397286DE26614E9D00D07056 /* OptionInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397286DC26614E9D00D07056 /* OptionInfoViewController.swift */; };
 		397286DF26614E9D00D07056 /* OptionInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397286DD26614E9D00D07056 /* OptionInfoViewController.xib */; };
+		397286E126616C5300D07056 /* Encodable + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397286E026616C5300D07056 /* Encodable + Extensions.swift */; };
 		39A4492126426D90001DD3C4 /* ActivityIndicatorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492026426D90001DD3C4 /* ActivityIndicatorable.swift */; };
 		39A4492526443907001DD3C4 /* CustomViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A4492426443907001DD3C4 /* CustomViewController.xib */; };
 		39A4492726443D70001DD3C4 /* BaseCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A4492626443D70001DD3C4 /* BaseCustomView.swift */; };
@@ -191,6 +192,7 @@
 		393ACCD82657B73D003E8A13 /* CustomOptionSubTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomOptionSubTitleCell.xib; sourceTree = "<group>"; };
 		397286DC26614E9D00D07056 /* OptionInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionInfoViewController.swift; sourceTree = "<group>"; };
 		397286DD26614E9D00D07056 /* OptionInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionInfoViewController.xib; sourceTree = "<group>"; };
+		397286E026616C5300D07056 /* Encodable + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable + Extensions.swift"; sourceTree = "<group>"; };
 		39A4492026426D90001DD3C4 /* ActivityIndicatorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorable.swift; sourceTree = "<group>"; };
 		39A4492426443907001DD3C4 /* CustomViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewController.xib; sourceTree = "<group>"; };
 		39A4492626443D70001DD3C4 /* BaseCustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCustomView.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 			children = (
 				4F5C5F562624204B003D94E2 /* UITableView + Identifiable.swift */,
 				4F5C5F9726242BF9003D94E2 /* Data + HexString.swift */,
+				397286E026616C5300D07056 /* Encodable + Extensions.swift */,
 				789FD51E26270419003728A6 /* UIView + Snapshot.swift */,
 				78B299E9263AB259005B6ECF /* UIFont + MyRecipickFont.swift */,
 				78B29A03263AD14B005B6ECF /* String + Localized.swift */,
@@ -1220,6 +1223,7 @@
 				78FC10882658F1A1005776A4 /* BrandSelectCollectionViewCell.swift in Sources */,
 				7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */,
 				789FD51F26270419003728A6 /* UIView + Snapshot.swift in Sources */,
+				397286E126616C5300D07056 /* Encodable + Extensions.swift in Sources */,
 				78B299EA263AB259005B6ECF /* UIFont + MyRecipickFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

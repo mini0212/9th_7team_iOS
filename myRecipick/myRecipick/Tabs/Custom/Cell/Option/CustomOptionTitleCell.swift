@@ -14,7 +14,7 @@ class CustomOptionTitleCell: UICollectionViewCell, ClassIdentifiable {
 
     @IBOutlet weak var contentsView: UIView!
     @IBOutlet private weak var titleLabel: UILabel!
-    @IBOutlet private weak var optionLabel: UILabel!
+    @IBOutlet weak var optionLabel: UILabel!
     @IBOutlet weak var arrowImageView: UIImageView!
     
     var tapObservable: Observable<Void> {
@@ -29,7 +29,6 @@ class CustomOptionTitleCell: UICollectionViewCell, ClassIdentifiable {
         didSet {
             disposeBag = DisposeBag()
             titleLabel.text = section?.option.name
-            optionLabel.text = nil
         }
     }
     
@@ -56,7 +55,11 @@ class CustomOptionTitleCell: UICollectionViewCell, ClassIdentifiable {
         
         arrowImageView.image = Images.iconsNavigation24ArrowClose.image.withRenderingMode(.alwaysTemplate)
         arrowImageView.tintColor = Colors.grayScale99.color
-        
+    }
+    
+    func updateSelectedMenu(with names: String) {
+        optionLabel.isHidden = names.isEmpty
+        optionLabel.text = names
     }
     
     @objc private func tabAction() {
