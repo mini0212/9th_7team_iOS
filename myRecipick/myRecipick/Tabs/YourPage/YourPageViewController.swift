@@ -232,7 +232,17 @@ extension YourPageViewController: YourPageTableViewCellDelegate {
 
 extension YourPageViewController: EditYourCustomHistroyConfirmBtnViewDelegate {
     func checkedItemDeleteBtnClicked() {
-        print("delete Items!!!!")
+        self.viewModel.outputs.getCurrentCustomMenus()
+            .subscribe(onNext: { menus in
+                var willRemoved: [CustomMenuObjModel] = []
+                for _ in 0..<self.checkedIndexRowsSet.count {
+                    guard let indexElement: Int = self.checkedIndexRowsSet.first else { continue }
+                    willRemoved.append(menus[indexElement])
+                    self.checkedIndexRowsSet.remove(indexElement)
+                }
+                self.viewModel.removeCustomMenus(objects: willRemoved)
+            })
+            .disposed(by: self.disposeBag)
     }
 }
 

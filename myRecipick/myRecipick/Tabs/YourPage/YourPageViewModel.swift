@@ -11,6 +11,7 @@ import RxSwift
 
 protocol YourPageViewModelInput {
     func requestDetailCustomMenuInfo(data: CustomMenuObjModel)
+    func removeCustomMenus(objects: [CustomMenuObjModel])
 }
 
 protocol YourPageViewModelOutput {
@@ -18,6 +19,7 @@ protocol YourPageViewModelOutput {
     var isLoading: PublishSubject<Bool> { get }
     var customMenus: BehaviorSubject<[CustomMenuObjModel]> { get }
     var presentDetailView: PublishSubject<DetailService.DetailServiceInfoModel> { get }
+    func getCurrentCustomMenus() -> Observable<[CustomMenuObjModel]>
 }
 
 protocol YourPageViewModelType {
@@ -79,10 +81,43 @@ class YourPageViewModel: MVVMViewModel, YourPageViewModelType, YourPageViewModel
         .disposed(by: self.disposeBag)
     }
     
+    func removeCustomMenus(objects: [CustomMenuObjModel]) {
+        self.isLoading.onNext(true)
+        Observable.concat(removeCustomMenusWrapper(modelObjArr: objects), self.service.getYourCustomMenus())
+            .subscribe(onNext: { [weak self] menus in
+                self?.customMenus.onNext(menus)
+            }, onCompleted: { [weak self] in
+                self?.isLoading.onNext(false)
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
     // MARK: output function
+    
+    func getCurrentCustomMenus() -> Observable<[CustomMenuObjModel]> {
+        return Observable.create { [weak self] emitter in
+            self?.customMenus.subscribe(onNext: { menus in
+                emitter.onNext(menus)
+                emitter.onCompleted()
+            })
+            .disposed(by: self!.disposeBag)
+            return Disposables.create()
+        }
+    }
     
     
     // MARK: private function
+    
+    private func removeCustomMenusWrapper(modelObjArr: [CustomMenuObjModel]) -> Observable<[CustomMenuObjModel]> {
+        return Observable.create { [weak self] emitter in
+            self?.service.removeCustomMenus(modelObjArr: modelObjArr).subscribe(onNext: {
+            }, onCompleted: {
+                emitter.onCompleted()
+            })
+            .disposed(by: self!.disposeBag)
+            return Disposables.create()
+        }
+    }
     
 
 }

@@ -13,4 +13,5 @@ class APIDefine {
     static let REGIST_USER: String = "users"
     static let MY_CUSTOM_MENUS: String = "my/custom-menus"
     static let MY_CUSTOM_MENU_DETAIL: String = "my/custom-menus"
+    static let REQUEST_NEW_BRAND: String = "help/request-brands"
 }
