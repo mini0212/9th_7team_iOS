@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Alamofire
 
-class RequestBrandViewController: UIViewController, ClassIdentifiable {
+class RequestBrandViewController: UIViewController, ClassIdentifiable, ActivityIndicatorable {
 
     // MARK: IBOutlet
     @IBOutlet weak var backgroundContainerView: UIView!
@@ -97,21 +98,41 @@ class RequestBrandViewController: UIViewController, ClassIdentifiable {
     }
     
     func requestNewBrandQuery(completeHandler: @escaping () -> Void, failureHandler: @escaping () -> Void) {
-        print("todo requestNewBrandQuery")
-        completeHandler()
+        var httpRequest = HttpRequest()
+        httpRequest.url = APIDefine.REQUEST_NEW_BRAND
+        httpRequest.method = .post
+        httpRequest.headers = .customMenus(uniqueId: UniqueUUIDManager.shared.uniqueUUID)
+        httpRequest.parameters = ["requestBrand": self.textField.text ?? ""]
+        ServerUtil.shared.request(with: httpRequest) { (response) in
+            let responseCode = response["status"].intValue
+            switch responseCode {
+            case 200..<300:
+                completeHandler()
+            default:
+                CommonAlertView.shared.showOneBtnAlert(message: "오류\n:\(responseCode)", btnText: "확인", confirmHandler: {
+                    failureHandler()
+                    CommonAlertView.shared.hide()
+                })
+            }
+        } failure: { (err) in
+            CommonAlertView.shared.showOneBtnAlert(message: "오류\n:\(err.localizedDescription)", btnText: "확인", confirmHandler: {
+                failureHandler()
+                CommonAlertView.shared.hide()
+            })
+        }
+
     }
     
     func requestActionFunc() {
-        // todo loading start
-        requestNewBrandQuery(completeHandler: {
-            // todo loading end
+        startIndicatorAnimating()
+        requestNewBrandQuery(completeHandler: { [weak self] in
+            self?.stopIndicatorAnimating()
             CommonAlertView.shared.showOneBtnAlert(message: "소중한 의견 감사합니다.", btnText: "확인", confirmHandler: {
                 CommonAlertView.shared.hide()
-                self.navigationController?.popViewController(animated: true)
+                self?.navigationController?.popViewController(animated: true)
             })
-        }, failureHandler: {
-            // todo loading end
-            // todo alert?
+        }, failureHandler: { [weak self] in
+            self?.stopIndicatorAnimating()
         })
     }
     
@@ -121,7 +142,7 @@ class RequestBrandViewController: UIViewController, ClassIdentifiable {
     }
     
     @objc func popButtonClicked(_ sender: UIButton) {
-        requestActionFunc()
+        self.navigationController?.popViewController(animated: true)
     }
 
 }
