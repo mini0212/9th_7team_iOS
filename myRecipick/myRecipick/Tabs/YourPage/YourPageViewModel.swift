@@ -83,11 +83,11 @@ class YourPageViewModel: MVVMViewModel, YourPageViewModelType, YourPageViewModel
     
     func removeCustomMenus(objects: [CustomMenuObjModel]) {
         self.isLoading.onNext(true)
-        Observable.zip(self.service.removeCustomMenus(modelObjArr: objects), self.service.getYourCustomMenus())
-            .subscribe(onNext: { something in
-                print("something:\(something)")
-            }, onCompleted: {
-                self.isLoading.onNext(false)
+        Observable.concat(removeCustomMenusWrapper(modelObjArr: objects), self.service.getYourCustomMenus())
+            .subscribe(onNext: { [weak self] menus in
+                self?.customMenus.onNext(menus)
+            }, onCompleted: { [weak self] in
+                self?.isLoading.onNext(false)
             })
             .disposed(by: self.disposeBag)
     }
@@ -107,6 +107,17 @@ class YourPageViewModel: MVVMViewModel, YourPageViewModelType, YourPageViewModel
     
     
     // MARK: private function
+    
+    private func removeCustomMenusWrapper(modelObjArr: [CustomMenuObjModel]) -> Observable<[CustomMenuObjModel]> {
+        return Observable.create { [weak self] emitter in
+            self?.service.removeCustomMenus(modelObjArr: modelObjArr).subscribe(onNext: {
+            }, onCompleted: {
+                emitter.onCompleted()
+            })
+            .disposed(by: self!.disposeBag)
+            return Disposables.create()
+        }
+    }
     
 
 }
