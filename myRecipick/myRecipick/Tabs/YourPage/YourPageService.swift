@@ -83,6 +83,7 @@ class YourPageService: YourPageServiceProtocol {
             guard let self = self else { return Disposables.create() }
             self.removeYoutCustomMenu(modelObjArr: modelObjArr)
                 .subscribe(onNext: { _ in
+                    NotificationCenter.default.post(name: Notification.Name(.myRecipickNotificationName(.customMenuRemoved)), object: nil)
                     emitter.onCompleted()
                 }, onError: { [weak self] err in
                     self?.error.onNext(err.localizedDescription)
