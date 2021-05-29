@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OptionInfoViewController" customModule="myRecipick" customModuleProvider="target">
+            <connections>
+                <outlet property="dimView" destination="yqd-z3-Dbc" id="MVN-zc-9VL"/>
+                <outlet property="imageView" destination="0IB-i5-W71" id="uSM-rd-dYH"/>
+                <outlet property="infoLabel" destination="chD-ua-W3V" id="wvE-yv-Okp"/>
+                <outlet property="kcalLabel" destination="CfM-xo-ZTM" id="Ocq-BU-SQn"/>
+                <outlet property="nameLabel" destination="27c-dx-MWL" id="4tE-2k-AeI"/>
+                <outlet property="popView" destination="8u7-oG-ugr" id="Is4-Pi-Idp"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqd-z3-Dbc">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8u7-oG-ugr">
+                            <rect key="frame" x="24" y="597" width="366" height="191"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="토마토" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27c-dx-MWL">
+                                    <rect key="frame" x="16" y="60" width="334" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="토마토는 다이어트 식품일까 근데 원푸드 다이어트는 굉장히 위험하니까 조심하자" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chD-ua-W3V">
+                                    <rect key="frame" x="16" y="85" width="334" height="41"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="맛있으면 0kcal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfM-xo-ZTM">
+                                    <rect key="frame" x="16" y="146" width="334" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="chD-ua-W3V" secondAttribute="trailing" constant="16" id="L3x-PD-h7d"/>
+                                <constraint firstAttribute="trailing" secondItem="27c-dx-MWL" secondAttribute="trailing" constant="16" id="NyN-HT-jDi"/>
+                                <constraint firstItem="27c-dx-MWL" firstAttribute="top" secondItem="8u7-oG-ugr" secondAttribute="top" constant="60" id="Pq2-6o-EY0"/>
+                                <constraint firstItem="CfM-xo-ZTM" firstAttribute="leading" secondItem="8u7-oG-ugr" secondAttribute="leading" constant="16" id="VtD-EW-pCw"/>
+                                <constraint firstItem="chD-ua-W3V" firstAttribute="top" secondItem="27c-dx-MWL" secondAttribute="bottom" constant="4" id="Xc7-9k-6Pe"/>
+                                <constraint firstItem="CfM-xo-ZTM" firstAttribute="top" secondItem="chD-ua-W3V" secondAttribute="bottom" constant="20" id="YoN-ZM-A3m"/>
+                                <constraint firstItem="chD-ua-W3V" firstAttribute="leading" secondItem="8u7-oG-ugr" secondAttribute="leading" constant="16" id="e7k-cZ-ibA"/>
+                                <constraint firstAttribute="trailing" secondItem="CfM-xo-ZTM" secondAttribute="trailing" constant="16" id="kC9-ti-98p"/>
+                                <constraint firstAttribute="bottom" secondItem="CfM-xo-ZTM" secondAttribute="bottom" constant="24" id="pR4-GJ-8er"/>
+                                <constraint firstItem="27c-dx-MWL" firstAttribute="leading" secondItem="8u7-oG-ugr" secondAttribute="leading" constant="16" id="z7a-Up-rQO"/>
+                            </constraints>
+                        </view>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample" translatesAutoresizingMaskIntoConstraints="NO" id="0IB-i5-W71">
+                            <rect key="frame" x="103.5" y="499" width="207" height="138"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="0IB-i5-W71" secondAttribute="height" multiplier="3:2" id="RMb-fV-tMs"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lij-hV-bi0">
+                            <rect key="frame" x="350.5" y="555" width="30" height="30"/>
+                            <state key="normal" image="evaCloseFill"/>
+                            <connections>
+                                <action selector="closeButton:" destination="-1" eventType="touchUpInside" id="BKh-Jz-075"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="8u7-oG-ugr" secondAttribute="trailing" constant="24" id="KB5-PG-fpM"/>
+                        <constraint firstItem="8u7-oG-ugr" firstAttribute="leading" secondItem="yqd-z3-Dbc" secondAttribute="leading" constant="24" id="VIm-F9-PWV"/>
+                        <constraint firstItem="8u7-oG-ugr" firstAttribute="top" secondItem="Lij-hV-bi0" secondAttribute="bottom" constant="12" id="cSB-vh-HyJ"/>
+                        <constraint firstItem="0IB-i5-W71" firstAttribute="centerX" secondItem="yqd-z3-Dbc" secondAttribute="centerX" id="gyV-rj-xsI"/>
+                        <constraint firstItem="0IB-i5-W71" firstAttribute="width" secondItem="yqd-z3-Dbc" secondAttribute="width" multiplier="0.5" id="jqB-Xv-bZw"/>
+                        <constraint firstItem="Lij-hV-bi0" firstAttribute="leading" secondItem="0IB-i5-W71" secondAttribute="trailing" constant="40" id="uyO-hm-se9"/>
+                        <constraint firstItem="8u7-oG-ugr" firstAttribute="top" secondItem="0IB-i5-W71" secondAttribute="bottom" constant="-40" id="uyX-nN-Ki3"/>
+                        <constraint firstAttribute="bottom" secondItem="8u7-oG-ugr" secondAttribute="bottom" constant="108" id="v87-Cd-6MX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="yqd-z3-Dbc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="3km-Vx-CcR"/>
+                <constraint firstAttribute="bottom" secondItem="yqd-z3-Dbc" secondAttribute="bottom" id="95c-4f-jp2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yqd-z3-Dbc" secondAttribute="trailing" id="ZfV-cg-PaX"/>
+                <constraint firstItem="yqd-z3-Dbc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="fQk-WN-6gT"/>
+            </constraints>
+            <point key="canvasLocation" x="116" y="115"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="evaCloseFill" width="30" height="30"/>
+        <image name="sample" width="340" height="356"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

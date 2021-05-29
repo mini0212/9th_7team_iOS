@@ -7,45 +7,35 @@
 //
 
 import Foundation
+import RxCocoa
 
-protocol MenuOptionDataProtocol {
-    var status: Int { get }
-    var data: [OptionKindModel] { get }
-}
-
-protocol OptionKindProtocol {
-    var id: String { get }
-    var type: String { get }
-    var name: String { get }
-    var order: Int { get }
-    var options: [OptionKindModel] { get }
-}
-
-protocol OptionProtocol {
-    var type: OptionType { get }
-    var name: String { get }
-    var image: String { get }
-    var order: Int { get }
-}
-
-struct MenuOptionDataModel: Decodable, MenuOptionDataProtocol {
+struct MenuOptionDataModel: Decodable {
     let status: Int
     let data: [OptionKindModel]
 }
 
-struct OptionKindModel: Decodable, OptionKindProtocol {
+struct OptionKindModel: Decodable {
     let id: String
     let type: String
     let name: String
+    let image: String
     let order: Int
-    let options: [OptionKindModel]
+    let policy: PolicyModel
+    let options: [OptionModel]
+    let createdDate: String
+    let updatedDate: String
 }
 
-struct OptionModel: Decodable, OptionProtocol {
+struct OptionModel: Decodable {
     let type: OptionType
     let name: String
     let image: String
     let order: Int
+}
+
+struct PolicyModel: Decodable {
+    let min: Int
+    let max: Int
 }
 
 enum OptionType: Decodable {
@@ -65,49 +55,73 @@ enum OptionType: Decodable {
 }
 
 class OptionSection: Hashable {
-    let title: String
+    let option: OptionKindModel
     let isSingleSelection: Bool
     var isExpanded = false
     var items: [OptionItem] = []
-
-    private let uuid = UUID()
+    
+    let selectedItemsName = BehaviorRelay<String>(value: "")
+    
+    private var isSelectedItem: String {
+        items.filter { $0.isSelected }.map { $0.item.name }.joined(separator: " ")
+    }
+    
+    func orderSelectString() {
+        selectedItemsName.accept(isSelectedItem)
+    }
     
     public func hash(into hasher: inout Hasher) {
          hasher.combine(ObjectIdentifier(self).hashValue)
     }
     
-    init(title: String, isSingleSelection: Bool = false, items: [OptionItem]) {
-        self.title = title
+    init(option: OptionKindModel, isSingleSelection: Bool = false, items: [OptionItem]) {
+        self.option = option
         self.isSingleSelection = isSingleSelection
         self.items = items
     }
     
     static func == (lhs: OptionSection, rhs: OptionSection) -> Bool {
-        lhs.hashValue == rhs.hashValue
+        lhs.hashValue == rhs.hashValue && lhs.isExpanded == rhs.isExpanded
     }
 }
 
 class OptionItem: Hashable {
-    let title: String
+    let item: OptionModel
     var isSelected = false
     var type: Options
-    private let uuid = UUID()
     
     public func hash(into hasher: inout Hasher) {
          hasher.combine(ObjectIdentifier(self).hashValue)
     }
     
-    init(title: String, type: Options = .option) {
-        self.title = title
+    init(item: OptionModel, type: Options = .option) {
+        self.item = item
         self.type = type
     }
     
     static func == (lhs: OptionItem, rhs: OptionItem) -> Bool {
-        lhs.hashValue == rhs.hashValue
+        lhs.hashValue == rhs.hashValue && lhs.isSelected == rhs.isSelected
     }
 }
 
 enum Options: Hashable {
     case option
     case additional
+}
+
+struct CustomMenuModel: Encodable {
+    let id: String
+    let name: String
+    let image: String
+}
+
+struct CustomOptionGroupModel: Encodable {
+    let id: String
+    let name: String
+    let options: [CustomOptionModel]
+}
+
+struct CustomOptionModel: Encodable {
+    let image: String
+    let name: String
 }
