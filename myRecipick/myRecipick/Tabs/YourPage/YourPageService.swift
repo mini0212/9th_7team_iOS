@@ -15,6 +15,7 @@ protocol YourPageServiceProtocol {
     var error: PublishSubject<String> { get set }
     func getYourCustomMenus() -> Observable<[CustomMenuObjModel]>
     func getDetailCustomMenuData(data: CustomMenuObjModel) -> Observable<CustomMenuDetailObjModel>
+    func removeCustomMenus(modelObjArr: [CustomMenuObjModel]) -> Observable<Void>
 }
 
 class YourPageService: YourPageServiceProtocol {
@@ -77,6 +78,20 @@ class YourPageService: YourPageServiceProtocol {
         }
     }
     
+    func removeCustomMenus(modelObjArr: [CustomMenuObjModel]) -> Observable<Void> {
+        return Observable.create { [weak self] emitter in
+            guard let self = self else { return Disposables.create() }
+            self.removeYoutCustomMenu(modelObjArr: modelObjArr)
+                .subscribe(onNext: { _ in
+                    emitter.onCompleted()
+                }, onError: { [weak self] err in
+                    self?.error.onNext(err.localizedDescription)
+                })
+                .disposed(by: self.disposeBag)
+            return Disposables.create()
+        }
+    }
+    
     // MARK: private function
     
     private func requestYourCustomMenus() -> Observable<JSON> {
@@ -97,6 +112,29 @@ class YourPageService: YourPageServiceProtocol {
             .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
             .observe(on: MainScheduler.instance)
             .retry(3)
+    }
+    
+    private func removeYoutCustomMenu(modelObjArr: [CustomMenuObjModel]) -> Observable<JSON> {
+        var httpRequest = HttpRequest()
+        httpRequest.url = makeRemoveURL(modelObjArr: modelObjArr)
+        httpRequest.method = .delete
+        httpRequest.headers = .customMenus(uniqueId: UniqueUUIDManager.shared.uniqueUUID)
+        return ServerUtil.shared.rx.requestRxToJson(with: httpRequest)
+            .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
+            .observe(on: MainScheduler.instance)
+            .retry(3)
+    }
+    
+    private func makeRemoveURL(modelObjArr: [CustomMenuObjModel]) -> String {
+        var returnValue: String = APIDefine.MY_CUSTOM_MENUS
+        for i in 0..<modelObjArr.count {
+            if i == 0 {
+                returnValue += "?" + "id=" + modelObjArr[i].id
+            } else {
+                returnValue += "&" + "id=" + modelObjArr[i].id
+            }
+        }
+        return returnValue
     }
     
 }
