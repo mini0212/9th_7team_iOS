@@ -6,7 +6,14 @@
 //  Copyright © 2021 depromeet. All rights reserved.
 //
 
-enum NotificationNameDefineEnum: String {
+enum NotificationNameDefineEnum: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .customMenuRemoved:
+            return "CUSTOM_MENU_REMOVED"
+        }
+    }
+    
     case customMenuRemoved
 }
 
@@ -15,7 +22,7 @@ extension String {
         var returnValue: String = ""
         switch name {
         case .customMenuRemoved:
-            returnValue = name.rawValue
+            returnValue = name.description
         }
         return returnValue
     }
