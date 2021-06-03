@@ -213,6 +213,12 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
     
     @objc func editCompleteAction(_ sender: UIButton) {
         self.checkedIndexRowsSet.removeAll()
+        self.tableView.indexPathsForVisibleRows?.forEach {
+            if let cell = tableView.cellForRow(at: $0) as? YourPageTableViewCell {
+                cell.isChecked = false
+                cell.refreshStateUI()
+            }
+        }
         self.isEditable = !self.isEditable
     }
     
@@ -221,7 +227,13 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
 
 extension YourPageViewController: YourPageCoordinatorDelegate {
     func editBtnClicked() {
-        self.isEditable = !self.isEditable
+        self.viewModel.outputs.getCurrentCustomMenus()
+            .subscribe(onNext: { [weak self] menus in
+                if menus.count > 0 {
+                    self?.isEditable = !(self?.isEditable ?? false)
+                }
+            })
+            .disposed(by: self.disposeBag)
     }
 }
 
@@ -246,14 +258,16 @@ extension YourPageViewController: YourPageTableViewCellDelegate {
 extension YourPageViewController: EditYourCustomHistroyConfirmBtnViewDelegate {
     func checkedItemDeleteBtnClicked() {
         self.viewModel.outputs.getCurrentCustomMenus()
-            .subscribe(onNext: { menus in
-                var willRemoved: [CustomMenuObjModel] = []
-                for _ in 0..<self.checkedIndexRowsSet.count {
-                    guard let indexElement: Int = self.checkedIndexRowsSet.first else { continue }
-                    willRemoved.append(menus[indexElement])
-                    self.checkedIndexRowsSet.remove(indexElement)
+            .subscribe(onNext: { [weak self] menus in
+                if self?.checkedIndexRowsSet.count ?? 0 > 0 {
+                    var willRemoved: [CustomMenuObjModel] = []
+                    for _ in 0..<(self?.checkedIndexRowsSet.count ?? 0) {
+                        guard let indexElement: Int = self?.checkedIndexRowsSet.first else { continue }
+                        willRemoved.append(menus[indexElement])
+                        self?.checkedIndexRowsSet.remove(indexElement)
+                    }
+                    self?.viewModel.removeCustomMenus(objects: willRemoved)
                 }
-                self.viewModel.removeCustomMenus(objects: willRemoved)
             })
             .disposed(by: self.disposeBag)
     }
