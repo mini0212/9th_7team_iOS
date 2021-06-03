@@ -40,8 +40,7 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
                 if let cell = tableView.cellForRow(at: $0) as? YourPageTableViewCell {
                     if self.isEditable {
                         cell.showSelectableViewWithAnimation()
-                    }
-                    else {
+                    } else {
                         cell.hideSelectableViewWithAnimation()
                     }
                 }
@@ -64,6 +63,7 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
         self.tableView
             .rx.setDelegate(self)
             .disposed(by: disposeBag)
+        NotificationCenter.default.addObserver(self, selector: #selector(removeAllCheckedIndexRowsSet(_:)), name: Notification.Name(.myRecipickNotificationName(.customMenuRemoved)), object: nil)
         
     }
     
@@ -196,6 +196,10 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
     
     func removeDeleteBtnContainerView() {
         self.coordinator.detachAllViewFromTabBar()
+    }
+    
+    @objc func removeAllCheckedIndexRowsSet(_ notification: Notification) {
+        checkedIndexRowsSet.removeAll()
     }
     
     
