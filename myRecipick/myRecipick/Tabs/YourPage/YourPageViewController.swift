@@ -36,7 +36,16 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
     var isEditable: Bool = false {
         didSet {
             SetEditableUI(isEditable: self.isEditable)
-            self.tableView.reloadData()
+            self.tableView.indexPathsForVisibleRows?.forEach {
+                if let cell = tableView.cellForRow(at: $0) as? YourPageTableViewCell {
+                    if self.isEditable {
+                        cell.showSelectableViewWithAnimation()
+                    }
+                    else {
+                        cell.hideSelectableViewWithAnimation()
+                    }
+                }
+            }
         }
     }
     

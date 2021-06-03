@@ -84,6 +84,20 @@ class YourPageTableViewCell: UITableViewCell, ClassIdentifiable, NibIdentifiable
         }
     }
     
+    func showSelectableViewWithAnimation() {
+        self.editContainerViewWidthConstraint.constant = self.originEditContainerViewWidthConstraint
+        self.editContainerView.isHidden = false
+        self.editContainerView.fadeIn(duration: 0.1, completeHandler: nil)
+        
+    }
+    
+    func hideSelectableViewWithAnimation() {
+        self.editContainerViewWidthConstraint.constant = 0
+        self.editContainerView.fadeOut(duration: 0.1, completeHandler: { [weak self] in
+            self?.editContainerView.isHidden = true
+        })
+    }
+    
     // MARK: action
     @IBAction func editBtnClickedAction(_ sender: Any) {
         guard let row = self.row else { print("indexPath is null") ; return  }
