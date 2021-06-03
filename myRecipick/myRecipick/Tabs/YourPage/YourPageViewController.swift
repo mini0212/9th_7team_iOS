@@ -63,7 +63,7 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
         self.tableView
             .rx.setDelegate(self)
             .disposed(by: disposeBag)
-        NotificationCenter.default.addObserver(self, selector: #selector(removeAllCheckedIndexRowsSet(_:)), name: Notification.Name(.myRecipickNotificationName(.customMenuRemoved)), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(receivedDeletedItemsNoti(_:)), name: Notification.Name(.myRecipickNotificationName(.customMenuRemoved)), object: nil)
         
     }
     
@@ -198,8 +198,9 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
         self.coordinator.detachAllViewFromTabBar()
     }
     
-    @objc func removeAllCheckedIndexRowsSet(_ notification: Notification) {
+    @objc func receivedDeletedItemsNoti(_ notification: Notification) {
         checkedIndexRowsSet.removeAll()
+        refreshEditCheckedCntNaviItem()
     }
     
     
