@@ -12,6 +12,7 @@ import RxSwift
 protocol YourPageViewModelInput {
     func requestDetailCustomMenuInfo(data: CustomMenuObjModel)
     func removeCustomMenus(objects: [CustomMenuObjModel])
+    func refreshCustomMenus()
 }
 
 protocol YourPageViewModelOutput {
@@ -88,6 +89,14 @@ class YourPageViewModel: MVVMViewModel, YourPageViewModelType, YourPageViewModel
                 self?.customMenus.onNext(menus)
             }, onCompleted: { [weak self] in
                 self?.isLoading.onNext(false)
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
+    func refreshCustomMenus() {
+        self.service.getYourCustomMenus()
+            .subscribe(onNext: { [weak self] menus in
+                self?.customMenus.onNext(menus)
             })
             .disposed(by: self.disposeBag)
     }
