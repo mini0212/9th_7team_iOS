@@ -268,10 +268,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                         SectionModel(model: "menu", items: [
                             CellModel.customMenuObjModel(response.0)
                         ]),
-                        SectionModel(model: "ingredients", items: ingredientCellArr),
-                        SectionModel(model: "comment", items: [
-                            CellModel.comment("데이터 나오면 바꿔야함")
-                        ])
+                        SectionModel(model: "ingredients", items: ingredientCellArr)
+//                        SectionModel(model: "comment", items: [
+//                            CellModel.comment("데이터 나오면 바꿔야함")
+//                        ])
                     ])
                     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, CellModel>>(configureCell: { dataSource, table, indexPath, item in
                         switch item {
