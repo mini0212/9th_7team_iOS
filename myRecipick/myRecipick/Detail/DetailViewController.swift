@@ -94,6 +94,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBOutlet weak var otherColor5View: UIView!
     
     @IBOutlet weak var closeBtnTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomButtonContainerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var buttonContainerViewHeightConstraint: NSLayoutConstraint!
@@ -182,9 +183,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                     self.topContentsViewTopConstraint.constant = -yOffset
                     self.colorPickContainerViewTopConstraint.constant = -yOffset + self.originColorPickContainerViewTopConstraint
                     self.closeBtnTopConstraint.constant = -yOffset + self.originCloseBtnTopConstraint
-                    if yOffset >= 0 {
-                        self.backgroundBottomViewHeightConstraint.constant = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0) + yOffset
-                    }
                     
                     var percent: CGFloat = yOffset/self.originTopContentsViewHeightConstraint
                     if 0 > percent {
@@ -192,6 +190,18 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                     }
                     if percent > 1 {
                         percent = 1
+                    }
+            })
+            .disposed(by: self.disposeBag)
+            
+            self.tableView.rx.didScroll
+                .subscribe(onNext: { [weak self] in
+                    guard let self = self else { return }
+                    let height = self.tableView.frame.size.height
+                    let contentYoffset = self.tableView.contentOffset.y
+                    let distanceFromBottom = self.tableView.contentSize.height - contentYoffset
+                    if distanceFromBottom <= height {
+                        self.backgroundBottomViewHeightConstraint.constant = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0) + -(distanceFromBottom - height) + self.bottomButtonContainerViewHeightConstraint.constant
                     }
             })
             .disposed(by: self.disposeBag)
@@ -295,6 +305,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.backgroundBottomView.backgroundColor = UIColor(asset: Colors.white)
         self.backgroundBottomViewHeightConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
         self.mainContainerView.backgroundColor = .clear
+        self.mainContainerView.layer.masksToBounds = true
         self.topContentsContainerView.backgroundColor = .clear
         self.topContentsContainerView.isUserInteractionEnabled = false
         self.customMenuTitleLabel.font = UIFont.myRecipickFont(.detailMenuTitle)
