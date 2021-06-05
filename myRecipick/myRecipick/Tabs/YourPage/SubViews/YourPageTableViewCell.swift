@@ -86,14 +86,20 @@ class YourPageTableViewCell: UITableViewCell, ClassIdentifiable, NibIdentifiable
     
     func showSelectableViewWithAnimation() {
         self.editContainerViewWidthConstraint.constant = self.originEditContainerViewWidthConstraint
+        UIView.animate(withDuration: 0.15) {
+            self.layoutIfNeeded()
+        }
         self.editContainerView.isHidden = false
-        self.editContainerView.fadeIn(duration: 0.1, completeHandler: nil)
+        self.editContainerView.fadeIn(duration: 0.15, completeHandler: nil)
         
     }
     
     func hideSelectableViewWithAnimation() {
         self.editContainerViewWidthConstraint.constant = 0
-        self.editContainerView.fadeOut(duration: 0.1, completeHandler: { [weak self] in
+        UIView.animate(withDuration: 0.15) {
+            self.layoutIfNeeded()
+        }
+        self.editContainerView.fadeOut(duration: 0.15, completeHandler: { [weak self] in
             self?.editContainerView.isHidden = true
         })
     }

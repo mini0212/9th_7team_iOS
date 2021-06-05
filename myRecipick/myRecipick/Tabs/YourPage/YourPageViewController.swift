@@ -77,7 +77,7 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
             vm.outputs.customMenus
                 .observe(on: MainScheduler.instance)
                 .bind(to: self.tableView.rx.items) { tableView, row, item in
-                    guard let cell: YourPageTableViewCell = tableView.dequeueReusableCell(withIdentifier: "YourPageTableViewCell") as? YourPageTableViewCell else { return UITableViewCell() }
+                    guard let cell: YourPageTableViewCell = tableView.dequeueReusableCell(withIdentifier: YourPageTableViewCell.identifier) as? YourPageTableViewCell else { return UITableViewCell() }
                     cell.infoData = item
                     cell.row = row
                     cell.isEditable = self.isEditable
