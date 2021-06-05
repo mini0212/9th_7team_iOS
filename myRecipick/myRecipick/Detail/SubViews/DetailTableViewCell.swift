@@ -33,24 +33,35 @@ class DetailTableViewCell: UITableViewCell, ClassIdentifiable {
             }
         }
     }
-    var infoData: CustomMenuDetailOptionGroupOptionsObjModel? {
+    
+    var detailMenuInfoData: CustomMenuDetailOptionGroupOptionsObjModel? {
         didSet {
-            guard let info = self.infoData else { return }
+            guard let info = self.detailMenuInfoData else { return }
             if let url = info.imageUrl {
-                self.imgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                self.imgView.kf.setImage(with: URL(string: url), placeholder: nil, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
                     self?.imgView.fadeIn(duration: 0.1, completeHandler: nil)
                 })
             }
-            switch self.type {
-            case .menu:
-                self.titleLabel.text = "메뉴"
-            case .ingredients:
-                self.titleLabel.text = info.category
-            }
+            self.titleLabel.text = info.category
             self.contentsLabel.text = info.name
             
         }
     }
+    
+    var menuInfoData: CustomMenuObjModel? {
+        didSet {
+            guard let info = self.menuInfoData else { return }
+            if let url = info.imageUrl {
+                self.imgView.kf.setImage(with: URL(string: url), placeholder: nil, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                    self?.imgView.fadeIn(duration: 0.1, completeHandler: nil)
+                })
+            }
+            self.titleLabel.text = "메뉴"
+            self.contentsLabel.text = info.name
+            
+        }
+    }
+    
     
     // MARK: lifeCycle
     

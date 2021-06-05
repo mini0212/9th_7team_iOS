@@ -26,7 +26,7 @@ class BrandSelectCollectionViewCell: UICollectionViewCell, ClassIdentifiable {
             self.imageContainerView.layer.borderWidth = 1
             self.imageContainerView.layer.borderColor = UIColor(asset: Colors.grayScaleEE)?.cgColor
             self.contentsLabel.text = info.name
-            self.imgView.kf.setImage(with: URL(string: info.logoImgUrl), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+            self.imgView.kf.setImage(with: URL(string: info.logoImgUrl), placeholder: nil, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
                 self?.imgView.fadeIn(duration: 0.1, completeHandler: nil)
             })
         }

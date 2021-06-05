@@ -142,6 +142,8 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         }
     }
     
+    var isFirstScrollDidScrollFlag: Bool = false // 이 플레그를 사용하지않고싶음..
+    
     // MARK: lifeCycle
     
     override func viewDidLoad() {
@@ -149,7 +151,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         initUI()
         bindingViewModel(viewModel: self.viewModel)
         self.coordinator.setClearNavigation()
-        self.coordinator.makeNavigationItems()
         self.coordinator.navigationController?.navigationBar.isHidden = true
         self.tableView.register(UINib(nibName: DetailTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailTableViewCell.identifier)
         self.tableView.register(UINib(nibName: DetailHeaderTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailHeaderTableViewCell.identifier)
@@ -198,11 +199,15 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                 .subscribe(onNext: { [weak self] in
                     guard let self = self else { return }
                     let height = self.tableView.frame.size.height
-                    let contentYoffset = self.tableView.contentOffset.y
-                    let distanceFromBottom = self.tableView.contentSize.height - contentYoffset
-                    if distanceFromBottom <= height {
-                        self.backgroundBottomViewHeightConstraint.constant = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0) + -(distanceFromBottom - height) + self.bottomButtonContainerViewHeightConstraint.constant
+                    let contentYOffset = self.tableView.contentOffset.y
+                    let distanceFromBottom = self.tableView.contentSize.height - contentYOffset
+                    if distanceFromBottom < height {
+                        if self.isFirstScrollDidScrollFlag { // 왜 처음에 스크롤하지 않았는데 호출되는것일까.. 이걸 처음인지 어떻게 알까
+                            let newBottomPaddingViewHeight: CGFloat = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0) + -(distanceFromBottom - height) + self.bottomButtonContainerViewHeightConstraint.constant
+                            self.backgroundBottomViewHeightConstraint.constant = newBottomPaddingViewHeight
+                        }
                     }
+                    self.isFirstScrollDidScrollFlag = true
             })
             .disposed(by: self.disposeBag)
             
@@ -219,10 +224,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                 .subscribe(onNext: { [weak self] data in
                     guard let self = self else { return }
                     if let url = data.imageUrl {
-                        self.mainImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                        self.mainImgView.kf.setImage(with: URL(string: url), placeholder: nil, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
                             self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
                         })
-                        self.menuImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                        self.menuImgView.kf.setImage(with: URL(string: url), placeholder: nil, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
                             self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
                         })
                     }
@@ -485,16 +490,14 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     private func makeMenuCell(with element: CustomMenuObjModel, from table: UITableView) -> UITableViewCell {
         guard let cell = table.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell else { return UITableViewCell() }
         cell.type = .menu
-        cell.titleLabel.text = "메뉴"
-        cell.contentsLabel.text = element.name
+        cell.menuInfoData = element
         return cell
     }
     
     private func makeIngredientCell(with element: CustomMenuDetailOptionGroupOptionsObjModel, from table: UITableView) -> UITableViewCell {
         guard let cell = table.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell else { return UITableViewCell() }
         cell.type = .ingredients
-        cell.titleLabel.text = element.category ?? ""
-        cell.contentsLabel.text = element.name
+        cell.detailMenuInfoData = element
         return cell
     }
     
