@@ -10,7 +10,7 @@ import UIKit
 
 class RecommendedMenuCollectionViewCell: UICollectionViewCell, ClassIdentifiable {
 
-    //MARK: IBOutlet
+    // MARK: IBOutlet
     @IBOutlet weak var mainContainerView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var mainImgView: UIImageView!
@@ -20,17 +20,17 @@ class RecommendedMenuCollectionViewCell: UICollectionViewCell, ClassIdentifiable
     @IBOutlet weak var menuNameLabel: UILabel!
     
     
-    //MARK: property
+    // MARK: property
     
     
-    //MARK: lifeCycle
+    // MARK: lifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         initUI()
     }
     
     
-    //MARK: function
+    // MARK: function
     func initUI() {
         self.mainContainerView.layer.cornerRadius = 24
         self.dateLabel.font = .myRecipickFont(.yourRecipe)
@@ -44,6 +44,6 @@ class RecommendedMenuCollectionViewCell: UICollectionViewCell, ClassIdentifiable
     }
     
     
-    //MARK: action
+    // MARK: action
 
 }

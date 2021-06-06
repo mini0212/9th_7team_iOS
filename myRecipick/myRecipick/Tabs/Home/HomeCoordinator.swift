@@ -42,10 +42,6 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
     
     func push(route: Route, animated: Bool) {
         switch route {
-//        case .test:
-//            let testCoordinator = TestCoordinator(navigationController: self.navigationController, parentsCoordinator: self)
-//            let vc = TestViewController.makeTestViewController(coordinator: testCoordinator)
-//            self.navigationController.pushViewController(vc, animated: animated)
         case .requestBrand:
             let vc: RequestBrandViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: RequestBrandViewController.identifier)
             self.navigationController?.pushViewController(vc, animated: animated)

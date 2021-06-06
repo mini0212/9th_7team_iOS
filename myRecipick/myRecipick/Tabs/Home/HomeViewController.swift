@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class HomeViewController: UIViewController, CoordinatorMVVMViewController, ClassIdentifiable {
+class HomeViewController: UIViewController, CoordinatorMVVMViewController, ClassIdentifiable, ActivityIndicatorable {
     
     typealias SelfType = HomeViewController
     
@@ -40,7 +40,9 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindingViewModel(viewModel: self.viewModel)
         initUI()
+        self.viewModel.inputs.requestRecommendCustomMenus()
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,7 +71,34 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     }
     
     func bind(viewModel: MVVMViewModel) {
-        
+        if type(of: viewModel) == HomeViewModel.self {
+            guard let vm: HomeViewModel = (viewModel as? HomeViewModel) else { return }
+            
+            vm.isLoading.subscribe(onNext: { [weak self] in
+                if $0 {
+                    self?.startIndicatorAnimating()
+                } else {
+                    self?.stopIndicatorAnimating()
+                }
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.error.subscribe(onNext: { errStr in
+                CommonAlertView.shared.showOneBtnAlert(message: "오류", subMessage: errStr, btnText: "확인", confirmHandler: {
+                    CommonAlertView.shared.hide()
+                })
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.mainTitle.subscribe(onNext: { [weak self] mainTitleText in
+                DispatchQueue.main.async {
+                    self?.titleLabel.text = mainTitleText
+                }
+            })
+            .disposed(by: self.disposeBag)
+            
+            
+        }
     }
 
     // MARK: action
