@@ -13,6 +13,7 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
     
     enum Route {
         case requestBrand
+        case recommandCustomDetail(DetailService.DetailServiceInfoModel)
     }
     
     // MARK: property
@@ -45,6 +46,21 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
         case .requestBrand:
             let vc: RequestBrandViewController = UIStoryboard(name: "Home", bundle: nil).instantiateViewController(identifier: RequestBrandViewController.identifier)
             self.navigationController?.pushViewController(vc, animated: animated)
+        case .recommandCustomDetail:
+            break
+        }
+    }
+    
+    func present(route: Route, animated: Bool, presentStyle: UIModalPresentationStyle = .pageSheet, completion: (() -> Void)?) {
+        switch route {
+        case .requestBrand:
+            break
+        case .recommandCustomDetail(let data):
+            let navigationController: UINavigationController = UINavigationController()
+            let vc = DetailViewController.makeViewController(coordinator: DetailViewCoordinator(navigationController: navigationController), viewModel: DetailViewModel(service: DetailService(data: data)))
+            navigationController.setViewControllers([vc], animated: false)
+            navigationController.modalPresentationStyle = presentStyle
+            self.navigationController?.present(navigationController, animated: animated, completion: completion)
         }
     }
     

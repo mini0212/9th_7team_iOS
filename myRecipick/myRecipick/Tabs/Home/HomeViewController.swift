@@ -109,13 +109,24 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
             
             vm.outputs.recommendCustomMenus
                 .observe(on: MainScheduler.instance)
-                .bind(to: self.collectionView.rx.items(cellIdentifier: RecommendedMenuCollectionViewCell.identifier, cellType: RecommendedMenuCollectionViewCell.self)) { [weak self] index, element, cell in
+                .bind(to: self.collectionView.rx.items(cellIdentifier: RecommendedMenuCollectionViewCell.identifier, cellType: RecommendedMenuCollectionViewCell.self)) { index, element, cell in
                     cell.infoData = element
                 }
                 .disposed(by: self.disposeBag)
             
+            self.collectionView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+                self?.viewModel.requestDetailCustomMenuDataAtIndex(index: indexPath.row)
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.presentedDetailCustomMenuData.subscribe(onNext: { [weak self] data in
+                self?.coordinator.present(route: .recommandCustomDetail(data), animated: true, presentStyle: .fullScreen, completion: nil)
+            })
+            .disposed(by: self.disposeBag)
         }
     }
+    
+    // MARK: private function
 
     // MARK: action
     
