@@ -20,8 +20,8 @@ struct ServerUtil {
     private init() { }
     let manager = Alamofire.Session.default
     
-    @discardableResult func request(with request: HttpRequest, success: @escaping (JSON) -> Void, failure: @escaping (Error) -> Void) -> DataRequest? {
-        let baseURL = APIDefine.BASE_URL
+    @discardableResult func request(with request: HttpRequest, baseUrl: APIDefine.BaseUrl = .v1, success: @escaping (JSON) -> Void, failure: @escaping (Error) -> Void) -> DataRequest? {
+        let baseURL = baseUrl.getUrlString()
         let dataRequest: DataRequest = AF.request(baseURL + request.url,
                                                   method: request.method.toAlamofire,
                                                   parameters: request.parameters,
@@ -44,13 +44,13 @@ struct ServerUtil {
 extension ServerUtil: ReactiveCompatible { }
 
 extension Reactive where Base == ServerUtil {
-    func requestRx<T>(with request: HttpRequest) -> Observable<T> where T: Decodable {
-        return base.manager.httpRequest(with: request)
+    func requestRx<T>(with request: HttpRequest, baseUrl: APIDefine.BaseUrl = .v1) -> Observable<T> where T: Decodable {
+        return base.manager.httpRequest(with: request, baseUrl: baseUrl)
             .decodedObject()
     }
     
-    func requestRxToJson(with request: HttpRequest) -> Observable<JSON> {
-        return base.manager.httpRequest(with: request)
+    func requestRxToJson(with request: HttpRequest, baseUrl: APIDefine.BaseUrl = .v1) -> Observable<JSON> {
+        return base.manager.httpRequest(with: request, baseUrl: baseUrl)
             .swiftyJsonDataObject()
     }
 }
@@ -96,8 +96,8 @@ extension Observable where Element == (HTTPURLResponse, Any) {
 
 
 extension Session {
-    fileprivate func httpRequest(with httpRequest: HttpRequest) -> Observable<(HTTPURLResponse, Any)> {
-        let baseURL = APIDefine.BASE_URL
+    fileprivate func httpRequest(with httpRequest: HttpRequest, baseUrl: APIDefine.BaseUrl = .v1) -> Observable<(HTTPURLResponse, Any)> {
+        let baseURL = baseUrl.rawValue
         return Session.default.rx.responseJSON(httpRequest.alamofireMethod,
                                                baseURL + httpRequest.url,
                                                parameters: httpRequest.parameters,
