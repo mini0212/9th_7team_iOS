@@ -68,13 +68,23 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
         self.titleLabel.text = LocalizedMap.HOME_TITLE.localized
         self.collectionView.backgroundColor = .clear
         self.bottomContainerView.backgroundColor = UIColor(asset: Colors.homeBottomColor)
+        
+        self.collectionView.register(UINib(nibName: RecommendedMenuCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: RecommendedMenuCollectionViewCell.identifier)
+        self.collectionView.showsHorizontalScrollIndicator = false
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 20
+        layout.itemSize = CGSize(width: 264, height: 365)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        self.collectionView.collectionViewLayout = layout
     }
     
     func bind(viewModel: MVVMViewModel) {
         if type(of: viewModel) == HomeViewModel.self {
             guard let vm: HomeViewModel = (viewModel as? HomeViewModel) else { return }
             
-            vm.isLoading.subscribe(onNext: { [weak self] in
+            vm.outputs.isLoading.subscribe(onNext: { [weak self] in
                 if $0 {
                     self?.startIndicatorAnimating()
                 } else {
@@ -83,20 +93,26 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
             })
             .disposed(by: self.disposeBag)
             
-            vm.error.subscribe(onNext: { errStr in
+            vm.outputs.error.subscribe(onNext: { errStr in
                 CommonAlertView.shared.showOneBtnAlert(message: "오류", subMessage: errStr, btnText: "확인", confirmHandler: {
                     CommonAlertView.shared.hide()
                 })
             })
             .disposed(by: self.disposeBag)
             
-            vm.mainTitle.subscribe(onNext: { [weak self] mainTitleText in
+            vm.outputs.mainTitle.subscribe(onNext: { [weak self] mainTitleText in
                 DispatchQueue.main.async {
                     self?.titleLabel.text = mainTitleText
                 }
             })
             .disposed(by: self.disposeBag)
             
+            vm.outputs.recommendCustomMenus
+                .observe(on: MainScheduler.instance)
+                .bind(to: self.collectionView.rx.items(cellIdentifier: RecommendedMenuCollectionViewCell.identifier, cellType: RecommendedMenuCollectionViewCell.self)) { [weak self] index, element, cell in
+                    cell.infoData = element
+                }
+                .disposed(by: self.disposeBag)
             
         }
     }
@@ -106,14 +122,6 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
     @IBAction func showTipAction(_ sender: Any) {
         print("showTopAction")
         self.coordinator.showTip()
-    }
-    
-    @IBAction func testPushAction(_ sender: Any) {
-//        self.coordinator.push(route: .test, animated: true)
-    }
-    
-    @IBAction func testMoveOtherTabAction(_ sender: Any) {
-        self.coordinator.moveTo(tab: .yourPage)
     }
     
 }

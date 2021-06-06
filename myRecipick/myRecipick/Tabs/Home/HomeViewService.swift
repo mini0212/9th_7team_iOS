@@ -72,7 +72,7 @@ struct RecommendCustomMenu: JsonDataProtocol {
     var id: String = ""
     var name: String = ""
     var menuName: String = ""
-    var imageUrl: String = ""
+    var imageUrl: String? = ""
     var backgroundColor: String = ""
     var createdDate: String = ""
     

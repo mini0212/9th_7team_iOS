@@ -22,6 +22,28 @@ class RecommendedMenuCollectionViewCell: UICollectionViewCell, ClassIdentifiable
     
     // MARK: property
     
+    var infoData: RecommendCustomMenu? {
+        didSet {
+            guard let info = self.infoData else { return }
+            self.dateLabel.text = convertDateStrToUsefulDateStr(info.createdDate)
+            self.customMenuTitleLabel.text = info.name
+            self.menuNameLabel.text = info.menuName
+            self.mainContainerView.backgroundColor = info.backgroundColor.hexToColor()
+            if let url = info.imageUrl {
+                self.mainImgView.kf.setImage(with: URL(string: url), placeholder: nil, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                    self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
+                })
+            }
+            
+            if let url = info.imageUrl {
+                self.menuImgView.kf.setImage(with: URL(string: url), placeholder: nil, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                    self?.menuImgView.fadeIn(duration: 0.1, completeHandler: nil)
+                })
+            }
+            
+        }
+    }
+    
     
     // MARK: lifeCycle
     override func awakeFromNib() {
@@ -41,6 +63,20 @@ class RecommendedMenuCollectionViewCell: UICollectionViewCell, ClassIdentifiable
         self.menuContainerView.backgroundColor = UIColor(asset: Colors.white)
         self.menuNameLabel.font = .myRecipickFont(.yourRecipe)
         self.menuNameLabel.textColor = UIColor(asset: Colors.grayScale33)
+    }
+    
+    // MARK: private function
+    private func convertDateStrToUsefulDateStr(_ originDataStr: String) -> String {
+        var returnValue: String = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSS"
+        if let convertDate = dateFormatter.date(from: originDataStr) {
+            let myDateFormatter = DateFormatter()
+            myDateFormatter.dateFormat = "만든 날짜 : yyyy.MM.dd"
+            myDateFormatter.locale = Locale(identifier: "ko_KR")
+            returnValue = myDateFormatter.string(from: convertDate)
+        }
+        return returnValue
     }
     
     

@@ -120,6 +120,7 @@
 		786ACD812653E0E60034E2AA /* DetailCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786ACD7F2653E0E60034E2AA /* DetailCommentTableViewCell.swift */; };
 		786ACD822653E0E60034E2AA /* DetailCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786ACD802653E0E60034E2AA /* DetailCommentTableViewCell.xib */; };
 		788AE30F266C623E0005B9BB /* HomeViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE30E266C623E0005B9BB /* HomeViewService.swift */; };
+		788AE311266C93370005B9BB /* String + HexToColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE310266C93370005B9BB /* String + HexToColor.swift */; };
 		789FD51F26270419003728A6 /* UIView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIView + Snapshot.swift */; };
 		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
@@ -297,6 +298,7 @@
 		786ACD7F2653E0E60034E2AA /* DetailCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommentTableViewCell.swift; sourceTree = "<group>"; };
 		786ACD802653E0E60034E2AA /* DetailCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCommentTableViewCell.xib; sourceTree = "<group>"; };
 		788AE30E266C623E0005B9BB /* HomeViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewService.swift; sourceTree = "<group>"; };
+		788AE310266C93370005B9BB /* String + HexToColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + HexToColor.swift"; sourceTree = "<group>"; };
 		789FD51E26270419003728A6 /* UIView + Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Snapshot.swift"; sourceTree = "<group>"; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 				7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */,
 				786ACD712653DCE40034E2AA /* UIView + CornerRadius.swift */,
 				786376D12662907900844D16 /* String + Notification.swift */,
+				788AE310266C93370005B9BB /* String + HexToColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1210,6 +1213,7 @@
 				78D76820262D85310010A07E /* SplashView.swift in Sources */,
 				4F9DC6DF2625189600609CF0 /* CustomCoordinator.swift in Sources */,
 				78403ADC2668FF9500483C0F /* BrandSelectCollectionViewCell.swift in Sources */,
+				788AE311266C93370005B9BB /* String + HexToColor.swift in Sources */,
 				786376CB266220E200844D16 /* RecommendedMenuCollectionViewCell.swift in Sources */,
 				786ACD7A2653E00E0034E2AA /* TopConerRadiusView.swift in Sources */,
 				4F2FD64C26436F740085D629 /* DetailViewCoordinator.swift in Sources */,

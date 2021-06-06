@@ -66,7 +66,6 @@ class HomeViewModel: MVVMViewModel, HomeViewModelType, HomeViewModelInput, HomeV
     
     func requestRecommendCustomMenus() {
         self.service.getSampleCustomMenus().subscribe(onNext: { [weak self] menus in
-            print("menus: \(menus)")
             self?.mainTitle.onNext(menus.title)
             self?.recommendCustomMenus.onNext(menus.recommendCustomMenus)
         })
