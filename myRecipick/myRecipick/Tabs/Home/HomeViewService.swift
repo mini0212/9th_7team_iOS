@@ -78,7 +78,7 @@ class HomeViewService: HomeViewServiceProtocol {
         var httpRequest = HttpRequest()
         httpRequest.url = APIDefine.RECOMMAND_MENUS
         httpRequest.method = .get
-        return ServerUtil.shared.rx.requestRxToJson(with: httpRequest, baseUrl: .test)
+        return ServerUtil.shared.rx.requestRxToJson(with: httpRequest)
             .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
             .observe(on: MainScheduler.instance)
             .retry(3)
