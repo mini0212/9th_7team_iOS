@@ -9,16 +9,87 @@
 import UIKit
 import RxSwift
 
-class HomeViewModel: MVVMViewModel {
+protocol HomeViewModelInput {
+    func requestRecommendCustomMenus()
+    func requestDetailCustomMenuDataAtIndex(index: Int)
+}
+
+protocol HomeViewModelOutput {
+    var error: PublishSubject<String> { get }
+    var isLoading: PublishSubject<Bool> { get }
+    var mainTitle: BehaviorSubject<String> { get }
+    var recommendCustomMenus: BehaviorSubject<[RecommendCustomMenu]> { get }
+    var presentedDetailCustomMenuData: PublishSubject<DetailService.DetailServiceInfoModel> { get }
+}
+
+protocol HomeViewModelType {
+    var inputs: HomeViewModelInput { get }
+    var outputs: HomeViewModelOutput { get }
+}
+
+class HomeViewModel: MVVMViewModel, HomeViewModelType, HomeViewModelInput, HomeViewModelOutput {
+    
+    // MARK: property
+    var inputs: HomeViewModelInput {
+        return self
+    }
+    var outputs: HomeViewModelOutput {
+        return self
+    }
+    var service: HomeViewServiceProtocol
     var disposeBag: DisposeBag = DisposeBag()
+    var error: PublishSubject<String>
+    var isLoading: PublishSubject<Bool>
+    var mainTitle: BehaviorSubject<String>
+    var recommendCustomMenus: BehaviorSubject<[RecommendCustomMenu]>
+    var presentedDetailCustomMenuData: PublishSubject<DetailService.DetailServiceInfoModel>
+    
+    // MARK: lifeCycle
+    
+    init(service: HomeViewServiceProtocol) {
+        self.service = service
+        self.error = .init()
+        self.isLoading = .init()
+        self.mainTitle = .init(value: "")
+        self.recommendCustomMenus = .init(value: [])
+        self.presentedDetailCustomMenuData = .init()
+    }
     
     func subscribeInputs() {
-        
+        self.service.error.subscribe(onNext: { [weak self] err in
+            self?.error.onNext(err)
+        })
+        .disposed(by: self.disposeBag)
     }
     
     deinit {
         print("- \(type(of: self)) deinit")
     }
     
+    // MARK: input function
+    
+    func requestRecommendCustomMenus() {
+        self.service.getSampleCustomMenus().subscribe(onNext: { [weak self] menus in
+            self?.mainTitle.onNext(menus.title)
+            self?.recommendCustomMenus.onNext(menus.recommendCustomMenus)
+        })
+        .disposed(by: self.disposeBag)
+    }
+    
+    func requestDetailCustomMenuDataAtIndex(index: Int) {
+        self.isLoading.onNext(true)
+        self.recommendCustomMenus.subscribe(onNext: { [weak self] menus in
+            let item = menus[index]
+            let data = CustomMenuObjModel(id: item.id, name: item.name, description: "", imageUrl: item.imageUrl, createdDate: item.createdDate)
+            self?.service.getDetailCustomMenuData(data: data).subscribe(onNext: { [weak self] detailObj in
+                self?.outputs.presentedDetailCustomMenuData.onNext(DetailService.DetailServiceInfoModel(customMenuDetailObjModel: detailObj, customMenuObjModel: data))
+                self?.isLoading.onNext(false)
+            })
+            .disposed(by: self?.disposeBag ?? DisposeBag())
+        })
+        .disposed(by: self.disposeBag)
+    }
+    
+    // MARK: output function
 
 }

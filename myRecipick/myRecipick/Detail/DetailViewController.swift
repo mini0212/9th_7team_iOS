@@ -95,7 +95,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     
     @IBOutlet weak var closeBtnTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var bottomButtonContainerViewHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var buttonContainerViewHeightConstraint: NSLayoutConstraint!
     
@@ -357,16 +356,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.otherColor5View.layer.cornerRadius = self.currentPickedColorViewWidthConstraint.constant/2
         self.otherColor5View.backgroundColor = DetailViewController.BackgroundColorEnum.green.getColor()
         
-        self.editBtn.layer.cornerRadius = 10
-        self.editBtn.layer.masksToBounds = true
-        self.editBtn.adjustsImageWhenHighlighted = false
-        self.editBtn.showsTouchWhenHighlighted = false
-        self.editBtn.setBackgroundColor(UIColor(asset: Colors.grayScaleBD) ?? .lightGray, for: .normal)
-        self.editBtn.setBackgroundColor(UIColor(asset: Colors.grayScale99) ?? .darkGray, for: .highlighted)
-        self.editBtn.setTitle("수정하기", for: .normal)
-        self.editBtn.setTitleColor(.white, for: .normal)
-        self.editBtn.titleLabel?.font = UIFont.myRecipickFont(.subTitle2)
-        
         self.shareBtn.adjustsImageWhenHighlighted = false
         self.shareBtn.showsTouchWhenHighlighted = false
         self.shareBtn.setBackgroundColor(UIColor(asset: Colors.primaryNormal) ?? .orange, for: .normal)
@@ -540,10 +529,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBAction func otherColor5Action(_ sender: Any) {
         self.currentBackgroundColor = .green
         self.isSelectableBackgroundColor = false
-    }
-    
-    @IBAction func editAction(_ sender: Any) {
-        print("editAction")
     }
     
     @IBAction func shareAction(_ sender: Any) {

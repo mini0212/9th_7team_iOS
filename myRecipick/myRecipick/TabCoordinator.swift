@@ -53,7 +53,7 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         self.yourPageCoordinator = YourPageCoordinator(navigationController: self.navigationController ?? UINavigationController())
 
         var controllers: [UIViewController] = []
-        homeViewController = HomeViewController.makeViewController(coordinator: self.homeCoordinator, viewModel: HomeViewModel())
+        homeViewController = HomeViewController.makeViewController(coordinator: self.homeCoordinator, viewModel: HomeViewModel(service: HomeViewService()))
         homeViewController.tabBarItem = UITabBarItem(title: "", image: Images.iconsNavigation32Home.image, selectedImage: Images.iconsNavigation32Home.image)
         controllers.append(homeViewController)
         customViewController = CustomViewController.makeViewController(coordinator: self.customCoordinator)

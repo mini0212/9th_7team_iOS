@@ -72,9 +72,6 @@
 		4F9DC6EE2625205300609CF0 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC6ED2625205300609CF0 /* CustomViewController.swift */; };
 		4F9DC6F32625205900609CF0 /* YourPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC6F22625205900609CF0 /* YourPageViewController.swift */; };
 		4F9DC72F2625336D00609CF0 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F9DC72E2625336D00609CF0 /* Home.storyboard */; };
-		4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73626253A4900609CF0 /* TestViewController.swift */; };
-		4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F9DC73726253A4900609CF0 /* TestViewController.xib */; };
-		4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */; };
 		4FF5490C2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */; };
 		4FF5490E2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */; };
 		4FF549142640E6620086E30C /* CustomMenuCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF549122640E6620086E30C /* CustomMenuCardCollectionViewCell.swift */; };
@@ -122,6 +119,8 @@
 		786ACD7A2653E00E0034E2AA /* TopConerRadiusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786ACD792653E00E0034E2AA /* TopConerRadiusView.swift */; };
 		786ACD812653E0E60034E2AA /* DetailCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786ACD7F2653E0E60034E2AA /* DetailCommentTableViewCell.swift */; };
 		786ACD822653E0E60034E2AA /* DetailCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786ACD802653E0E60034E2AA /* DetailCommentTableViewCell.xib */; };
+		788AE30F266C623E0005B9BB /* HomeViewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE30E266C623E0005B9BB /* HomeViewService.swift */; };
+		788AE311266C93370005B9BB /* String + HexToColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE310266C93370005B9BB /* String + HexToColor.swift */; };
 		789FD51F26270419003728A6 /* UIView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIView + Snapshot.swift */; };
 		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
@@ -252,9 +251,6 @@
 		4F9DC6ED2625205300609CF0 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		4F9DC6F22625205900609CF0 /* YourPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourPageViewController.swift; sourceTree = "<group>"; };
 		4F9DC72E2625336D00609CF0 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		4F9DC73626253A4900609CF0 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		4F9DC73726253A4900609CF0 /* TestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
-		4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoordinator.swift; sourceTree = "<group>"; };
 		4FF5490B2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditYourCustomHistroyConfirmBtnView.swift; sourceTree = "<group>"; };
 		4FF5490D2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditYourCustomHistroyConfirmBtnView.xib; sourceTree = "<group>"; };
 		4FF549122640E6620086E30C /* CustomMenuCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuCardCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -301,6 +297,8 @@
 		786ACD792653E00E0034E2AA /* TopConerRadiusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopConerRadiusView.swift; sourceTree = "<group>"; };
 		786ACD7F2653E0E60034E2AA /* DetailCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommentTableViewCell.swift; sourceTree = "<group>"; };
 		786ACD802653E0E60034E2AA /* DetailCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCommentTableViewCell.xib; sourceTree = "<group>"; };
+		788AE30E266C623E0005B9BB /* HomeViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewService.swift; sourceTree = "<group>"; };
+		788AE310266C93370005B9BB /* String + HexToColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + HexToColor.swift"; sourceTree = "<group>"; };
 		789FD51E26270419003728A6 /* UIView + Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Snapshot.swift"; sourceTree = "<group>"; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -442,6 +440,7 @@
 				7817E82F263E7CED003AC910 /* NSMutableAttributeString + InSpecificString.swift */,
 				786ACD712653DCE40034E2AA /* UIView + CornerRadius.swift */,
 				786376D12662907900844D16 /* String + Notification.swift */,
+				788AE310266C93370005B9BB /* String + HexToColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -527,9 +526,7 @@
 				4F9DC6D92625188D00609CF0 /* HomeCoordinator.swift */,
 				4F9DC6E82625204200609CF0 /* HomeViewController.swift */,
 				78575E7E262C51460060BB63 /* HomeViewModel.swift */,
-				4F9DC73D26253F1900609CF0 /* TestCoordinator.swift */,
-				4F9DC73626253A4900609CF0 /* TestViewController.swift */,
-				4F9DC73726253A4900609CF0 /* TestViewController.xib */,
+				788AE30E266C623E0005B9BB /* HomeViewService.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -985,7 +982,6 @@
 				78644AAE263444D800C16C47 /* OFL.txt in Resources */,
 				397286E526625C2E00D07056 /* CustomMenuNameViewController.xib in Resources */,
 				786ACD822653E0E60034E2AA /* DetailCommentTableViewCell.xib in Resources */,
-				4F9DC73926253A4900609CF0 /* TestViewController.xib in Resources */,
 				393534EC2658FF5300C457EA /* CustomOptionAdditionalCell.xib in Resources */,
 				39D9D5A6264EBB8C000434B7 /* MenuListViewController.xib in Resources */,
 				7866F09A263024460037DB4C /* license.html in Resources */,
@@ -1155,6 +1151,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F9DC6E4262518A000609CF0 /* YourPageCoordinator.swift in Sources */,
+				788AE30F266C623E0005B9BB /* HomeViewService.swift in Sources */,
 				4F5C5F5226241FC8003D94E2 /* SceneDelegate.swift in Sources */,
 				39A4492926443F68001DD3C4 /* CustomNavigationView.swift in Sources */,
 				4FF5490C2640C7470086E30C /* EditYourCustomHistroyConfirmBtnView.swift in Sources */,
@@ -1210,14 +1207,13 @@
 				785C7AC6263D3CD400A163CC /* CommonAlertView.swift in Sources */,
 				4F5C5F6426242112003D94E2 /* UserDefaultKeyDefine.swift in Sources */,
 				7817E840263E8D03003AC910 /* YourPageService.swift in Sources */,
-				4F9DC73826253A4900609CF0 /* TestViewController.swift in Sources */,
 				4F163C8F2644CE4200739107 /* ImageAssets+Generated.swift in Sources */,
 				39D9D5A8264EC521000434B7 /* MenuModel.swift in Sources */,
-				4F9DC73E26253F1900609CF0 /* TestCoordinator.swift in Sources */,
 				4F5C5F77262422F7003D94E2 /* CryptoUtil.swift in Sources */,
 				78D76820262D85310010A07E /* SplashView.swift in Sources */,
 				4F9DC6DF2625189600609CF0 /* CustomCoordinator.swift in Sources */,
 				78403ADC2668FF9500483C0F /* BrandSelectCollectionViewCell.swift in Sources */,
+				788AE311266C93370005B9BB /* String + HexToColor.swift in Sources */,
 				786376CB266220E200844D16 /* RecommendedMenuCollectionViewCell.swift in Sources */,
 				786ACD7A2653E00E0034E2AA /* TopConerRadiusView.swift in Sources */,
 				4F2FD64C26436F740085D629 /* DetailViewCoordinator.swift in Sources */,

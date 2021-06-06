@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class HomeViewController: UIViewController, CoordinatorMVVMViewController, ClassIdentifiable {
+class HomeViewController: UIViewController, CoordinatorMVVMViewController, ClassIdentifiable, ActivityIndicatorable {
     
     typealias SelfType = HomeViewController
     
@@ -40,7 +40,9 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindingViewModel(viewModel: self.viewModel)
         initUI()
+        self.viewModel.inputs.requestRecommendCustomMenus()
     }
     
     override func viewDidLayoutSubviews() {
@@ -66,25 +68,71 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
         self.titleLabel.text = LocalizedMap.HOME_TITLE.localized
         self.collectionView.backgroundColor = .clear
         self.bottomContainerView.backgroundColor = UIColor(asset: Colors.homeBottomColor)
+        
+        self.collectionView.register(UINib(nibName: RecommendedMenuCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: RecommendedMenuCollectionViewCell.identifier)
+        self.collectionView.showsHorizontalScrollIndicator = false
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 20
+        layout.itemSize = CGSize(width: 264, height: 365)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 24)
+        self.collectionView.collectionViewLayout = layout
     }
     
     func bind(viewModel: MVVMViewModel) {
-        
+        if type(of: viewModel) == HomeViewModel.self {
+            guard let vm: HomeViewModel = (viewModel as? HomeViewModel) else { return }
+            
+            vm.outputs.isLoading.subscribe(onNext: { [weak self] in
+                if $0 {
+                    self?.startIndicatorAnimating()
+                } else {
+                    self?.stopIndicatorAnimating()
+                }
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.error.subscribe(onNext: { errStr in
+                CommonAlertView.shared.showOneBtnAlert(message: "오류", subMessage: errStr, btnText: "확인", confirmHandler: {
+                    CommonAlertView.shared.hide()
+                })
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.mainTitle.subscribe(onNext: { [weak self] mainTitleText in
+                DispatchQueue.main.async {
+                    self?.titleLabel.text = mainTitleText
+                }
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.recommendCustomMenus
+                .observe(on: MainScheduler.instance)
+                .bind(to: self.collectionView.rx.items(cellIdentifier: RecommendedMenuCollectionViewCell.identifier, cellType: RecommendedMenuCollectionViewCell.self)) { index, element, cell in
+                    cell.infoData = element
+                }
+                .disposed(by: self.disposeBag)
+            
+            self.collectionView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+                self?.viewModel.requestDetailCustomMenuDataAtIndex(index: indexPath.row)
+            })
+            .disposed(by: self.disposeBag)
+            
+            vm.outputs.presentedDetailCustomMenuData.subscribe(onNext: { [weak self] data in
+                self?.coordinator.present(route: .recommandCustomDetail(data), animated: true, presentStyle: .fullScreen, completion: nil)
+            })
+            .disposed(by: self.disposeBag)
+        }
     }
+    
+    // MARK: private function
 
     // MARK: action
     
     @IBAction func showTipAction(_ sender: Any) {
         print("showTopAction")
         self.coordinator.showTip()
-    }
-    
-    @IBAction func testPushAction(_ sender: Any) {
-//        self.coordinator.push(route: .test, animated: true)
-    }
-    
-    @IBAction func testMoveOtherTabAction(_ sender: Any) {
-        self.coordinator.moveTo(tab: .yourPage)
     }
     
 }
