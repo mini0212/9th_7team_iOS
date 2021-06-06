@@ -50,6 +50,12 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
     
     // MARK: lifeCycle
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        NotificationCenter.default.addObserver(self, selector: #selector(receivedDeletedItemsNoti(_:)), name: Notification.Name(.myRecipickNotificationName(.customMenuRemoved)), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(receivedAddedItemsNoti(_:)), name: Notification.Name(.myRecipickNotificationName(.customMenuAdded)), object: nil)
+    }
+    
     deinit {
         print("- \(type(of: self)) deinit")
     }
@@ -63,8 +69,6 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
         self.tableView
             .rx.setDelegate(self)
             .disposed(by: disposeBag)
-        NotificationCenter.default.addObserver(self, selector: #selector(receivedDeletedItemsNoti(_:)), name: Notification.Name(.myRecipickNotificationName(.customMenuRemoved)), object: nil)
-        
     }
     
     func bind(viewModel: MVVMViewModel) {
@@ -73,7 +77,7 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
             vm.outputs.customMenus
                 .observe(on: MainScheduler.instance)
                 .bind(to: self.tableView.rx.items) { tableView, row, item in
-                    guard let cell: YourPageTableViewCell = tableView.dequeueReusableCell(withIdentifier: "YourPageTableViewCell") as? YourPageTableViewCell else { return UITableViewCell() }
+                    guard let cell: YourPageTableViewCell = tableView.dequeueReusableCell(withIdentifier: YourPageTableViewCell.identifier) as? YourPageTableViewCell else { return UITableViewCell() }
                     cell.infoData = item
                     cell.row = row
                     cell.isEditable = self.isEditable
@@ -203,6 +207,9 @@ class YourPageViewController: UIViewController, CoordinatorMVVMViewController, C
         refreshEditCheckedCntNaviItem()
     }
     
+    @objc func receivedAddedItemsNoti(_ notification: Notification) {
+        self.viewModel.refreshCustomMenus()
+    }
     
     // MARK: action
     

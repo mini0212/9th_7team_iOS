@@ -28,11 +28,6 @@ class DetailViewCoordinator: CoordinatorProtocol {
     
     // MARK: func
     
-    func makeNavigationItems() {
-//        let barButtonItem = UIBarButtonItem(image: Images.evaCloseFill.image.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(closeButtonClicked(_:)))
-//        self.navigationController?.navigationBar.topItem?.rightBarButtonItem = barButtonItem
-    }
-    
     func setClearNavigation() {
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()

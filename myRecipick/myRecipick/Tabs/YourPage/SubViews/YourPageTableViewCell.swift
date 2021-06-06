@@ -37,7 +37,7 @@ class YourPageTableViewCell: UITableViewCell, ClassIdentifiable, NibIdentifiable
             self.menuTitleLabel.text = info.name
             self.menuRecipeLabel.text = info.description
             if let imgUrl = info.imageUrl {
-                self.imgView.kf.setImage(with: URL(string: imgUrl), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                self.imgView.kf.setImage(with: URL(string: imgUrl), placeholder: nil, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
                     self?.imgView.fadeIn(duration: 0.1, completeHandler: nil)
                 })
             }
@@ -86,14 +86,20 @@ class YourPageTableViewCell: UITableViewCell, ClassIdentifiable, NibIdentifiable
     
     func showSelectableViewWithAnimation() {
         self.editContainerViewWidthConstraint.constant = self.originEditContainerViewWidthConstraint
+        UIView.animate(withDuration: 0.15) {
+            self.layoutIfNeeded()
+        }
         self.editContainerView.isHidden = false
-        self.editContainerView.fadeIn(duration: 0.1, completeHandler: nil)
+        self.editContainerView.fadeIn(duration: 0.15, completeHandler: nil)
         
     }
     
     func hideSelectableViewWithAnimation() {
         self.editContainerViewWidthConstraint.constant = 0
-        self.editContainerView.fadeOut(duration: 0.1, completeHandler: { [weak self] in
+        UIView.animate(withDuration: 0.15) {
+            self.layoutIfNeeded()
+        }
+        self.editContainerView.fadeOut(duration: 0.15, completeHandler: { [weak self] in
             self?.editContainerView.isHidden = true
         })
     }

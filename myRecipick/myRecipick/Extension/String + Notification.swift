@@ -9,21 +9,19 @@
 enum NotificationNameDefineEnum: CustomStringConvertible {
     var description: String {
         switch self {
+        case .customMenuAdded:
+            return "CUSTOM_MENU_ADDED"
         case .customMenuRemoved:
             return "CUSTOM_MENU_REMOVED"
         }
     }
-    
+    case customMenuAdded
     case customMenuRemoved
+    
 }
 
 extension String {
     static func myRecipickNotificationName(_ name: NotificationNameDefineEnum) -> String {
-        var returnValue: String = ""
-        switch name {
-        case .customMenuRemoved:
-            returnValue = name.description
-        }
-        return returnValue
+        return name.description
     }
 }

@@ -60,8 +60,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     // MARK: outlet
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var backgroundContainerView: UIView!
-    @IBOutlet weak var bottomPaddingView: UIView!
-    @IBOutlet weak var bottomPaddingViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var backgroundBottomView: UIView!
     @IBOutlet weak var backgroundBottomViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var mainContainerView: UIView!
@@ -84,7 +82,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBOutlet weak var colorPickContainerView: UIView!
     @IBOutlet weak var colorPickContainerViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var colorPickView: UIView!
-    @IBOutlet weak var colorPickViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var currentPickedColorView: UIView!
     @IBOutlet weak var currentPickedColorViewWidthConstraint: NSLayoutConstraint!
     
@@ -96,8 +93,8 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBOutlet weak var otherColor4View: UIView!
     @IBOutlet weak var otherColor5View: UIView!
     
-    @IBOutlet weak var closeBtn: UIButton!
     @IBOutlet weak var closeBtnTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomButtonContainerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var buttonContainerViewHeightConstraint: NSLayoutConstraint!
@@ -145,6 +142,8 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         }
     }
     
+    var isFirstScrollDidScrollFlag: Bool = false // 이 플레그를 사용하지않고싶음..
+    
     // MARK: lifeCycle
     
     override func viewDidLoad() {
@@ -152,7 +151,6 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         initUI()
         bindingViewModel(viewModel: self.viewModel)
         self.coordinator.setClearNavigation()
-        self.coordinator.makeNavigationItems()
         self.coordinator.navigationController?.navigationBar.isHidden = true
         self.tableView.register(UINib(nibName: DetailTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailTableViewCell.identifier)
         self.tableView.register(UINib(nibName: DetailHeaderTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: DetailHeaderTableViewCell.identifier)
@@ -183,17 +181,9 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                 .subscribe(onNext: { [weak self] in
                     guard let self = self else { return }
                     let yOffset = self.tableView.contentOffset.y + self.originTopContentsViewHeightConstraint
-                    let colorPickMoveOffset = self.tableView.contentOffset.y + self.originColorPickContainerViewTopConstraint + self.colorPickViewHeightConstraint.constant
-                    if colorPickMoveOffset > 0 {
-                        self.colorPickContainerView.isHidden = true
-                        self.closeBtn.isHidden = true
-                    } else {
-                        self.colorPickContainerView.isHidden = false
-                        self.closeBtn.isHidden = false
-                    }
-                    if yOffset >= 0 {
-                        self.backgroundBottomViewHeightConstraint.constant = yOffset
-                    }
+                    self.topContentsViewTopConstraint.constant = -yOffset
+                    self.colorPickContainerViewTopConstraint.constant = -yOffset + self.originColorPickContainerViewTopConstraint
+                    self.closeBtnTopConstraint.constant = -yOffset + self.originCloseBtnTopConstraint
                     
                     var percent: CGFloat = yOffset/self.originTopContentsViewHeightConstraint
                     if 0 > percent {
@@ -202,6 +192,22 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                     if percent > 1 {
                         percent = 1
                     }
+            })
+            .disposed(by: self.disposeBag)
+            
+            self.tableView.rx.didScroll
+                .subscribe(onNext: { [weak self] in
+                    guard let self = self else { return }
+                    let height = self.tableView.frame.size.height
+                    let contentYOffset = self.tableView.contentOffset.y
+                    let distanceFromBottom = self.tableView.contentSize.height - contentYOffset
+                    if distanceFromBottom < height {
+                        if self.isFirstScrollDidScrollFlag { // 왜 처음에 스크롤하지 않았는데 호출되는것일까.. 이걸 처음인지 어떻게 알까
+                            let newBottomPaddingViewHeight: CGFloat = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0) + -(distanceFromBottom - height) + self.bottomButtonContainerViewHeightConstraint.constant
+                            self.backgroundBottomViewHeightConstraint.constant = newBottomPaddingViewHeight
+                        }
+                    }
+                    self.isFirstScrollDidScrollFlag = true
             })
             .disposed(by: self.disposeBag)
             
@@ -218,10 +224,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                 .subscribe(onNext: { [weak self] data in
                     guard let self = self else { return }
                     if let url = data.imageUrl {
-                        self.mainImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                        self.mainImgView.kf.setImage(with: URL(string: url), placeholder: nil, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
                             self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
                         })
-                        self.menuImgView.kf.setImage(with: URL(string: url), placeholder: Images.sample.image, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
+                        self.menuImgView.kf.setImage(with: URL(string: url), placeholder: nil, options: [.cacheMemoryOnly], completionHandler: { [weak self] _ in
                             self?.mainImgView.fadeIn(duration: 0.1, completeHandler: nil)
                         })
                     }
@@ -262,10 +268,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                         SectionModel(model: "menu", items: [
                             CellModel.customMenuObjModel(response.0)
                         ]),
-                        SectionModel(model: "ingredients", items: ingredientCellArr),
-                        SectionModel(model: "comment", items: [
-                            CellModel.comment("데이터 나오면 바꿔야함")
-                        ])
+                        SectionModel(model: "ingredients", items: ingredientCellArr)
+//                        SectionModel(model: "comment", items: [
+//                            CellModel.comment("데이터 나오면 바꿔야함")
+//                        ])
                     ])
                     let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, CellModel>>(configureCell: { dataSource, table, indexPath, item in
                         switch item {
@@ -302,9 +308,9 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     func initUI() {
         self.backgroundContainerView.backgroundColor = self.currentBackgroundColor.getColor()
         self.backgroundBottomView.backgroundColor = UIColor(asset: Colors.white)
-        self.backgroundBottomViewHeightConstraint.constant = 0.0
-        self.bottomPaddingViewHeightConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
+        self.backgroundBottomViewHeightConstraint.constant = UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0
         self.mainContainerView.backgroundColor = .clear
+        self.mainContainerView.layer.masksToBounds = true
         self.topContentsContainerView.backgroundColor = .clear
         self.topContentsContainerView.isUserInteractionEnabled = false
         self.customMenuTitleLabel.font = UIFont.myRecipickFont(.detailMenuTitle)
@@ -484,16 +490,14 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     private func makeMenuCell(with element: CustomMenuObjModel, from table: UITableView) -> UITableViewCell {
         guard let cell = table.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell else { return UITableViewCell() }
         cell.type = .menu
-        cell.titleLabel.text = "메뉴"
-        cell.contentsLabel.text = element.name
+        cell.menuInfoData = element
         return cell
     }
     
     private func makeIngredientCell(with element: CustomMenuDetailOptionGroupOptionsObjModel, from table: UITableView) -> UITableViewCell {
         guard let cell = table.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell else { return UITableViewCell() }
         cell.type = .ingredients
-        cell.titleLabel.text = element.category ?? ""
-        cell.contentsLabel.text = element.name
+        cell.detailMenuInfoData = element
         return cell
     }
     
