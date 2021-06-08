@@ -13,7 +13,7 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
     
     enum Route {
         case requestBrand
-        case recommandCustomDetail(DetailService.DetailServiceInfoModel)
+        case recommandCustomDetail(DetailService.DetailServiceInfoModel, UIColor)
     }
     
     // MARK: property
@@ -55,9 +55,10 @@ class HomeCoordinator: MainTabCoordinatorProtocol {
         switch route {
         case .requestBrand:
             break
-        case .recommandCustomDetail(let data):
+        case .recommandCustomDetail(let data, let backgroundColor):
             let navigationController: UINavigationController = UINavigationController()
-            let vc = DetailViewController.makeViewController(coordinator: DetailViewCoordinator(navigationController: navigationController), viewModel: DetailViewModel(service: DetailService(data: data)))
+            let vc = DetailViewController.makeViewController(coordinator: DetailViewCoordinator(navigationController: navigationController), viewModel: DetailViewModel(service: DetailService(data: data)), backgroundColor: backgroundColor)
+
             navigationController.setViewControllers([vc], animated: false)
             navigationController.modalPresentationStyle = presentStyle
             self.navigationController?.present(navigationController, animated: animated, completion: completion)

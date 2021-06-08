@@ -34,7 +34,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     typealias CoordinatorType = DetailViewCoordinator
     typealias MVVMViewModelClassType = DetailViewModel
     
-    enum BackgroundColorEnum {
+    enum BackgroundColorEnum: CaseIterable {
         case green
         case pink
         case brown
@@ -54,6 +54,17 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
             case .pink:
                 return UIColor(asset: Colors.backgroundPink) ?? .purple
             }
+        }
+        
+        static func getTypeFromColor(_ inputedColor: UIColor) -> BackgroundColorEnum {
+            var returnValue: BackgroundColorEnum = .green
+            for item in BackgroundColorEnum.allCases {
+                if inputedColor.isSameColor(item.getColor()) {
+                    returnValue = item
+                    break
+                }
+            }
+            return returnValue
         }
     }
 
@@ -137,8 +148,12 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     
     var currentBackgroundColor: BackgroundColorEnum = .green {
         didSet {
-            self.currentPickedColorView.backgroundColor = self.currentBackgroundColor.getColor()
-            self.backgroundContainerView.backgroundColor = self.currentBackgroundColor.getColor()
+            if self.currentPickedColorView != nil {
+                self.currentPickedColorView.backgroundColor = self.currentBackgroundColor.getColor()
+            }
+            if self.backgroundContainerView != nil {
+                self.backgroundContainerView.backgroundColor = self.currentBackgroundColor.getColor()
+            }
         }
     }
     
@@ -314,9 +329,14 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     // MARK: func
     
     static func makeViewController(coordinator: DetailViewCoordinator, viewModel: DetailViewModel) -> DetailViewController {
+        return DetailViewController.makeViewController(coordinator: coordinator, viewModel: viewModel, backgroundColor: .white)
+    }
+    
+    static func makeViewController(coordinator: DetailViewCoordinator, viewModel: DetailViewModel, backgroundColor: UIColor) -> DetailViewController {
         let detailViewController: DetailViewController = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(identifier: DetailViewController.identifier)
         detailViewController.coordinator = coordinator
         detailViewController.viewModel = viewModel
+        detailViewController.currentBackgroundColor = DetailViewController.BackgroundColorEnum.getTypeFromColor(backgroundColor)
         return detailViewController
     }
     

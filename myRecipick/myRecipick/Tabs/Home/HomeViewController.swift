@@ -120,7 +120,7 @@ class HomeViewController: UIViewController, CoordinatorMVVMViewController, Class
             .disposed(by: self.disposeBag)
             
             vm.outputs.presentedDetailCustomMenuData.subscribe(onNext: { [weak self] data in
-                self?.coordinator.present(route: .recommandCustomDetail(data), animated: true, presentStyle: .fullScreen, completion: nil)
+                self?.coordinator.present(route: .recommandCustomDetail(data.detailServiceInfoModel, data.backgroundColor), animated: true, presentStyle: .fullScreen, completion: nil)
             })
             .disposed(by: self.disposeBag)
         }

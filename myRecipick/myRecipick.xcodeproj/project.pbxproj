@@ -123,6 +123,7 @@
 		788AE311266C93370005B9BB /* String + HexToColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 788AE310266C93370005B9BB /* String + HexToColor.swift */; };
 		789FD51F26270419003728A6 /* UIView + Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789FD51E26270419003728A6 /* UIView + Snapshot.swift */; };
 		78A864442625ACA200E1A7DD /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 78A864432625ACA200E1A7DD /* Kingfisher */; };
+		78A9D04F266F97110026AA46 /* UIColor + IsSameColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A9D04E266F97110026AA46 /* UIColor + IsSameColor.swift */; };
 		78AC524A2621CCBD002B7C02 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52492621CCBD002B7C02 /* .swiftlint.yml */; };
 		78AC52B42621D632002B7C02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52B32621D632002B7C02 /* Assets.xcassets */; };
 		78AC52BC2621D75D002B7C02 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AC52BB2621D75D002B7C02 /* Colors.xcassets */; };
@@ -300,6 +301,7 @@
 		788AE30E266C623E0005B9BB /* HomeViewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewService.swift; sourceTree = "<group>"; };
 		788AE310266C93370005B9BB /* String + HexToColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + HexToColor.swift"; sourceTree = "<group>"; };
 		789FD51E26270419003728A6 /* UIView + Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Snapshot.swift"; sourceTree = "<group>"; };
+		78A9D04E266F97110026AA46 /* UIColor + IsSameColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + IsSameColor.swift"; sourceTree = "<group>"; };
 		78AC52492621CCBD002B7C02 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		78AC52B32621D632002B7C02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78AC52BB2621D75D002B7C02 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				786ACD712653DCE40034E2AA /* UIView + CornerRadius.swift */,
 				786376D12662907900844D16 /* String + Notification.swift */,
 				788AE310266C93370005B9BB /* String + HexToColor.swift */,
+				78A9D04E266F97110026AA46 /* UIColor + IsSameColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -669,13 +672,6 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		78B299EF263AB2AF005B6ECF /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		78B29A18263ADC84005B6ECF /* SubViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -740,7 +736,6 @@
 		78C8C16D2615C45600F84CAB /* myRecipickTests */ = {
 			isa = PBXGroup;
 			children = (
-				78B299EF263AB2AF005B6ECF /* Extension */,
 				78C8C16E2615C45600F84CAB /* myRecipickTests.swift */,
 				78C8C1702615C45600F84CAB /* Info.plist */,
 			);
@@ -1237,6 +1232,7 @@
 				786ACD722653DCE40034E2AA /* UIView + CornerRadius.swift in Sources */,
 				397286E426625C2E00D07056 /* CustomMenuNameViewController.swift in Sources */,
 				7815C5C126510D2000581D4E /* DetailTableViewCell.swift in Sources */,
+				78A9D04F266F97110026AA46 /* UIColor + IsSameColor.swift in Sources */,
 				7866F0AA263025F20037DB4C /* CommonWebViewController.swift in Sources */,
 				789FD51F26270419003728A6 /* UIView + Snapshot.swift in Sources */,
 				397286E126616C5300D07056 /* Encodable + Extensions.swift in Sources */,
