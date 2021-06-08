@@ -34,17 +34,17 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     typealias CoordinatorType = DetailViewCoordinator
     typealias MVVMViewModelClassType = DetailViewModel
     
-    enum BackgroundColorEnum {
+    enum BackgroundColorEnum: CaseIterable {
         case green
         case pink
-        case black
+        case brown
         case blue
         case orange
         
         func getColor() -> UIColor {
             switch self {
-            case .black:
-                return UIColor(asset: Colors.grayScale33) ?? .black
+            case .brown:
+                return UIColor(asset: Colors.backgroundBrown) ?? .black
             case .blue:
                 return UIColor(asset: Colors.backgroundBlue) ?? .blue
             case .green:
@@ -54,6 +54,17 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
             case .pink:
                 return UIColor(asset: Colors.backgroundPink) ?? .purple
             }
+        }
+        
+        static func getTypeFromColor(_ inputedColor: UIColor) -> BackgroundColorEnum {
+            var returnValue: BackgroundColorEnum = .green
+            for item in BackgroundColorEnum.allCases {
+                if inputedColor.isSameColor(item.getColor()) {
+                    returnValue = item
+                    break
+                }
+            }
+            return returnValue
         }
     }
 
@@ -97,6 +108,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBOutlet weak var bottomButtonContainerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var buttonContainerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollToTopButton: UIButton!
     
     // MARK: property
     
@@ -136,8 +148,12 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     
     var currentBackgroundColor: BackgroundColorEnum = .green {
         didSet {
-            self.currentPickedColorView.backgroundColor = self.currentBackgroundColor.getColor()
-            self.backgroundContainerView.backgroundColor = self.currentBackgroundColor.getColor()
+            if self.currentPickedColorView != nil {
+                self.currentPickedColorView.backgroundColor = self.currentBackgroundColor.getColor()
+            }
+            if self.backgroundContainerView != nil {
+                self.backgroundContainerView.backgroundColor = self.currentBackgroundColor.getColor()
+            }
         }
     }
     
@@ -190,6 +206,21 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                     }
                     if percent > 1 {
                         percent = 1
+                    }
+                    
+                    if yOffset > 50 {
+                        if self.scrollToTopButton.tag == 2 || self.scrollToTopButton.tag == 0 {
+                            self.scrollToTopButton.tag = 1
+                            self.scrollToTopButton.isHidden = false
+                            self.scrollToTopButton.fadeIn(completeHandler: nil)
+                        }
+                    } else {
+                        if self.scrollToTopButton.tag == 1 || self.scrollToTopButton.tag == 0 {
+                            self.scrollToTopButton.tag = 2
+                            self.scrollToTopButton.fadeOut(completeHandler: { [weak self] in
+                                self?.scrollToTopButton.isHidden = true
+                            })
+                        }
                     }
             })
             .disposed(by: self.disposeBag)
@@ -298,9 +329,14 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     // MARK: func
     
     static func makeViewController(coordinator: DetailViewCoordinator, viewModel: DetailViewModel) -> DetailViewController {
+        return DetailViewController.makeViewController(coordinator: coordinator, viewModel: viewModel, backgroundColor: .white)
+    }
+    
+    static func makeViewController(coordinator: DetailViewCoordinator, viewModel: DetailViewModel, backgroundColor: UIColor) -> DetailViewController {
         let detailViewController: DetailViewController = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(identifier: DetailViewController.identifier)
         detailViewController.coordinator = coordinator
         detailViewController.viewModel = viewModel
+        detailViewController.currentBackgroundColor = DetailViewController.BackgroundColorEnum.getTypeFromColor(backgroundColor)
         return detailViewController
     }
     
@@ -345,7 +381,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.otherColor1View.backgroundColor = DetailViewController.BackgroundColorEnum.pink.getColor()
         
         self.otherColor2View.layer.cornerRadius = self.currentPickedColorViewWidthConstraint.constant/2
-        self.otherColor2View.backgroundColor = DetailViewController.BackgroundColorEnum.black.getColor()
+        self.otherColor2View.backgroundColor = DetailViewController.BackgroundColorEnum.brown.getColor()
         
         self.otherColor3View.layer.cornerRadius = self.currentPickedColorViewWidthConstraint.constant/2
         self.otherColor3View.backgroundColor = DetailViewController.BackgroundColorEnum.blue.getColor()
@@ -515,7 +551,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.isSelectableBackgroundColor = false
     }
     @IBAction func otherColor2Action(_ sender: Any) {
-        self.currentBackgroundColor = .black
+        self.currentBackgroundColor = .brown
         self.isSelectableBackgroundColor = false
     }
     @IBAction func otherColor3Action(_ sender: Any) {
@@ -529,6 +565,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBAction func otherColor5Action(_ sender: Any) {
         self.currentBackgroundColor = .green
         self.isSelectableBackgroundColor = false
+    }
+    
+    @IBAction func scrollToTopAction(_ sender: Any) {
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -self.tableView.contentInset.top), animated: true)
     }
     
     @IBAction func shareAction(_ sender: Any) {
