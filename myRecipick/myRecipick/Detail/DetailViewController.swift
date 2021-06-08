@@ -37,14 +37,14 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     enum BackgroundColorEnum {
         case green
         case pink
-        case black
+        case brown
         case blue
         case orange
         
         func getColor() -> UIColor {
             switch self {
-            case .black:
-                return UIColor(asset: Colors.grayScale33) ?? .black
+            case .brown:
+                return UIColor(asset: Colors.backgroundBrown) ?? .black
             case .blue:
                 return UIColor(asset: Colors.backgroundBlue) ?? .blue
             case .green:
@@ -345,7 +345,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.otherColor1View.backgroundColor = DetailViewController.BackgroundColorEnum.pink.getColor()
         
         self.otherColor2View.layer.cornerRadius = self.currentPickedColorViewWidthConstraint.constant/2
-        self.otherColor2View.backgroundColor = DetailViewController.BackgroundColorEnum.black.getColor()
+        self.otherColor2View.backgroundColor = DetailViewController.BackgroundColorEnum.brown.getColor()
         
         self.otherColor3View.layer.cornerRadius = self.currentPickedColorViewWidthConstraint.constant/2
         self.otherColor3View.backgroundColor = DetailViewController.BackgroundColorEnum.blue.getColor()
@@ -515,7 +515,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.isSelectableBackgroundColor = false
     }
     @IBAction func otherColor2Action(_ sender: Any) {
-        self.currentBackgroundColor = .black
+        self.currentBackgroundColor = .brown
         self.isSelectableBackgroundColor = false
     }
     @IBAction func otherColor3Action(_ sender: Any) {
