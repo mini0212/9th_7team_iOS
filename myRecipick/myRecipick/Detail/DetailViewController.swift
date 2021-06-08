@@ -97,6 +97,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBOutlet weak var bottomButtonContainerViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var shareBtn: UIButton!
     @IBOutlet weak var buttonContainerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollToTopButton: UIButton!
     
     // MARK: property
     
@@ -190,6 +191,21 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                     }
                     if percent > 1 {
                         percent = 1
+                    }
+                    
+                    if yOffset > 50 {
+                        if self.scrollToTopButton.tag == 2 || self.scrollToTopButton.tag == 0 {
+                            self.scrollToTopButton.tag = 1
+                            self.scrollToTopButton.isHidden = false
+                            self.scrollToTopButton.fadeIn(completeHandler: nil)
+                        }
+                    } else {
+                        if self.scrollToTopButton.tag == 1 || self.scrollToTopButton.tag == 0 {
+                            self.scrollToTopButton.tag = 2
+                            self.scrollToTopButton.fadeOut(completeHandler: { [weak self] in
+                                self?.scrollToTopButton.isHidden = true
+                            })
+                        }
                     }
             })
             .disposed(by: self.disposeBag)
@@ -529,6 +545,10 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     @IBAction func otherColor5Action(_ sender: Any) {
         self.currentBackgroundColor = .green
         self.isSelectableBackgroundColor = false
+    }
+    
+    @IBAction func scrollToTopAction(_ sender: Any) {
+        self.tableView.setContentOffset(CGPoint(x: 0, y: -self.tableView.contentInset.top), animated: true)
     }
     
     @IBAction func shareAction(_ sender: Any) {

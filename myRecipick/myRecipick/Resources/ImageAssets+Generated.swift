@@ -31,6 +31,7 @@ internal enum Images {
   internal static let iconPlus = ImageAsset(name: "iconPlus")
   internal static let iconQuestion = ImageAsset(name: "iconQuestion")
   internal static let iconSwitch = ImageAsset(name: "iconSwitch")
+  internal static let iconTopscroll = ImageAsset(name: "iconTopscroll")
   internal static let iconsListEmpty = ImageAsset(name: "iconsListEmpty")
   internal static let iconsNavigation24ArrowClose = ImageAsset(name: "iconsNavigation24ArrowClose")
   internal static let iconsNavigation24ArrowLeft = ImageAsset(name: "iconsNavigation24ArrowLeft")
