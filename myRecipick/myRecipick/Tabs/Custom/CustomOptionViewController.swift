@@ -23,7 +23,7 @@ class CustomOptionViewController: UIViewController, ClassIdentifiable, ActivityI
     @IBOutlet weak var navigationView: CustomNavigationView!
     @IBOutlet weak var tableTopView: UIView!
     @IBOutlet weak var optionImageView: UIImageView!
-    @IBOutlet weak var resetView: UIView!
+    @IBOutlet weak var resetView: TopConerRadiusView!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var doneButton: UIButton!
@@ -80,7 +80,7 @@ class CustomOptionViewController: UIViewController, ClassIdentifiable, ActivityI
     private func initTableTopView() {
         tableTopView.backgroundColor = Colors.grayScaleEE.color
         setMenuImage()
-        resetView.roundCorners(corners: [.topLeft, .topRight], radius: 25)
+//        resetView.roundCorners(corners: [.topLeft, .topRight], radius: 25)
         resetButton.setTitle("초기화", for: .normal)
         resetButton.setTitleColor(Colors.grayScale66.color, for: .normal)
         resetButton.setTitleColor(Colors.grayScaleEE.color, for: .disabled)

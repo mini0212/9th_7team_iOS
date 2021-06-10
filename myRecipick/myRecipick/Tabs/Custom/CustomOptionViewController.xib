@@ -36,7 +36,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gEE-H8-4d1">
                     <rect key="frame" x="0.0" y="92" width="390" height="224"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBS-hH-FYe">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HBS-hH-FYe" customClass="TopConerRadiusView" customModule="myRecipick" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="160" width="390" height="64"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ij-jx-opJ">

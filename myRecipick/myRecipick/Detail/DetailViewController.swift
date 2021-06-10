@@ -270,7 +270,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                 .subscribe(onNext: { [weak self] data in
                 guard let self = self else { return }
                 
-                self.menuTitleLabel.text = data.name
+                    self.menuTitleLabel.text = data.menu?.name ?? data.name
                 
             })
             .disposed(by: self.disposeBag)

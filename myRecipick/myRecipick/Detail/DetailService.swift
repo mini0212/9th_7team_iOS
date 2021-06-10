@@ -61,6 +61,7 @@ struct CustomMenuDetailObjModel: JsonDataProtocol {
     var userId: String = ""
     var name: String = ""
     var optionGroups: [CustomMenuDetailOptionGroupObjModel] = []
+    var menu: CustomMenuDetailOriginalMenuObjModel?
     var createdDate: String = ""
     var updatedDate: String = ""
     
@@ -69,6 +70,7 @@ struct CustomMenuDetailObjModel: JsonDataProtocol {
         case userId
         case name
         case optionGroups
+        case menu
         case createdDate
         case updatedDate
     }
@@ -85,6 +87,18 @@ struct CustomMenuDetailOptionGroupObjModel: JsonDataProtocol {
         case name
         case imageUrl = "image"
         case options
+    }
+}
+
+struct CustomMenuDetailOriginalMenuObjModel: JsonDataProtocol {
+    var id: String = ""
+    var name: String = ""
+    var imageUrl: String = ""
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case imageUrl = "image"
     }
 }
 
