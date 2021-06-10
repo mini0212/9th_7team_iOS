@@ -51,7 +51,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjs-CL-iKs">
-                                <rect key="frame" x="56" y="282" width="146" height="32"/>
+                                <rect key="frame" x="77.5" y="282" width="103.5" height="32"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yoa-ID-PVQ">
                                         <rect key="frame" x="10" y="3" width="24" height="26"/>
@@ -61,7 +61,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="axN-rH-ODT">
-                                        <rect key="frame" x="42" y="5.5" width="96" height="21"/>
+                                        <rect key="frame" x="48" y="5.5" width="41.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -71,11 +71,10 @@
                                 <constraints>
                                     <constraint firstItem="Yoa-ID-PVQ" firstAttribute="leading" secondItem="qjs-CL-iKs" secondAttribute="leading" constant="10" id="2eR-fi-ifh"/>
                                     <constraint firstItem="Yoa-ID-PVQ" firstAttribute="centerY" secondItem="qjs-CL-iKs" secondAttribute="centerY" id="3uB-6W-xJK"/>
-                                    <constraint firstItem="axN-rH-ODT" firstAttribute="leading" secondItem="Yoa-ID-PVQ" secondAttribute="trailing" constant="8" id="777-W6-0mN"/>
-                                    <constraint firstAttribute="width" constant="146" id="SxL-Fy-4ky"/>
+                                    <constraint firstItem="axN-rH-ODT" firstAttribute="leading" secondItem="Yoa-ID-PVQ" secondAttribute="trailing" constant="14" id="777-W6-0mN"/>
                                     <constraint firstItem="axN-rH-ODT" firstAttribute="centerY" secondItem="qjs-CL-iKs" secondAttribute="centerY" id="dLC-NR-KiF"/>
                                     <constraint firstAttribute="height" constant="32" id="hgS-Qv-yjj"/>
-                                    <constraint firstAttribute="trailing" secondItem="axN-rH-ODT" secondAttribute="trailing" constant="8" id="hp8-L7-T01"/>
+                                    <constraint firstAttribute="trailing" secondItem="axN-rH-ODT" secondAttribute="trailing" constant="14" id="hp8-L7-T01"/>
                                 </constraints>
                             </view>
                         </subviews>

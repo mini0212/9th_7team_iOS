@@ -351,7 +351,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.customMenuTitleLabel.font = UIFont.myRecipickFont(.detailMenuTitle)
         self.customMenuTitleLabel.textColor = UIColor(asset: Colors.white)
         self.menuContainerView.backgroundColor = UIColor(asset: Colors.white)
-        self.menuContainerView.layer.cornerRadius = 20
+        self.menuContainerView.layer.cornerRadius = 17.5
         self.menuTitleLabel.font = UIFont.myRecipickFont(.yourRecipe)
         self.menuTitleLabel.textColor = UIColor(asset: Colors.grayScale33)
         self.ingredientsContainerView.backgroundColor = .clear

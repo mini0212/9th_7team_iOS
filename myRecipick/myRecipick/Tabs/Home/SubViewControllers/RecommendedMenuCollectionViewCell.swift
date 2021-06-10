@@ -59,7 +59,7 @@ class RecommendedMenuCollectionViewCell: UICollectionViewCell, ClassIdentifiable
         self.dateLabel.textColor = UIColor(asset: Colors.white)
         self.customMenuTitleLabel.font = .myRecipickFont(.cardCustomMenuTitle)
         self.customMenuTitleLabel.textColor = UIColor(asset: Colors.white)
-        self.menuContainerView.layer.cornerRadius = 20
+        self.menuContainerView.layer.cornerRadius = 16
         self.menuContainerView.backgroundColor = UIColor(asset: Colors.white)
         self.menuNameLabel.font = .myRecipickFont(.yourRecipe)
         self.menuNameLabel.textColor = UIColor(asset: Colors.grayScale33)
