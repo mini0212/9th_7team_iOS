@@ -44,7 +44,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Opz-3R-zOX">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="436"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="408"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgIllust" translatesAutoresizingMaskIntoConstraints="NO" id="lIs-wS-ah4">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="232"/>
@@ -67,13 +67,13 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tj-PR-D28">
-                                                <rect key="frame" x="0.0" y="312" width="414" height="21"/>
+                                                <rect key="frame" x="0.0" y="284" width="414" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfA-WW-7vU">
-                                                <rect key="frame" x="134" y="348" width="146" height="35"/>
+                                                <rect key="frame" x="154.5" y="320" width="105.5" height="35"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ukv-XU-DbT">
                                                         <rect key="frame" x="10" y="4.5" width="26" height="26"/>
@@ -93,7 +93,7 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RxE-FQ-85d">
-                                                        <rect key="frame" x="46" y="7" width="90" height="21"/>
+                                                        <rect key="frame" x="50" y="7" width="41.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -101,17 +101,16 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="RxE-FQ-85d" secondAttribute="trailing" constant="10" id="Qld-hY-8eg"/>
-                                                    <constraint firstItem="RxE-FQ-85d" firstAttribute="leading" secondItem="Ukv-XU-DbT" secondAttribute="trailing" constant="10" id="afT-aK-ofM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="RxE-FQ-85d" secondAttribute="trailing" constant="14" id="Qld-hY-8eg"/>
+                                                    <constraint firstItem="RxE-FQ-85d" firstAttribute="leading" secondItem="Ukv-XU-DbT" secondAttribute="trailing" constant="14" id="afT-aK-ofM"/>
                                                     <constraint firstAttribute="height" constant="35" id="eaf-cU-yml"/>
                                                     <constraint firstItem="RxE-FQ-85d" firstAttribute="centerY" secondItem="MfA-WW-7vU" secondAttribute="centerY" id="gFt-VZ-8i2"/>
-                                                    <constraint firstAttribute="width" constant="146" id="mX0-Xz-cNS"/>
                                                     <constraint firstItem="Ukv-XU-DbT" firstAttribute="leading" secondItem="MfA-WW-7vU" secondAttribute="leading" constant="10" id="pSS-2C-Q4P"/>
                                                     <constraint firstItem="Ukv-XU-DbT" firstAttribute="centerY" secondItem="MfA-WW-7vU" secondAttribute="centerY" id="qrW-KS-4DZ"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mac-aj-TSM">
-                                                <rect key="frame" x="24" y="407" width="366" height="30"/>
+                                                <rect key="frame" x="24" y="379" width="366" height="30"/>
                                                 <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="tJA-Fv-GNS"/>
@@ -121,12 +120,12 @@
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="8tj-PR-D28" secondAttribute="trailing" id="8Aj-fJ-5Jh"/>
-                                            <constraint firstItem="8tj-PR-D28" firstAttribute="top" secondItem="ocX-9o-HyI" secondAttribute="bottom" constant="40" id="Aa7-ec-iRM"/>
+                                            <constraint firstItem="8tj-PR-D28" firstAttribute="top" secondItem="ocX-9o-HyI" secondAttribute="bottom" constant="12" id="Aa7-ec-iRM"/>
                                             <constraint firstItem="lIs-wS-ah4" firstAttribute="top" secondItem="Opz-3R-zOX" secondAttribute="top" id="D1n-1g-kHH"/>
                                             <constraint firstItem="ocX-9o-HyI" firstAttribute="centerX" secondItem="Opz-3R-zOX" secondAttribute="centerX" id="GNh-mC-nck"/>
                                             <constraint firstItem="lIs-wS-ah4" firstAttribute="bottom" secondItem="ocX-9o-HyI" secondAttribute="bottom" constant="-40" id="TXj-ZY-X4O"/>
                                             <constraint firstItem="mac-aj-TSM" firstAttribute="top" secondItem="MfA-WW-7vU" secondAttribute="bottom" constant="24" id="VVQ-2X-3pz"/>
-                                            <constraint firstAttribute="height" constant="436" id="YUL-Z4-Dbo"/>
+                                            <constraint firstAttribute="height" constant="408" id="YUL-Z4-Dbo"/>
                                             <constraint firstItem="MfA-WW-7vU" firstAttribute="centerX" secondItem="Opz-3R-zOX" secondAttribute="centerX" id="iTH-a1-N2z"/>
                                             <constraint firstItem="MfA-WW-7vU" firstAttribute="top" secondItem="8tj-PR-D28" secondAttribute="bottom" constant="15" id="iyI-uW-O3m"/>
                                             <constraint firstItem="mac-aj-TSM" firstAttribute="leading" secondItem="Opz-3R-zOX" secondAttribute="leading" constant="24" id="jnv-dd-2Z6"/>

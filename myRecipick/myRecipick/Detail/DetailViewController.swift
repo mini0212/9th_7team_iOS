@@ -270,7 +270,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                 .subscribe(onNext: { [weak self] data in
                 guard let self = self else { return }
                 
-                self.menuTitleLabel.text = data.name
+                    self.menuTitleLabel.text = data.menu?.name ?? data.name
                 
             })
             .disposed(by: self.disposeBag)
@@ -351,7 +351,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.customMenuTitleLabel.font = UIFont.myRecipickFont(.detailMenuTitle)
         self.customMenuTitleLabel.textColor = UIColor(asset: Colors.white)
         self.menuContainerView.backgroundColor = UIColor(asset: Colors.white)
-        self.menuContainerView.layer.cornerRadius = 20
+        self.menuContainerView.layer.cornerRadius = 17.5
         self.menuTitleLabel.font = UIFont.myRecipickFont(.yourRecipe)
         self.menuTitleLabel.textColor = UIColor(asset: Colors.grayScale33)
         self.ingredientsContainerView.backgroundColor = .clear
