@@ -577,6 +577,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         let extraHeight: CGFloat = statusbarArea + self.topContentsViewHeightConstraint.constant + buttonContainerViewHeightConstraint.constant + bottomPadding
         _ = self.containerView.snapshot(scrollView: self.tableView, extraHeight: extraHeight) // todo 수정
         if let snapshot = self.containerView.snapshot(scrollView: self.tableView, extraHeight: extraHeight) {
+            self.backgroundBottomViewHeightConstraint.constant = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0)
            let imageToShare = [ snapshot, self ]
            let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
            activityViewController.popoverPresentationController?.sourceView = self.shareBtn
