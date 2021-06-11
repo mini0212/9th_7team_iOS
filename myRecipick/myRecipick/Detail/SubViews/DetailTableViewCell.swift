@@ -48,7 +48,7 @@ class DetailTableViewCell: UITableViewCell, ClassIdentifiable {
         }
     }
     
-    var menuInfoData: CustomMenuObjModel? {
+    var menuInfoData: CustomMenuDetailOriginalMenuObjModel? {
         didSet {
             guard let info = self.menuInfoData else { return }
             if let url = info.imageUrl {

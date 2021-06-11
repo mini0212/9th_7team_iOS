@@ -103,14 +103,7 @@ class CustomOptionViewModel {
             .subscribe(onNext: { [weak self] (data: MenuResponseModel<MadeOptionModel>) in
                 self?.isLoading.accept(false)
                 let item = self?.mapData(with: data.data, menuName: name)
-                /*
-                 Notification 발송 이한위 추가코드
-                 확인해주시고 문제 없을것 같다면 주석 지워주세요
-                 */
                 NotificationCenter.default.post(name: Notification.Name(.myRecipickNotificationName(.customMenuAdded)), object: nil)
-                /*
-                 Notification 발송 이한위 추가코드
-                 */
                 completion(item)
             }, onError: { error in
                 print(error)
@@ -131,6 +124,7 @@ class CustomOptionViewModel {
                                                                                                        userId: UniqueUUIDManager.shared.uniqueUUID,
                                                                                                        name: menuName,
                                                                                                        optionGroups: value,
+                                                                                                       menu: CustomMenuDetailOriginalMenuObjModel(id: menu.id, name: menu.name, imageUrl: menu.image),
                                                                                                        createdDate: data.createdDate,
                                                                                                        updatedDate: data.updatedDate),
                                                     customMenuObjModel: CustomMenuObjModel(id: menu.id,
