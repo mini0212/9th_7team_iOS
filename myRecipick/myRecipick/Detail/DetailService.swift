@@ -93,7 +93,7 @@ struct CustomMenuDetailOptionGroupObjModel: JsonDataProtocol {
 struct CustomMenuDetailOriginalMenuObjModel: JsonDataProtocol {
     var id: String = ""
     var name: String = ""
-    var imageUrl: String = ""
+    var imageUrl: String? = ""
     
     enum CodingKeys: String, CodingKey {
         case id

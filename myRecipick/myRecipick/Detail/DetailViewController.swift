@@ -25,7 +25,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
     
     enum CellModel {
         case header
-        case customMenuObjModel(CustomMenuObjModel)
+        case customMenuObjModel(CustomMenuDetailOriginalMenuObjModel)
         case ingredient(CustomMenuDetailOptionGroupOptionsObjModel)
         case comment(String) // 모델 나오면 수정
     }
@@ -285,7 +285,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
             })
             .disposed(by: self.disposeBag)
             
-            Observable.zip(vm.outputs.customMenuInfo, vm.outputs.allIngredients)
+            Observable.zip(vm.outputs.customMenuInfo, vm.outputs.allIngredients, vm.detailCustomMenu)
                 .subscribe(onNext: { [weak self] response in
                     var ingredientCellArr: [CellModel] = []
                     for i in 0..<response.1.count {
@@ -296,7 +296,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
                             CellModel.header
                         ]),
                         SectionModel(model: "menu", items: [
-                            CellModel.customMenuObjModel(response.0)
+                            CellModel.customMenuObjModel(response.2.menu ?? CustomMenuDetailOriginalMenuObjModel())
                         ]),
                         SectionModel(model: "ingredients", items: ingredientCellArr)
 //                        SectionModel(model: "comment", items: [
@@ -512,7 +512,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         self.tableView.contentOffset = CGPoint(x: 0, y: -self.originTopContentsViewHeightConstraint)
     }
     
-    private func makeMenuCell(with element: CustomMenuObjModel, from table: UITableView) -> UITableViewCell {
+    private func makeMenuCell(with element: CustomMenuDetailOriginalMenuObjModel, from table: UITableView) -> UITableViewCell {
         guard let cell = table.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as? DetailTableViewCell else { return UITableViewCell() }
         cell.type = .menu
         cell.menuInfoData = element
@@ -577,6 +577,7 @@ class DetailViewController: UIViewController, CoordinatorMVVMViewController, Cla
         let extraHeight: CGFloat = statusbarArea + self.topContentsViewHeightConstraint.constant + buttonContainerViewHeightConstraint.constant + bottomPadding
         _ = self.containerView.snapshot(scrollView: self.tableView, extraHeight: extraHeight) // todo 수정
         if let snapshot = self.containerView.snapshot(scrollView: self.tableView, extraHeight: extraHeight) {
+            self.backgroundBottomViewHeightConstraint.constant = (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0.0)
            let imageToShare = [ snapshot, self ]
            let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
            activityViewController.popoverPresentationController?.sourceView = self.shareBtn

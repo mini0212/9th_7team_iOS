@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import SwiftyJSON
 
 class CustomOptionViewModel {
     var menu: MenuModel?
@@ -101,17 +102,13 @@ class CustomOptionViewModel {
 
         ServerUtil.shared.rx.requestRx(with: httpRequest)
             .subscribe(onNext: { [weak self] (data: MenuResponseModel<MadeOptionModel>) in
-                self?.isLoading.accept(false)
-                let item = self?.mapData(with: data.data, menuName: name)
-                /*
-                 Notification 발송 이한위 추가코드
-                 확인해주시고 문제 없을것 같다면 주석 지워주세요
-                 */
+//                let item = self?.mapData(with: data.data, menuName: name)
                 NotificationCenter.default.post(name: Notification.Name(.myRecipickNotificationName(.customMenuAdded)), object: nil)
-                /*
-                 Notification 발송 이한위 추가코드
-                 */
-                completion(item)
+                self?.getCustomMenu(with: data.data, menuName: name).subscribe(onNext: { detailObj in
+                    completion(detailObj)
+                })
+                .disposed(by: self?.disposeBag ?? DisposeBag())
+                self?.isLoading.accept(false)
             }, onError: { error in
                 print(error)
             })
@@ -119,26 +116,57 @@ class CustomOptionViewModel {
       
     }
     
-    private func mapData(with data: MadeOptionModel, menuName: String) -> DetailService.DetailServiceInfoModel? {
-        guard let menu = menu else { return nil }
-        let value = optionList.value.map { list -> CustomMenuDetailOptionGroupObjModel in
-            let item = list.items.map { item -> CustomMenuDetailOptionGroupOptionsObjModel in
-                return CustomMenuDetailOptionGroupOptionsObjModel(name: item.item.name, imageUrl: item.item.image, category: nil)
-            }
-            return CustomMenuDetailOptionGroupObjModel(id: list.option.id, name: list.option.name, imageUrl: list.option.image, options: item)
+    private func getCustomMenu(with data: MadeOptionModel, menuName: String) -> Observable<DetailService.DetailServiceInfoModel> {
+        return Observable.create { [weak self] emitter in
+            self?.requestDetailYourCustomMenu(menuId: data.id).subscribe(onNext: { [weak self] responseJson in
+                guard let menu = self?.menu else { emitter.onCompleted() ; return }
+                let json: JSON = responseJson
+                let jsonData = json.rawString()?.data(using: .utf8)
+                if let item: CustomMenuDetailObjModel = CustomMenuDetailObjModel.fromJson(jsonData: jsonData, object: CustomMenuDetailObjModel()) {
+                    let response: DetailService.DetailServiceInfoModel = DetailService.DetailServiceInfoModel(customMenuDetailObjModel: item, customMenuObjModel: CustomMenuObjModel(id: menu.id, name: menuName, description: "", imageUrl: menu.image, createdDate: menu.createdDate))
+                    emitter.onNext(response)
+                    emitter.onCompleted()
+                } else {
+                    print("error: 데이터 역직렬화 실패")
+                    emitter.onCompleted()
+                }
+            })
+            .disposed(by: self?.disposeBag ?? DisposeBag())
+            return Disposables.create()
         }
-        return DetailService.DetailServiceInfoModel(customMenuDetailObjModel: CustomMenuDetailObjModel(id: data.id,
-                                                                                                       userId: UniqueUUIDManager.shared.uniqueUUID,
-                                                                                                       name: menuName,
-                                                                                                       optionGroups: value,
-                                                                                                       createdDate: data.createdDate,
-                                                                                                       updatedDate: data.updatedDate),
-                                                    customMenuObjModel: CustomMenuObjModel(id: menu.id,
-                                                                                           name: menu.name,
-                                                                                           description: "",
-                                                                                           imageUrl: menu.image,
-                                                                                           createdDate: menu.createdDate))
     }
+    
+    private func requestDetailYourCustomMenu(menuId: String) -> Observable<JSON> {
+        var httpRequest = HttpRequest()
+        httpRequest.url = APIDefine.MY_CUSTOM_MENU_DETAIL + "/\(menuId)"
+        httpRequest.headers = .default
+        return ServerUtil.shared.rx.requestRxToJson(with: httpRequest)
+            .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
+            .observe(on: MainScheduler.instance)
+            .retry(3)
+    }
+    
+//    private func mapData(with data: MadeOptionModel, menuName: String) -> DetailService.DetailServiceInfoModel? {
+//        guard let menu = menu else { return nil }
+//        let value = optionList.value.map { list -> CustomMenuDetailOptionGroupObjModel in
+//            let item = list.items.map { item -> CustomMenuDetailOptionGroupOptionsObjModel in
+//                return CustomMenuDetailOptionGroupOptionsObjModel(name: item.item.name, imageUrl: item.item.image, category: nil)
+//            }
+//            return CustomMenuDetailOptionGroupObjModel(id: list.option.id, name: list.option.name, imageUrl: list.option.image, options: item)
+//        }
+//        return DetailService.DetailServiceInfoModel(customMenuDetailObjModel: CustomMenuDetailObjModel(id: data.id,
+//                                                                                                       userId: UniqueUUIDManager.shared.uniqueUUID,
+//                                                                                                       name: menuName,
+//                                                                                                       optionGroups: value,
+//                                                                                                       menu: CustomMenuDetailOriginalMenuObjModel(id: menu.id, name: menu.name, imageUrl: menu.image),
+//                                                                                                       createdDate: data.createdDate,
+//                                                                                                       updatedDate: data.updatedDate),
+//                                                    customMenuObjModel: CustomMenuObjModel(id: menu.id,
+//                                                                                           name: menu.name,
+//                                                                                           description: "",
+//                                                                                           imageUrl: menu.image,
+//                                                                                           createdDate: menu.createdDate))
+//    }
     
     private func setCustomModel(with name: String) -> CustomModel? {
         guard let menu = self.menu else { return nil }
