@@ -88,7 +88,7 @@ extension Observable where Element == (HTTPURLResponse, Any) {
         if let error: APIError = JSONConverter.decode(from: json) {
             return error
         } else {
-            return ErrorMessage(message: "unknown Error", name: 500)
+            return APIError(error: "error", message: "unknown", path: nil, requestId: nil, status: 500)
         }
     }
 }

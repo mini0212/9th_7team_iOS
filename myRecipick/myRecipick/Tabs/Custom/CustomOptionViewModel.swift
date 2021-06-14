@@ -84,7 +84,6 @@ class CustomOptionViewModel {
 
         ServerUtil.shared.rx.requestRx(with: httpRequest)
             .subscribe(onNext: { [weak self] (data: MenuResponseModel<MadeOptionModel>) in
-//                let item = self?.mapData(with: data.data, menuName: name)
                 NotificationCenter.default.post(name: Notification.Name(.myRecipickNotificationName(.customMenuAdded)), object: nil)
                 self?.getCustomMenu(with: data.data, menuName: name).subscribe(onNext: { detailObj in
                     completion(detailObj)
