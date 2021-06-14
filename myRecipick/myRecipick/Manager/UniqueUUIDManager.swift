@@ -30,6 +30,7 @@ class UniqueUUIDManager {
         let uuid: String = createUUID()
         registUniqueUUIDQuery(willRegistedUUID: uuid, completeHandler: { [weak self] in
             self?.saveUUID(registedUUID: uuid)
+            self?.uniqueUUID = uuid
             completeHandler()
         }, failureHandler: { errStr in
             failureHandler(errStr)
@@ -42,13 +43,13 @@ class UniqueUUIDManager {
     }
     
     private func getUniqueUUID() -> String? {
-        let bundleID: String = Bundle.main.bundleIdentifier ?? "com.depromeet.myRecipick"
+        let bundleID: String = Bundle.main.bundleIdentifier ?? "com.dpm.myRecipick"
         let keychain = Keychain(service: bundleID)
         return keychain[KeyChainKeyDefine.UNIQUE_UUID_KEY]
     }
     
     private func saveUUID(registedUUID: String) { // 반드시 서버에 등록되어있는 uuid를 등록해야한다.
-        let bundleID: String = Bundle.main.bundleIdentifier ?? "com.depromeet.myRecipick"
+        let bundleID: String = Bundle.main.bundleIdentifier ?? "com.dpm.myRecipick"
         let keychain = Keychain(service: bundleID)
         keychain[KeyChainKeyDefine.UNIQUE_UUID_KEY] = registedUUID
     }
