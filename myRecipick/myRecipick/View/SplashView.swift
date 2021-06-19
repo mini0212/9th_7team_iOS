@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import Lottie
 
 class SplashView: UIView, NibIdentifiable {
 
     // MARK: IBOutlet
+    @IBOutlet weak var animationView: AnimationView!
     
     // MARK: property
+    
+    var isFinishAnimationFlag: Bool = false
     
     // MARK: lifeCycle
     
@@ -24,7 +28,10 @@ class SplashView: UIView, NibIdentifiable {
     // MARK: private function
     
     private func initUI() {
-        
+        self.animationView.backgroundColor = .clear
+        self.animationView.animation = Animation.named("Splash")
+        self.animationView.contentMode = .scaleAspectFit
+        self.animationView.loopMode = .playOnce
     }
     
     // MARK: internal function
@@ -33,7 +40,13 @@ class SplashView: UIView, NibIdentifiable {
         return nib.instantiate(withOwner: nil, options: nil).first as? SplashView
     }
     
+    func play() {
+        self.animationView.play(completion: { [weak self] _ in
+            self?.isFinishAnimationFlag = true
+        })
+    }
     
-    // MARK: action
+    // MARK: private function
+    
     
 }
