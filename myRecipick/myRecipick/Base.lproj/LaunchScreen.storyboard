@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="AqY-OS-Kod">
-                                <rect key="frame" x="117" y="376" width="180" height="144"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash" translatesAutoresizingMaskIntoConstraints="NO" id="AqY-OS-Kod">
+                                <rect key="frame" x="92" y="333" width="230" height="230"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="144" id="Dwf-xZ-btV"/>
-                                    <constraint firstAttribute="width" constant="180" id="SnT-zA-Xqz"/>
+                                    <constraint firstAttribute="height" constant="230" id="Dwf-xZ-btV"/>
+                                    <constraint firstAttribute="width" constant="230" id="SnT-zA-Xqz"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -39,7 +39,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="appLogo" width="180" height="144"/>
+        <image name="splash" width="230" height="230"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

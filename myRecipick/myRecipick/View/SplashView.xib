@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -14,24 +15,30 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="qd4-NA-lGg">
-                    <rect key="frame" x="117" y="376" width="180" height="144"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vBr-4d-8c5" customClass="AnimationView" customModule="Lottie">
+                    <rect key="frame" x="92" y="333" width="230" height="230"/>
+                    <color key="backgroundColor" systemColor="systemPurpleColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="180" id="10J-nX-B37"/>
-                        <constraint firstAttribute="height" constant="144" id="KmG-hn-akI"/>
+                        <constraint firstAttribute="width" constant="230" id="HLj-OH-XLS"/>
+                        <constraint firstAttribute="height" constant="230" id="K9D-Lc-izW"/>
                     </constraints>
-                </imageView>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="qd4-NA-lGg" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="84f-KW-hh1"/>
-                <constraint firstItem="qd4-NA-lGg" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="nct-C6-C9q"/>
+                <constraint firstItem="vBr-4d-8c5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="XrY-52-RgK"/>
+                <constraint firstItem="vBr-4d-8c5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="bay-xE-6Li"/>
             </constraints>
+            <connections>
+                <outlet property="animationView" destination="vBr-4d-8c5" id="Gjj-1p-05W"/>
+            </connections>
             <point key="canvasLocation" x="139" y="104"/>
         </view>
     </objects>
     <resources>
-        <image name="appLogo" width="180" height="144"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

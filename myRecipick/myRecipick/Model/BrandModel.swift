@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import RxSwift
 import SwiftyJSON
 
 class BrandModel {
@@ -39,6 +40,17 @@ class BrandModel {
         } failure: { (err) in
             failureHandler(err)
         }
+    }
+    
+    func requestBandListRx() -> Observable<JSON> {
+        var httpRequest = HttpRequest()
+        httpRequest.url = APIDefine.GET_BRANDS
+        httpRequest.method = .get
+        httpRequest.headers = .default
+        return ServerUtil.shared.rx.requestRxToJson(with: httpRequest)
+            .subscribe(on: ConcurrentDispatchQueueScheduler.init(qos: .default))
+            .observe(on: MainScheduler.instance)
+            .retry(3)
     }
     
     func fetchBrandList(items: JSON) {

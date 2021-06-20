@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
+class TabCoordinator: NSObject, CoordinatorProtocol {
     
     @objc enum Tab: Int {
         case home = 0
@@ -36,9 +36,6 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     let customViewController: CustomViewController
     let yourPageViewController: YourPageViewController
     
-    weak var targetView: UIView?
-    var attachedView: UIView? = SplashView.instance()
-    
     // MARK: state
     
     var currentSelectedTab: TabCoordinator.Tab = .home
@@ -47,7 +44,9 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
-        self.tabController = MainTabBarViewController()
+        self.tabController = MainTabBarViewController.makeViewController(viewModel: MainTabBarViewModel()) ?? MainTabBarViewController()
+        self.tabController.targetView = self.navigationController?.view
+        self.tabController.startGetInitInfos()
         self.homeCoordinator = HomeCoordinator(navigationController: self.navigationController ?? UINavigationController())
         self.customCoordinator = CustomCoordinator(navigationController: self.navigationController ?? UINavigationController())
         self.yourPageCoordinator = YourPageCoordinator(navigationController: self.navigationController ?? UINavigationController())
@@ -73,39 +72,6 @@ class TabCoordinator: NSObject, CoordinatorProtocol, SplashViewProtocol {
         self.homeCoordinator.parentsCoordinator = self
         self.customCoordinator.parentsCoordinator = self
         self.yourPageCoordinator.parentsCoordinator = self
-        
-        self.targetView = self.navigationController?.view
-        self.showSplashView(completion: { [weak self] in
-            BrandModel.shared.requestBandList(completeHandler: { [weak self] responseJson in
-                if 200..<300 ~= responseJson["status"].intValue {
-                    let items = responseJson["data"]
-                    BrandModel.shared.fetchBrandList(items: items)
-                    if UniqueUUIDManager.shared.uniqueUUID != "" { // todo rx로 브랜드 가져오기 쿼리랑 묶어버리기
-                        self?.hideSplashView(completion: nil)
-                    } else {
-                        UniqueUUIDManager.shared.registAndSaveUUID(completeHandler: {
-                            self?.hideSplashView(completion: nil)
-                        }, failureHandler: { [weak self] errMsg in
-                            CommonAlertView.shared.showOneBtnAlert(message: "오류\n\(errMsg)", btnText: "확인", confirmHandler: {
-                                CommonAlertView.shared.hide()
-                                self?.hideSplashView(completion: nil)
-                            })
-                        })
-                    }
-                } else {
-                    CommonAlertView.shared.showOneBtnAlert(message: "오류\n\(responseJson["status"].intValue)", btnText: "확인", confirmHandler: {
-                        CommonAlertView.shared.hide()
-                        self?.hideSplashView(completion: nil)
-                    })
-                }
-//                self?.hideSplashView(completion: nil)
-            }, failureHandler: { [weak self] err in
-                CommonAlertView.shared.showOneBtnAlert(message: "오류\n\(err.localizedDescription)", btnText: "확인", confirmHandler: {
-                    CommonAlertView.shared.hide()
-                })
-                self?.hideSplashView(completion: nil)
-            })
-        })
     }
     
     deinit {

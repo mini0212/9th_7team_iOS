@@ -148,6 +148,9 @@
 		78E9B39E264BF6000019854B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 78E9B39D264BF6000019854B /* KeychainAccess */; };
 		78E9B3A3264BF7D40019854B /* UniqueUUIDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B3A2264BF7D40019854B /* UniqueUUIDManager.swift */; };
 		78E9B3A7264BF9B70019854B /* KeyChainKeyDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78E9B3A6264BF9B70019854B /* KeyChainKeyDefine.swift */; };
+		78F1DF06267E1CCD001FC52E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 78F1DF05267E1CCD001FC52E /* Lottie */; };
+		78F1DF09267E1D2F001FC52E /* Splash.json in Resources */ = {isa = PBXBuildFile; fileRef = 78F1DF08267E1D2F001FC52E /* Splash.json */; };
+		78F1DF0D267E2E11001FC52E /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F1DF0C267E2E11001FC52E /* MainTabBarViewModel.swift */; };
 		8B6D5309E5A7D7825A2D9A29 /* Pods_myRecipickTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46D8C20E265BB81D89F29140 /* Pods_myRecipickTests.framework */; };
 		9AF401E67CA0C0BC12ADA2E0 /* Pods_myRecipick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7653C90059012835E948493D /* Pods_myRecipick.framework */; };
 /* End PBXBuildFile section */
@@ -331,6 +334,8 @@
 		78D7683B262DA1800010A07E /* APIDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDefine.swift; sourceTree = "<group>"; };
 		78E9B3A2264BF7D40019854B /* UniqueUUIDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniqueUUIDManager.swift; sourceTree = "<group>"; };
 		78E9B3A6264BF9B70019854B /* KeyChainKeyDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainKeyDefine.swift; sourceTree = "<group>"; };
+		78F1DF08267E1D2F001FC52E /* Splash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Splash.json; sourceTree = "<group>"; };
+		78F1DF0C267E2E11001FC52E /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
 		8AF64932C82596AAE6A9C39B /* Pods-myRecipick.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipick.release.xcconfig"; path = "Target Support Files/Pods-myRecipick/Pods-myRecipick.release.xcconfig"; sourceTree = "<group>"; };
 		BDDB51F3B8AE16956C504572 /* Pods-myRecipickTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myRecipickTests.debug.xcconfig"; path = "Target Support Files/Pods-myRecipickTests/Pods-myRecipickTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -347,6 +352,7 @@
 				78575E88262C55520060BB63 /* SideMenu in Frameworks */,
 				78575E8E262C55870060BB63 /* Hero in Frameworks */,
 				9AF401E67CA0C0BC12ADA2E0 /* Pods_myRecipick.framework in Frameworks */,
+				78F1DF06267E1CCD001FC52E /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +732,7 @@
 				78403AD32668FF9500483C0F /* BrandSelectView */,
 				4F9DC6C82625168C00609CF0 /* TabCoordinator.swift */,
 				78D7682F262D89900010A07E /* MainTabBarViewController.swift */,
+				78F1DF0C267E2E11001FC52E /* MainTabBarViewModel.swift */,
 				78C8C1622615C45600F84CAB /* LaunchScreen.storyboard */,
 				39852660266B43FA006CED8F /* GoogleService-Info.plist */,
 				78C8C1652615C45600F84CAB /* Info.plist */,
@@ -760,6 +767,7 @@
 				78AC52B22621D632002B7C02 /* Assets */,
 				78644AA8263444D800C16C47 /* Fonts */,
 				78C8C1982615C81A00F84CAB /* Localization */,
+				78F1DF07267E1D2F001FC52E /* Lottie */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -794,6 +802,14 @@
 				78E9B3A2264BF7D40019854B /* UniqueUUIDManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		78F1DF07267E1D2F001FC52E /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				78F1DF08267E1D2F001FC52E /* Splash.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		7F0E28CFBE75F06CB56817D9 /* Frameworks */ = {
@@ -846,6 +862,7 @@
 				78575E87262C55520060BB63 /* SideMenu */,
 				78575E8D262C55870060BB63 /* Hero */,
 				78E9B39D264BF6000019854B /* KeychainAccess */,
+				78F1DF05267E1CCD001FC52E /* Lottie */,
 			);
 			productName = myRecipick;
 			productReference = 78C8C1542615C45500F84CAB /* myRecipick.app */;
@@ -929,6 +946,7 @@
 				78575E86262C55520060BB63 /* XCRemoteSwiftPackageReference "SideMenu" */,
 				78575E8C262C55870060BB63 /* XCRemoteSwiftPackageReference "Hero" */,
 				78E9B39C264BF6000019854B /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				78F1DF04267E1CCD001FC52E /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 78C8C1552615C45500F84CAB /* Products */;
 			projectDirPath = "";
@@ -949,6 +967,7 @@
 				4F9DC72F2625336D00609CF0 /* Home.storyboard in Resources */,
 				7817E849263EAEC9003AC910 /* YourPageTableViewCell.xib in Resources */,
 				7866F0AB263025F20037DB4C /* CommonWebViewController.xib in Resources */,
+				78F1DF09267E1D2F001FC52E /* Splash.json in Resources */,
 				39D9D59A264EA7F6000434B7 /* MenuCategoryCollectionViewCell.xib in Resources */,
 				4FF5490E2640C74E0086E30C /* EditYourCustomHistroyConfirmBtnView.xib in Resources */,
 				78644AAF263444D800C16C47 /* NotoSansKR-Medium.otf in Resources */,
@@ -1178,6 +1197,7 @@
 				39D9D5AD2652522D000434B7 /* MenuCollectionViewCell.swift in Sources */,
 				4F5C5F7226242178003D94E2 /* HttpRequest.swift in Sources */,
 				78E9B3A3264BF7D40019854B /* UniqueUUIDManager.swift in Sources */,
+				78F1DF0D267E2E11001FC52E /* MainTabBarViewModel.swift in Sources */,
 				4F497E4C263B964B00571CEF /* UIButton + BackgroundColor.swift in Sources */,
 				4F5C5F7026242178003D94E2 /* JSONConverter.swift in Sources */,
 				4F5C5F5F2624207D003D94E2 /* CommonDefine.swift in Sources */,
@@ -1644,6 +1664,14 @@
 				version = 4.2.2;
 			};
 		};
+		78F1DF04267E1CCD001FC52E /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = exactVersion;
+				version = 3.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1676,6 +1704,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 78E9B39C264BF6000019854B /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
+		};
+		78F1DF05267E1CCD001FC52E /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 78F1DF04267E1CCD001FC52E /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
